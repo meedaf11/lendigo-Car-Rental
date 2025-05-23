@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : jeu. 22 mai 2025 à 14:38
+-- Généré le : ven. 23 mai 2025 à 14:03
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.0.30
 
@@ -85,7 +85,10 @@ CREATE TABLE `car` (
   `price_per_day` decimal(10,2) NOT NULL,
   `car_type` varchar(150) NOT NULL,
   `availability_status` enum('available','booked') DEFAULT 'available',
-  `image_url` varchar(255) NOT NULL
+  `image_url` varchar(255) NOT NULL,
+  `car_fuel` enum('diesel','gasoline') NOT NULL,
+  `kilometers` int(11) NOT NULL,
+  `isAutomatic` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
