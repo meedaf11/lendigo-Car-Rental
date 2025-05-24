@@ -1,0 +1,199 @@
+@import url("fonts.css");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  height: 75px;
+  background-color: #121212;
+  padding: 0 16px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+header .hamburger {
+    display: none;  
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25px;
+    height: 20px;
+    cursor: pointer;
+}
+
+header .logoContainer,
+header .logoContainer .logo {
+  width: 60px;
+  height: 60px;
+}
+
+header .mainNav {
+  width: 60vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header .mainNav ul {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  list-style: none;
+}
+
+header .mainNav ul li a {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+}
+
+header .user-profile {
+  position: relative;
+  width: 85px;
+  height: 42px;
+  background-color: #242424;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  cursor: pointer;
+}
+
+.user-profile .dropdown {
+  position: absolute;
+  top: 110%;
+  right: 0;
+  background-color: #242424;
+  border-radius: 6px;
+  padding: 10px 0;
+  list-style: none;
+  display: none;
+  flex-direction: column;
+  min-width: 140px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+}
+
+.user-profile .dropdown li {
+  padding: 8px;
+}
+
+.user-profile .dropdown li a {
+  color: white;
+  text-decoration: none;
+  font-size: 12px;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 30px;
+  border-radius: 8px;
+  padding-left: 4px;
+}
+
+.user-profile .dropdown li a img {
+  width: 20px;
+  height: 20px;
+}
+
+.user-profile .dropdown li a:hover {
+  background-color: #333;
+}
+
+@media (max-width: 900px) {
+  header .mainNav {
+    position: fixed;
+    top: 75px;
+    right: 0;
+    height: calc(100vh - 75px);
+    width: 220px;
+    background-color: #121212;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    gap: 20px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 999;
+  }
+
+  header .mainNav.open {
+    transform: translateX(0);
+  }
+
+  header .mainNav ul {
+    flex-direction: column;
+    width: 100%;
+    gap: 15px;
+  }
+
+  header .mainNav ul li a {
+    font-size: 18px;
+    width: 100%;
+    padding: 10px 15px;
+    display: block;
+    border-radius: 6px;
+  }
+
+  header .mainNav ul li a:hover {
+    background-color: #333;
+  }
+
+  header .mainNav {
+    width: auto;
+    justify-content: flex-start;
+  }
+
+  header .hamburger {
+    display: flex;
+  }
+
+  .hamburger div {
+    background-color: white;
+    height: 3px;
+    border-radius: 2px;
+  }
+
+  header .user-profile {
+    width: 85px;
+    height: 40px;
+    gap: 8px;
+  }
+
+  header .user-profile img:first-child {
+    width: 30px;
+    height: 30px;
+  }
+
+  .user-profile .dropdown {
+    min-width: 160px;
+  }
+}
+
+@media (max-width: 400px) {
+
+  header .logoContainer,
+  header .logoContainer .logo {
+    width: 50px;
+    height: 50px;
+  }
+
+  header .user-profile {
+    width: 85px;
+    height: 36px;
+    gap: 6px;
+  }
+}
