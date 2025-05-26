@@ -6,14 +6,220 @@
   box-sizing: border-box;
 }
 
-header{
-     position: fixed;  
-      top: 0;
-      left: 0;
-      z-index: 999;
+header {
+  position: fixed;  
+  top: 0;
+  left: 0;
+  z-index: 999;
 }
 
-main{
+.heroSection {
+  width: 100vw;
+  min-height: 288px;
+  background-color: #121212;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+}
+
+.heroSection .heroContent {
   width: 100%;
-  height: 70vh;
+  min-height: 213px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  padding: 32px;
+  background-color: white;
+  border-top-left-radius: 32px;
+  border-top-right-radius: 32px;
+}
+
+.heroSection .heroContent h1 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: clamp(20px, 4vw, 24px);
+  color: black;
+}
+
+.heroSection .heroContent .filterPart {
+  min-height: 90px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.heroSection .heroContent .filterPart .filter {
+  min-height: 90px;
+  flex: 1;
+  min-width: 280px;
+  border-radius: 16px;
+  border: 1px solid #AAAAAA;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.heroSection .heroContent .filterPart .filter .filter-box {
+  flex: 1;
+  min-width: 120px;
+  padding: 10px 15px;
+  border-right: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+}
+
+.heroSection .heroContent .filterPart .filter .filter-box:last-child {
+  border-right: none;
+}
+
+.heroSection .heroContent .filterPart .filter .date-box {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 120px;
+}
+
+.heroSection .heroContent .filterPart .filter select {
+  border: none;
+  font-weight: bold;
+  font-size: clamp(16px, 3vw, 20px);
+  background: transparent;
+  appearance: none;
+  outline: none;
+  height: 50px;
+  cursor: pointer;
+  color: black;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+  padding-right: 20px;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg width='10' height='6' viewBox='0 0 10 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23000' stroke-width='2' fill='none' fill-rule='evenodd'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: 10px;
+}
+
+.heroSection .heroContent .filterPart .filter label {
+  color: #5C5C5C;
+  font-size: clamp(10px, 2vw, 12px);
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+}
+
+.heroSection .heroContent .filterPart .filter input[type="date"] {
+  border: none;
+  font-weight: bold;
+  font-size: 14px;
+  background: transparent;
+  appearance: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.date-display {
+  height: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  color: black;
+  font-size: clamp(16px, 3vw, 20px);
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  align-items: center;
+}
+
+.heroSection .heroContent .filterPart .searchBtn {
+  min-width: 120px;
+  height: 90px;
+  background-color: #E50914;
+  border: none;
+  border-radius: 16px;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: clamp(16px, 3vw, 20px);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* Tablet styles */
+@media (max-width: 768px) {
+  .heroSection {
+    min-height: 320px;
+    margin-top: 75px;
+  }
+  
+  .heroSection .heroContent {
+    padding: 24px;
+    gap: 16px;
+  }
+  
+  .heroSection .heroContent .filterPart {
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+  }
+  
+  .heroSection .heroContent .filterPart .filter {
+    width: 100%;
+    min-width: unset;
+  }
+  
+  .heroSection .heroContent .filterPart .searchBtn {
+    width: 100%;
+    min-width: unset;
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 480px) {
+  .heroSection {
+    min-height: 400px;
+    margin-top: 75px;
+  }
+  
+  .heroSection .heroContent {
+    padding: 20px;
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+  }
+  
+  .heroSection .heroContent .filterPart .filter {
+    flex-direction: column;
+    min-height: 120px;
+  }
+  
+  .heroSection .heroContent .filterPart .filter .filter-box {
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+    min-width: unset;
+    padding: 12px 15px;
+  }
+  
+  .heroSection .heroContent .filterPart .filter .filter-box:last-child {
+    border-bottom: none;
+  }
+  
+  .heroSection .heroContent .filterPart .filter .date-box {
+    min-width: unset;
+  }
+  
+  .heroSection .heroContent .filterPart .searchBtn {
+    height: 60px;
+  }
+}
+
+/* Very small mobile styles */
+@media (max-width: 320px) {
+  .heroSection{
+    
+    margin-top: 75px;
+  }
+  .heroSection .heroContent {
+    padding: 16px;
+  }
+  
+  .heroSection .heroContent .filterPart .filter .filter-box {
+    padding: 10px 12px;
+  }
 }

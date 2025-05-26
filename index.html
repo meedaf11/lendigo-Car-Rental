@@ -1,24 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style/index.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style/index.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/litepicker/dist/css/litepicker.css" />
     <title>Lendigo</title>
-</head>
-<body>
-    
+  </head>
+  <body>
     <div id="header-placeholder"></div>
 
+    <div class="heroSection">
+      <div class="heroContent">
+        <h1>Your Next Ride is Just a Click Away.</h1>
+        <div class="filterPart">
+          <div class="filter">
+            <div class="filter-box">
+              <label for="brand">Car Brand</label>
+              <select id="brand">
+                <option selected>AUDI</option>
+                <option>BMW</option>
+                <option>Mercedes</option>
+              </select>
+            </div>
 
-    <main>
-        
-    </main>
+            <div class="filter-box">
+              <label for="model">Car Model</label>
+              <select id="model">
+                <option selected>2022</option>
+                <option>2023</option>
+                <option>2024</option>
+              </select>
+            </div>
 
+            <div class="filter-box">
+              <label for="city">City</label>
+              <select id="city">
+                <option selected>Tangier</option>
+                <option>Casablanca</option>
+                <option>Marrakech</option>
+              </select>
+            </div>
 
+            <div class="filter-box date-box">
+              <label for="start">Pickup & Return Date</label>
+              <div class="date-display" id="date-display">Choose Date</div>
+            </div>
+          </div>
+
+          <button class="searchBtn">Search</button>
+        </div>
+      </div>
+    </div>
 
     <div id="footer-placeholder"></div>
-
-</body>
-<script src="js/index.js"></script>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/bundle.js"></script>
+  <script src="js/index.js"></script>
 </html>
