@@ -13,7 +13,134 @@ header{
       z-index: 999;
 }
 
-main{
-  width: 100%;
-  height: 70vh;
+.heroSection{
+
+  width: 100vw;
+  height: 288px;
+  background-color: #121212;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+
+}
+
+.heroSection .heroContent{
+  width: 100vw;
+  height: 213px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  padding: 32px;
+  background-color: white;
+  border-top-left-radius: 32px;
+  border-top-right-radius: 32px;
+}
+
+.heroSection .heroContent h1 {
+  
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  color: black;
+}
+
+.heroSection .heroContent .filterPart {
+  
+  height: 90px;
+  display: flex;
+  align-items: center;
+  gap: 2vw;
+}
+
+.heroSection .heroContent .filterPart .filter{
+  
+  height: 90px;
+  width: 75vw;
+  border-radius: 16px;
+  border: 1px solid #AAAAAA;
+  display: flex;
+}
+
+.heroSection .heroContent .filterPart .filter .filter-box {
+  flex: 1;
+  padding: 10px 15px;
+  border-right: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+}
+
+.heroSection .heroContent .filterPart .filter .filter-box:last-child {
+  border-right: none;
+}
+
+.heroSection .heroContent .filterPart .filter .date-box {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.heroSection .heroContent .filterPart .filter select{
+  border: none;
+  font-weight: bold;
+  font-size: 16px;
+  background: transparent;
+  appearance: none;
+  outline: none;
+  height: 50px;
+  cursor: pointer;
+  color: black;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+  padding-right: 20px;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg width='10' height='6' viewBox='0 0 10 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23000' stroke-width='2' fill='none' fill-rule='evenodd'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: 10px;
+}
+
+.heroSection .heroContent .filterPart .filter label{
+
+  color: #5C5C5C;
+  font-size: 12px;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+}
+
+.heroSection .heroContent .filterPart .filter input[type="date"] {
+  border: none;
+  font-weight: bold;
+  font-size: 14px;
+  background: transparent;
+  appearance: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.date-display {
+  height: 50px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  color: black;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  align-items: center;
+}
+
+
+.heroSection .heroContent .filterPart .searchBtn{
+  width: 15vw;
+  height: 90px;
+  background-color: #E50914;
+  border: none;
+  border-radius: 16px;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  cursor: pointer;;
 }
