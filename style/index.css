@@ -13,18 +13,34 @@ header {
   z-index: 999;
 }
 
+<<<<<<< HEAD
 .heroSection {
   width: 100vw;
   min-height: 288px;
+=======
+.heroSection{
+
+  width: 100vw;
+  height: 288px;
+>>>>>>> fc7f09cb36a7d148d62a889b0e12e68812fb4b25
   background-color: #121212;
   display: flex;
   justify-content: center;
   align-items: end;
+<<<<<<< HEAD
 }
 
 .heroSection .heroContent {
   width: 100%;
   min-height: 213px;
+=======
+
+}
+
+.heroSection .heroContent{
+  width: 100vw;
+  height: 213px;
+>>>>>>> fc7f09cb36a7d148d62a889b0e12e68812fb4b25
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -36,13 +52,21 @@ header {
 }
 
 .heroSection .heroContent h1 {
+<<<<<<< HEAD
   font-family: "Poppins", sans-serif;
   font-weight: 700;
   font-size: clamp(20px, 4vw, 24px);
+=======
+  
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+>>>>>>> fc7f09cb36a7d148d62a889b0e12e68812fb4b25
   color: black;
 }
 
 .heroSection .heroContent .filterPart {
+<<<<<<< HEAD
   min-height: 90px;
   display: flex;
   align-items: center;
@@ -58,11 +82,30 @@ header {
   border: 1px solid #AAAAAA;
   display: flex;
   flex-wrap: wrap;
+=======
+  
+  height: 90px;
+  display: flex;
+  align-items: center;
+  gap: 2vw;
+}
+
+.heroSection .heroContent .filterPart .filter{
+  
+  height: 90px;
+  width: 75vw;
+  border-radius: 16px;
+  border: 1px solid #AAAAAA;
+  display: flex;
+>>>>>>> fc7f09cb36a7d148d62a889b0e12e68812fb4b25
 }
 
 .heroSection .heroContent .filterPart .filter .filter-box {
   flex: 1;
+<<<<<<< HEAD
   min-width: 120px;
+=======
+>>>>>>> fc7f09cb36a7d148d62a889b0e12e68812fb4b25
   padding: 10px 15px;
   border-right: 1px solid #ddd;
   display: flex;
@@ -76,6 +119,7 @@ header {
 .heroSection .heroContent .filterPart .filter .date-box {
   display: flex;
   flex-direction: column;
+<<<<<<< HEAD
   flex: 1;
   min-width: 120px;
 }
@@ -84,12 +128,25 @@ header {
   border: none;
   font-weight: bold;
   font-size: clamp(16px, 3vw, 20px);
+=======
+}
+
+
+.heroSection .heroContent .filterPart .filter select{
+  border: none;
+  font-weight: bold;
+  font-size: 16px;
+>>>>>>> fc7f09cb36a7d148d62a889b0e12e68812fb4b25
   background: transparent;
   appearance: none;
   outline: none;
   height: 50px;
   cursor: pointer;
   color: black;
+<<<<<<< HEAD
+=======
+  font-size: 20px;
+>>>>>>> fc7f09cb36a7d148d62a889b0e12e68812fb4b25
   font-weight: 700;
   font-family: "Poppins", sans-serif;
   padding-right: 20px;
@@ -99,9 +156,16 @@ header {
   background-size: 10px;
 }
 
+<<<<<<< HEAD
 .heroSection .heroContent .filterPart .filter label {
   color: #5C5C5C;
   font-size: clamp(10px, 2vw, 12px);
+=======
+.heroSection .heroContent .filterPart .filter label{
+
+  color: #5C5C5C;
+  font-size: 12px;
+>>>>>>> fc7f09cb36a7d148d62a889b0e12e68812fb4b25
   font-weight: 700;
   font-family: "Poppins", sans-serif;
 }
@@ -119,17 +183,30 @@ header {
 .date-display {
   height: 50px;
   font-weight: bold;
+<<<<<<< HEAD
   cursor: pointer;
   color: black;
   font-size: clamp(16px, 3vw, 20px);
+=======
+  font-size: 16px;
+  cursor: pointer;
+  color: black;
+  font-size: 20px;
+>>>>>>> fc7f09cb36a7d148d62a889b0e12e68812fb4b25
   font-weight: 700;
   font-family: "Poppins", sans-serif;
   display: flex;
   align-items: center;
 }
 
+<<<<<<< HEAD
 .heroSection .heroContent .filterPart .searchBtn {
   min-width: 120px;
+=======
+
+.heroSection .heroContent .filterPart .searchBtn{
+  width: 15vw;
+>>>>>>> fc7f09cb36a7d148d62a889b0e12e68812fb4b25
   height: 90px;
   background-color: #E50914;
   border: none;
@@ -137,6 +214,7 @@ header {
   color: white;
   font-family: "Poppins", sans-serif;
   font-weight: 700;
+<<<<<<< HEAD
   font-size: clamp(16px, 3vw, 20px);
   cursor: pointer;
   flex-shrink: 0;
@@ -222,4 +300,8 @@ header {
   .heroSection .heroContent .filterPart .filter .filter-box {
     padding: 10px 12px;
   }
+=======
+  font-size: 20px;
+  cursor: pointer;;
+>>>>>>> fc7f09cb36a7d148d62a889b0e12e68812fb4b25
 }
