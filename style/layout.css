@@ -12,7 +12,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100vw;
+  /* width: 100vw; */
   height: 75px;
   background-color: #121212;
   padding: 0 16px;
@@ -125,7 +125,7 @@ header .user-profile {
 
 footer {
   position: relative;
-  width: 100vw;
+  /* width: 100vw; */
   height: 326px;
   background-color: #121212;
 }
