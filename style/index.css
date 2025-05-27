@@ -7,14 +7,16 @@
 }
 
 header {
-  position: fixed;  
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 999;
 }
 
+/* Start Hero Section */
+
 .heroSection {
-  width: 100vw;
+  width: 100%;
   min-height: 288px;
   background-color: #121212;
   display: flex;
@@ -142,84 +144,482 @@ header {
   flex-shrink: 0;
 }
 
+/* End Hero Section */
+
+
+/* Start Top Rating Car */
+
+/* Start Top Rating Car */
+
+.TopRatedCar {
+  width: 100%;
+  height: 600px;
+  background-color: #F5F5F5;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.TopRatedCar .ratedTitle {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.TopRatedCar .ratedTitle h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #000000;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+.TopRatedCar .ratedTitle .ratedSeeAll {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+}
+
+.TopRatedCar .ratedTitle .ratedSeeAll:hover {
+  background-color: #f5f5f5;
+  transform: translateX(2px);
+}
+
+.TopRatedCar .ratedTitle .ratedSeeAll p {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #666;
+  transition: color 0.3s ease;
+}
+
+.TopRatedCar .ratedTitle .ratedSeeAll:hover p {
+  color: #333;
+}
+
+.TopRatedCar .ratedTitle .ratedSeeAll img {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.3s ease;
+  filter: brightness(0) saturate(100%) invert(45%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(95%) contrast(89%);
+}
+
+.TopRatedCar .ratedTitle .ratedSeeAll:hover img {
+  transform: translateX(3px);
+  filter: brightness(0) saturate(100%) invert(20%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(95%) contrast(89%);
+}
+
+.TopRatedCar .ratedCartContainer {
+  width: 100%;
+  height: 420px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.TopRatedCar .ratedCartContainer .topCarCart {
+  width: 24%;
+  height: 100%;
+  background-color: white;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 1px 1px 4px rgba(56, 56, 56, 0.37);
+  align-items: center;
+  padding-bottom: 16px;
+}
+
+.TopRatedCar .ratedCartContainer .topCarCart .carImg {
+  width: 100%;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+.TopRatedCar .ratedCartContainer .topCarCart .cardCarTitle {
+  width: 100%;
+  padding: 0 12px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.TopRatedCar .ratedCartContainer .topCarCart .cartTxtContainer {
+  width: 100%;
+  padding: 0 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  color: #5C5C5C;
+  font-size: 14px; /* Fixed from font-family */
+}
+
+.TopRatedCar .ratedCartContainer .topCarCart .cartTxtContainer .cartPrice p {
+  color: black;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+}
+
+.TopRatedCar .ratedCartContainer .topCarCart .cartTxtContainer .cartPrice .pd {
+  color: #5C5C5C;
+  font-weight: 600;
+}
+
+.TopRatedCar .ratedCartContainer .topCarCart .cartTxtContainer .cartRating {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.TopRatedCar .ratedCartContainer .topCarCart .cartBookBtn {
+  width: 91%;
+  height: 40px;
+  background-color: #E50914;
+  border-radius: 16px;
+  cursor: pointer;
+  border: none;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  transition: background-color 0.3s ease;
+}
+
+.TopRatedCar .ratedCartContainer .topCarCart .cartBookBtn:hover {
+  background-color: #c8070f;
+}
+
+
+
+/* End Top Rating Car */
+
+
+@media (max-width: 1024px) {
+  .TopRatedCar {
+    padding: 24px;
+    height: auto;
+    min-height: 500px;
+  }
+  
+  .TopRatedCar .ratedCartContainer {
+    height: auto;
+    gap: 16px;
+  }
+  
+  .TopRatedCar .ratedCartContainer .topCarCart {
+    width: 23%;
+  }
+  
+  .TopRatedCar .ratedTitle h2 {
+    font-size: 1.6rem;
+  }
+  
+  .TopRatedCar .ratedCartContainer .topCarCart .cardCarTitle {
+    font-size: 18px;
+  }
+}
+
+/* Tablets (768px and below) */
+@media (max-width: 768px) {
+  .TopRatedCar {
+    padding: 20px 16px;
+    height: auto;
+    min-height: auto;
+  }
+  
+  .TopRatedCar .ratedTitle {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 1.5rem;
+  }
+  
+  .TopRatedCar .ratedTitle .ratedSeeAll {
+    align-self: flex-end;
+  }
+  
+  .TopRatedCar .ratedTitle h2 {
+    font-size: 1.4rem;
+  }
+  
+  .TopRatedCar .ratedCartContainer {
+    flex-wrap: wrap;
+    height: auto;
+    gap: 16px;
+    justify-content: space-between;
+  }
+  
+  .TopRatedCar .ratedCartContainer .topCarCart {
+    width: 48%;
+    height: 380px;
+    margin-bottom: 16px;
+  }
+  
+  .TopRatedCar .ratedCartContainer .topCarCart .cardCarTitle {
+    font-size: 16px;
+    padding: 0 10px;
+  }
+  
+  .TopRatedCar .ratedCartContainer .topCarCart .cartTxtContainer {
+    padding: 0 10px;
+    font-size: 12px;
+  }
+  
+  .TopRatedCar .ratedCartContainer .topCarCart .cartBookBtn {
+    height: 36px;
+    width: 88%;
+  }
+}
+
+
+
 /* Tablet styles */
 @media (max-width: 768px) {
+
+  /* Start Hero Section */
+
   .heroSection {
     min-height: 320px;
     margin-top: 75px;
   }
-  
+
   .heroSection .heroContent {
     padding: 24px;
     gap: 16px;
   }
-  
+
   .heroSection .heroContent .filterPart {
     flex-direction: column;
     gap: 12px;
     align-items: stretch;
   }
-  
+
   .heroSection .heroContent .filterPart .filter {
     width: 100%;
     min-width: unset;
   }
-  
+
   .heroSection .heroContent .filterPart .searchBtn {
     width: 100%;
     min-width: unset;
   }
+
+  /* End Hero Section */
+
+  /* Start Top Rating Car */
+
+  .TopRatedCar {
+    padding: 16px 12px;
+  }
+  
+  .TopRatedCar .ratedTitle h2 {
+    font-size: 1.2rem;
+  }
+  
+  .TopRatedCar .ratedTitle .ratedSeeAll p {
+    font-size: 0.9rem;
+  }
+  
+  .TopRatedCar .ratedCartContainer .topCarCart {
+    width: 47%;
+    height: 350px;
+  }
+  
+  .TopRatedCar .ratedCartContainer .topCarCart .cardCarTitle {
+    font-size: 15px;
+  }
+  
+  .TopRatedCar .ratedCartContainer .topCarCart .cartTxtContainer {
+    font-size: 11px;
+  }
+
+  /* End Top Rating Car */
+
+  
+
 }
 
 /* Mobile styles */
 @media (max-width: 480px) {
+
+  /* Start Hero Section */
+
   .heroSection {
     min-height: 400px;
     margin-top: 75px;
   }
-  
+
   .heroSection .heroContent {
     padding: 20px;
     border-top-left-radius: 24px;
     border-top-right-radius: 24px;
   }
-  
+
   .heroSection .heroContent .filterPart .filter {
     flex-direction: column;
     min-height: 120px;
   }
-  
+
   .heroSection .heroContent .filterPart .filter .filter-box {
     border-right: none;
     border-bottom: 1px solid #ddd;
     min-width: unset;
     padding: 12px 15px;
   }
-  
+
   .heroSection .heroContent .filterPart .filter .filter-box:last-child {
     border-bottom: none;
   }
-  
+
   .heroSection .heroContent .filterPart .filter .date-box {
     min-width: unset;
   }
-  
+
   .heroSection .heroContent .filterPart .searchBtn {
     height: 60px;
   }
+
+  /* End Hero Section */
+
+  /* Start Top Rating Car */
+
+  .TopRatedCar {
+    padding: 16px 8px;
+  }
+  
+  .TopRatedCar .ratedTitle {
+    gap: 12px;
+    margin-bottom: 1rem;
+  }
+  
+  .TopRatedCar .ratedTitle h2 {
+    font-size: 1.1rem;
+  }
+  
+  .TopRatedCar .ratedCartContainer {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    justify-content: center;
+  }
+  
+  .TopRatedCar .ratedCartContainer .topCarCart {
+    width: 100%;
+    max-width: 320px;
+    height: 380px;
+  }
+  
+  .TopRatedCar .ratedCartContainer .topCarCart .cardCarTitle {
+    font-size: 16px;
+    padding: 0 12px;
+  }
+  
+  .TopRatedCar .ratedCartContainer .topCarCart .cartTxtContainer {
+    padding: 0 12px;
+    font-size: 12px;
+  }
+  
+  .TopRatedCar .ratedCartContainer .topCarCart .cartBookBtn {
+    height: 36px;
+    font-size: 14px;
+    width: 91%;
+  }
+}
+
+/* Very small screens (360px and below) */
+@media (max-width: 360px) {
+  
+  .TopRatedCar {
+    padding: 12px 8px;
+  }
+  
+  .TopRatedCar .ratedTitle h2 {
+    font-size: 1rem;
+  }
+  
+  .TopRatedCar .ratedCartContainer .topCarCart {
+    max-width: 300px;
+    height: 360px;
+  }
+  
+  .TopRatedCar .ratedCartContainer .topCarCart .cardCarTitle {
+    font-size: 14px;
+    padding: 0 10px;
+  }
+  
+  .TopRatedCar .ratedCartContainer .topCarCart .cartTxtContainer {
+    font-size: 11px;
+    padding: 0 10px;
+  }
+  
+  .TopRatedCar .ratedCartContainer .topCarCart .cartBookBtn {
+    height: 34px;
+    font-size: 13px;
+  }
+
+
+  /* End Top Rating Car */
+
 }
 
 /* Very small mobile styles */
 @media (max-width: 320px) {
-  .heroSection{
-    
+
+  /* Start Hero Section */
+
+  .heroSection {
+
     margin-top: 75px;
   }
+
   .heroSection .heroContent {
     padding: 16px;
   }
-  
+
   .heroSection .heroContent .filterPart .filter .filter-box {
     padding: 10px 12px;
   }
+
+  /* End Hero Section */
+
+  /* Start Top Rating Car */
+
+  .TopRatedCar {
+    padding: 10px 6px;
+  }
+  
+  .TopRatedCar .ratedTitle h2 {
+    font-size: 0.9rem;
+  }
+  
+  .TopRatedCar .ratedCartContainer .topCarCart {
+    max-width: 280px;
+    height: 340px;
+  }
+  
+  .TopRatedCar .ratedCartContainer .topCarCart .cardCarTitle {
+    font-size: 13px;
+    padding: 0 8px;
+  }
+  
+  .TopRatedCar .ratedCartContainer .topCarCart .cartTxtContainer {
+    font-size: 10px;
+    padding: 0 8px;
+  }
+  
+  .TopRatedCar .ratedCartContainer .topCarCart .cartBookBtn {
+    height: 32px;
+    font-size: 12px;
+  }
+
+  /* End Top Rating Car */
+
 }
