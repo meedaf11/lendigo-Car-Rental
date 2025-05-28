@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Testimonials</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .tabs {
+      display: inline-flex;
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+
+    .tab {
+      padding: 10px 20px;
+      cursor: pointer;
+      font-weight: bold;
+      color: black;
+    }
+
+    .active-tab {
+      background: red;
+      color: white;
+    }
+
+    .content {
+      display: none;
+    }
+
+    .content.active {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      width: 250px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      text-align: left;
+    }
+
+    .card h4 {
+      margin: 10px 0 5px;
+    }
+
+    .rating {
+      font-weight: bold;
+      color: #222;
+    }
+
+    .btn {
+      margin-top: 10px;
+      background: red;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h2><strong>Testimonials</strong></h2>
+  <div class="tabs">
+    <div class="tab active-tab" onclick="showTab('car')">Car Reviews</div>
+    <div class="tab" onclick="showTab('agency')">Agencies Reviews</div>
+  </div>
+
+  <div id="car" class="content active"></div>
+  <div id="agency" class="content"></div>
+
+  <script>
+    let data;
+
+    fetch('reviews.json')
+      .then(response => response.json())
+      .then(json => {
+        data = json;
+        loadContent('carReviews', 'car');
+        loadContent('agencyReviews', 'agency');
+      });
+
+    function loadContent(type, containerId) {
+      const container = document.getElementById(containerId);
+      container.innerHTML = '';
+      data[type].forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+          <p>${item.text}</p>
+          <h4>${item.name} <span class="rating">${item.rating} ⭐</span></h4>
+          <button class="btn">${item.button}</button>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function showTab(tabId) {
+      document.querySelectorAll('.content').forEach(c => c.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active-tab'));
+      if (tabId === 'car') {
+        document.querySelectorAll('.tab')[0].classList.add('active-tab');
+      } else {
+        document.querySelectorAll('.tab')[1].classList.add('active-tab');
+      }
+    }
+  </script>
+
+</body>
+</html>
