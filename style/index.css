@@ -149,7 +149,6 @@ header {
 
 /* Start Top Rating Car */
 
-/* Start Top Rating Car */
 
 .TopRatedCar {
   width: 100%;
@@ -259,7 +258,8 @@ header {
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   color: #5C5C5C;
-  font-size: 14px; /* Fixed from font-family */
+  font-size: 14px;
+  /* Fixed from font-family */
 }
 
 .TopRatedCar .ratedCartContainer .topCarCart .cartTxtContainer .cartPrice p {
@@ -301,6 +301,89 @@ header {
 
 /* End Top Rating Car */
 
+/* Start Why Lendigo Section */
+
+.whyLendigo{
+  width: 100%;
+  height: 70vh;
+  background-color: #F5F5F5;
+  padding: 32PX;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+}
+
+.whyLendigo .whyLendigoTitle {
+
+  width: 100%;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+
+}
+
+
+.whyLendigo .whyLendigoParag {
+
+  width: 100%;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+
+}
+
+.whyLendigo .whyLendigoCartsContainer{
+
+  width: 100%;
+  height: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.whyLendigo .whyLendigoCartsContainer .whyLendigoCart{
+
+  width: 22%;
+  height: 200px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 1px 1px 4px rgba(56, 56, 56, 0.37);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.whyLendigo .whyLendigoCartsContainer .whyLendigoCart img{
+
+  width: 60px;
+  height: 60px;
+
+}
+
+.whyLendigo .whyLendigoCartsContainer .whyLendigoCart h3{
+
+  width: 90%;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  text-align: center;
+
+}
+
+.whyLendigo .whyLendigoCartsContainer .whyLendigoCart p{
+
+  width: 90%;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  text-align: center;
+  font-size: 14px;
+
+}
+
+/* End Why Lendigo Section */
+
 
 @media (max-width: 1024px) {
   .TopRatedCar {
@@ -308,77 +391,57 @@ header {
     height: auto;
     min-height: 500px;
   }
-  
+
   .TopRatedCar .ratedCartContainer {
     height: auto;
     gap: 16px;
   }
-  
+
   .TopRatedCar .ratedCartContainer .topCarCart {
     width: 23%;
   }
-  
+
   .TopRatedCar .ratedTitle h2 {
     font-size: 1.6rem;
   }
-  
+
   .TopRatedCar .ratedCartContainer .topCarCart .cardCarTitle {
     font-size: 18px;
   }
-}
 
-/* Tablets (768px and below) */
-@media (max-width: 768px) {
-  .TopRatedCar {
-    padding: 20px 16px;
+  /* Start Why Lendigo Section */
+
+  .whyLendigo {
     height: auto;
-    min-height: auto;
+    min-height: 60vh;
+    padding: 24px;
   }
-  
-  .TopRatedCar .ratedTitle {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
-    margin-bottom: 1.5rem;
+
+  .whyLendigo .whyLendigoTitle {
+    font-size: 1.6rem;
   }
-  
-  .TopRatedCar .ratedTitle .ratedSeeAll {
-    align-self: flex-end;
+
+  .whyLendigo .whyLendigoCartsContainer .whyLendigoCart {
+    width: 23%;
+    height: 180px;
   }
-  
-  .TopRatedCar .ratedTitle h2 {
-    font-size: 1.4rem;
+
+  .whyLendigo .whyLendigoCartsContainer .whyLendigoCart img {
+    width: 50px;
+    height: 50px;
   }
-  
-  .TopRatedCar .ratedCartContainer {
-    flex-wrap: wrap;
-    height: auto;
-    gap: 16px;
-    justify-content: space-between;
-  }
-  
-  .TopRatedCar .ratedCartContainer .topCarCart {
-    width: 48%;
-    height: 380px;
-    margin-bottom: 16px;
-  }
-  
-  .TopRatedCar .ratedCartContainer .topCarCart .cardCarTitle {
+
+  .whyLendigo .whyLendigoCartsContainer .whyLendigoCart h3 {
     font-size: 16px;
-    padding: 0 10px;
   }
-  
-  .TopRatedCar .ratedCartContainer .topCarCart .cartTxtContainer {
-    padding: 0 10px;
-    font-size: 12px;
-  }
-  
-  .TopRatedCar .ratedCartContainer .topCarCart .cartBookBtn {
-    height: 36px;
-    width: 88%;
-  }
-}
 
+  .whyLendigo .whyLendigoCartsContainer .whyLendigoCart p {
+    font-size: 13px;
+  }
+
+  /* End Why Lendigo Section */
+
+}
 
 
 /* Tablet styles */
@@ -417,33 +480,102 @@ header {
   /* Start Top Rating Car */
 
   .TopRatedCar {
-    padding: 16px 12px;
-  }
-  
-  .TopRatedCar .ratedTitle h2 {
-    font-size: 1.2rem;
-  }
-  
-  .TopRatedCar .ratedTitle .ratedSeeAll p {
-    font-size: 0.9rem;
-  }
-  
-  .TopRatedCar .ratedCartContainer .topCarCart {
-    width: 47%;
-    height: 350px;
-  }
-  
-  .TopRatedCar .ratedCartContainer .topCarCart .cardCarTitle {
-    font-size: 15px;
-  }
-  
-  .TopRatedCar .ratedCartContainer .topCarCart .cartTxtContainer {
-    font-size: 11px;
+    padding: 20px 16px;
+    height: auto;
+    min-height: auto;
   }
 
+  .TopRatedCar .ratedTitle {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 1.5rem;
+  }
+
+  .TopRatedCar .ratedTitle .ratedSeeAll {
+    align-self: flex-end;
+  }
+
+  .TopRatedCar .ratedTitle h2 {
+    font-size: 1.4rem;
+  }
+
+  .TopRatedCar .ratedCartContainer {
+    flex-wrap: wrap;
+    height: auto;
+    gap: 16px;
+    justify-content: space-between;
+  }
+
+  .TopRatedCar .ratedCartContainer .topCarCart {
+    width: 48%;
+    height: 380px;
+    margin-bottom: 16px;
+  }
+
+  .TopRatedCar .ratedCartContainer .topCarCart .cardCarTitle {
+    font-size: 16px;
+    padding: 0 10px;
+  }
+
+  .TopRatedCar .ratedCartContainer .topCarCart .cartTxtContainer {
+    padding: 0 10px;
+    font-size: 12px;
+  }
+
+  .TopRatedCar .ratedCartContainer .topCarCart .cartBookBtn {
+    height: 36px;
+    width: 88%;
+  }
   /* End Top Rating Car */
 
-  
+
+  /* Start Why Lendigo Section */
+
+  .whyLendigo {
+    height: auto;
+    min-height: auto;
+    padding: 20px 16px;
+  }
+
+  .whyLendigo .whyLendigoTitle {
+    font-size: 1.4rem;
+    margin-bottom: 16px;
+  }
+
+  .whyLendigo .whyLendigoParag {
+    margin-bottom: 24px;
+    font-size: 14px;
+  }
+
+  .whyLendigo .whyLendigoCartsContainer {
+    height: auto;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: space-between;
+  }
+
+  .whyLendigo .whyLendigoCartsContainer .whyLendigoCart {
+    width: 48%;
+    height: 160px;
+    margin-bottom: 16px;
+  }
+
+  .whyLendigo .whyLendigoCartsContainer .whyLendigoCart img {
+    width: 45px;
+    height: 45px;
+  }
+
+  .whyLendigo .whyLendigoCartsContainer .whyLendigoCart h3 {
+    font-size: 15px;
+  }
+
+  .whyLendigo .whyLendigoCartsContainer .whyLendigoCart p {
+    font-size: 12px;
+  }
+
+  /* End Why Lendigo Section */
+
 
 }
 
@@ -494,72 +626,116 @@ header {
   .TopRatedCar {
     padding: 16px 8px;
   }
-  
+
   .TopRatedCar .ratedTitle {
     gap: 12px;
     margin-bottom: 1rem;
   }
-  
+
   .TopRatedCar .ratedTitle h2 {
     font-size: 1.1rem;
   }
-  
+
   .TopRatedCar .ratedCartContainer {
     flex-direction: column;
     align-items: center;
     gap: 16px;
     justify-content: center;
   }
-  
+
   .TopRatedCar .ratedCartContainer .topCarCart {
     width: 100%;
     max-width: 320px;
     height: 380px;
   }
-  
+
   .TopRatedCar .ratedCartContainer .topCarCart .cardCarTitle {
     font-size: 16px;
     padding: 0 12px;
   }
-  
+
   .TopRatedCar .ratedCartContainer .topCarCart .cartTxtContainer {
     padding: 0 12px;
     font-size: 12px;
   }
-  
+
   .TopRatedCar .ratedCartContainer .topCarCart .cartBookBtn {
     height: 36px;
     font-size: 14px;
     width: 91%;
   }
+
+  /* Start Why Lendigo Section */
+
+  .whyLendigo {
+    padding: 16px 8px;
+  }
+
+  .whyLendigo .whyLendigoTitle {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+  }
+
+  .whyLendigo .whyLendigoParag {
+    margin-bottom: 20px;
+    font-size: 13px;
+  }
+
+  .whyLendigo .whyLendigoCartsContainer {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .whyLendigo .whyLendigoCartsContainer .whyLendigoCart {
+    width: 100%;
+    max-width: 300px;
+    height: 150px;
+  }
+
+  .whyLendigo .whyLendigoCartsContainer .whyLendigoCart img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .whyLendigo .whyLendigoCartsContainer .whyLendigoCart h3 {
+    font-size: 14px;
+  }
+
+  .whyLendigo .whyLendigoCartsContainer .whyLendigoCart p {
+    font-size: 11px;
+  }
+
+  /* End Why Lendigo Section */
+
 }
 
 /* Very small screens (360px and below) */
 @media (max-width: 360px) {
-  
+
   .TopRatedCar {
     padding: 12px 8px;
   }
-  
+
   .TopRatedCar .ratedTitle h2 {
     font-size: 1rem;
   }
-  
+
   .TopRatedCar .ratedCartContainer .topCarCart {
     max-width: 300px;
     height: 360px;
   }
-  
+
   .TopRatedCar .ratedCartContainer .topCarCart .cardCarTitle {
     font-size: 14px;
     padding: 0 10px;
   }
-  
+
   .TopRatedCar .ratedCartContainer .topCarCart .cartTxtContainer {
     font-size: 11px;
     padding: 0 10px;
   }
-  
+
   .TopRatedCar .ratedCartContainer .topCarCart .cartBookBtn {
     height: 34px;
     font-size: 13px;
@@ -567,6 +743,41 @@ header {
 
 
   /* End Top Rating Car */
+
+  /* Start Why Lendigo Section */
+
+  .whyLendigo {
+    padding: 12px 8px;
+  }
+
+  .whyLendigo .whyLendigoTitle {
+    font-size: 1.1rem;
+  }
+
+  .whyLendigo .whyLendigoParag {
+    font-size: 12px;
+  }
+
+  .whyLendigo .whyLendigoCartsContainer .whyLendigoCart {
+    max-width: 280px;
+    height: 140px;
+  }
+
+  .whyLendigo .whyLendigoCartsContainer .whyLendigoCart img {
+    width: 35px;
+    height: 35px;
+  }
+
+  .whyLendigo .whyLendigoCartsContainer .whyLendigoCart h3 {
+    font-size: 13px;
+  }
+
+  .whyLendigo .whyLendigoCartsContainer .whyLendigoCart p {
+    font-size: 10px;
+  }
+
+  /* End Why Lendigo Section */
+
 
 }
 
@@ -595,31 +806,65 @@ header {
   .TopRatedCar {
     padding: 10px 6px;
   }
-  
+
   .TopRatedCar .ratedTitle h2 {
     font-size: 0.9rem;
   }
-  
+
   .TopRatedCar .ratedCartContainer .topCarCart {
     max-width: 280px;
     height: 340px;
   }
-  
+
   .TopRatedCar .ratedCartContainer .topCarCart .cardCarTitle {
     font-size: 13px;
     padding: 0 8px;
   }
-  
+
   .TopRatedCar .ratedCartContainer .topCarCart .cartTxtContainer {
     font-size: 10px;
     padding: 0 8px;
   }
-  
+
   .TopRatedCar .ratedCartContainer .topCarCart .cartBookBtn {
     height: 32px;
     font-size: 12px;
   }
 
   /* End Top Rating Car */
+
+  /* Start Why Lendigo Section */
+
+  .whyLendigo {
+    padding: 10px 6px;
+  }
+
+  .whyLendigo .whyLendigoTitle {
+    font-size: 1rem;
+  }
+
+  .whyLendigo .whyLendigoParag {
+    font-size: 11px;
+  }
+
+  .whyLendigo .whyLendigoCartsContainer .whyLendigoCart {
+    max-width: 260px;
+    height: 130px;
+  }
+
+  .whyLendigo .whyLendigoCartsContainer .whyLendigoCart img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .whyLendigo .whyLendigoCartsContainer .whyLendigoCart h3 {
+    font-size: 12px;
+  }
+
+  .whyLendigo .whyLendigoCartsContainer .whyLendigoCart p {
+    font-size: 9px;
+  }
+
+  /* End Why Lendigo Section */
 
 }
