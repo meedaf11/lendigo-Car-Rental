@@ -57,7 +57,7 @@ header {
   flex: 1;
   min-width: 280px;
   border-radius: 16px;
-  border: 1px solid #AAAAAA;
+  border: 1px solid #aaaaaa;
   display: flex;
   flex-wrap: wrap;
 }
@@ -102,7 +102,7 @@ header {
 }
 
 .heroSection .heroContent .filterPart .filter label {
-  color: #5C5C5C;
+  color: #5c5c5c;
   font-size: clamp(10px, 2vw, 12px);
   font-weight: 700;
   font-family: "Poppins", sans-serif;
@@ -133,7 +133,7 @@ header {
 .heroSection .heroContent .filterPart .searchBtn {
   min-width: 120px;
   height: 90px;
-  background-color: #E50914;
+  background-color: #e50914;
   border: none;
   border-radius: 16px;
   color: white;
@@ -146,14 +146,12 @@ header {
 
 /* End Hero Section */
 
-
 /* Start Top Rating Car */
-
 
 .TopRatedCar {
   width: 100%;
   height: 600px;
-  background-color: #F5F5F5;
+  background-color: #f5f5f5;
   padding: 32px;
   display: flex;
   flex-direction: column;
@@ -207,12 +205,14 @@ header {
   width: 16px;
   height: 16px;
   transition: transform 0.3s ease;
-  filter: brightness(0) saturate(100%) invert(45%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(95%) contrast(89%);
+  filter: brightness(0) saturate(100%) invert(45%) sepia(0%) saturate(0%)
+    hue-rotate(0deg) brightness(95%) contrast(89%);
 }
 
 .TopRatedCar .ratedTitle .ratedSeeAll:hover img {
   transform: translateX(3px);
-  filter: brightness(0) saturate(100%) invert(20%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(95%) contrast(89%);
+  filter: brightness(0) saturate(100%) invert(20%) sepia(0%) saturate(0%)
+    hue-rotate(0deg) brightness(95%) contrast(89%);
 }
 
 .TopRatedCar .ratedCartContainer {
@@ -257,7 +257,7 @@ header {
   align-items: center;
   font-family: "Poppins", sans-serif;
   font-weight: 600;
-  color: #5C5C5C;
+  color: #5c5c5c;
   font-size: 14px;
   /* Fixed from font-family */
 }
@@ -269,7 +269,7 @@ header {
 }
 
 .TopRatedCar .ratedCartContainer .topCarCart .cartTxtContainer .cartPrice .pd {
-  color: #5C5C5C;
+  color: #5c5c5c;
   font-weight: 600;
 }
 
@@ -283,7 +283,7 @@ header {
 .TopRatedCar .ratedCartContainer .topCarCart .cartBookBtn {
   width: 91%;
   height: 40px;
-  background-color: #E50914;
+  background-color: #e50914;
   border-radius: 16px;
   cursor: pointer;
   border: none;
@@ -297,53 +297,41 @@ header {
   background-color: #c8070f;
 }
 
-
-
 /* End Top Rating Car */
 
 /* Start Why Lendigo Section */
 
 .whyLendigo {
   width: 100%;
-  height: 70vh;
-  background-color: #F5F5F5;
-  padding: 32PX;
+  height: 50vh;
+  background-color: #f5f5f5;
+  padding: 32px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-
 }
 
 .whyLendigo .whyLendigoTitle {
-
   width: 100%;
   font-family: "Poppins", sans-serif;
   font-size: 1.8rem;
   font-weight: 700;
-
 }
 
-
 .whyLendigo .whyLendigoParag {
-
   width: 100%;
   font-family: "Poppins", sans-serif;
   font-weight: 500;
-
 }
 
 .whyLendigo .whyLendigoCartsContainer {
-
   width: 100%;
   height: 70%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-
 }
 
 .whyLendigo .whyLendigoCartsContainer .whyLendigoCart {
-
   width: 22%;
   height: 200px;
   background-color: white;
@@ -353,46 +341,37 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
 }
 
 .whyLendigo .whyLendigoCartsContainer .whyLendigoCart img {
-
   width: 60px;
   height: 60px;
-
 }
 
 .whyLendigo .whyLendigoCartsContainer .whyLendigoCart h3 {
-
   width: 90%;
   font-family: "Poppins", sans-serif;
   font-weight: 700;
   text-align: center;
-
 }
 
 .whyLendigo .whyLendigoCartsContainer .whyLendigoCart p {
-
   width: 90%;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
   text-align: center;
   font-size: 14px;
-
 }
 
 /* End Why Lendigo Section */
 
-
 /* Start Banner Section  */
-
 
 .bannerSection {
   width: 100%;
-  height: 50vh;
+  height: 30vh;
   padding: 32px;
-  background-color: #F5F5F5;
+  background-color: #f5f5f5;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -406,8 +385,6 @@ header {
   padding-left: 32px;
   display: flex;
   justify-content: space-around;
-
-
 }
 
 .bannerSection .banner img {
@@ -420,7 +397,7 @@ header {
   top: 0;
   width: 30%;
   height: 100%;
-  background: linear-gradient(#E50914, #7F050B);
+  background: linear-gradient(#e50914, #7f050b);
   clip-path: polygon(70% 0, 100% 0%, 100% 100%, 0% 100%);
 }
 
@@ -449,10 +426,9 @@ header {
 }
 
 .bannerSection .banner .contentSection button {
-
   width: 50%;
   height: 40px;
-  background-color: #E50914;
+  background-color: #e50914;
   border: none;
   border-radius: 16px;
   margin-top: 20px;
@@ -461,15 +437,148 @@ header {
   font-weight: 600;
 }
 
-
 /* End Banner Section  */
 
 /* Start Testimonial Section  */
 
+.testimonials {
+  width: 100%;
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  background-color: #f5f5f5;
+  padding: 32px;
+}
 
+.testimonials .testimonialsTitle {
+  width: 100%;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.testimonials .tabs {
+  min-width: 20vw;
+  max-width: 60vw;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.testimonials .tabs .tab {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-weight: bold;
+  color: black;
+}
+
+.testimonials .tabs .tab:first-child{
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+.testimonials .tabs .tab:last-child{
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.testimonials .tabs .active_tab {
+  background: red;
+  color: white;
+}
+
+.testimonials .content {
+  display: none;
+}
+
+.testimonials .content.active {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+
+
+.testimonials .content.active .card {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 24%;
+  min-height: 200px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.testimonials .content.active .card .reviewInfo{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.testimonials .content.active .card h4 {
+  margin: 10px 0 5px;
+}
+
+.testimonials .content.active .card .reviewInfo .rating {
+  font-weight: bold;
+  color: #222;
+}
+
+.testimonials .content.active .card p{
+  width: 100%;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  text-align: start;
+
+}
+
+.btn {
+  width: 70%;
+  height: 40px;
+  background: red;
+  color: white;
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+
+.testimonials .reviewSeeAll{
+  width: 100%;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.testimonials .reviewSeeAll span{
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  text-align: center;
+  cursor: pointer;
+  color: #5C5C5C;
+}
 
 /* End Testimonial Section  */
-
 
 @media (max-width: 1024px) {
   .TopRatedCar {
@@ -498,7 +607,7 @@ header {
   /* Start Why Lendigo Section */
 
   .whyLendigo {
-    height: auto;
+    height: 100vh;
     min-height: 60vh;
     padding: 24px;
   }
@@ -529,15 +638,55 @@ header {
 
   /* Start Banner Section  */
 
-
   /* End Banner Section  */
+  
+  /* Start  Testimonials Section  */
 
+  .testimonials {
+    padding: 24px;
+    height: auto;
+    min-height: 45vh;
+  }
+
+  .testimonials .testimonialsTitle {
+    font-size: 1.6rem;
+    margin-bottom: 16px;
+  }
+
+  .testimonials .tabs {
+    width: 35vw;
+    height: 38px;
+  }
+
+  .testimonials .content.active .card {
+    width: 48%;
+    min-height: 180px;
+    padding: 16px;
+  }
+
+  .testimonials .content.active .card h4 {
+    font-size: 16px;
+  }
+
+  .testimonials .content.active .card p {
+    font-size: 14px;
+  }
+
+  .btn {
+    width: 75%;
+    height: 38px;
+    font-size: 15px;
+  }
+
+  .testimonials .reviewSeeAll span {
+    font-size: 16px;
+  }
+
+  /* End Testimonials Section  */
 }
-
 
 /* Tablet styles */
 @media (max-width: 768px) {
-
   /* Start Hero Section */
 
   .heroSection {
@@ -621,7 +770,6 @@ header {
 
   /* End Top Rating Car */
 
-
   /* Start Why Lendigo Section */
 
   .whyLendigo {
@@ -668,20 +816,75 @@ header {
 
   /* End Why Lendigo Section */
 
-
-
   /* Start Banner Section  */
-
 
   /* End Banner Section  */
 
 
+  /* Start Testimonials Section  */
 
+  .testimonials {
+    padding: 20px 16px;
+    height: auto;
+    min-height: auto;
+  }
+
+  .testimonials .testimonialsTitle {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+  }
+
+  .testimonials .tabs {
+    width: 70vw;
+    height: 36px;
+    margin-bottom: 24px;
+  }
+
+  .testimonials .tabs .tab {
+    font-size: 14px;
+  }
+
+  .testimonials .content.active {
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: space-between;
+  }
+
+  .testimonials .content.active .card {
+    width: 48%;
+    min-height: 200px;
+    padding: 18px;
+    margin-bottom: 16px;
+  }
+
+  .testimonials .content.active .card h4 {
+    font-size: 15px;
+    margin: 8px 0 4px;
+  }
+
+  .testimonials .content.active .card p {
+    font-size: 13px;
+  }
+
+  .testimonials .content.active .card .reviewInfo .rating {
+    font-size: 13px;
+  }
+
+  .btn {
+    width: 80%;
+    height: 36px;
+    font-size: 14px;
+  }
+
+  .testimonials .reviewSeeAll span {
+    font-size: 16px;
+  }
+
+  /* End Testimonials Section  */
 }
 
 /* Mobile styles */
 @media (max-width: 480px) {
-
   /* Start Hero Section */
 
   .heroSection {
@@ -808,18 +1011,73 @@ header {
 
   /* End Why Lendigo Section */
 
-
   /* Start Banner Section  */
-
 
   /* End Banner Section  */
 
+  /* Start Testimonials Section  */
+
+  .testimonials {
+    padding: 16px 8px;
+    gap: 16px;
+  }
+
+  .testimonials .testimonialsTitle {
+    font-size: 1.2rem;
+    margin-bottom: 16px;
+  }
+
+  .testimonials .tabs {
+    width: 80vw;
+    height: 34px;
+    margin-bottom: 20px;
+  }
+
+  .testimonials .tabs .tab {
+    font-size: 13px;
+  }
+
+  .testimonials .content.active {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .testimonials .content.active .card {
+    width: 100%;
+    max-width: 320px;
+    min-height: 180px;
+    padding: 16px;
+  }
+
+  .testimonials .content.active .card h4 {
+    font-size: 14px;
+  }
+
+  .testimonials .content.active .card p {
+    font-size: 12px;
+  }
+
+  .testimonials .content.active .card .reviewInfo .rating {
+    font-size: 12px;
+  }
+
+  .btn {
+    width: 85%;
+    height: 36px;
+    font-size: 14px;
+  }
+
+  .testimonials .reviewSeeAll span {
+    font-size: 15px;
+  }
+
+  /* End Testimonials Section  */
 
 }
 
 /* Very small screens (360px and below) */
 @media (max-width: 360px) {
-
   .TopRatedCar {
     padding: 12px 8px;
   }
@@ -847,7 +1105,6 @@ header {
     height: 34px;
     font-size: 13px;
   }
-
 
   /* End Top Rating Car */
 
@@ -885,23 +1142,67 @@ header {
 
   /* End Why Lendigo Section */
 
-
   /* Start Banner Section  */
-
 
   /* End Banner Section  */
 
+  /* Start Testimonials Section  */
 
+  .testimonials {
+    padding: 12px 8px;
+  }
+
+  .testimonials .testimonialsTitle {
+    font-size: 1.1rem;
+  }
+
+  .testimonials .tabs {
+    width: 70vw;
+    height: 32px;
+  }
+
+  .testimonials .tabs .tab {
+    font-size: 12px;
+  }
+
+  .testimonials .content.active .card {
+    max-width: 300px;
+    min-height: 170px;
+    padding: 14px;
+  }
+
+  .testimonials .content.active .card h4 {
+    font-size: 13px;
+  }
+
+  .testimonials .content.active .card p {
+    font-size: 11px;
+  }
+
+  .testimonials .content.active .card .reviewInfo .rating {
+    font-size: 11px;
+  }
+
+  .btn {
+    width: 90%;
+    height: 34px;
+    font-size: 13px;
+  }
+
+  .testimonials .reviewSeeAll span {
+    font-size: 14px;
+  }
+  
+
+  /* End Testimonials Section  */
 
 }
 
 /* Very small mobile styles */
 @media (max-width: 320px) {
-
   /* Start Hero Section */
 
   .heroSection {
-
     margin-top: 75px;
   }
 
@@ -981,12 +1282,58 @@ header {
 
   /* End Why Lendigo Section */
 
-
   /* Start Banner Section  */
-
 
   /* End Banner Section  */
 
+  /* Start Testimonials Section  */
+
+  .testimonials {
+    padding: 10px 6px;
+  }
+
+  .testimonials .testimonialsTitle {
+    font-size: 1rem;
+  }
+
+  .testimonials .tabs {
+    width: 80vw;
+    height: 30px;
+  }
+
+  .testimonials .tabs .tab {
+    font-size: 11px;
+  }
+
+  .testimonials .content.active .card {
+    max-width: 280px;
+    min-height: 160px;
+    padding: 12px;
+  }
+
+  .testimonials .content.active .card h4 {
+    font-size: 12px;
+  }
+
+  .testimonials .content.active .card p {
+    font-size: 10px;
+  }
+
+  .testimonials .content.active .card .reviewInfo .rating {
+    font-size: 10px;
+  }
+
+  .btn {
+    width: 95%;
+    height: 32px;
+    font-size: 12px;
+  }
+
+  .testimonials .reviewSeeAll span {
+    font-size: 13px;
+  }
+
+  /* End Testimonials Section  */
 
 }
 

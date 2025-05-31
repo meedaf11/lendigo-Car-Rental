@@ -1,258 +1,291 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style/index.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/litepicker/dist/css/litepicker.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/litepicker/dist/css/litepicker.css"
+    />
     <title>Lendigo</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <div id="header-placeholder"></div>
 
     <div class="heroSection">
-        <div class="heroContent">
-            <h1>Your Next Ride is Just a Click Away.</h1>
-            <div class="filterPart">
-                <div class="filter">
-                    <div class="filter-box">
-                        <label for="brand">Car Brand</label>
-                        <select id="brand">
-                            <option selected>AUDI</option>
-                            <option>BMW</option>
-                            <option>Mercedes</option>
-                        </select>
-                    </div>
-
-                    <div class="filter-box">
-                        <label for="model">Car Model</label>
-                        <select id="model">
-                            <option selected>2022</option>
-                            <option>2023</option>
-                            <option>2024</option>
-                        </select>
-                    </div>
-
-                    <div class="filter-box">
-                        <label for="city">City</label>
-                        <select id="city">
-                            <option selected>Tangier</option>
-                            <option>Casablanca</option>
-                            <option>Marrakech</option>
-                        </select>
-                    </div>
-
-                    <div class="filter-box date-box">
-                        <label for="start">Pickup & Return Date</label>
-                        <div class="date-display" id="date-display">Choose Date</div>
-                    </div>
-                </div>
-
-                <button class="searchBtn">Search</button>
+      <div class="heroContent">
+        <h1>Your Next Ride is Just a Click Away.</h1>
+        <div class="filterPart">
+          <div class="filter">
+            <div class="filter-box">
+              <label for="brand">Car Brand</label>
+              <select id="brand">
+                <option selected>AUDI</option>
+                <option>BMW</option>
+                <option>Mercedes</option>
+              </select>
             </div>
+
+            <div class="filter-box">
+              <label for="model">Car Model</label>
+              <select id="model">
+                <option selected>2022</option>
+                <option>2023</option>
+                <option>2024</option>
+              </select>
+            </div>
+
+            <div class="filter-box">
+              <label for="city">City</label>
+              <select id="city">
+                <option selected>Tangier</option>
+                <option>Casablanca</option>
+                <option>Marrakech</option>
+              </select>
+            </div>
+
+            <div class="filter-box date-box">
+              <label for="start">Pickup & Return Date</label>
+              <div class="date-display" id="date-display">Choose Date</div>
+            </div>
+          </div>
+
+          <button class="searchBtn">Search</button>
         </div>
+      </div>
     </div>
 
     <div class="TopRatedCar">
+      <div class="ratedTitle">
+        <h2>TOP RATED FOR RENTING</h2>
+        <div class="ratedSeeAll">
+          <p>See All</p>
+          <img src="assets/images/right_arrow.svg" alt="" />
+        </div>
+      </div>
 
-        <div class="ratedTitle">
-
-            <h2>TOP RATED FOR RENTING</h2>
-            <div class="ratedSeeAll">
-                <p>See All</p>
-                <img src="assets/images/right_arrow.svg" alt="">
+      <div class="ratedCartContainer">
+        <div class="topCarCart">
+          <img
+            class="carImg"
+            src="https://hips.hearstapps.com/hmg-prod/images/2021-bmw-540i-xdrive-370-edit-1608066218.jpg?crop=0.579xw:0.487xh;0.0785xw,0.472xh&resize=1200:*"
+            alt=""
+          />
+          <h3 class="cardCarTitle">Premium German luxury</h3>
+          <div class="cartTxtContainer">
+            <span>Kilometers</span>
+            <p><span class="carKm">0</span> KM</p>
+          </div>
+          <div class="cartTxtContainer">
+            <span>Automatic</span>
+            <span class="carAuto">YES</span>
+          </div>
+          <div class="cartTxtContainer">
+            <span>Fuel Type</span>
+            <span class="carFuel">Diesel</span>
+          </div>
+          <div class="cartTxtContainer">
+            <div class="cartPrice">
+              <p>
+                <span class="carPrice">0</span> dh
+                <span class="pd">/Per Day</span>
+              </p>
             </div>
-
+            <div class="cartRating">
+              <span>0.00</span>
+              <img src="assets/images/rating_ic.svg" alt="" />
+            </div>
+          </div>
+          <button class="cartBookBtn">BOOK NOW</button>
         </div>
 
-        <div class="ratedCartContainer">
-
-            <div class="topCarCart">
-                <img class="carImg"
-                    src="https://hips.hearstapps.com/hmg-prod/images/2021-bmw-540i-xdrive-370-edit-1608066218.jpg?crop=0.579xw:0.487xh;0.0785xw,0.472xh&resize=1200:*"
-                    alt="">
-                <h3 class="cardCarTitle">Premium German luxury</h3>
-                <div class="cartTxtContainer">
-                    <span>Kilometers</span>
-                    <p><span class="carKm">0</span> KM</p>
-                </div>
-                <div class="cartTxtContainer">
-                    <span>Automatic</span>
-                    <span class="carAuto">YES</span>
-                </div>
-                <div class="cartTxtContainer">
-                    <span>Fuel Type</span>
-                    <span class="carFuel">Diesel</span>
-                </div>
-                <div class="cartTxtContainer">
-                    <div class="cartPrice">
-                        <p><span class="carPrice">0</span> dh <span class="pd">/Per Day</span></p>
-                    </div>
-                    <div class="cartRating">
-                        <span>0.00</span>
-                        <img src="assets/images/rating_ic.svg" alt="">
-                    </div>
-                </div>
-                <button class="cartBookBtn">BOOK NOW</button>
+        <div class="topCarCart">
+          <img
+            class="carImg"
+            src="https://hips.hearstapps.com/hmg-prod/images/2021-bmw-540i-xdrive-370-edit-1608066218.jpg?crop=0.579xw:0.487xh;0.0785xw,0.472xh&resize=1200:*"
+            alt=""
+          />
+          <h3 class="cardCarTitle">Premium German luxury</h3>
+          <div class="cartTxtContainer">
+            <span>Kilometers</span>
+            <p><span class="carKm">0</span> KM</p>
+          </div>
+          <div class="cartTxtContainer">
+            <span>Automatic</span>
+            <span class="carAuto">YES</span>
+          </div>
+          <div class="cartTxtContainer">
+            <span>Fuel Type</span>
+            <span class="carFuel">Diesel</span>
+          </div>
+          <div class="cartTxtContainer">
+            <div class="cartPrice">
+              <p>
+                <span class="carPrice">0</span> dh
+                <span class="pd">/Per Day</span>
+              </p>
             </div>
-
-            <div class="topCarCart">
-                <img class="carImg"
-                    src="https://hips.hearstapps.com/hmg-prod/images/2021-bmw-540i-xdrive-370-edit-1608066218.jpg?crop=0.579xw:0.487xh;0.0785xw,0.472xh&resize=1200:*"
-                    alt="">
-                <h3 class="cardCarTitle">Premium German luxury</h3>
-                <div class="cartTxtContainer">
-                    <span>Kilometers</span>
-                    <p><span class="carKm">0</span> KM</p>
-                </div>
-                <div class="cartTxtContainer">
-                    <span>Automatic</span>
-                    <span class="carAuto">YES</span>
-                </div>
-                <div class="cartTxtContainer">
-                    <span>Fuel Type</span>
-                    <span class="carFuel">Diesel</span>
-                </div>
-                <div class="cartTxtContainer">
-                    <div class="cartPrice">
-                        <p><span class="carPrice">0</span> dh <span class="pd">/Per Day</span></p>
-                    </div>
-                    <div class="cartRating">
-                        <span>0.00</span>
-                        <img src="assets/images/rating_ic.svg" alt="">
-                    </div>
-                </div>
-                <button class="cartBookBtn">BOOK NOW</button>
+            <div class="cartRating">
+              <span>0.00</span>
+              <img src="assets/images/rating_ic.svg" alt="" />
             </div>
-
-            <div class="topCarCart">
-                <img class="carImg"
-                    src="https://hips.hearstapps.com/hmg-prod/images/2021-bmw-540i-xdrive-370-edit-1608066218.jpg?crop=0.579xw:0.487xh;0.0785xw,0.472xh&resize=1200:*"
-                    alt="">
-                <h3 class="cardCarTitle">Premium German luxury</h3>
-                <div class="cartTxtContainer">
-                    <span>Kilometers</span>
-                    <p><span class="carKm">0</span> KM</p>
-                </div>
-                <div class="cartTxtContainer">
-                    <span>Automatic</span>
-                    <span class="carAuto">YES</span>
-                </div>
-                <div class="cartTxtContainer">
-                    <span>Fuel Type</span>
-                    <span class="carFuel">Diesel</span>
-                </div>
-                <div class="cartTxtContainer">
-                    <div class="cartPrice">
-                        <p><span class="carPrice">0</span> dh <span class="pd">/Per Day</span></p>
-                    </div>
-                    <div class="cartRating">
-                        <span>0.00</span>
-                        <img src="assets/images/rating_ic.svg" alt="">
-                    </div>
-                </div>
-                <button class="cartBookBtn">BOOK NOW</button>
-            </div>
-
-            <div class="topCarCart">
-                <img class="carImg"
-                    src="https://hips.hearstapps.com/hmg-prod/images/2021-bmw-540i-xdrive-370-edit-1608066218.jpg?crop=0.579xw:0.487xh;0.0785xw,0.472xh&resize=1200:*"
-                    alt="">
-                <h3 class="cardCarTitle">Premium German luxury</h3>
-                <div class="cartTxtContainer">
-                    <span>Kilometers</span>
-                    <p><span class="carKm">0</span> KM</p>
-                </div>
-                <div class="cartTxtContainer">
-                    <span>Automatic</span>
-                    <span class="carAuto">YES</span>
-                </div>
-                <div class="cartTxtContainer">
-                    <span>Fuel Type</span>
-                    <span class="carFuel">Diesel</span>
-                </div>
-                <div class="cartTxtContainer">
-                    <div class="cartPrice">
-                        <p><span class="carPrice">0</span> dh <span class="pd">/Per Day</span></p>
-                    </div>
-                    <div class="cartRating">
-                        <span>0.00</span>
-                        <img src="assets/images/rating_ic.svg" alt="">
-                    </div>
-                </div>
-                <button class="cartBookBtn">BOOK NOW</button>
-            </div>
-
-
+          </div>
+          <button class="cartBookBtn">BOOK NOW</button>
         </div>
 
+        <div class="topCarCart">
+          <img
+            class="carImg"
+            src="https://hips.hearstapps.com/hmg-prod/images/2021-bmw-540i-xdrive-370-edit-1608066218.jpg?crop=0.579xw:0.487xh;0.0785xw,0.472xh&resize=1200:*"
+            alt=""
+          />
+          <h3 class="cardCarTitle">Premium German luxury</h3>
+          <div class="cartTxtContainer">
+            <span>Kilometers</span>
+            <p><span class="carKm">0</span> KM</p>
+          </div>
+          <div class="cartTxtContainer">
+            <span>Automatic</span>
+            <span class="carAuto">YES</span>
+          </div>
+          <div class="cartTxtContainer">
+            <span>Fuel Type</span>
+            <span class="carFuel">Diesel</span>
+          </div>
+          <div class="cartTxtContainer">
+            <div class="cartPrice">
+              <p>
+                <span class="carPrice">0</span> dh
+                <span class="pd">/Per Day</span>
+              </p>
+            </div>
+            <div class="cartRating">
+              <span>0.00</span>
+              <img src="assets/images/rating_ic.svg" alt="" />
+            </div>
+          </div>
+          <button class="cartBookBtn">BOOK NOW</button>
+        </div>
+
+        <div class="topCarCart">
+          <img
+            class="carImg"
+            src="https://hips.hearstapps.com/hmg-prod/images/2021-bmw-540i-xdrive-370-edit-1608066218.jpg?crop=0.579xw:0.487xh;0.0785xw,0.472xh&resize=1200:*"
+            alt=""
+          />
+          <h3 class="cardCarTitle">Premium German luxury</h3>
+          <div class="cartTxtContainer">
+            <span>Kilometers</span>
+            <p><span class="carKm">0</span> KM</p>
+          </div>
+          <div class="cartTxtContainer">
+            <span>Automatic</span>
+            <span class="carAuto">YES</span>
+          </div>
+          <div class="cartTxtContainer">
+            <span>Fuel Type</span>
+            <span class="carFuel">Diesel</span>
+          </div>
+          <div class="cartTxtContainer">
+            <div class="cartPrice">
+              <p>
+                <span class="carPrice">0</span> dh
+                <span class="pd">/Per Day</span>
+              </p>
+            </div>
+            <div class="cartRating">
+              <span>0.00</span>
+              <img src="assets/images/rating_ic.svg" alt="" />
+            </div>
+          </div>
+          <button class="cartBookBtn">BOOK NOW</button>
+        </div>
+      </div>
     </div>
 
     <div class="whyLendigo">
-        <h2 class="whyLendigoTitle">Why Lendigo Is the Smart Way to Rent</h2>
-        <p class="whyLendigoParag">Whether you're planning a weekend getaway or need a ride for the day, Lendigo helps
-            you find the perfect car—quickly, securely, and hassle-free. Here's why thousands trust us:</p>
-        <div class="whyLendigoCartsContainer">
-
-            <div class="whyLendigoCart">
-                <img src="assets/images/car_ic.svg" alt="">
-                <h3>Variety of Cars</h3>
-                <p>From economy to luxury, choose from a diverse range of vehicles that match your needs and budget.</p>
-            </div>
-
-            <div class="whyLendigoCart">
-                <img src="assets/images/building_ic.svg" alt="">
-                <h3>Verified Partners</h3>
-                <p>We work only with professional and approved car rental agencies to ensure quality service and
-                    transparency.</p>
-            </div>
-
-            <div class="whyLendigoCart">
-                <img src="assets/images/clock_ic.svg" alt="">
-                <h3>Fast & Easy Booking</h3>
-                <p>Book your car in just a few clicks. No hidden fees, no paperwork — just select, confirm, and go.</p>
-            </div>
-
-            <div class="whyLendigoCart">
-                <img src="assets/images/red_star_ic.svg" alt="">
-                <h3>Transparent Ratings</h3>
-                <p>Read reviews from real users and rate your experience — helping everyone choose better.</p>
-            </div>
-
+      <h2 class="whyLendigoTitle">Why Lendigo Is the Smart Way to Rent</h2>
+      <p class="whyLendigoParag">
+        Whether you're planning a weekend getaway or need a ride for the day,
+        Lendigo helps you find the perfect car—quickly, securely, and
+        hassle-free. Here's why thousands trust us:
+      </p>
+      <div class="whyLendigoCartsContainer">
+        <div class="whyLendigoCart">
+          <img src="assets/images/car_ic.svg" alt="" />
+          <h3>Variety of Cars</h3>
+          <p>
+            From economy to luxury, choose from a diverse range of vehicles that
+            match your needs and budget.
+          </p>
         </div>
-    </div>
 
+        <div class="whyLendigoCart">
+          <img src="assets/images/building_ic.svg" alt="" />
+          <h3>Verified Partners</h3>
+          <p>
+            We work only with professional and approved car rental agencies to
+            ensure quality service and transparency.
+          </p>
+        </div>
+
+        <div class="whyLendigoCart">
+          <img src="assets/images/clock_ic.svg" alt="" />
+          <h3>Fast & Easy Booking</h3>
+          <p>
+            Book your car in just a few clicks. No hidden fees, no paperwork —
+            just select, confirm, and go.
+          </p>
+        </div>
+
+        <div class="whyLendigoCart">
+          <img src="assets/images/red_star_ic.svg" alt="" />
+          <h3>Transparent Ratings</h3>
+          <p>
+            Read reviews from real users and rate your experience — helping
+            everyone choose better.
+          </p>
+        </div>
+      </div>
+    </div>
 
     <div class="bannerSection">
+      <div class="banner">
+        <div class="red-diagonal"></div>
 
-        <div class="banner">
-            <div class="red-diagonal"></div>
-
-            <div class="contentSection">
-
-                <h2>Ready to Get Behind the Wheel?</h2>
-                <p>Start exploring hundreds of cars from trusted agencies across Morocco.</p>
-                <button>Find a Car Now</button>
-
-            </div>
-            <img src="assets/images/Chevrolet_Corvette.png" alt="">
+        <div class="contentSection">
+          <h2>Ready to Get Behind the Wheel?</h2>
+          <p>
+            Start exploring hundreds of cars from trusted agencies across
+            Morocco.
+          </p>
+          <button>Find a Car Now</button>
         </div>
-
+        <img src="assets/images/Chevrolet_Corvette.png" alt="" />
+      </div>
     </div>
 
-    <div class="testimonialsSection">
+    <div class="testimonials">
+      <h2 class="testimonialsTitle">Testimonials</h2>
+      <div class="tabs">
+        <div class="tab active_tab" onclick="showTab('car')">Car Reviews</div>
+        <div class="tab" onclick="showTab('agency')">Agencies Reviews</div>
+      </div>
+      
 
-        
+      <div id="car" class="content active"></div>
+      <div id="agency" class="content"></div>
 
-
+      <div class="reviewSeeAll">
+        <span >See All →</span>
+      </div>
+      
     </div>
-
 
     <div id="footer-placeholder"></div>
-</body>
-<script src="https://cdn.jsdelivr.net/npm/litepicker/dist/bundle.js"></script>
-<script src="js/index.js"></script>
-
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/bundle.js"></script>
+  <script src="js/index.js"></script>
 </html>

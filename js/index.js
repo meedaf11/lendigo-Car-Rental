@@ -25,7 +25,6 @@ fetch("footer.html")
     console.error("There was a problem loading the footer:", error);
   });
 
-
 document.addEventListener("DOMContentLoaded", () => {
   const dateDisplay = document.getElementById("date-display");
   let picker = null; // ⬅️ تعريف picker هنا
@@ -74,3 +73,51 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+function showTab(tabId) {
+  document
+    .querySelectorAll(".content")
+    .forEach((c) => c.classList.remove("active"));
+  document.getElementById(tabId).classList.add("active");
+
+  document
+    .querySelectorAll(".tab")
+    .forEach((t) => t.classList.remove("active_tab"));
+  if (tabId === "car") {
+    document.querySelectorAll(".tab")[0].classList.add("active_tab");
+  } else {
+    document.querySelectorAll(".tab")[1].classList.add("active_tab");
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  let data;
+
+  fetch("reviews.json")
+    .then((response) => response.json())
+    .then((json) => {
+      data = json;
+      loadContent("carReviews", "car");
+      loadContent("agencyReviews", "agency");
+    });
+
+  function loadContent(type, containerId) {
+    const container = document.getElementById(containerId);
+    container.innerHTML = "";
+    data[type].forEach((item) => {
+      const card = document.createElement("div");
+      card.className = "card";
+      card.innerHTML = `
+          <div class="reviewInfo">
+          <img src="assets/images/quote.svg" alt="" />
+          <h3>${item.name} </h3>
+          <span class="rating">${item.rating} ⭐</span>
+          </div>
+          
+          <p>${item.text}</p>
+          
+          <button class="btn">${item.button}</button>
+        `;
+      container.appendChild(card);
+    });
+  }
+});
