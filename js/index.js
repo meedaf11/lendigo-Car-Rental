@@ -121,3 +121,65 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  // Variable to hold FAQ data after fetching
+let faqData = [];
+
+// Fetch FAQ data from JSON file
+fetch('faq.json')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`Failed to fetch file: ${response.status}`);
+    }
+    return response.json();
+  })
+  .then(data => {
+    faqData = data;
+    renderFAQ(); // Render FAQs after successful fetch
+  })
+  .catch(error => {
+    console.error('Error loading FAQs:', error);
+    const container = document.getElementById('faq-container');
+    container.innerHTML = `<p>Unable to load FAQs. Please try again later.</p>`;
+  });
+
+// Render FAQ items into the page
+function renderFAQ() {
+  const container = document.getElementById('faq-container');
+  container.innerHTML = ''; // Clear any existing content
+
+  faqData.forEach((item, index) => {
+    // Create the main FAQ item container
+    const faqItem = document.createElement('div');
+    faqItem.classList.add('item');
+    faqItem.setAttribute('data-index', index);
+
+    // Create question element
+    const questionEl = document.createElement('div');
+    questionEl.classList.add('question');
+    questionEl.textContent = item.question;
+
+    // Create answer element
+    const answerEl = document.createElement('div');
+    answerEl.classList.add('answer');
+    answerEl.textContent = item.answer;
+
+    // Toggle “active” class on click to show/hide answer
+    questionEl.addEventListener('click', () => {
+      faqItem.classList.toggle('active');
+    });
+
+    // Append question and answer to the item container
+    faqItem.appendChild(questionEl);
+    faqItem.appendChild(answerEl);
+
+    // Append the item container to the FAQ wrapper
+    container.appendChild(faqItem);
+  });
+}
+
+
+
+})
