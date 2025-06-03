@@ -7,7 +7,8 @@ header('Content-Type: application/json; charset=UTF-8');
 
 try {
 
-    $sql = " SELECT * FROM car "; 
+    $sql = "SELECT car.*,  agency_city AS agency_city FROM car 
+        INNER JOIN agency ON car.agency_id = agency.agency_id"; 
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
 

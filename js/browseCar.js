@@ -105,11 +105,35 @@ fetch("api/get_cars.php")
     });
   }
 
+  // استخراج الفلاتر من عنوان URL
+const urlParams = new URLSearchParams(window.location.search);
+const filterFromURL = {
+  brand: urlParams.get("brand") || "",
+  model: urlParams.get("model") || "",
+  city: urlParams.get("city") || "",
+  startDate: urlParams.get("startDate") || "",
+  endDate: urlParams.get("endDate") || ""
+};
+
   fetch("api/get_cars.php")
   .then(res => res.json())
   .then(cars => {
-    window.allCars = cars; 
-    displayAllCars(cars);  
+    window.allCars = cars;
+
+    // فلترة السيارات إذا وُجدت فلاتر في الرابط
+    let filteredCars = cars;
+
+    if (filterFromURL.brand || filterFromURL.model || filterFromURL.city) {
+      filteredCars = cars.filter((car) => {
+        const matchBrand = !filterFromURL.brand || car.brand === filterFromURL.brand;
+        const matchModel = !filterFromURL.model || car.model === filterFromURL.model;
+        const matchCity = !filterFromURL.city || car.agency_city === filterFromURL.city;
+        return matchBrand && matchModel && matchCity;
+      });
+    }
+
+    // عرض النتائج
+    displayAllCars(filteredCars);
   });
 
 

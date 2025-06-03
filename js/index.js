@@ -25,9 +25,98 @@ fetch("footer.html")
     console.error("There was a problem loading the footer:", error);
   });
 
+document.addEventListener("DOMContentLoaded", async () => {
+  const brandSelect = document.getElementById("brand");
+  const modelSelect = document.getElementById("model");
+  const citySelect = document.getElementById("city");
+
+  let carData = [];
+
+  // Fetch data
+  try {
+    const response = await fetch("api/get_cars.php");
+    const text = await response.text();
+    console.log("Raw response:", text);
+    carData = JSON.parse(text);
+    populateBrandOptions();
+    updateModelOptions();
+    updateCityOptions();
+  } catch (error) {
+    console.error("Failed to fetch or parse car data:", error);
+  }
+
+  // Populate brand options
+  function populateBrandOptions() {
+    const brands = [...new Set(carData.map((car) => car.brand))].sort();
+    brandSelect.innerHTML = `<option value="">All Brands</option>`;
+    brands.forEach((brand) => {
+      const option = document.createElement("option");
+      option.value = brand;
+      option.textContent = brand;
+      brandSelect.appendChild(option);
+    });
+  }
+
+  // Update model options based on selected brand
+  function updateModelOptions() {
+    const selectedBrand = brandSelect.value;
+    let filtered = carData;
+
+    if (selectedBrand) {
+      filtered = filtered.filter((car) => car.brand === selectedBrand);
+    }
+
+    const models = [...new Set(filtered.map((car) => car.model))].sort();
+    modelSelect.innerHTML = `<option value="">All Models</option>`;
+    models.forEach((model) => {
+      const option = document.createElement("option");
+      option.value = model;
+      option.textContent = model;
+      modelSelect.appendChild(option);
+    });
+  }
+
+  // Update city options based on selected brand and model
+  function updateCityOptions() {
+    const selectedBrand = brandSelect.value;
+    const selectedModel = modelSelect.value;
+
+    let filtered = carData;
+
+    if (selectedBrand) {
+      filtered = filtered.filter((car) => car.brand === selectedBrand);
+    }
+
+    if (selectedModel) {
+      filtered = filtered.filter((car) => car.model === selectedModel);
+    }
+
+    const cities = [
+      ...new Set(filtered.map((car) => car.agency_city || "Unknown")),
+    ].sort();
+    citySelect.innerHTML = `<option value="">All Cities</option>`;
+    cities.forEach((city) => {
+      const option = document.createElement("option");
+      option.value = city;
+      option.textContent = city;
+      citySelect.appendChild(option);
+    });
+  }
+
+  // Event listeners
+  brandSelect.addEventListener("change", () => {
+    updateModelOptions();
+    updateCityOptions();
+  });
+
+  modelSelect.addEventListener("change", () => {
+    updateCityOptions();
+  });
+});
+
 document.addEventListener("DOMContentLoaded", () => {
   const dateDisplay = document.getElementById("date-display");
-  let picker = null; 
+  let picker = null;
 
   if (dateDisplay) {
     picker = new Litepicker({
@@ -54,54 +143,46 @@ document.addEventListener("DOMContentLoaded", () => {
   // ⚡️ عند الضغط على زر البحث
   document.querySelector(".searchBtn").addEventListener("click", () => {
     const brand = document.getElementById("brand").value;
-    const model = document.getElementById("model").value;
-    const city = document.getElementById("city").value;
+  const model = document.getElementById("model").value;
+  const city = document.getElementById("city").value;
+  const startDate = picker?.getStartDate()?.format("YYYY-MM-DD") || "";
+  const endDate = picker?.getEndDate()?.format("YYYY-MM-DD") || "";
 
-    // التحقق من وجود picker قبل استخدامه
-    const startDate = picker?.getStartDate()?.format("YYYY-MM-DD") || null;
-    const endDate = picker?.getEndDate()?.format("YYYY-MM-DD") || null;
+  const params = new URLSearchParams({
+    brand,
+    model,
+    city,
+    startDate,
+    endDate
+  });
 
-    const filters = {
-      brand,
-      model,
-      city,
-      startDate,
-      endDate,
-    };
-
-    console.log("All filters:", filters);
+  window.location.href = `browseCar.html?${params.toString()}`;
   });
 });
 
+// Get All Cars :
 
-// Get All Cars : 
-
-document.addEventListener('DOMContentLoaded', () => {
-  fetch('api/get_cars.php')
-    .then(response => {
+document.addEventListener("DOMContentLoaded", () => {
+  fetch("api/get_cars.php")
+    .then((response) => {
       if (!response.ok) throw new Error(`Fetch error: ${response.status}`);
       return response.json();
     })
-    .then(cars => {
-     
-      cars.forEach(car => {
+    .then((cars) => {
+      cars.forEach((car) => {
         car.car_rating = parseFloat(car.car_rating);
-        car.isAutomatic = (parseInt(car.isAutomatic) === 1) ? 'YES' : 'NO';
-        if (!car.car_fuel) car.car_fuel = 'Unknown';
+        car.isAutomatic = parseInt(car.isAutomatic) === 1 ? "YES" : "NO";
+        if (!car.car_fuel) car.car_fuel = "Unknown";
       });
 
-      
-      const top4 = cars
-        .sort((a, b) => b.car_rating - a.car_rating)
-        .slice(0, 4);
+      const top4 = cars.sort((a, b) => b.car_rating - a.car_rating).slice(0, 4);
 
-      
-      const container = document.querySelector('.ratedCartContainer');
-      container.innerHTML = '';
+      const container = document.querySelector(".ratedCartContainer");
+      container.innerHTML = "";
 
-      top4.forEach(car => {
-        const card = document.createElement('div');
-        card.className = 'topCarCart';
+      top4.forEach((car) => {
+        const card = document.createElement("div");
+        card.className = "topCarCart";
         card.innerHTML = `
           <img class="carImg" src="${car.image_url}" alt="${car.car_name}">
           <h3 class="cardCarTitle">${car.car_name} ${car.model}</h3>
@@ -134,30 +215,28 @@ document.addEventListener('DOMContentLoaded', () => {
         container.appendChild(card);
       });
     })
-    .catch(err => {
+    .catch((err) => {
       console.error(err);
-      document.querySelector('.ratedCartContainer').innerHTML = `
+      document.querySelector(".ratedCartContainer").innerHTML = `
         <p style="color:red; text-align:center;">تعذّر تحميل السيارات.</p>
       `;
     });
 });
 
-
- // Call the PHP script to update reviews.json every time the page loads
- fetch('api/get_reviews.php')
- .then(response => {
-   if (!response.ok) {
-     throw new Error("Failed to update reviews.json");
-   }
-   return response.json();
- })
- .then(data => {
-   console.log("reviews.json updated", data);
- })
- .catch(error => {
-   console.error("Error updating reviews:", error);
- });
-
+// Call the PHP script to update reviews.json every time the page loads
+fetch("api/get_reviews.php")
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error("Failed to update reviews.json");
+    }
+    return response.json();
+  })
+  .then((data) => {
+    console.log("reviews.json updated", data);
+  })
+  .catch((error) => {
+    console.error("Error updating reviews:", error);
+  });
 
 function showTab(tabId) {
   document
@@ -209,63 +288,59 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-
   // Variable to hold FAQ data after fetching
-let faqData = [];
+  let faqData = [];
 
-// Fetch FAQ data from JSON file
-fetch('faq.json')
-  .then(response => {
-    if (!response.ok) {
-      throw new Error(`Failed to fetch file: ${response.status}`);
-    }
-    return response.json();
-  })
-  .then(data => {
-    faqData = data;
-    renderFAQ(); // Render FAQs after successful fetch
-  })
-  .catch(error => {
-    console.error('Error loading FAQs:', error);
-    const container = document.getElementById('faq-container');
-    container.innerHTML = `<p>Unable to load FAQs. Please try again later.</p>`;
-  });
-
-// Render FAQ items into the page
-function renderFAQ() {
-  const container = document.getElementById('faq-container');
-  container.innerHTML = ''; // Clear any existing content
-
-  faqData.forEach((item, index) => {
-    // Create the main FAQ item container
-    const faqItem = document.createElement('div');
-    faqItem.classList.add('item');
-    faqItem.setAttribute('data-index', index);
-
-    // Create question element
-    const questionEl = document.createElement('div');
-    questionEl.classList.add('question');
-    questionEl.textContent = item.question;
-
-    // Create answer element
-    const answerEl = document.createElement('div');
-    answerEl.classList.add('answer');
-    answerEl.textContent = item.answer;
-
-    // Toggle “active” class on click to show/hide answer
-    questionEl.addEventListener('click', () => {
-      faqItem.classList.toggle('active');
+  // Fetch FAQ data from JSON file
+  fetch("faq.json")
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`Failed to fetch file: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      faqData = data;
+      renderFAQ(); // Render FAQs after successful fetch
+    })
+    .catch((error) => {
+      console.error("Error loading FAQs:", error);
+      const container = document.getElementById("faq-container");
+      container.innerHTML = `<p>Unable to load FAQs. Please try again later.</p>`;
     });
 
-    // Append question and answer to the item container
-    faqItem.appendChild(questionEl);
-    faqItem.appendChild(answerEl);
+  // Render FAQ items into the page
+  function renderFAQ() {
+    const container = document.getElementById("faq-container");
+    container.innerHTML = ""; // Clear any existing content
 
-    // Append the item container to the FAQ wrapper
-    container.appendChild(faqItem);
-  });
-}
+    faqData.forEach((item, index) => {
+      // Create the main FAQ item container
+      const faqItem = document.createElement("div");
+      faqItem.classList.add("item");
+      faqItem.setAttribute("data-index", index);
 
+      // Create question element
+      const questionEl = document.createElement("div");
+      questionEl.classList.add("question");
+      questionEl.textContent = item.question;
 
+      // Create answer element
+      const answerEl = document.createElement("div");
+      answerEl.classList.add("answer");
+      answerEl.textContent = item.answer;
 
-})
+      // Toggle “active” class on click to show/hide answer
+      questionEl.addEventListener("click", () => {
+        faqItem.classList.toggle("active");
+      });
+
+      // Append question and answer to the item container
+      faqItem.appendChild(questionEl);
+      faqItem.appendChild(answerEl);
+
+      // Append the item container to the FAQ wrapper
+      container.appendChild(faqItem);
+    });
+  }
+});

@@ -5,18 +5,26 @@
     padding: 0;
     box-sizing: border-box;
 }
+body{
+    
+    background-color: #f5f5f5;
+}
 
 input[type="checkbox"] {
     accent-color: #e50914;
 }
 
+.spacing{
+    width: 100%;
+    height: 80px;
+}
 
 .mainSection {
 
+    margin-top: 75px;
     width: 100%;
     min-height: 100vh;
     padding: 32px;
-    margin-top: 75px;
     background-color: #f5f5f5;
     display: flex;
     gap: 24px;
@@ -189,4 +197,649 @@ input[type="checkbox"] {
 
 .TopRatedCar .ratedCartContainer .topCarCart .cartBookBtn:hover {
     background-color: #c8070f;
+}
+
+/* Tablet Responsive CSS - Medium tablets (768px - 1024px) */
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+    .mainSection {
+        padding: 24px;
+        margin-top: 60px;
+        gap: 20px;
+    }
+
+    .filterSide {
+        width: 30%;
+        padding: 20px;
+    }
+
+    .filterSide .filterTitle {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+
+    .filterSide .filterGroup {
+        margin-bottom: 16px;
+        gap: 1px;
+    }
+
+    .filterSide .filterGroup label {
+        font-size: 13px;
+        margin-bottom: 4px;
+    }
+
+    .filterGroup input,
+    .filterGroup select {
+        padding: 6px;
+        font-size: 13px;
+    }
+
+    .filterBtn {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .contentSide {
+        width: 68%;
+        gap: 16px;
+    }
+
+    .contentSide .CarCart {
+        width: 47%;
+        height: 400px;
+        margin-bottom: 20px;
+    }
+
+    .contentSide .CarCart .cardCarTitle {
+        font-size: 18px;
+        padding: 0 10px;
+    }
+
+    .contentSide .CarCart .cartTxtContainer {
+        padding: 0 10px;
+        font-size: 13px;
+    }
+
+    .contentSide .CarCart .cartBookBtn {
+        width: 90%;
+        height: 38px;
+        font-size: 14px;
+    }
+}
+
+/* Small tablets and large phones (600px - 767px) */
+@media screen and (max-width: 767px) and (min-width: 600px) {
+    .mainSection {
+        padding: 20px;
+        margin-top: 50px;
+        gap: 16px;
+        flex-direction: column;
+    }
+
+    .filterSide {
+        width: 100%;
+        padding: 16px;
+        margin-bottom: 16px;
+    }
+
+    .filterSide .filterTitle {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+
+    .filterSide .filterGroup {
+        margin-bottom: 12px;
+        gap: 1px;
+    }
+
+    .filterSide .filterGroup label {
+        font-size: 13px;
+        margin-bottom: 3px;
+    }
+
+    .filterGroup input,
+    .filterGroup select {
+        padding: 6px;
+        font-size: 13px;
+    }
+
+    .filterBtn {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .contentSide {
+        width: 100%;
+        justify-content: space-around;
+        gap: 12px;
+    }
+
+    .contentSide .CarCart {
+        width: 48%;
+        height: 380px;
+        margin-bottom: 16px;
+    }
+
+    .contentSide .CarCart .cardCarTitle {
+        font-size: 17px;
+        padding: 0 8px;
+    }
+
+    .contentSide .CarCart .cartTxtContainer {
+        padding: 0 8px;
+        font-size: 12px;
+    }
+
+    .contentSide .CarCart .cartTxtContainer .cartRating {
+        gap: 6px;
+    }
+
+    .contentSide .CarCart .cartBookBtn {
+        width: 88%;
+        height: 36px;
+        font-size: 13px;
+    }
+}
+
+/* Portrait tablets (481px - 599px) */
+@media screen and (max-width: 599px) and (min-width: 481px) {
+    .mainSection {
+        padding: 16px;
+        margin-top: 40px;
+        gap: 12px;
+        flex-direction: column;
+    }
+
+    .filterSide {
+        width: 100%;
+        padding: 14px;
+        margin-bottom: 12px;
+    }
+
+    .filterSide .filterTitle {
+        font-size: 15px;
+        margin-bottom: 6px;
+    }
+
+    .filterSide .filterGroup {
+        margin-bottom: 10px;
+        gap: 1px;
+    }
+
+    .filterSide .filterGroup label {
+        font-size: 12px;
+        margin-bottom: 2px;
+    }
+
+    .filterGroup input,
+    .filterGroup select {
+        padding: 5px;
+        font-size: 12px;
+    }
+
+    .filterBtn {
+        padding: 7px;
+        font-size: 13px;
+    }
+
+    .contentSide {
+        width: 100%;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .contentSide .CarCart {
+        width: 100%;
+        height: 360px;
+        margin-bottom: 12px;
+    }
+
+    .contentSide .CarCart .cardCarTitle {
+        font-size: 16px;
+        padding: 0 8px;
+    }
+
+    .contentSide .CarCart .cartTxtContainer {
+        padding: 0 8px;
+        font-size: 12px;
+    }
+
+    .contentSide .CarCart .cartTxtContainer .cartRating {
+        gap: 5px;
+    }
+
+    .contentSide .CarCart .cartBookBtn {
+        width: 86%;
+        height: 34px;
+        font-size: 12px;
+    }
+}
+
+/* Mobile Responsive CSS - All phone sizes */
+
+/* Large phones (421px - 480px) */
+@media screen and (max-width: 480px) and (min-width: 421px) {
+    .mainSection {
+        padding: 12px;
+        margin-top: 30px;
+        gap: 8px;
+        flex-direction: column;
+    }
+
+    .filterSide {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 8px;
+        border-radius: 8px;
+    }
+
+    .filterSide .filterTitle {
+        font-size: 14px;
+        margin-bottom: 4px;
+    }
+
+    .filterSide .filterGroup {
+        margin-bottom: 8px;
+        gap: 0px;
+    }
+
+    .filterSide .filterGroup label {
+        font-size: 11px;
+        margin-bottom: 2px;
+    }
+
+    .filterGroup input,
+    .filterGroup select {
+        padding: 4px;
+        font-size: 11px;
+        border-radius: 4px;
+    }
+
+    .filterBtn {
+        padding: 6px;
+        font-size: 12px;
+        border-radius: 4px;
+    }
+
+    .contentSide {
+        width: 100%;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .contentSide .CarCart {
+        width: 100%;
+        height: 340px;
+        margin-bottom: 8px;
+        border-radius: 12px;
+        padding-bottom: 12px;
+    }
+
+    .contentSide .CarCart .carImg {
+        height: 40%;
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+    }
+
+    .contentSide .CarCart .cardCarTitle {
+        font-size: 15px;
+        padding: 0 6px;
+    }
+
+    .contentSide .CarCart .cartTxtContainer {
+        padding: 0 6px;
+        font-size: 11px;
+    }
+
+    .contentSide .CarCart .cartTxtContainer .cartRating {
+        gap: 4px;
+    }
+
+    .contentSide .CarCart .cartBookBtn {
+        width: 84%;
+        height: 32px;
+        font-size: 11px;
+        border-radius: 12px;
+    }
+}
+
+/* Standard phones (376px - 420px) */
+@media screen and (max-width: 420px) and (min-width: 376px) {
+    .mainSection {
+        padding: 10px;
+        margin-top: 25px;
+        gap: 6px;
+        flex-direction: column;
+    }
+
+    .filterSide {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 6px;
+        border-radius: 8px;
+    }
+
+    .filterSide .filterTitle {
+        font-size: 13px;
+        margin-bottom: 3px;
+    }
+
+    .filterSide .filterGroup {
+        margin-bottom: 6px;
+        gap: 0px;
+    }
+
+    .filterSide .filterGroup label {
+        font-size: 10px;
+        margin-bottom: 1px;
+    }
+
+    .filterGroup input,
+    .filterGroup select {
+        padding: 3px;
+        font-size: 10px;
+        border-radius: 3px;
+    }
+
+    .filterBtn {
+        padding: 5px;
+        font-size: 11px;
+        border-radius: 3px;
+    }
+
+    .contentSide {
+        width: 100%;
+        justify-content: center;
+        gap: 6px;
+    }
+
+    .contentSide .CarCart {
+        width: 100%;
+        height: 320px;
+        margin-bottom: 6px;
+        border-radius: 10px;
+        padding-bottom: 10px;
+    }
+
+    .contentSide .CarCart .carImg {
+        height: 42%;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+    .contentSide .CarCart .cardCarTitle {
+        font-size: 14px;
+        padding: 0 5px;
+    }
+
+    .contentSide .CarCart .cartTxtContainer {
+        padding: 0 5px;
+        font-size: 10px;
+    }
+
+    .contentSide .CarCart .cartTxtContainer .cartRating {
+        gap: 3px;
+    }
+
+    .contentSide .CarCart .cartBookBtn {
+        width: 82%;
+        height: 30px;
+        font-size: 10px;
+        border-radius: 10px;
+    }
+}
+
+/* Small phones (321px - 375px) */
+@media screen and (max-width: 375px) and (min-width: 321px) {
+    .mainSection {
+        padding: 8px;
+        margin-top: 20px;
+        gap: 4px;
+        flex-direction: column;
+    }
+
+    .filterSide {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 4px;
+        border-radius: 6px;
+    }
+
+    .filterSide .filterTitle {
+        font-size: 12px;
+        margin-bottom: 2px;
+    }
+
+    .filterSide .filterGroup {
+        margin-bottom: 4px;
+        gap: 0px;
+    }
+
+    .filterSide .filterGroup label {
+        font-size: 9px;
+        margin-bottom: 1px;
+    }
+
+    .filterGroup input,
+    .filterGroup select {
+        padding: 2px;
+        font-size: 9px;
+        border-radius: 2px;
+    }
+
+    .filterBtn {
+        padding: 4px;
+        font-size: 10px;
+        border-radius: 2px;
+    }
+
+    .contentSide {
+        width: 100%;
+        justify-content: center;
+        gap: 4px;
+    }
+
+    .contentSide .CarCart {
+        width: 100%;
+        height: 300px;
+        margin-bottom: 4px;
+        border-radius: 8px;
+        padding-bottom: 8px;
+    }
+
+    .contentSide .CarCart .carImg {
+        height: 44%;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+    }
+
+    .contentSide .CarCart .cardCarTitle {
+        font-size: 13px;
+        padding: 0 4px;
+    }
+
+    .contentSide .CarCart .cartTxtContainer {
+        padding: 0 4px;
+        font-size: 9px;
+    }
+
+    .contentSide .CarCart .cartTxtContainer .cartRating {
+        gap: 2px;
+    }
+
+    .contentSide .CarCart .cartBookBtn {
+        width: 80%;
+        height: 28px;
+        font-size: 9px;
+        border-radius: 8px;
+    }
+}
+
+/* Extra small phones (280px - 320px) */
+@media screen and (max-width: 320px) and (min-width: 280px) {
+    .mainSection {
+        padding: 6px;
+        margin-top: 15px;
+        gap: 2px;
+        flex-direction: column;
+    }
+
+    .filterSide {
+        width: 100%;
+        padding: 6px;
+        margin-bottom: 2px;
+        border-radius: 4px;
+    }
+
+    .filterSide .filterTitle {
+        font-size: 11px;
+        margin-bottom: 1px;
+    }
+
+    .filterSide .filterGroup {
+        margin-bottom: 2px;
+        gap: 0px;
+    }
+
+    .filterSide .filterGroup label {
+        font-size: 8px;
+        margin-bottom: 0px;
+    }
+
+    .filterGroup input,
+    .filterGroup select {
+        padding: 1px;
+        font-size: 8px;
+        border-radius: 1px;
+    }
+
+    .filterBtn {
+        padding: 3px;
+        font-size: 9px;
+        border-radius: 1px;
+    }
+
+    .contentSide {
+        width: 100%;
+        justify-content: center;
+        gap: 2px;
+    }
+
+    .contentSide .CarCart {
+        width: 100%;
+        height: 280px;
+        margin-bottom: 2px;
+        border-radius: 6px;
+        padding-bottom: 6px;
+    }
+
+    .contentSide .CarCart .carImg {
+        height: 46%;
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
+    }
+
+    .contentSide .CarCart .cardCarTitle {
+        font-size: 12px;
+        padding: 0 3px;
+    }
+
+    .contentSide .CarCart .cartTxtContainer {
+        padding: 0 3px;
+        font-size: 8px;
+    }
+
+    .contentSide .CarCart .cartTxtContainer .cartRating {
+        gap: 1px;
+    }
+
+    .contentSide .CarCart .cartBookBtn {
+        width: 78%;
+        height: 26px;
+        font-size: 8px;
+        border-radius: 6px;
+    }
+}
+
+/* Ultra small phones (below 280px) */
+@media screen and (max-width: 279px) {
+    .mainSection {
+        padding: 4px;
+        margin-top: 10px;
+        gap: 1px;
+        flex-direction: column;
+    }
+
+    .filterSide {
+        width: 100%;
+        padding: 4px;
+        margin-bottom: 1px;
+        border-radius: 2px;
+    }
+
+    .filterSide .filterTitle {
+        font-size: 10px;
+        margin-bottom: 0px;
+    }
+
+    .filterSide .filterGroup {
+        margin-bottom: 1px;
+        gap: 0px;
+    }
+
+    .filterSide .filterGroup label {
+        font-size: 7px;
+        margin-bottom: 0px;
+    }
+
+    .filterGroup input,
+    .filterGroup select {
+        padding: 1px;
+        font-size: 7px;
+    }
+
+    .filterBtn {
+        padding: 2px;
+        font-size: 8px;
+    }
+
+    .contentSide {
+        width: 100%;
+        justify-content: center;
+        gap: 1px;
+    }
+
+    .contentSide .CarCart {
+        width: 100%;
+        height: 260px;
+        margin-bottom: 1px;
+        border-radius: 4px;
+        padding-bottom: 4px;
+    }
+
+    .contentSide .CarCart .carImg {
+        height: 48%;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+    }
+
+    .contentSide .CarCart .cardCarTitle {
+        font-size: 11px;
+        padding: 0 2px;
+    }
+
+    .contentSide .CarCart .cartTxtContainer {
+        padding: 0 2px;
+        font-size: 7px;
+    }
+
+    .contentSide .CarCart .cartTxtContainer .cartRating {
+        gap: 1px;
+    }
+
+    .contentSide .CarCart .cartBookBtn {
+        width: 76%;
+        height: 24px;
+        font-size: 7px;
+        border-radius: 4px;
+    }
 }
