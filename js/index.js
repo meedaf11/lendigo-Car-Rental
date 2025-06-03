@@ -27,7 +27,7 @@ fetch("footer.html")
 
 document.addEventListener("DOMContentLoaded", () => {
   const dateDisplay = document.getElementById("date-display");
-  let picker = null; // ⬅️ تعريف picker هنا
+  let picker = null; 
 
   if (dateDisplay) {
     picker = new Litepicker({
@@ -83,19 +83,19 @@ document.addEventListener('DOMContentLoaded', () => {
       return response.json();
     })
     .then(cars => {
-      // تحويل car_rating إلى رقم و isAutomatic إلى "YES"/"NO"
+     
       cars.forEach(car => {
         car.car_rating = parseFloat(car.car_rating);
         car.isAutomatic = (parseInt(car.isAutomatic) === 1) ? 'YES' : 'NO';
         if (!car.car_fuel) car.car_fuel = 'Unknown';
       });
 
-      // ترتيب تنازلي حسب التقييم وأخذ أول 4
+      
       const top4 = cars
         .sort((a, b) => b.car_rating - a.car_rating)
         .slice(0, 4);
 
-      // عرض الكروت
+      
       const container = document.querySelector('.ratedCartContainer');
       container.innerHTML = '';
 
@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
         card.className = 'topCarCart';
         card.innerHTML = `
           <img class="carImg" src="${car.image_url}" alt="${car.car_name}">
-          <h3 class="cardCarTitle">${car.brand} ${car.model}</h3>
+          <h3 class="cardCarTitle">${car.car_name} ${car.model}</h3>
           <div class="cartTxtContainer">
             <span>Kilometers</span>
             <p><span class="carKm">${car.kilometers}</span> KM</p>

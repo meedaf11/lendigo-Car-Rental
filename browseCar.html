@@ -1,25 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Browse Car</title>
     <link rel="stylesheet" href="style/browsCar.css">
 </head>
+
 <body>
 
     <div id="header-placeholder"></div>
 
-    <div class="one">
+    <div class="mainSection">
 
+        <div class="filterSide">
+            <h3 class="filterTitle">Filter Cars</h3>
 
+            <div class="filterGroup">
+                <label for="priceMin">Min Price</label>
+                <input type="number" id="priceMin" placeholder="e.g. 100">
+            </div>
+
+            <div class="filterGroup">
+                <label for="priceMax">Max Price</label>
+                <input type="number" id="priceMax" placeholder="e.g. 500">
+            </div>
+
+            <div class="filterGroup">
+                <label for="brand">Brand</label>
+                <select id="brand">
+                    <option value="" disabled selected>Select Brand</option>
+                    <!-- dynamically filled later -->
+                </select>
+            </div>
+
+            <div class="filterGroup">
+                <label for="rating">Top Rating</label>
+                <select id="rating">
+                    <option value="" disabled selected>Any</option>
+                </select>
+            </div>
+
+            <div class="filterGroup">
+                <label for="release">Release Year</label>
+                <select id="release">
+                    <option value="" disabled selected>Any</option>
+                    
+                </select>
+            </div>
+
+            <div class="filterGroup" id="isAvaillable">
+
+                <label for="available" id="labelAvailable">Available Only</label>
+                <input type="checkbox" id="available">
+
+            </div>
+
+            <button class="filterBtn">Apply Filters</button>
+        </div>
+
+        <div class="contentSide" id="contentSide"></div>
 
     </div>
 
+
+
     <div id="footer-placeholder"></div>
 
-    
+
 </body>
 
 <script src="js/browseCar.js"></script>
+
 </html>
