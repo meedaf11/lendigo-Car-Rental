@@ -531,6 +531,14 @@ header {
   justify-content: space-between;
 }
 
+.testimonials .content.active .card .reviewInfo h3{
+  
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+
+}
+
 .testimonials .content.active .card h4 {
   margin: 10px 0 5px;
 }

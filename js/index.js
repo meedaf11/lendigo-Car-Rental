@@ -73,6 +73,92 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+
+// Get All Cars : 
+
+document.addEventListener('DOMContentLoaded', () => {
+  fetch('api/get_cars.php')
+    .then(response => {
+      if (!response.ok) throw new Error(`Fetch error: ${response.status}`);
+      return response.json();
+    })
+    .then(cars => {
+      // تحويل car_rating إلى رقم و isAutomatic إلى "YES"/"NO"
+      cars.forEach(car => {
+        car.car_rating = parseFloat(car.car_rating);
+        car.isAutomatic = (parseInt(car.isAutomatic) === 1) ? 'YES' : 'NO';
+        if (!car.car_fuel) car.car_fuel = 'Unknown';
+      });
+
+      // ترتيب تنازلي حسب التقييم وأخذ أول 4
+      const top4 = cars
+        .sort((a, b) => b.car_rating - a.car_rating)
+        .slice(0, 4);
+
+      // عرض الكروت
+      const container = document.querySelector('.ratedCartContainer');
+      container.innerHTML = '';
+
+      top4.forEach(car => {
+        const card = document.createElement('div');
+        card.className = 'topCarCart';
+        card.innerHTML = `
+          <img class="carImg" src="${car.image_url}" alt="${car.car_name}">
+          <h3 class="cardCarTitle">${car.brand} ${car.model}</h3>
+          <div class="cartTxtContainer">
+            <span>Kilometers</span>
+            <p><span class="carKm">${car.kilometers}</span> KM</p>
+          </div>
+          <div class="cartTxtContainer">
+            <span>Automatic</span>
+            <span class="carAuto">${car.isAutomatic}</span>
+          </div>
+          <div class="cartTxtContainer">
+            <span>Fuel Type</span>
+            <span class="carFuel">${car.car_fuel}</span>
+          </div>
+          <div class="cartTxtContainer">
+            <div class="cartPrice">
+              <p>
+                <span class="carPrice">${car.price_per_day}</span> dh
+                <span class="pd">/Per Day</span>
+              </p>
+            </div>
+            <div class="cartRating">
+              <span>${car.car_rating.toFixed(2)}</span>
+              <img src="assets/images/rating_ic.svg" alt="rating-icon" />
+            </div>
+          </div>
+          <button class="cartBookBtn">BOOK NOW</button>
+        `;
+        container.appendChild(card);
+      });
+    })
+    .catch(err => {
+      console.error(err);
+      document.querySelector('.ratedCartContainer').innerHTML = `
+        <p style="color:red; text-align:center;">تعذّر تحميل السيارات.</p>
+      `;
+    });
+});
+
+
+ // Call the PHP script to update reviews.json every time the page loads
+ fetch('api/get_reviews.php')
+ .then(response => {
+   if (!response.ok) {
+     throw new Error("Failed to update reviews.json");
+   }
+   return response.json();
+ })
+ .then(data => {
+   console.log("reviews.json updated", data);
+ })
+ .catch(error => {
+   console.error("Error updating reviews:", error);
+ });
+
+
 function showTab(tabId) {
   document
     .querySelectorAll(".content")
@@ -92,7 +178,7 @@ function showTab(tabId) {
 document.addEventListener("DOMContentLoaded", () => {
   let data;
 
-  fetch("reviews.json")
+  fetch("api/reviews.json")
     .then((response) => response.json())
     .then((json) => {
       data = json;
@@ -103,13 +189,13 @@ document.addEventListener("DOMContentLoaded", () => {
   function loadContent(type, containerId) {
     const container = document.getElementById(containerId);
     container.innerHTML = "";
-    data[type].forEach((item) => {
+    data[type].slice(0, 4).forEach((item) => {
       const card = document.createElement("div");
       card.className = "card";
       card.innerHTML = `
           <div class="reviewInfo">
           <img src="assets/images/quote.svg" alt="" />
-          <h3>${item.name} </h3>
+          <h3>${item.username} </h3>
           <span class="rating">${item.rating} ⭐</span>
           </div>
           

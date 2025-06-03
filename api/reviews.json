@@ -1,0 +1,84 @@
+{
+    "carReviews": [
+        {
+            "username": "john_doe",
+            "rating": "5.00",
+            "text": "Excellent service and the car was very clean!",
+            "button": "See Car"
+        },
+        {
+            "username": "john_doe",
+            "rating": "5.00",
+            "text": "Very smooth ride. I’ll definitely book again.",
+            "button": "See Car"
+        },
+        {
+            "username": "agency_procar",
+            "rating": "4.00",
+            "text": "The car was in good condition, but pick-up took some time.",
+            "button": "See Car"
+        },
+        {
+            "username": "agency_procar",
+            "rating": "4.00",
+            "text": "Customer support was responsive. Car was fine.",
+            "button": "See Car"
+        },
+        {
+            "username": "fatima_rider",
+            "rating": "3.00",
+            "text": "It was okay, but the AC wasn’t working properly.",
+            "button": "See Car"
+        },
+        {
+            "username": "rent4u_agency",
+            "rating": "2.00",
+            "text": "The car was not as described. Needs maintenance.",
+            "button": "See Car"
+        },
+        {
+            "username": "rent4u_agency",
+            "rating": "1.00",
+            "text": "Bad experience. The brakes were worn out.",
+            "button": "See Car"
+        }
+    ],
+    "agencyReviews": [
+        {
+            "username": "john_doe",
+            "rating": "5.00",
+            "text": "Outstanding customer service and smooth process.",
+            "button": "See Agency"
+        },
+        {
+            "username": "fatima_rider",
+            "rating": "5.00",
+            "text": "Amazing agency! Very professional and helpful.",
+            "button": "See Agency"
+        },
+        {
+            "username": "agency_procar",
+            "rating": "4.00",
+            "text": "Reliable agency, car was in good shape.",
+            "button": "See Agency"
+        },
+        {
+            "username": "john_doe",
+            "rating": "4.00",
+            "text": "Good experience, would rent again.",
+            "button": "See Agency"
+        },
+        {
+            "username": "fatima_rider",
+            "rating": "3.00",
+            "text": "Decent overall, but pick-up was delayed.",
+            "button": "See Agency"
+        },
+        {
+            "username": "rent4u_agency",
+            "rating": "2.00",
+            "text": "Not very friendly staff and long wait times.",
+            "button": "See Agency"
+        }
+    ]
+}
