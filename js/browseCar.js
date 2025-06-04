@@ -99,13 +99,16 @@ fetch("api/get_cars.php")
             <img src="assets/images/rating_ic.svg" alt="rating-icon" />
           </div>
         </div>
-        <button class="cartBookBtn">View Car</button>
+        <button class="cartBookBtn" data-id="${car.car_id}">View Car</button>
       `;
       container.appendChild(card);
+      card.querySelector(".cartBookBtn").addEventListener("click", function () {
+        const carId = this.getAttribute("data-id");
+        window.location.href = `carDetail.html?car_id=${carId}`;
+      });
     });
   }
 
-  // استخراج الفلاتر من عنوان URL
 const urlParams = new URLSearchParams(window.location.search);
 const filterFromURL = {
   brand: urlParams.get("brand") || "",
@@ -120,7 +123,6 @@ const filterFromURL = {
   .then(cars => {
     window.allCars = cars;
 
-    // فلترة السيارات إذا وُجدت فلاتر في الرابط
     let filteredCars = cars;
 
     if (filterFromURL.brand || filterFromURL.model || filterFromURL.city) {
@@ -132,7 +134,6 @@ const filterFromURL = {
       });
     }
 
-    // عرض النتائج
     displayAllCars(filteredCars);
   });
 
