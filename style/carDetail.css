@@ -139,6 +139,92 @@ body {
     color: black;
 }
 
+/* Start Review */
+
+.container .carReviews{
+    margin-top: 32px;
+}
+
+.container .carReviewsContainer{
+
+    width: 100%;
+    min-height: 20vh;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2%;
+    margin-top: 32px;
+
+}
+
+.container .carReviewsContainer .reviews-wrapper {
+    display: flex;
+    gap: 2%;
+    width: 100%;
+    justify-content: center;
+}
+
+.container .carReviewsContainer .reviews-wrapper .review-card {
+    max-width: 28%;
+    height: 200px;
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 16px;
+    font-family: 'poppins', sans-serif;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.578);
+  }
+  
+  .container  .carReviewsContainer .reviews-wrapper .review-card .review-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .container  .carReviewsContainer .reviews-wrapper .review-card .review-header .quote-icon {
+    font-size: 20px;
+    color: #888;
+    margin-right: 8px;
+  }
+  
+  .container .carReviewsContainer .reviews-wrapper  .review-card .review-header .review-author {
+    font-weight: bold;
+    font-size: 16px;
+  }
+  
+  .container .carReviewsContainer .reviews-wrapper .review-card .review-header .review-rating {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    color: #000;
+    font-size: 14px;
+  }
+  
+  .container .carReviewsContainer .reviews-wrapper  .review-card .review-header .review-rating .rating-number {
+    margin-right: 4px;
+  }
+  
+  .container .carReviewsContainer .reviews-wrapper .review-card .review-header .review-rating .star-icon {
+    color: gold;
+    font-size: 16px;
+  }
+  
+  .container .carReviewsContainer .reviews-wrapper .review-card .review-text {
+    font-size: 14px;
+    color: #333;
+    line-height: 1.5;
+  }
+
+  .container .carReviewsContainer .arrow{
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+  }
+  
+
+/* End Review */
+
 @media screen and (max-width: 1024px) {
     .container {
         padding: 24px;
