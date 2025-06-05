@@ -1,0 +1,270 @@
+@import url("fonts.css");
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    width: 100%;
+    padding: 32px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.container .car-header {
+    width: 100%;
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.container .car-header .car-image {
+    width: 60%;
+}
+
+.car-image img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.container .car-header .car-details {
+    width: 39%;
+    padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.container .car-header .car-details .car-title {
+    font-size: 28px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    color: black;
+}
+
+.container .car-header .car-details .car-specs {
+    display: flex;
+    gap: 15px;
+    flex-direction: column;
+    margin-top: 16px;
+}
+
+.container .car-header .car-details .car-specs .spec-row {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.container .car-header .car-details .car-specs .spec-row .spec-label {
+    color: #5C5C5C;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+}
+
+.container .car-header .car-details .car-specs .spec-row .spec-value {
+    color: #5C5C5C;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+}
+
+.car-details .booking-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.car-details .booking-section .book-btn {
+    width: 65%;
+    height: 45px;
+    background: #e53e3e;
+    color: white;
+    border: none;
+    border-radius: 16px;
+    font-size: 18px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.car-details .booking-section  .book-btn:hover {
+    background: #c53030;
+}
+
+.car-details .booking-section .rating {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.car-details .booking-section .rating .rating-number {   
+    font-size: 24px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+}
+
+
+.container .car-header .description {
+    padding: 20px;
+    border-top: 1px solid #eee;
+}
+
+.container .car-header .description .section-title {
+    font-size: 24px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: black;
+}
+
+.container .car-header .description .description-text {
+    font-size: 20px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    margin-bottom: 15px;
+    color: black;
+}
+
+@media screen and (max-width: 1024px) {
+    .container {
+        padding: 24px;
+    }
+    
+    .container .car-header .car-details .car-title {
+        font-size: 24px;
+    }
+    
+    .container .car-header .description .section-title {
+        font-size: 20px;
+    }
+    
+    .container .car-header .description .description-text {
+        font-size: 18px;
+    }
+}
+
+/* Tablet Portrait (768px and below) */
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+    
+    .container .car-header {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .container .car-header .car-image {
+        width: 100%;
+    }
+    
+    .container .car-header .car-details {
+        width: 100%;
+        padding: 0;
+    }
+    
+    .container .car-header .car-details .car-title {
+        font-size: 22px;
+    }
+    
+    .car-details .booking-section .book-btn {
+        font-size: 16px;
+        height: 40px;
+    }
+    
+    .car-details .booking-section .rating .rating-number {
+        font-size: 20px;
+    }
+}
+
+/* Mobile Large (480px - 767px) */
+@media screen and (max-width: 480px) {
+    .container {
+        padding: 16px;
+        margin: 10px;
+        border-radius: 8px;
+    }
+    
+    .container .car-header .car-details .car-title {
+        font-size: 20px;
+    }
+    
+    .container .car-header .car-details .car-specs .spec-row {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .car-details .booking-section {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .car-details .booking-section .book-btn {
+        width: 100%;
+        font-size: 16px;
+    }
+    
+    .car-details .booking-section .rating {
+        justify-content: center;
+    }
+    
+    .container .car-header .description {
+        padding: 15px 0;
+    }
+    
+    .container .car-header .description .section-title {
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+    
+    .container .car-header .description .description-text {
+        font-size: 16px;
+    }
+}
+
+/* Mobile Small (320px - 479px) */  
+@media screen and (max-width: 320px) {
+    .container {
+        padding: 12px;
+        margin: 8px;
+    }
+    
+    .container .car-header .car-details .car-title {
+        font-size: 18px;
+    }
+    
+    .container .car-header .car-details .car-specs {
+        gap: 10px;
+    }
+    
+    .car-details .booking-section .book-btn {
+        height: 35px;
+        font-size: 14px;
+    }
+    
+    .car-details .booking-section .rating .rating-number {
+        font-size: 18px;
+    }
+    
+    .container .car-header .description .section-title {
+        font-size: 16px;
+    }
+    
+    .container .car-header .description .description-text {
+        font-size: 14px;
+    }
+}

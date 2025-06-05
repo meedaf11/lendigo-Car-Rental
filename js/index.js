@@ -140,7 +140,6 @@ document.addEventListener("DOMContentLoaded", () => {
     dateDisplay.textContent = "Choose Date";
   }
 
-  // ⚡️ عند الضغط على زر البحث
   document.querySelector(".searchBtn").addEventListener("click", () => {
     const brand = document.getElementById("brand").value;
   const model = document.getElementById("model").value;
@@ -210,9 +209,13 @@ document.addEventListener("DOMContentLoaded", () => {
               <img src="assets/images/rating_ic.svg" alt="rating-icon" />
             </div>
           </div>
-          <button class="cartBookBtn">BOOK NOW</button>
+          <button class="cartBookBtn" data-id="${car.car_id}">BOOK NOW</button>
         `;
         container.appendChild(card);
+        card.querySelector(".cartBookBtn").addEventListener("click", function () {
+          const carId = this.getAttribute("data-id");
+          window.location.href = `carDetail.html?car_id=${carId}`;
+        });
       });
     })
     .catch((err) => {
