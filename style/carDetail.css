@@ -1,356 +1,690 @@
 @import url("fonts.css");
 
-
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    background-color: #f5f5f5;
-    color: #333;
-    line-height: 1.6;
+  background-color: #f5f5f5;
+  color: #333;
+  line-height: 1.6;
 }
 
 .container {
-    width: 100%;
-    padding: 32px;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
+  width: 100%;
+  padding: 32px;
+  background: white;
+  margin-top: 75px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
 
 .container .car-header {
-    width: 100%;
-    padding: 20px 0;
-    display: flex;
-    justify-content: space-between;
+  width: 100%;
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
 }
 
 .container .car-header .car-image {
-    width: 60%;
+  width: 60%;
 }
 
 .car-image img {
-    width: 100%;
-    object-fit: cover;
-    border-radius: 8px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
 .container .car-header .car-details {
-    width: 39%;
-    padding: 0 16px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+  width: 39%;
+  padding: 0 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 .container .car-header .car-details .car-title {
-    font-size: 28px;
-    font-family: "Poppins", sans-serif;
-    font-weight: 700;
-    color: black;
+  font-size: 28px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  color: black;
 }
 
 .container .car-header .car-details .car-specs {
-    display: flex;
-    gap: 15px;
-    flex-direction: column;
-    margin-top: 16px;
+  display: flex;
+  gap: 15px;
+  flex-direction: column;
+  margin-top: 16px;
 }
 
 .container .car-header .car-details .car-specs .spec-row {
-    display: flex;
-    justify-content: space-between;
-
+  display: flex;
+  justify-content: space-between;
 }
 
 .container .car-header .car-details .car-specs .spec-row .spec-label {
-    color: #5C5C5C;
-    font-family: "Poppins", sans-serif;
-    font-weight: 700;
+  color: #5c5c5c;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
 }
 
 .container .car-header .car-details .car-specs .spec-row .spec-value {
-    color: #5C5C5C;
-    font-family: "Poppins", sans-serif;
-    font-weight: 500;
+  color: #5c5c5c;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
 }
 
 .car-details .booking-section {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 15px;
-    margin-top: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-top: 15px;
 }
 
 .car-details .booking-section .book-btn {
-    width: 65%;
-    height: 45px;
-    background: #e53e3e;
-    color: white;
-    border: none;
-    border-radius: 16px;
-    font-size: 18px;
-    font-family: "Poppins", sans-serif;
-    font-weight: 700;
-    cursor: pointer;
-    transition: background 0.3s;
+  width: 65%;
+  height: 45px;
+  background: #e53e3e;
+  color: white;
+  border: none;
+  border-radius: 16px;
+  font-size: 18px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(0);
+  box-shadow: 0 4px 12px rgba(229, 62, 62, 0.2);
 }
 
-.car-details .booking-section  .book-btn:hover {
-    background: #c53030;
+.car-details .booking-section .book-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.15),
+    transparent
+  );
+  transition: left 0.6s;
+}
+
+.car-details .booking-section .book-btn:hover {
+  background: #c53030;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(229, 62, 62, 0.35);
+  letter-spacing: 0.5px;
+}
+
+.car-details .booking-section .book-btn:hover::before {
+  left: 100%;
+}
+
+.car-details .booking-section .book-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 12px rgba(229, 62, 62, 0.3);
+  transition: all 0.1s ease;
 }
 
 .car-details .booking-section .rating {
-    display: flex;
-    align-items: center;
-    gap: 5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
-.car-details .booking-section .rating .rating-number {   
-    font-size: 24px;
-    font-family: "Poppins", sans-serif;
-    font-weight: 700;
+.car-details .booking-section .rating .rating-number {
+  font-size: 24px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
 }
-
 
 .container .car-header .description {
-    padding: 20px;
-    border-top: 1px solid #eee;
+  padding: 20px;
+  border-top: 1px solid #eee;
 }
 
 .container .car-header .description .section-title {
-    font-size: 24px;
-    font-family: "Poppins", sans-serif;
-    font-weight: 700;
-    margin-bottom: 25px;
-    color: black;
+  font-size: 24px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: black;
 }
 
 .container .car-header .description .description-text {
-    font-size: 20px;
-    font-family: "Poppins", sans-serif;
-    font-weight: 500;
-    margin-bottom: 15px;
-    color: black;
+  font-size: 20px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  margin-bottom: 15px;
+  color: black;
 }
 
 /* Start Review */
-
-.container .carReviews{
-    margin-top: 32px;
+.container .carReviews {
+  margin-top: 32px;
 }
 
-.container .carReviewsContainer{
-
-    width: 100%;
-    min-height: 20vh;
-    padding: 16px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 2%;
-    margin-top: 32px;
-
+.container .carReviewsContainer {
+  width: 100%;
+  min-height: 20vh;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2%;
+  margin-top: 32px;
 }
 
 .container .carReviewsContainer .reviews-wrapper {
-    display: flex;
-    gap: 2%;
-    width: 100%;
-    justify-content: center;
+  display: flex;
+  gap: 2%;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .container .carReviewsContainer .reviews-wrapper .review-card {
-    max-width: 28%;
-    height: 200px;
-    background-color: #fff;
-    border-radius: 12px;
+  flex: 1;
+  min-width: 280px;
+  max-width: 350px;
+  height: auto;
+  min-height: 200px;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 16px;
+  font-family: "poppins", sans-serif;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.578);
+  margin-bottom: 16px;
+}
+
+.container .carReviewsContainer .reviews-wrapper .review-card .review-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.container
+  .carReviewsContainer
+  .reviews-wrapper
+  .review-card
+  .review-header
+  .quote-icon {
+  font-size: 20px;
+  color: #888;
+  margin-right: 8px;
+}
+
+.container
+  .carReviewsContainer
+  .reviews-wrapper
+  .review-card
+  .review-header
+  .review-author {
+  font-weight: bold;
+  font-size: 16px;
+  flex: 1;
+  min-width: 120px;
+}
+
+.container
+  .carReviewsContainer
+  .reviews-wrapper
+  .review-card
+  .review-header
+  .review-rating {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  color: #000;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.container
+  .carReviewsContainer
+  .reviews-wrapper
+  .review-card
+  .review-header
+  .review-rating
+  .rating-number {
+  margin-right: 4px;
+}
+
+.container
+  .carReviewsContainer
+  .reviews-wrapper
+  .review-card
+  .review-header
+  .review-rating
+  .star-icon {
+  color: gold;
+  font-size: 16px;
+}
+
+.container .carReviewsContainer .reviews-wrapper .review-card .review-text {
+  font-size: 14px;
+  color: #333;
+  line-height: 1.5;
+}
+
+.container .carReviewsContainer .arrow {
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.PlaceReviewContainer {
+  width: 100%;
+  height: auto;
+  min-height: 50px;
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px;
+}
+
+.PlaceReviewContainer #placeReviewBtn {
+  width: 30%;
+  min-width: 200px;
+  max-width: 300px;
+  height: 40px;
+  background-color: #e53e3e;
+  color: white;
+  font-family: "poppins", sans-serif;
+  font-weight: 600;
+  border-radius: 16px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(0);
+  box-shadow: 0 4px 12px rgba(229, 62, 62, 0.2);
+}
+
+.PlaceReviewContainer #placeReviewBtn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.15),
+    transparent
+  );
+  transition: left 0.6s;
+}
+
+.PlaceReviewContainer #placeReviewBtn:hover {
+  background-color: #c53030;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(229, 62, 62, 0.35);
+  letter-spacing: 0.5px;
+}
+
+.PlaceReviewContainer #placeReviewBtn:hover::before {
+  left: 100%;
+}
+
+.PlaceReviewContainer #placeReviewBtn:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 12px rgba(229, 62, 62, 0.3);
+  transition: all 0.1s ease;
+}
+
+/* Responsive Design */
+
+/* Large Desktop (1200px and up) */
+@media (min-width: 1200px) {
+  .container .carReviewsContainer {
+    padding: 24px;
+    gap: 3%;
+  }
+  
+  .container .carReviewsContainer .reviews-wrapper {
+    gap: 3%;
+  }
+  
+  .container .carReviewsContainer .reviews-wrapper .review-card {
+    max-width: 30%;
+    min-width: 320px;
+  }
+}
+
+/* Medium Desktop/Laptop (992px to 1199px) */
+@media (max-width: 1199px) and (min-width: 992px) {
+  .container .carReviewsContainer {
+    padding: 20px;
+  }
+  
+  .container .carReviewsContainer .reviews-wrapper .review-card {
+    max-width: 32%;
+    min-width: 280px;
+  }
+}
+
+/* Tablet (768px to 991px) */
+@media (max-width: 991px) and (min-width: 768px) {
+  .container .carReviewsContainer {
+    flex-direction: column;
+    gap: 16px;
     padding: 16px;
-    font-family: 'poppins', sans-serif;
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.578);
   }
   
-  .container  .carReviewsContainer .reviews-wrapper .review-card .review-header {
-    display: flex;
+  .container .carReviewsContainer .reviews-wrapper {
+    flex-direction: row;
+    gap: 3%;
+    justify-content: center;
+  }
+  
+  .container .carReviewsContainer .reviews-wrapper .review-card {
+    flex: 1;
+    max-width: 45%;
+    min-width: 280px;
+  }
+  
+  .container .carReviewsContainer .arrow {
+    display: none;
+  }
+  
+  .PlaceReviewContainer #placeReviewBtn {
+    width: 40%;
+    min-width: 180px;
+  }
+}
+
+/* Small Tablet (576px to 767px) */
+@media (max-width: 767px) and (min-width: 576px) {
+  .container .carReviewsContainer {
+    flex-direction: column;
+    gap: 16px;
+    padding: 12px;
+    min-height: auto;
+  }
+  
+  .container .carReviewsContainer .reviews-wrapper {
+    flex-direction: column;
+    gap: 16px;
     align-items: center;
-    justify-content: space-between;
-    margin-bottom: 10px;
   }
   
-  .container  .carReviewsContainer .reviews-wrapper .review-card .review-header .quote-icon {
-    font-size: 20px;
-    color: #888;
-    margin-right: 8px;
+  .container .carReviewsContainer .reviews-wrapper .review-card {
+    width: 100%;
+    max-width: 500px;
+    min-width: auto;
   }
   
-  .container .carReviewsContainer .reviews-wrapper  .review-card .review-header .review-author {
-    font-weight: bold;
-    font-size: 16px;
+  .container .carReviewsContainer .arrow {
+    display: none;
   }
   
-  .container .carReviewsContainer .reviews-wrapper .review-card .review-header .review-rating {
-    display: flex;
-    align-items: center;
-    font-weight: bold;
-    color: #000;
-    font-size: 14px;
+  .PlaceReviewContainer #placeReviewBtn {
+    width: 60%;
+    min-width: 160px;
+    height: 44px;
+  }
+}
+
+/* Mobile (up to 575px) */
+@media (max-width: 575px) {
+  .container .carReviews {
+    margin-top: 24px;
   }
   
-  .container .carReviewsContainer .reviews-wrapper  .review-card .review-header .review-rating .rating-number {
-    margin-right: 4px;
+  .container .carReviewsContainer {
+    flex-direction: column;
+    gap: 12px;
+    padding: 8px;
+    margin-top: 24px;
+    min-height: auto;
   }
   
-  .container .carReviewsContainer .reviews-wrapper .review-card .review-header .review-rating .star-icon {
-    color: gold;
-    font-size: 16px;
+  .container .carReviewsContainer .reviews-wrapper {
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+  }
+  
+  .container .carReviewsContainer .reviews-wrapper .review-card {
+    width: 100%;
+    max-width: none;
+    min-width: auto;
+    padding: 12px;
+    min-height: 160px;
+  }
+  
+  .container
+    .carReviewsContainer
+    .reviews-wrapper
+    .review-card
+    .review-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  
+  .container
+    .carReviewsContainer
+    .reviews-wrapper
+    .review-card
+    .review-header
+    .review-author {
+    font-size: 15px;
+    min-width: auto;
+  }
+  
+  .container
+    .carReviewsContainer
+    .reviews-wrapper
+    .review-card
+    .review-header
+    .review-rating {
+    align-self: flex-end;
   }
   
   .container .carReviewsContainer .reviews-wrapper .review-card .review-text {
-    font-size: 14px;
-    color: #333;
-    line-height: 1.5;
-  }
-
-  .container .carReviewsContainer .arrow{
-    width: 32px;
-    height: 32px;
-    cursor: pointer;
+    font-size: 13px;
+    margin-top: 8px;
   }
   
+  .container .carReviewsContainer .arrow {
+    display: none;
+  }
+  
+  .PlaceReviewContainer {
+    margin-top: 12px;
+    padding: 0 8px;
+  }
+  
+  .PlaceReviewContainer #placeReviewBtn {
+    width: 80%;
+    min-width: 140px;
+    max-width: 280px;
+    height: 40px;
+    font-size: 14px;
+  }
+}
+
+/* Extra Small Mobile (up to 375px) */
+@media (max-width: 375px) {
+  .container .carReviewsContainer {
+    padding: 4px;
+  }
+  
+  .container .carReviewsContainer .reviews-wrapper .review-card {
+    padding: 10px;
+    border-radius: 8px;
+  }
+  
+  .container
+    .carReviewsContainer
+    .reviews-wrapper
+    .review-card
+    .review-header
+    .review-author {
+    font-size: 14px;
+  }
+  
+  .container .carReviewsContainer .reviews-wrapper .review-card .review-text {
+    font-size: 12px;
+  }
+  
+  .PlaceReviewContainer #placeReviewBtn {
+    width: 90%;
+    min-width: 120px;
+    height: 38px;
+    font-size: 13px;
+    border-radius: 12px;
+  }
+}
 
 /* End Review */
 
 @media screen and (max-width: 1024px) {
-    .container {
-        padding: 24px;
-    }
-    
-    .container .car-header .car-details .car-title {
-        font-size: 24px;
-    }
-    
-    .container .car-header .description .section-title {
-        font-size: 20px;
-    }
-    
-    .container .car-header .description .description-text {
-        font-size: 18px;
-    }
+  .container {
+    padding: 24px;
+  }
+
+  .container .car-header .car-details .car-title {
+    font-size: 24px;
+  }
+
+  .container .car-header .description .section-title {
+    font-size: 20px;
+  }
+
+  .container .car-header .description .description-text {
+    font-size: 18px;
+  }
 }
 
 /* Tablet Portrait (768px and below) */
 @media screen and (max-width: 768px) {
-    .container {
-        padding: 20px;
-    }
-    
-    .container .car-header {
-        flex-direction: column;
-        gap: 20px;
-    }
-    
-    .container .car-header .car-image {
-        width: 100%;
-    }
-    
-    .container .car-header .car-details {
-        width: 100%;
-        padding: 0;
-    }
-    
-    .container .car-header .car-details .car-title {
-        font-size: 22px;
-    }
-    
-    .car-details .booking-section .book-btn {
-        font-size: 16px;
-        height: 40px;
-    }
-    
-    .car-details .booking-section .rating .rating-number {
-        font-size: 20px;
-    }
+  .container {
+    padding: 20px;
+  }
+
+  .container .car-header {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .container .car-header .car-image {
+    width: 100%;
+  }
+
+  .container .car-header .car-details {
+    width: 100%;
+    padding: 0;
+  }
+
+  .container .car-header .car-details .car-title {
+    font-size: 22px;
+  }
+
+  .car-details .booking-section .book-btn {
+    font-size: 16px;
+    height: 40px;
+  }
+
+  .car-details .booking-section .rating .rating-number {
+    font-size: 20px;
+  }
 }
 
 /* Mobile Large (480px - 767px) */
 @media screen and (max-width: 480px) {
-    .container {
-        padding: 16px;
-        margin: 10px;
-        border-radius: 8px;
-    }
-    
-    .container .car-header .car-details .car-title {
-        font-size: 20px;
-    }
-    
-    .container .car-header .car-details .car-specs .spec-row {
-        flex-direction: column;
-        gap: 5px;
-    }
-    
-    .car-details .booking-section {
-        flex-direction: column;
-        gap: 15px;
-    }
-    
-    .car-details .booking-section .book-btn {
-        width: 100%;
-        font-size: 16px;
-    }
-    
-    .car-details .booking-section .rating {
-        justify-content: center;
-    }
-    
-    .container .car-header .description {
-        padding: 15px 0;
-    }
-    
-    .container .car-header .description .section-title {
-        font-size: 18px;
-        margin-bottom: 15px;
-    }
-    
-    .container .car-header .description .description-text {
-        font-size: 16px;
-    }
+  .container {
+    padding: 16px;
+    margin: 10px;
+    border-radius: 8px;
+  }
+
+  .container .car-header .car-details .car-title {
+    font-size: 20px;
+  }
+
+  .container .car-header .car-details .car-specs .spec-row {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .car-details .booking-section {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .car-details .booking-section .book-btn {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  .car-details .booking-section .rating {
+    justify-content: center;
+  }
+
+  .container .car-header .description {
+    padding: 15px 0;
+  }
+
+  .container .car-header .description .section-title {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+
+  .container .car-header .description .description-text {
+    font-size: 16px;
+  }
 }
 
-/* Mobile Small (320px - 479px) */  
+/* Mobile Small (320px - 479px) */
 @media screen and (max-width: 320px) {
-    .container {
-        padding: 12px;
-        margin: 8px;
-    }
-    
-    .container .car-header .car-details .car-title {
-        font-size: 18px;
-    }
-    
-    .container .car-header .car-details .car-specs {
-        gap: 10px;
-    }
-    
-    .car-details .booking-section .book-btn {
-        height: 35px;
-        font-size: 14px;
-    }
-    
-    .car-details .booking-section .rating .rating-number {
-        font-size: 18px;
-    }
-    
-    .container .car-header .description .section-title {
-        font-size: 16px;
-    }
-    
-    .container .car-header .description .description-text {
-        font-size: 14px;
-    }
+  .container {
+    padding: 12px;
+    margin: 8px;
+  }
+
+  .container .car-header .car-details .car-title {
+    font-size: 18px;
+  }
+
+  .container .car-header .car-details .car-specs {
+    gap: 10px;
+  }
+
+  .car-details .booking-section .book-btn {
+    height: 35px;
+    font-size: 14px;
+  }
+
+  .car-details .booking-section .rating .rating-number {
+    font-size: 18px;
+  }
+
+  .container .car-header .description .section-title {
+    font-size: 16px;
+  }
+
+  .container .car-header .description .description-text {
+    font-size: 14px;
+  }
 }

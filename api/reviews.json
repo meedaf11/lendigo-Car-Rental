@@ -13,6 +13,12 @@
             "button": "See Car"
         },
         {
+            "username": "john_doe",
+            "rating": "5.00",
+            "text": "Excellent service and the car was very clean!",
+            "button": "See Car"
+        },
+        {
             "username": "agency_procar",
             "rating": "4.00",
             "text": "The car was in good condition, but pick-up took some time.",
@@ -22,6 +28,18 @@
             "username": "agency_procar",
             "rating": "4.00",
             "text": "Customer support was responsive. Car was fine.",
+            "button": "See Car"
+        },
+        {
+            "username": "agency_procar",
+            "rating": "4.00",
+            "text": "The car was in good condition, but pick-up took some time.",
+            "button": "See Car"
+        },
+        {
+            "username": "fatima_rider",
+            "rating": "3.00",
+            "text": "It was okay, but the AC wasn’t working properly.",
             "button": "See Car"
         },
         {
