@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 10, 2025 at 08:49 PM
+-- Generation Time: Jun 11, 2025 at 02:10 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -31,7 +31,6 @@ CREATE TABLE `agency` (
   `agency_id` int(11) NOT NULL,
   `name` varchar(150) NOT NULL,
   `contact_email` varchar(150) NOT NULL,
-  `agency_password` varchar(255) NOT NULL,
   `phone_number` varchar(15) NOT NULL,
   `agency_city` varchar(150) NOT NULL,
   `location` varchar(255) NOT NULL,
@@ -42,14 +41,13 @@ CREATE TABLE `agency` (
 -- Dumping data for table `agency`
 --
 
-INSERT INTO `agency` (`agency_id`, `name`, `contact_email`, `agency_password`, `phone_number`, `agency_city`, `location`, `rating`) VALUES
-(1, 'Agence Ahmed', 'ahmedAgency@gmail.com', '', '06123456789', 'Tangier', 'tangier-mghogha-morocco', 0.00),
-(2, 'Elite Voyages', 'contact@elitevoyages.com', '', '06543219876', 'Casablanca', 'casablanca-anfa-morocco', 0.00),
-(3, 'Sahara Travel', 'info@saharatravel.ma', '', '06234567890', 'Marrakech', 'marrakech-medina-morocco', 0.00),
-(4, 'Atlas Explorer', 'support@atlasexplorer.com', '', '06789123456', 'Fes', 'fes-ville-nouvelle-morocco', 0.00),
-(5, 'Atlas Voyages', 'contact@atlasvoyages.ma', '', '+212522220101', 'Casablanca', '18, Rue Sebta, Quartier Gauthier, Casablanca', 4.75),
-(6, 'Maroc Horizon Tours', 'info@marochorizontours.com', '', '+212661234567', 'Marrakech', 'Rue Ibn Aïcha, Gueliz, Marrakech', 4.60),
-(9, 'Afilal Car Agency', 'AfContact@gmail.com', '$2y$10$GkDOH.3PsJI9EqG7MfYuj.GrBNvDOD4f40SN.b06mXtFxCaaCjRQq', '0612457896', 'Tangier', 'Casabarata Rue 15 number 3', 0.00);
+INSERT INTO `agency` (`agency_id`, `name`, `contact_email`, `phone_number`, `agency_city`, `location`, `rating`) VALUES
+(1, 'Agence Ahmed', 'ahmedAgency@gmail.com', '06123456789', 'Tangier', 'tangier-mghogha-morocco', 0.00),
+(2, 'Elite Voyages', 'contact@elitevoyages.com', '06543219876', 'Casablanca', 'casablanca-anfa-morocco', 0.00),
+(3, 'Sahara Travel', 'info@saharatravel.ma', '06234567890', 'Marrakech', 'marrakech-medina-morocco', 0.00),
+(4, 'Atlas Explorer', 'support@atlasexplorer.com', '06789123456', 'Fes', 'fes-ville-nouvelle-morocco', 0.00),
+(5, 'Atlas Voyages', 'contact@atlasvoyages.ma', '+212522220101', 'Casablanca', '18, Rue Sebta, Quartier Gauthier, Casablanca', 4.75),
+(6, 'Maroc Horizon Tours', 'info@marochorizontours.com', '+212661234567', 'Marrakech', 'Rue Ibn Aïcha, Gueliz, Marrakech', 4.60);
 
 -- --------------------------------------------------------
 
@@ -76,11 +74,7 @@ INSERT INTO `agency_review` (`review_id`, `user_id`, `agency_id`, `rating`, `rev
 (3, 4, 5, 3.00, 'Decent overall, but pick-up was delayed.', '2025-06-02'),
 (4, 5, 1, 2.00, 'Not very friendly staff and long wait times.', '2025-06-02'),
 (5, 1, 3, 4.00, 'Good experience, would rent again.', '2025-06-02'),
-(6, 4, 2, 5.00, 'Amazing agency! Very professional and helpful.', '2025-06-02'),
-(7, 5, 15, 1.00, 'Bad experience. The brakes were worn out.', '2025-06-02'),
-(8, 1, 30, 5.00, 'Excellent service and the car was very clean!', '2025-06-07'),
-(9, 2, 30, 4.00, 'The car was in good condition, but pick-up took some time.', '2025-06-07'),
-(10, 4, 30, 3.00, 'It was okay, but the AC wasn’t working properly.', '2025-06-07');
+(6, 4, 2, 5.00, 'Amazing agency! Very professional and helpful.', '2025-06-02');
 
 -- --------------------------------------------------------
 
@@ -128,7 +122,7 @@ CREATE TABLE `car` (
 --
 
 INSERT INTO `car` (`car_id`, `agency_id`, `car_name`, `car_rating`, `description`, `model`, `places`, `brand`, `price_per_day`, `car_type`, `availability_status`, `image_url`, `car_fuel`, `kilometers`, `isAutomatic`) VALUES
-(1, 1, 'Dacia Logan', 3.50, 'Compact and efficient sedan', '2017', 5, 'Dacia', 250.00, 'Sedan', 'available', 'https://www.km77.com/images/medium/7/5/7/1/dacia-logan-lateral-frontal.327571.jpg', 'Gasoline', 65000, 1),
+(1, 1, 'Dacia Logan', 3.50, 'Compact and efficient sedan', '2017', 5, 'Dacia', 250.00, 'Sedan', 'available', 'https://promotionaumaroc.com/wp-content/uploads/2016/12/dacia-logan-maroc-voiture-neuve-promotion-2017.jpg', 'Gasoline', 65000, 1),
 (2, 2, 'Volkswagen Golf', 3.50, 'Reliable family hatchback', '2019', 5, 'Volkswagen', 370.00, 'Hatchback', 'available', 'https://media.ed.edmunds-media.com/volkswagen/golf/2019/oem/2019_volkswagen_golf_4dr-hatchback_14t-s_fq_oem_1_1600.jpg', 'Diesel', 45000, 1),
 (3, 3, 'Renault Zoe', 3.50, 'Electric compact city car', '2021', 5, 'Renault', 500.00, 'Electric / Hybrid', 'booked', 'https://www.larevueautomobile.com/images/fiche-technique/2021/Renault/ZOE/Renault_ZOE_MD_0.jpg', 'Electrical', 15000, 1),
 (4, 4, 'Tesla Model 3', 3.50, 'Luxurious electric sedan', '2022', 5, 'Tesla', 950.00, 'Electric / Hybrid', 'available', 'https://www.greencarguide.co.uk/wp-content/uploads/2022/05/Tesla-Model-3-Long-Range-001-low-res.jpeg', 'Electrical', 10000, 1),
@@ -157,7 +151,7 @@ INSERT INTO `car` (`car_id`, `agency_id`, `car_name`, `car_rating`, `description
 (27, 3, 'Hyundai Ioniq', 3.50, 'Efficient hybrid sedan', '2020', 5, 'Hyundai', 490.00, 'Electric / Hybrid', 'available', 'https://hips.hearstapps.com/hmg-prod/images/2020-hyundai-ioniq-hybrid-102-1590604533.jpg', 'Hybrid', 22000, 1),
 (28, 4, 'Mercedes CLA', 3.50, 'Stylish coupe', '2021', 4, 'Mercedes', 990.00, 'Coupe', 'available', 'https://di-uploads-pod3.dealerinspire.com/fletcherjonesmbnewport/uploads/2024/07/Newport-CLA-1024x683.png', 'Gasoline', 19000, 1),
 (29, 1, 'Ford Puma', 3.50, 'Compact crossover', '2021', 5, 'Ford', 440.00, 'SUV', 'booked', 'https://images.caradisiac.com/logos/4/4/3/9/264439/S8-essai-ford-puma-ecoboost-125-dct-7-2021-la-seule-offre-avec-une-boite-automatique-187678.jpg', 'Gasoline', 21000, 1),
-(30, 2, 'Audi Q3', 3.50, 'The 2021 Audi Q3 is a compact luxury SUV that blends sophisticated design with everyday practicality. Powered by a 2.0-liter turbocharged four-cylinder engine producing up to 228 horsepower, it offers a smooth and responsive driving experience, reaching 100 km/h in just over 7 seconds. Its exterior features a bold Singleframe grille, sharp LED headlights, and sculpted lines that give it a confident and modern presence on the road. Inside, the Q3 impresses with high-quality materials, a driver-focused layout, and advanced tech including a digital cockpit and MMI touchscreen display. With quattro all-wheel drive, versatile cargo space, and a refined cabin, the Audi Q3 2021 delivers a perfect mix of comfort, technology, and premium performance in a compact and stylish package.', '2021', 5, 'Audi', 890.00, 'Luxury', 'available', 'https://hips.hearstapps.com/hmg-prod/images/2021-audi-q3-mmp-1-1590773404.jpg', 'Gasoline', 23000, 1),
+(30, 2, 'Audi Q3', 3.50, 'Luxury compact SUV', '2021', 5, 'Audi', 890.00, 'Luxury', 'available', 'https://hips.hearstapps.com/hmg-prod/images/2021-audi-q3-mmp-1-1590773404.jpg', 'Gasoline', 23000, 1),
 (31, 3, 'Citroën ë-Berlingo', 3.50, 'Mini electric van', '2022', 5, 'Citroën', 490.00, 'Van / Minivan', 'available', 'https://journalauto.com/wp-content/uploads/2021/12/Citroen.jpg', 'Electrical', 15000, 1),
 (32, 4, 'Lexus ES', 3.50, 'Hybrid sedan', '2021', 5, 'Lexus', 950.00, 'Electric / Hybrid', 'booked', 'https://gofatherhood.com/wp-content/uploads/2021/07/2021-lexus-9012a-es-awd-9.jpg', 'Hybrid', 17000, 1),
 (33, 1, 'Porsche Taycan', 3.50, 'Electric performance', '2022', 4, 'Porsche', 2000.00, 'Luxury', 'available', 'https://ev-database.org/img/auto/Porsche_Taycan_GTS/Porsche_Taycan_GTS-01@2x.jpg', 'Electrical', 12000, 1),
@@ -189,19 +183,19 @@ INSERT INTO `car` (`car_id`, `agency_id`, `car_name`, `car_rating`, `description
 (59, 3, 'Ford Explorer', 3.50, 'Full-size SUV', '2020', 7, 'Ford', 650.00, 'SUV', 'available', 'https://media.drive.com.au/obj/tx_q:50,rs:auto:1920:1080:1/caradvice/private/1c5122a569cc911603ddb444eff3ca89', 'Gasoline', 28000, 1),
 (60, 4, 'Volkswagen Jetta', 3.50, 'Compact sedan', '2021', 5, 'Volkswagen', 390.00, 'Sedan', 'available', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDKpQb6hczNhPsLjuFJwNq0CHrNrnBLDXeZA&s', 'Gasoline', 23000, 1),
 (61, 1, 'Nissan Rogue', 3.50, 'Popular compact SUV', '2021', 5, 'Nissan', 480.00, 'SUV', 'available', 'https://hips.hearstapps.com/hmg-prod/images/2021-nissan-rogue-107-1591910983.jpg?crop=0.779xw:0.656xh;0.149xw,0.344xh&resize=2048:*', 'Gasoline', 21000, 1),
-(62, 5, 'Toyota Corolla 2024', 3.50, 'Comfortable sedan car', '2024', 5, 'Toyota', 350.00, 'Sedan', 'available', 'https://hips.hearstapps.com/hmg-prod/images/2024-toyota-gr-corolla-premium-exterior-107-662035ecce76c.jpg?crop=0.673xw:0.566xh;0.157xw,0.269xh&resize=1200:*', 'Gasoline', 0, 1),
-(63, 6, 'Renault Clio 2023', 3.50, 'Compact and efficient', '2023', 5, 'Renault', 300.00, 'Hatchback', 'available', 'https://media.autoexpress.co.uk/image/private/s--X-WVjvBW--/f_auto,t_content-image-full-desktop@1/v1698161627/carbuyer/2023/10/Renault%20Clio%20UK%20review-2.jpg', 'Gasoline', 0, 1),
-(64, 6, 'Peugeot 3008 2022', 3.50, 'Stylish SUV', '2022', 5, 'Peugeot', 450.00, 'SUV', 'available', 'https://static.moniteurautomobile.be/imgcontrol/images_tmp/clients/moniteur/c680-d465/content/medias/images/cars/peugeot/3008/peugeot--3008--2022/peugeot--3008--2022-m-1.jpg', 'Diesel', 0, 1),
-(65, 6, 'Dacia Duster 2021', 3.50, 'Affordable SUV', '2021', 5, 'Dacia', 280.00, 'SUV', 'available', 'https://im.qccdn.fr/node/actualite-dacia-duster-2021-premieres-impressions-94060/thumbnail_800x480px-138098.jpg', 'Gasoline', 0, 1),
-(66, 5, 'Hyundai Tucson 2020', 3.50, 'Reliable and spacious', '2020', 5, 'Hyundai', 400.00, 'SUV', 'available', 'https://hips.hearstapps.com/hmg-prod/images/2019-hyundai-tucson-1544723862.jpg', 'Gasoline', 0, 1),
-(67, 5, 'Volkswagen Golf 2019', 3.50, 'Compact hatchback', '2019', 5, 'Volkswagen', 320.00, 'Hatchback', 'available', 'https://cdn05.carsforsale.com/00b62721569e1bf2a9b4d719f7d493b49a/1280x960/2015-volkswagen-golf-tdi-s-4dr-hatchback-6a.jpg', 'Gasoline', 0, 1),
-(68, 6, 'Ford Focus 2018', 3.50, 'Popular compact car', '2018', 5, 'Ford', 310.00, 'Sedan', 'available', 'https://carsguide-res.cloudinary.com/image/upload/c_fit,h_841,w_1490,f_auto,t_cg_base/v1/editorial/2018-ford-focus-trend-hatch-red-mitchell-tulk-1200x800-(1).jpg', 'Gasoline', 0, 1),
-(69, 5, 'Kia Sportage 2017', 3.50, 'Compact SUV', '2017', 5, 'Kia', 350.00, 'SUV', 'available', 'https://www.cnet.com/a/img/resize/d0a679fdf33d19508ebd5ab3642dbb1fa21358df/hub/2016/03/07/cffb8a84-2b9c-4160-983f-f3ff09ea53e3/2017-kia-sportage-sx-1.jpg?auto=webp&width=1200', 'Gasoline', 0, 1),
-(70, 5, 'Mazda CX-5 2016', 3.50, 'SUV with great handling', '2016', 5, 'Mazda', 370.00, 'SUV', 'available', 'https://media.ed.edmunds-media.com/mazda/cx-5/2016/oem/2016_mazda_cx-5_4dr-suv_grand-touring_fq_oem_1_1600.jpg', 'Gasoline', 0, 1),
-(71, 6, 'Nissan Qashqai 2015', 3.50, 'Popular crossover', '2015', 5, 'Nissan', 340.00, 'SUV', 'available', 'https://editorial.pxcrush.net/carsales/general/editorial/ge4743318632277466917.jpg?width=1024&height=682', 'Gasoline', 0, 1),
-(72, 6, 'Citroen C3 2014', 3.50, 'Compact city car', '2014', 5, 'Citroen', 280.00, 'Hatchback', 'available', 'https://static.moniteurautomobile.be/imgcontrol/images_tmp/clients/moniteur/c680-d465/content/medias/images/cars/citroen/c3/citroen--c3--2014/citroen--c3--2014-t-1.jpg', 'Gasoline', 0, 1),
-(73, 5, 'Honda Civic 2013', 3.50, 'Reliable sedan', '2013', 5, 'Honda', 330.00, 'Sedan', 'available', 'https://i.gaw.to/content/photos/11/26/112636_2013_Honda_Civic.jpg', 'Gasoline', 0, 1),
-(74, 5, 'Opel Astra 2012', 3.50, 'Popular compact car', '2012', 5, 'Opel', 290.00, 'Hatchback', 'available', 'https://www.automoli.com/common/vehicles/_assets/img/gallery/f107/opel-astra-j-facelift-2012.jpg', 'Gasoline', 0, 1),
+(62, 5, 'Toyota Corolla', 3.50, 'Comfortable sedan car', '2024', 5, 'Toyota', 350.00, 'Sedan', 'available', 'https://hips.hearstapps.com/hmg-prod/images/2024-toyota-gr-corolla-premium-exterior-107-662035ecce76c.jpg?crop=0.673xw:0.566xh;0.157xw,0.269xh&resize=1200:*', 'Gasoline', 0, 1),
+(63, 6, 'Renault Clio ', 3.50, 'Compact and efficient', '2023', 5, 'Renault', 300.00, 'Hatchback', 'available', 'https://media.autoexpress.co.uk/image/private/s--X-WVjvBW--/f_auto,t_content-image-full-desktop@1/v1698161627/carbuyer/2023/10/Renault%20Clio%20UK%20review-2.jpg', 'Gasoline', 0, 1),
+(64, 6, 'Peugeot 3008', 3.50, 'Stylish SUV', '2022', 5, 'Peugeot', 450.00, 'SUV', 'available', 'https://static.moniteurautomobile.be/imgcontrol/images_tmp/clients/moniteur/c680-d465/content/medias/images/cars/peugeot/3008/peugeot--3008--2022/peugeot--3008--2022-m-1.jpg', 'Diesel', 0, 1),
+(65, 6, 'Dacia Duster ', 3.50, 'Affordable SUV', '2021', 5, 'Dacia', 280.00, 'SUV', 'available', 'https://im.qccdn.fr/node/actualite-dacia-duster-2021-premieres-impressions-94060/thumbnail_800x480px-138098.jpg', 'Gasoline', 0, 1),
+(66, 5, 'Hyundai Tucson ', 3.50, 'Reliable and spacious', '2020', 5, 'Hyundai', 400.00, 'SUV', 'available', 'https://hips.hearstapps.com/hmg-prod/images/2019-hyundai-tucson-1544723862.jpg', 'Gasoline', 0, 1),
+(67, 5, 'Volkswagen Golf', 3.50, 'Compact hatchback', '2019', 5, 'Volkswagen', 320.00, 'Hatchback', 'available', 'https://cdn05.carsforsale.com/00b62721569e1bf2a9b4d719f7d493b49a/1280x960/2015-volkswagen-golf-tdi-s-4dr-hatchback-6a.jpg', 'Gasoline', 0, 1),
+(68, 6, 'Ford Focus', 3.50, 'Popular compact car', '2018', 5, 'Ford', 310.00, 'Sedan', 'available', 'https://carsguide-res.cloudinary.com/image/upload/c_fit,h_841,w_1490,f_auto,t_cg_base/v1/editorial/2018-ford-focus-trend-hatch-red-mitchell-tulk-1200x800-(1).jpg', 'Gasoline', 0, 1),
+(69, 5, 'Kia Sportage', 3.50, 'Compact SUV', '2017', 5, 'Kia', 350.00, 'SUV', 'available', 'https://www.cnet.com/a/img/resize/d0a679fdf33d19508ebd5ab3642dbb1fa21358df/hub/2016/03/07/cffb8a84-2b9c-4160-983f-f3ff09ea53e3/2017-kia-sportage-sx-1.jpg?auto=webp&width=1200', 'Gasoline', 0, 1),
+(70, 5, 'Mazda CX-5', 3.50, 'SUV with great handling', '2016', 5, 'Mazda', 370.00, 'SUV', 'available', 'https://media.ed.edmunds-media.com/mazda/cx-5/2016/oem/2016_mazda_cx-5_4dr-suv_grand-touring_fq_oem_1_1600.jpg', 'Gasoline', 0, 1),
+(71, 6, 'Nissan Qashqai', 3.50, 'Popular crossover', '2015', 5, 'Nissan', 340.00, 'SUV', 'available', 'https://editorial.pxcrush.net/carsales/general/editorial/ge4743318632277466917.jpg?width=1024&height=682', 'Gasoline', 0, 1),
+(72, 6, 'Citroen C3', 3.50, 'Compact city car', '2014', 5, 'Citroen', 280.00, 'Hatchback', 'available', 'https://static.moniteurautomobile.be/imgcontrol/images_tmp/clients/moniteur/c680-d465/content/medias/images/cars/citroen/c3/citroen--c3--2014/citroen--c3--2014-t-1.jpg', 'Gasoline', 0, 1),
+(73, 5, 'Honda Civic', 3.50, 'Reliable sedan', '2013', 5, 'Honda', 330.00, 'Sedan', 'available', 'https://i.gaw.to/content/photos/11/26/112636_2013_Honda_Civic.jpg', 'Gasoline', 0, 1),
+(74, 5, 'Opel Astra', 3.50, 'Popular compact car', '2012', 5, 'Opel', 290.00, 'Hatchback', 'available', 'https://www.automoli.com/common/vehicles/_assets/img/gallery/f107/opel-astra-j-facelift-2012.jpg', 'Gasoline', 0, 1),
 (75, 5, 'BMW X1 2011', 3.50, 'Luxury compact SUV', '2011', 5, 'BMW', 600.00, 'SUV', 'available', 'https://hips.hearstapps.com/hmg-prod/amv-prod-cad-assets/images/09q3/267589/2011-bmw-x1-review-car-and-driver-photo-290114-s-original.jpg', 'Diesel', 0, 1),
 (76, 6, 'Mercedes A-Class 2010', 3.50, 'Premium hatchback', '2010', 5, 'Mercedes', 650.00, 'Hatchback', 'available', 'https://dealercontrol.co.za/cars-for-sale/ATN/1812/MERCEDES-BENZ-A180_ELEGANCE_A_T-77959.jpg', 'Gasoline', 0, 1),
 (77, 6, 'Audi A3 2009', 3.50, 'Compact premium car', '2009', 5, 'Audi', 620.00, 'Hatchback', 'available', 'https://www.edmunds.com/assets/m/audi/a3/2009/oem/2009_audi_a3_wagon_20t-quattro_fq_oem_1_500.jpg', 'Gasoline', 0, 1),
@@ -213,7 +207,8 @@ INSERT INTO `car` (`car_id`, `agency_id`, `car_name`, `car_rating`, `description
 (83, 6, 'Volkswagen Passat 2015', 3.50, 'Mid-size sedan', '2015', 5, 'Volkswagen', 350.00, 'Sedan', 'available', 'https://hips.hearstapps.com/hmg-prod/amv-prod-cad-assets/images/14q4/638369/2015-volkswagen-passat-euro-spec-first-drive-review-car-and-driver-photo-640296-s-original.jpg?fill=1:1&resize=1200:*', 'Diesel', 0, 1),
 (84, 5, 'Ford Fiesta 2002', 3.50, 'Small hatchback', '2002', 5, 'Ford', 260.00, 'Hatchback', 'available', 'https://img.autoabc.lv/ford-fiesta/ford-fiesta_2002_Hecbeks_15113121456_3.jpg', 'Gasoline', 0, 1),
 (85, 6, 'Kia Rio 2001', 3.50, 'Compact car', '2001', 5, 'Kia', 270.00, 'Hatchback', 'available', 'https://www.edmunds.com/assets/m/kia/rio/2001/oem/2001_kia_rio_sedan_base_fq_oem_1_500.jpg', 'Gasoline', 0, 1),
-(86, 6, 'Mazda 3 2000', 3.50, 'Reliable compact', '2000', 5, 'Mazda', 280.00, 'Sedan', 'available', 'https://upload.wikimedia.org/wikipedia/commons/6/6d/Mazda_3.jpg', 'Gasoline', 0, 1);
+(86, 6, 'Mazda 3 2000', 3.50, 'Reliable compact', '2000', 5, 'Mazda', 280.00, 'Sedan', 'available', 'https://upload.wikimedia.org/wikipedia/commons/6/6d/Mazda_3.jpg', 'Gasoline', 0, 1),
+(87, 1, 'Audi RS6', 4.90, 'The 2023 Audi RS6 Avant is a high-performance luxury sports wagon that combines power, practicality, and cutting-edge technology. Powered by a 4.0-liter twin-turbocharged V8 engine delivering 591 horsepower and 590 lb-ft of torque, it accelerates from 0 to 60 mph in just 3.5 seconds. Standard features include Audi’s quattro all-wheel drive, adaptive air suspension, and an 8-speed automatic transmission. The interior offers premium leather seating for 5, a panoramic sunroof, virtual cockpit, advanced driver-assist systems, and a high-resolution infotainment system with Apple CarPlay and Android Auto. With a sleek and aggressive design, 21-inch alloy wheels, and a spacious cargo area, the RS6 Avant is perfect for both spirited driving and daily comfort.', '2025', 5, 'Audi', 1500.00, 'Luxury', 'available', 'https://content.homenetiol.com/2000292/2143540/0x0/988af5705b81486088f2f4b9ce7764ad.jpg', 'Gasoline', 17503, 1);
 
 -- --------------------------------------------------------
 
@@ -244,7 +239,12 @@ INSERT INTO `car_review` (`review_id`, `user_id`, `car_id`, `rating`, `review_te
 (7, 5, 15, 1.00, 'Bad experience. The brakes were worn out.', '2025-06-02'),
 (8, 1, 30, 5.00, 'Excellent service and the car was very clean!', '2025-06-07'),
 (9, 2, 30, 4.00, 'The car was in good condition, but pick-up took some time.', '2025-06-07'),
-(10, 4, 30, 3.00, 'It was okay, but the AC wasn’t working properly.', '2025-06-07');
+(10, 4, 30, 3.00, 'It was okay, but the AC wasn’t working properly.', '2025-06-07'),
+(11, 1, 87, 4.90, 'Absolutely thrilling to drive. The RS6 blends luxury and performance perfectly. Handles like a sports car but has space for the whole family.', '2025-06-10'),
+(12, 2, 87, 4.70, 'The acceleration is insane, and the comfort is unmatched. Perfect for road trips and daily driving.', '2025-06-10'),
+(13, 3, 87, 5.00, 'Dream car! Audi nailed it with the RS6. Interior tech, power, and looks — all top-notch.', '2025-06-10'),
+(14, 4, 87, 4.80, 'Very refined yet aggressive. The V8 engine sounds incredible. A proper performance wagon.', '2025-06-10'),
+(15, 5, 87, 4.60, 'Love everything except the fuel consumption. Still, it’s worth it for the power and style.', '2025-06-10');
 
 -- --------------------------------------------------------
 
@@ -259,7 +259,7 @@ CREATE TABLE `users` (
   `password` varchar(255) NOT NULL,
   `phone_number` varchar(15) NOT NULL,
   `registration_date` date DEFAULT curdate(),
-  `user_type` enum('Agency','Customer','Admin') NOT NULL
+  `user_type` enum('customer','admin') NOT NULL DEFAULT 'customer'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -267,14 +267,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `username`, `email`, `password`, `phone_number`, `registration_date`, `user_type`) VALUES
-(1, 'john_doe', 'john@example.com', '$2y$10$O7mU5UeDpYFeMuEwAkL95e4E5WuTIerPZ1EG5lhqvWTB8gGZ6n34G', '0612345678', '2025-06-02', 'Customer'),
+(1, 'john_doe', 'john@example.com', '$2y$10$O7mU5UeDpYFeMuEwAkL95e4E5WuTIerPZ1EG5lhqvWTB8gGZ6n34G', '0612345678', '2025-06-02', 'customer'),
 (2, 'agency_procar', 'procar@example.com', '$2y$10$O7mU5UeDpYFeMuEwAkL95e4E5WuTIerPZ1EG5lhqvWTB8gGZ6n34G', '0623456789', '2025-06-02', ''),
-(3, 'meedafilal', 'meedaf11@gmail.com', '$2y$10$O7mU5UeDpYFeMuEwAkL95e4E5WuTIerPZ1EG5lhqvWTB8gGZ6n34G', '0682564814', '2025-06-02', 'Admin'),
-(4, 'fatima_rider', 'fatima@example.com', '$2y$10$O7mU5UeDpYFeMuEwAkL95e4E5WuTIerPZ1EG5lhqvWTB8gGZ6n34G', '0645678901', '2025-06-02', 'Customer'),
-(5, 'rent4u_agency', 'rent4u@example.com', '$2y$10$O7mU5UeDpYFeMuEwAkL95e4E5WuTIerPZ1EG5lhqvWTB8gGZ6n34G', '0656789012', '2025-06-02', ''),
-(6, 'afmeed', 'meedaf12@gmail.com', '$2y$10$Qov1J1IB8xrmx1MCsWXvO.WxN4GoSdX2OLsOOTooNnrY.3zXXRVFu', '', '2025-06-07', 'Customer'),
-(7, 'Afilal Car Agency', '', '$2y$10$VRUmOzFRok7bECFCfyKAP.lJhI8lubIboAtAXXpTD24PFcQU71EM2', '', '2025-06-07', 'Agency'),
-(9, 'test2025', 'testtest@gmail.com', '$2y$10$BeC4r1zOvug4/IP9sTy0seV/e6yWNoWARrdpUA3vTUYkhU39ZEuNu', '0682564814', '2025-06-07', 'Customer');
+(3, 'meedafilal', 'meedaf11@gmail.com', '$2y$10$O7mU5UeDpYFeMuEwAkL95e4E5WuTIerPZ1EG5lhqvWTB8gGZ6n34G', '0682564814', '2025-06-02', 'admin'),
+(4, 'fatima_rider', 'fatima@example.com', '$2y$10$O7mU5UeDpYFeMuEwAkL95e4E5WuTIerPZ1EG5lhqvWTB8gGZ6n34G', '0645678901', '2025-06-02', 'customer'),
+(5, 'rent4u_agency', 'rent4u@example.com', '$2y$10$O7mU5UeDpYFeMuEwAkL95e4E5WuTIerPZ1EG5lhqvWTB8gGZ6n34G', '0656789012', '2025-06-02', '');
 
 --
 -- Indexes for dumped tables
@@ -284,8 +281,7 @@ INSERT INTO `users` (`user_id`, `username`, `email`, `password`, `phone_number`,
 -- Indexes for table `agency`
 --
 ALTER TABLE `agency`
-  ADD PRIMARY KEY (`agency_id`),
-  ADD UNIQUE KEY `unique_contact_email` (`contact_email`);
+  ADD PRIMARY KEY (`agency_id`);
 
 --
 -- Indexes for table `agency_review`
@@ -334,7 +330,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `agency`
 --
 ALTER TABLE `agency`
-  MODIFY `agency_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `agency_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `agency_review`
@@ -352,19 +348,19 @@ ALTER TABLE `booking`
 -- AUTO_INCREMENT for table `car`
 --
 ALTER TABLE `car`
-  MODIFY `car_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
+  MODIFY `car_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
 
 --
 -- AUTO_INCREMENT for table `car_review`
 --
 ALTER TABLE `car_review`
-  MODIFY `review_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `review_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
