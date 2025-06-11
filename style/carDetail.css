@@ -26,25 +26,25 @@
   --rating-text: #b45309;
   --star-color: #fbbf24;
   --popup-bg: #f5f5f5;
-  
+
   /* Spacing */
   --container-width: 80%;
   --container-margin: 80px;
-  --container-padding: 40px;
+  --container-padding: 16px;
   --gap-small: 8px;
   --gap-medium: 12px;
   --gap-large: 16px;
   --gap-xl: 20px;
   --gap-2xl: 30px;
   --gap-3xl: 40px;
-  
+
   /* Border Radius */
   --border-radius-small: 6px;
   --border-radius-medium: 8px;
   --border-radius-large: 12px;
   --border-radius-xl: 16px;
   --border-radius-round: 50%;
-  
+
   /* Font Sizes */
   --font-size-small: 14px;
   --font-size-base: 16px;
@@ -54,17 +54,17 @@
   --font-size-3xl: 24px;
   --font-size-4xl: 28px;
   --font-size-5xl: 32px;
-  
+
   /* Font Weights */
   --font-weight-normal: 400;
   --font-weight-medium: 500;
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
-  
+
   /* Transitions */
   --transition-fast: 0.3s ease;
   --transition-medium: 0.5s ease;
-  
+
   /* Shadows */
   --shadow-button: 0 2px 8px rgba(229, 62, 62, 0.2);
   --shadow-button-hover: 0 4px 12px rgba(229, 62, 62, 0.3);
@@ -73,7 +73,7 @@
   --shadow-container: 0 4px 20px var(--shadow-light);
   --shadow-popup-main: 0 20px 60px var(--shadow-popup);
   --shadow-cart: 1px 1px 4px var(--shadow-card);
-  
+
   /* Dimensions */
   --car-image-height: 400px;
   --button-height: 50px;
@@ -103,7 +103,7 @@ body {
 .container {
   width: var(--container-width);
   margin: var(--container-margin) auto;
-  padding: var(--container-padding);
+  padding: 40px 16px;
   background: var(--white);
   border-radius: var(--border-radius-large);
   box-shadow: var(--shadow-container);
@@ -179,7 +179,6 @@ body {
   display: flex;
   align-items: center;
   gap: var(--gap-xl);
-  margin-top: var(--gap-2xl);
 }
 
 .book-btn {
@@ -253,9 +252,9 @@ body {
 
 /* Reviews Section */
 .carReviews {
-  margin-top: 60px;
+  margin: 60px 0;
   width: 100%;
-  height: 50vh;
+  min-height: 70vh;
 }
 
 .carReviews .section-title {
@@ -278,8 +277,8 @@ body {
 }
 
 .reviews-carousel {
-  width: 95%;
-  height: 70%;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -298,10 +297,10 @@ body {
 
 .review-card {
   width: 31%;
-  background: var(--white);
   height: 100%;
+  background: var(--white);
   border-radius: var(--border-radius-large);
-  padding: 25px;
+  padding: 12px;
   box-shadow: var(--shadow-card-light);
   border: 1px solid var(--border-color);
   transition: all var(--transition-fast);
@@ -340,28 +339,45 @@ body {
 }
 
 .review-header {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 15px;
 }
 
+.review-header .quote-icon {
+
+  width: 16px;
+  height: 16px;
+
+}
+
 .review-author {
-  font-weight: var(--font-weight-semibold);
+  font-weight: var(--font-weight-medium);
   font-size: var(--font-size-base);
   color: var(--text-primary);
 }
 
 .review-rating {
+  width: 50px;
+  height: 30px;
+  padding: 4px;
   display: flex;
   align-items: center;
-  gap: 5px;
+  justify-content: center;
+  gap: 2px;
   background: var(--rating-bg);
-  padding: 5px 10px;
   border-radius: var(--border-radius-small);
+
+}
+
+.review-rating .rating-number {
+
   font-size: var(--font-size-small);
-  font-weight: var(--font-weight-semibold);
-  color: var(--rating-text);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-primary);
+
 }
 
 .star-icon {
@@ -422,6 +438,7 @@ body {
 
 /* Pagination Dots */
 .pagination-dots {
+  margin-bottom: 24px;
   display: flex;
   justify-content: center;
   gap: var(--gap-small);
@@ -449,6 +466,7 @@ body {
 /* Place Review Button */
 .PlaceReviewContainer {
   text-align: center;
+  margin-top: 16px;
   width: 100%;
 }
 
@@ -476,9 +494,10 @@ body {
 }
 
 /* Agency Cars Section  */
-.container .agencyCarContainer{
+.container .agencyCarContainer {
   width: 100%;
-  height: 45vh;
+  min-height: 80vh;
+  margin-top: 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -487,7 +506,7 @@ body {
   padding: 0 32px;
 }
 
-.container .agencyCarContainer .agencyCarsHeader{
+.container .agencyCarContainer .agencyCarsHeader {
   width: 100%;
   height: 10%;
   display: flex;
@@ -495,12 +514,12 @@ body {
   align-items: center;
 }
 
-.container .agencyCarContainer .agencyCarsHeader .carAgencyName{
+.container .agencyCarContainer .agencyCarsHeader .carAgencyName {
   font-weight: var(--font-weight-semibold);
   font-size: var(--font-size-2xl);
 }
 
-.container .agencyCarContainer .agencyCarsHeader .goToAgency{
+.container .agencyCarContainer .agencyCarsHeader .goToAgency {
   font-weight: var(--font-weight-normal);
   font-size: var(--font-size-base);
   color: var(--text-primary);
@@ -511,21 +530,21 @@ body {
   cursor: pointer;
 }
 
-.container .agencyCarContainer .agencyCarsHeader .goToAgency img{
+.container .agencyCarContainer .agencyCarsHeader .goToAgency img {
   width: var(--icon-size);
   height: var(--icon-size);
 }
 
-.container .agencyCarContainer .agencyCarsCartContainer{
+.container .agencyCarContainer .agencyCarsCartContainer {
   width: 100%;
-  height: 80%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
 .agencyCarsCartContainer .topCarCart {
-  width: 24%;
+  width: 31%;
   height: 100%;
   background-color: var(--white);
   border-radius: var(--border-radius-xl);
@@ -541,7 +560,6 @@ body {
   width: 100%;
   height: 35%;
   object-fit: cover;
-  object-position: center center;
   border-top-left-radius: var(--border-radius-xl);
   border-top-right-radius: var(--border-radius-xl);
 }
@@ -724,8 +742,13 @@ body {
 
 /* Animations */
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes slideIn {
@@ -733,6 +756,7 @@ body {
     transform: scale(0.9) translateY(-20px);
     opacity: 0;
   }
+
   to {
     transform: scale(1) translateY(0);
     opacity: 1;
@@ -767,7 +791,7 @@ body {
     font-size: var(--font-size-base);
   }
 
-   .review-card {
+  .review-card {
     width: 30%;
   }
 
@@ -822,7 +846,9 @@ body {
 
   .book-btn {
     width: 100%;
+    height: 50px !important;
   }
+
   .section-title {
     font-size: var(--font-size-3xl);
   }
@@ -906,13 +932,14 @@ body {
 
   .book-btn {
     width: 100%;
+    height: 50px !important;
   }
 
   .rating-number {
     font-size: var(--font-size-2xl);
   }
 
-   .section-title {
+  .section-title {
     font-size: var(--font-size-2xl);
   }
 
@@ -983,6 +1010,10 @@ body {
 
 /* Mobile Devices (320px - 480px) */
 @media screen and (min-width: 320px) and (max-width: 480px) {
+  .container{
+    width: 100%;
+    padding: 16px;
+  }
   .car-header {
     flex-direction: column;
     gap: var(--gap-medium);
@@ -1006,12 +1037,13 @@ body {
 
   .booking-section {
     flex-direction: column;
-    align-items: stretch;
+    align-items: center;
     gap: var(--gap-large);
   }
 
   .book-btn {
     width: 100%;
+    padding: 12px;
     font-size: var(--font-size-base);
   }
 
@@ -1071,6 +1103,7 @@ body {
     width: 90%;
     padding: 12px 20px;
     font-size: var(--font-size-small);
+    margin-top: 16px;
   }
 
   .container .agencyCarContainer {
@@ -1087,7 +1120,8 @@ body {
   }
 
   .container .agencyCarContainer .agencyCarsHeader .carAgencyName {
-    font-size: 1.4rem; /* أصغر قليلاً */
+    font-size: 1.4rem;
+    /* أصغر قليلاً */
   }
 
   .container .agencyCarContainer .agencyCarsHeader .goToAgency {

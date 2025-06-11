@@ -26,7 +26,7 @@ try {
             c.agency_id = :agency_id
         ORDER BY 
             c.car_rating DESC
-        LIMIT 4
+        LIMIT 3
     ");
     
     $stmt->execute(['agency_id' => $agency_id]);

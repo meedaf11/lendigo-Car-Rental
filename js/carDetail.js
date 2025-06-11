@@ -179,7 +179,6 @@ function showCurrentReviews(direction = "none") {
         const card = document.createElement("div");
         card.classList.add("review-card");
 
-        // Add active class to middle card for emphasis
         if (i === Math.floor(reviewsToShow / 2)) {
           card.classList.add("active");
         }
@@ -189,9 +188,7 @@ function showCurrentReviews(direction = "none") {
                            <img src="assets/images/quote.svg" class="quote-icon" alt="">
                             <p class="review-author">${review.user_name}</p>
                             <div class="review-rating">
-                                <span class="rating-number">${parseFloat(
-                                  review.rating
-                                ).toFixed(1)}</span>
+                                <span class="rating-number">${parseFloat(review.rating).toFixed(1)}</span>
                                 <span class="star-icon">⭐</span>
                             </div>
                         </div>
