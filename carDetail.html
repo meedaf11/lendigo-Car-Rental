@@ -9,13 +9,14 @@
 
   <body>
     <div id="header-placeholder"></div>
+
     <div class="container">
       <div class="car-header">
         <div class="car-image">
-          <img src="" alt="" />
+          <img src="" alt="Car Image" />
         </div>
         <div class="car-details">
-          <h1 class="car-title"></h1>
+          <h1 class="car-title">Car Name</h1>
           <div class="car-specs">
             <div class="spec-row">
               <span class="spec-label">Brand</span>
@@ -33,17 +34,14 @@
               <span class="spec-label">Car Type</span>
               <span class="spec-value" id="carType"></span>
             </div>
-
             <div class="spec-row">
               <span class="spec-label">Places</span>
               <span class="spec-value" id="carPlaces"></span>
             </div>
-
             <div class="spec-row">
               <span class="spec-label">Price Per Day</span>
               <span class="spec-value" id="carPrice"></span>
             </div>
-
             <div class="spec-row">
               <span class="spec-label">Gear</span>
               <span class="spec-value" id="carGear"></span>
@@ -57,7 +55,7 @@
             <button class="book-btn">Book Now</button>
             <div class="rating">
               <span class="rating-number"></span>
-              <img class="star" src="assets/images/rating_ic.svg" alt="" />
+              <img class="star" src="assets/images/rating_ic.svg" alt="Rating" />
             </div>
           </div>
         </div>
@@ -66,35 +64,53 @@
       <!-- Description Section -->
       <div class="description">
         <h2 class="section-title">Description</h2>
-        <p class="description-text"></p>
+        <p class="description-text">Car description goes here.</p>
       </div>
 
+      <!-- Reviews Section -->
       <div class="carReviews">
         <h2 class="section-title">Car Reviews</h2>
         <div class="carReviewsContainer">
-          <img
-            src="assets/images/arrow_left.svg"
-            class="arrow"
-            id="arrow_left"
-            alt=""
-          />
+          <div class="arrow left" id="arrow_left"></div>
 
-          <div class="reviews-wrapper"></div>
+          <div class="reviews-carousel">
+            <div class="reviews-wrapper" id="reviewsWrapper"></div>
+            <div class="pagination-dots" id="paginationDots"></div>
+          </div>
 
-          <img
-            src="assets/images/arrow_right.svg"
-            class="arrow"
-            id="arrow_right"
-            alt=""
-          />
+          <div class="arrow right" id="arrow_right"></div>
         </div>
+
         <div class="PlaceReviewContainer">
-            <button id="placeReviewBtn">Place Your Review</button>
+          <button id="placeReviewBtn">Place Your Review</button>
+        </div>
+      </div>
+
+      <!-- Agency Info -->
+      <div class="agencyCarContainer">
+        <div class="agencyCarsHeader">
+          <h3 class="carAgencyName">Agency Name</h3>
+          <div class="goToAgency" id="goToAgency">Show Agency <img src="assets/images/right_arrow.svg" alt="" /></div>
+        </div>
+        <div class="agencyCarsCartContainer">
+
         </div>
       </div>
     </div>
-    <div id="footer-placeholder"></div>
-  </body>
 
-  <script src="js/carDetail.js"></script>
+    <div id="footer-placeholder"></div>
+
+    <!-- Login Popup -->
+    <div class="login-popup-overlay" id="loginPopupOverlay">
+      <div class="login-popup" id="loginPopup">
+        <p class="popupTitle">You must log in first to continue.</p>
+        <div class="popup-buttons">
+          <button id="loginRedirectBtn">Login</button>
+          <button id="cancelPopupBtn">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/carDetail.js"></script>
+  </body>
 </html>

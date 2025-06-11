@@ -19,6 +19,36 @@
             "button": "See Car"
         },
         {
+            "username": "meedafilal",
+            "rating": "5.00",
+            "text": "Dream car! Audi nailed it with the RS6. Interior tech, power, and looks — all top-notch.",
+            "button": "See Car"
+        },
+        {
+            "username": "john_doe",
+            "rating": "4.90",
+            "text": "Absolutely thrilling to drive. The RS6 blends luxury and performance perfectly. Handles like a sports car but has space for the whole family.",
+            "button": "See Car"
+        },
+        {
+            "username": "fatima_rider",
+            "rating": "4.80",
+            "text": "Very refined yet aggressive. The V8 engine sounds incredible. A proper performance wagon.",
+            "button": "See Car"
+        },
+        {
+            "username": "agency_procar",
+            "rating": "4.70",
+            "text": "The acceleration is insane, and the comfort is unmatched. Perfect for road trips and daily driving.",
+            "button": "See Car"
+        },
+        {
+            "username": "rent4u_agency",
+            "rating": "4.60",
+            "text": "Love everything except the fuel consumption. Still, it’s worth it for the power and style.",
+            "button": "See Car"
+        },
+        {
             "username": "agency_procar",
             "rating": "4.00",
             "text": "The car was in good condition, but pick-up took some time.",

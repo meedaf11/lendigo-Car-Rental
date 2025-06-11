@@ -74,7 +74,11 @@ INSERT INTO `agency_review` (`review_id`, `user_id`, `agency_id`, `rating`, `rev
 (3, 4, 5, 3.00, 'Decent overall, but pick-up was delayed.', '2025-06-02'),
 (4, 5, 1, 2.00, 'Not very friendly staff and long wait times.', '2025-06-02'),
 (5, 1, 3, 4.00, 'Good experience, would rent again.', '2025-06-02'),
-(6, 4, 2, 5.00, 'Amazing agency! Very professional and helpful.', '2025-06-02');
+(6, 4, 2, 5.00, 'Amazing agency! Very professional and helpful.', '2025-06-02'),
+(7, 5, 15, 1.00, 'Bad experience. The brakes were worn out.', '2025-06-02'),
+(8, 1, 30, 5.00, 'Excellent service and the car was very clean!', '2025-06-07'),
+(9, 2, 30, 4.00, 'The car was in good condition, but pick-up took some time.', '2025-06-07'),
+(10, 4, 30, 3.00, 'It was okay, but the AC wasn’t working properly.', '2025-06-07');
 
 -- --------------------------------------------------------
 
