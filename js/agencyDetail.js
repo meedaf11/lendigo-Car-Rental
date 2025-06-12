@@ -32,7 +32,6 @@ const agencyId = urlParams.get("agency_id");
 if (!agencyId) {
     window.location.href = "agencies.html";
 } else {
-    // طلب البيانات من PHP
     fetch(`api/get_agency_info.php?agency_id=${agencyId}`)
         .then(response => {
             if (!response.ok) {
@@ -45,10 +44,23 @@ if (!agencyId) {
                 console.error("Error:", data.error);
                 return;
             }
-
-            console.log(data);
+            allContent(data);
         })
         .catch(error => {
             console.error("Fetch error:", error);
         });
+}
+
+
+function allContent(agencyData){
+
+    console.log(agencyData);
+    console.log("الموقع:", agencyData.location);
+
+    const locationName = agencyData.location;
+    const encodedLocation = encodeURIComponent(locationName);
+    const mapUrl = `https://www.google.com/maps?q=${encodedLocation}&output=embed`;
+    document.getElementById("mapFrame").src = mapUrl;
+
+
 }

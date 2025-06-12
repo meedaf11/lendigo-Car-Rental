@@ -1,6 +1,11 @@
 @import url("fonts.css");
 
-/* CSS Custom Properties (Root Variables) */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 :root {
   /* Colors */
   --primary-color: #e53e3e;
@@ -85,12 +90,6 @@
   --close-button-size: 30px;
 }
 
-/* Reset and Base Styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
 body {
   background-color: var(--background-color);
