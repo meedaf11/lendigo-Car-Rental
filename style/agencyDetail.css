@@ -1,242 +1,228 @@
 @import url("fonts.css");
 
 :root {
-    /* Colors */
-    --primary-color: #e53e3e;
-    --primary-hover: #c53030;
-    --secondary-color: #c8070f;
-    --background-color: #f5f5f5;
-    --background-transparent-color: rgba(0, 0, 0, 0.65);
-    --white: white;
-    --text-primary: #333;
-    --text-secondary: #666;
-    --text-tertiary: #5c5c5c;
-    --text-muted: #999;
-    --border-color: #f0f0f0;
-    --border-light: #eee;
-    --border-medium: #e5e5e5;
-    --border-dark: #ddd;
-    --shadow-light: rgba(0, 0, 0, 0.1);
-    --shadow-medium: rgba(0, 0, 0, 0.08);
-    --shadow-dark: rgba(0, 0, 0, 0.12);
-    --shadow-popup: rgba(0, 0, 0, 0.3);
-    --shadow-card: rgba(56, 56, 56, 0.37);
-    --overlay-bg: rgba(0, 0, 0, 0.6);
-    --rating-bg: #fef7e0;
-    --rating-text: #b45309;
-    --star-color: #fbbf24;
-    --popup-bg: #f5f5f5;
+  /* Colors */
+  --primary-color: #e53e3e;
+  --primary-hover: #c53030;
+  --secondary-color: #c8070f;
+  --background-color: #f5f5f5;
+  --background-transparent-color: rgba(0, 0, 0, 0.65);
+  --white: white;
+  --text-primary: #333;
+  --text-secondary: #666;
+  --text-tertiary: #5c5c5c;
+  --text-muted: #999;
+  --border-color: #f0f0f0;
+  --border-light: #eee;
+  --border-medium: #e5e5e5;
+  --border-dark: #ddd;
+  --shadow-light: rgba(0, 0, 0, 0.1);
+  --shadow-medium: rgba(0, 0, 0, 0.08);
+  --shadow-dark: rgba(0, 0, 0, 0.12);
+  --shadow-popup: rgba(0, 0, 0, 0.3);
+  --shadow-card: rgba(56, 56, 56, 0.37);
+  --overlay-bg: rgba(0, 0, 0, 0.6);
+  --rating-bg: #fef7e0;
+  --rating-text: #b45309;
+  --star-color: #fbbf24;
+  --popup-bg: #f5f5f5;
 
-    /* Spacing */
-    --container-width: 80%;
-    --container-margin: 80px;
-    --container-padding: 16px;
-    --gap-small: 8px;
-    --gap-medium: 12px;
-    --gap-large: 16px;
-    --gap-xl: 20px;
-    --gap-2xl: 30px;
-    --gap-3xl: 40px;
+  /* Spacing */
+  --container-width: 80%;
+  --container-margin: 80px;
+  --container-padding: 16px;
+  --gap-small: 8px;
+  --gap-medium: 12px;
+  --gap-large: 16px;
+  --gap-xl: 20px;
+  --gap-2xl: 30px;
+  --gap-3xl: 40px;
 
-    /* Border Radius */
-    --border-radius-small: 6px;
-    --border-radius-medium: 8px;
-    --border-radius-large: 12px;
-    --border-radius-xl: 16px;
-    --border-radius-round: 50%;
+  /* Border Radius */
+  --border-radius-small: 6px;
+  --border-radius-medium: 8px;
+  --border-radius-large: 12px;
+  --border-radius-xl: 16px;
+  --border-radius-round: 50%;
 
-    /* Font Sizes */
-    --font-size-small: 14px;
-    --font-size-base: 16px;
-    --font-size-large: 18px;
-    --font-size-xl: 20px;
-    --font-size-2xl: 22px;
-    --font-size-3xl: 24px;
-    --font-size-4xl: 28px;
-    --font-size-5xl: 32px;
-    --font-size-6xl: 50px;
+  /* Font Sizes */
+  --font-size-small: 14px;
+  --font-size-base: 16px;
+  --font-size-large: 18px;
+  --font-size-xl: 20px;
+  --font-size-2xl: 22px;
+  --font-size-3xl: 24px;
+  --font-size-4xl: 28px;
+  --font-size-5xl: 32px;
+  --font-size-6xl: 50px;
 
-    /* Font Weights */
-    --font-weight-normal: 400;
-    --font-weight-medium: 500;
-    --font-weight-semibold: 600;
-    --font-weight-bold: 700;
+  /* Font Weights */
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
 
-    /* Transitions */
-    --transition-fast: 0.3s ease;
-    --transition-medium: 0.5s ease;
+  /* Transitions */
+  --transition-fast: 0.3s ease;
+  --transition-medium: 0.5s ease;
 
-    /* Shadows */
-    --shadow-button: 0 2px 8px rgba(229, 62, 62, 0.2);
-    --shadow-button-hover: 0 4px 12px rgba(229, 62, 62, 0.3);
-    --shadow-card-light: 0 4px 15px var(--shadow-medium);
-    --shadow-card-hover: 0 8px 25px var(--shadow-dark);
-    --shadow-container: 0 4px 20px var(--shadow-light);
-    --shadow-popup-main: 0 20px 60px var(--shadow-popup);
-    --shadow-cart: 1px 1px 4px var(--shadow-card);
+  /* Shadows */
+  --shadow-button: 0 2px 8px rgba(229, 62, 62, 0.2);
+  --shadow-button-hover: 0 4px 12px rgba(229, 62, 62, 0.3);
+  --shadow-card-light: 0 4px 15px var(--shadow-medium);
+  --shadow-card-hover: 0 8px 25px var(--shadow-dark);
+  --shadow-container: 0 4px 20px var(--shadow-light);
+  --shadow-popup-main: 0 20px 60px var(--shadow-popup);
+  --shadow-cart: 1px 1px 4px var(--shadow-card);
 
-    /* Dimensions */
-    --car-image-height: 400px;
-    --button-height: 50px;
-    --cart-button-height: 40px;
-    --arrow-size: 50px;
-    --dot-size: 10px;
-    --icon-size: 20px;
-    --popup-icon-size: 60px;
-    --close-button-size: 30px;
+  /* Dimensions */
+  --car-image-height: 400px;
+  --button-height: 50px;
+  --cart-button-height: 40px;
+  --arrow-size: 50px;
+  --dot-size: 10px;
+  --icon-size: 20px;
+  --popup-icon-size: 60px;
+  --close-button-size: 30px;
 }
 
-
-
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    background-color: var(--background-color);
-    color: var(--text-primary);
-    line-height: 1.6;
-    font-family: "Poppins", sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-primary);
+  line-height: 1.6;
+  font-family: "Poppins", sans-serif;
 }
 
-
-
 .mainSection {
-
-    width: 100%;
-    background-color: var(--background-color);
-
+  width: 100%;
+  background-color: var(--background-color);
 }
 
 /* Start Hero Section  */
 
 .mainSection .agencyHeroSection {
-
-    position: relative;
-    width: 100%;
-    margin-top: 75px;
-    height: 75vh;
-
+  position: relative;
+  width: 100%;
+  margin-top: 75px;
+  height: 75vh;
 }
 
 .mainSection .agencyHeroSection .heroBackImg {
-
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .mainSection .agencyHeroSection .heroContent {
-
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 2;
-    width: 100%;
-    height: 100%;
-    background-color: var(--background-transparent-color);
-    top: 0;
-    right: 0;
-
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  background-color: var(--background-transparent-color);
+  top: 0;
+  right: 0;
 }
 
 .mainSection .agencyHeroSection .heroContent .agencyName {
-
-    font-weight: 700;
-    color: var(--white);
-    font-size: var(--font-size-6xl);
-
-
+  font-weight: 700;
+  color: var(--white);
+  font-size: var(--font-size-6xl);
 }
 
 .mainSection .agencyHeroSection .heroContent .contactPart {
-
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 100%;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 16px;
-
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
 }
 
 .mainSection .agencyHeroSection .heroContent .contactPart .agencyContact {
-
-    min-width: 20%;
-    height: 100%;
-    display: flex;
-    padding: 0 16px;
-    align-items: center;
-    justify-content: space-between;
-
+  min-width: 20%;
+  height: 100%;
+  display: flex;
+  padding: 0 16px;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .mainSection .agencyHeroSection .contactPart .agencyContact .agencyParts {
-
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.mainSection .agencyHeroSection .contactPart .agencyContact .agencyParts .contactIcons {
-
-    width: 21px;
-    height: 21px;
-    margin-right: 8px;
-
+.mainSection
+  .agencyHeroSection
+  .contactPart
+  .agencyContact
+  .agencyParts
+  .contactIcons {
+  width: 21px;
+  height: 21px;
+  margin-right: 8px;
 }
 
-.mainSection .agencyHeroSection .contactPart .agencyContact .agencyParts .contactText {
-
-    font-weight: 500;
-    font-size: var(--font-size-base);
-    color: var(--white);
-    margin-right: 8px;
-
+.mainSection
+  .agencyHeroSection
+  .contactPart
+  .agencyContact
+  .agencyParts
+  .contactText {
+  font-weight: 500;
+  font-size: var(--font-size-base);
+  color: var(--white);
+  margin-right: 8px;
 }
 
 .mainSection .agencyHeroSection .contactPart .agencyRating {
-
-    min-width: 10%;
-    height: 100%;
-
-
+  min-width: 10%;
+  height: 100%;
 }
 
 .mainSection .agencyHeroSection .contactPart .agencyRating #ratingPart {
-
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.mainSection .agencyHeroSection .contactPart .agencyRating .agencyParts .ratingText {
-
-    font-weight: 500;
-    font-size: var(--font-size-base);
-    color: var(--white);
-    margin-right: 8px;
-
+.mainSection
+  .agencyHeroSection
+  .contactPart
+  .agencyRating
+  .agencyParts
+  .ratingText {
+  font-weight: 500;
+  font-size: var(--font-size-base);
+  color: var(--white);
+  margin-right: 8px;
 }
 
-.mainSection .agencyHeroSection .contactPart .agencyRating .agencyParts .ratingImage {
-
-    width: 21px;
-    height: 21px;
-    margin-right: 8px;
-
+.mainSection
+  .agencyHeroSection
+  .contactPart
+  .agencyRating
+  .agencyParts
+  .ratingImage {
+  width: 21px;
+  height: 21px;
+  margin-right: 8px;
 }
 
 /* End Hero Section  */
@@ -244,62 +230,587 @@ body {
 /* Start Agency Information Section  */
 
 .agencyInformation {
-
-    width: 100%;
-    height: 75vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2%;
-    padding: 16px 0;
-
+  width: 100%;
+  height: 75vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2%;
+  padding: 16px 0;
 }
 
 .agencyInformation #infoDescription {
-
-    width: 54%;
-    height: 100%;
-    padding: 8px 16px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-
+  width: 54%;
+  height: 100%;
+  padding: 8px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
 }
 
 .agencyInformation #infoDescription h3 {
-    font-weight: 700;
-    font-size: var(--font-size-4xl);
-    color: var(--primary-hover);
+  font-weight: 700;
+  font-size: var(--font-size-4xl);
+  color: var(--primary-hover);
 }
 
 .agencyInformation #infoDescription p {
-    font-weight: 500;
-    font-size: var(--font-size-base);
-    color: var(--text-primary);
+  font-weight: 500;
+  font-size: var(--font-size-base);
+  color: var(--text-primary);
 }
 
 .agencyInformation #infoMapLocation {
-
-    width: 42%;
-    height: 100%;
-    padding: 8px 16px;
-
+  width: 42%;
+  height: 100%;
+  padding: 8px 16px;
 }
 
 .agencyInformation #infoMapLocation #mapFrame {
-    width: 100%;
-    height: 100%;
-    border: 0;
-    box-shadow: 1px 1px 5px var(--text-primary);
-    border-radius: 16px;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  box-shadow: 1px 1px 5px var(--text-primary);
+  border-radius: 16px;
 }
 
 /* End Agency Information Section  */
 
+/* Star Agency Reviews Section  */
+
+.agencyReviews {
+  margin: 60px 0;
+  width: 100%;
+  min-height: 30vh;
+}
+
+.agencyReviews .section-title {
+  text-align: center;
+  margin-bottom: var(--gap-3xl);
+  width: 100%;
+}
+
+.agencyReviews .section-title::after {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.agencyReviewsContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 70%;
+  gap: var(--gap-2xl);
+}
+
+.agencyReviews .reviews-carousel {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.agencyReviews .reviews-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  gap: var(--gap-xl);
+  transition: transform var(--transition-medium);
+}
+
+/* Loading state for agency reviews */
+.agencyReviews .reviews-wrapper.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* Agency Review Cards */
+.agencyReviews .review-card {
+  width: 31%;
+  height: 200px;
+  background: var(--white);
+  border-radius: var(--border-radius-large);
+  padding: 12px;
+  box-shadow: var(--shadow-card-light);
+  border: 1px solid var(--border-color);
+  transition: all var(--transition-fast);
+  position: relative;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animation classes for agency reviews */
+.agencyReviews .review-card.entering {
+  opacity: 0;
+  transform: translateY(20px) scale(0.95);
+  animation: slideInUp 0.4s ease-out forwards;
+}
+
+.agencyReviews .review-card.exiting {
+  opacity: 1;
+  animation: slideOutDown 0.3s ease-in forwards;
+}
+
+/* Keyframes for agency review animations */
+@keyframes slideInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes slideOutDown {
+  to {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+}
+
+.agencyReviews .review-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--primary-color);
+  border-radius: var(--border-radius-large) var(--border-radius-large) 0 0;
+  transform: scaleX(0);
+  transition: transform var(--transition-fast);
+}
+
+.agencyReviews .review-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.agencyReviews .review-card:hover::before {
+  transform: scaleX(1);
+}
+
+.agencyReviews .review-card.active {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.agencyReviews .review-card.active::before {
+  transform: scaleX(1);
+}
+
+.agencyReviews .review-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.agencyReviews .review-header .quote-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.agencyReviews .review-author {
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-base);
+  color: var(--text-primary);
+}
+
+.agencyReviews .review-rating {
+  width: 50px;
+  height: 30px;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  background: var(--rating-bg);
+  border-radius: var(--border-radius-small);
+}
+
+.agencyReviews .review-rating .rating-number {
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-primary);
+}
+
+.agencyReviews .star-icon {
+  color: var(--star-color);
+  font-size: var(--font-size-small);
+}
+
+.agencyReviews .review-text {
+  font-size: var(--font-size-small);
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Navigation Arrows for Agency Reviews */
+.agencyReviews .arrow {
+  width: var(--arrow-size);
+  height: var(--arrow-size);
+  background: var(--white);
+  border: 2px solid var(--border-medium);
+  border-radius: var(--border-radius-round);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  user-select: none;
+}
+
+.agencyReviews .arrow:hover {
+  border-color: var(--primary-color);
+  background: var(--primary-color);
+  transform: scale(1.1);
+}
+
+.agencyReviews .arrow::after {
+  content: "";
+  width: var(--gap-medium);
+  height: var(--gap-medium);
+  border: 2px solid var(--text-secondary);
+  border-bottom: none;
+  border-left: none;
+  transition: border-color var(--transition-fast);
+}
+
+.agencyReviews .arrow:hover::after {
+  border-color: var(--white);
+}
+
+.agencyReviews .arrow.left::after {
+  transform: rotate(-135deg);
+  margin-left: 3px;
+}
+
+.agencyReviews .arrow.right::after {
+  transform: rotate(45deg);
+  margin-right: 3px;
+}
+
+/* Pagination Dots for Agency Reviews */
+.agencyReviews .pagination-dots {
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: center;
+  gap: var(--gap-small);
+  margin-top: 25px;
+}
+
+.agencyReviews .pagination-dot {
+  width: var(--dot-size);
+  height: var(--dot-size);
+  border-radius: var(--border-radius-round);
+  background: var(--border-dark);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.agencyReviews .pagination-dot.active {
+  background: var(--primary-color);
+  transform: scale(1.3);
+}
+
+.agencyReviews .pagination-dot:hover {
+  background: #bbb;
+}
+
+/* Place Review Button for Agency */
+.agencyReviews .PlaceReviewContainer {
+  text-align: center;
+  margin-top: 16px;
+  width: 100%;
+}
+
+.agencyReviews #placeReviewBtn {
+  background: var(--primary-color);
+  color: var(--white);
+  border: none;
+  padding: 15px 35px;
+  border-radius: var(--border-radius-medium);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-button);
+}
+
+.agencyReviews #placeReviewBtn:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-button-hover);
+}
+
+.agencyReviews #placeReviewBtn:active {
+  transform: translateY(0);
+}
+
+/* End Agency Reviews Section  */
+
+/* Start Agency Cars Section  */
+
+.agencyCars {
+  width: 100%;
+  min-height: 30vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.agencyCars .agencyName {
+  text-align: center;
+  width: 100%;
+}
+
+.agencyCars .agencyCarsContainer {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.agencyCars .agencyCarsContainer .CarCart {
+  width: 24%;
+  height: 420px;
+  background-color: white;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 1px 1px 4px rgba(56, 56, 56, 0.37);
+  align-items: center;
+  padding-bottom: 16px;
+  margin-bottom: 16px;
+}
+
+.agencyCars .agencyCarsContainer .CarCart .carImg {
+  width: 100%;
+  height: 35%;
+  object-fit: cover;
+  object-position: center center;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+.agencyCars .agencyCarsContainer .CarCart .cardCarTitle {
+  width: 100%;
+  padding: 0 12px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.agencyCars .agencyCarsContainer .CarCart .cartTxtContainer {
+  width: 100%;
+  padding: 0 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  color: #5c5c5c;
+  font-size: 14px;
+}
+
+.agencyCars .agencyCarsContainer .CarCart .cartTxtContainer .cartPrice p {
+  color: black;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+}
+
+.agencyCars .agencyCarsContainer .CarCart .cartTxtContainer .cartPrice .pd {
+  color: #5c5c5c;
+  font-weight: 600;
+}
+
+.agencyCars .agencyCarsContainer .CarCart .cartTxtContainer .cartRating {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.agencyCars .agencyCarsContainer .CarCart .cartBookBtn {
+  width: 91%;
+  height: 40px;
+  background-color: #e50914;
+  border-radius: 16px;
+  cursor: pointer;
+  border: none;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  transition: background-color 0.3s ease;
+}
 
 
+
+/* End Agency Cars Section  */
+
+/* Start Popup  */
+.login-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--overlay-bg);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(3px);
+}
+
+.login-popup-overlay.show {
+  display: flex;
+}
+
+.login-popup {
+  width: 450px;
+  background: var(--white);
+  border-radius: var(--border-radius-large);
+  padding: var(--gap-3xl);
+  text-align: center;
+  box-shadow: var(--shadow-popup-main);
+  position: relative;
+}
+
+.login-popup::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--primary-color);
+  border-radius: var(--border-radius-large) var(--border-radius-large) 0 0;
+}
+
+.popupIcon {
+  width: var(--popup-icon-size);
+  height: var(--popup-icon-size);
+  background: var(--primary-color);
+  border-radius: var(--border-radius-round);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--gap-xl);
+  color: var(--white);
+  font-size: var(--font-size-3xl);
+}
+
+.popupTitle {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  margin-bottom: var(--gap-2xl);
+}
+
+.popup-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.popup-buttons button {
+  padding: var(--gap-medium) var(--gap-2xl);
+  border: none;
+  border-radius: var(--border-radius-small);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+#loginRedirectBtn {
+  background: var(--primary-color);
+  color: var(--white);
+}
+
+#loginRedirectBtn:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+#cancelPopupBtn {
+  background: var(--popup-bg);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-dark);
+}
+
+#cancelPopupBtn:hover {
+  background: #e5e5e5;
+  color: var(--text-primary);
+}
+
+.popup-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: var(--close-button-size);
+  height: var(--close-button-size);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: var(--border-radius-round);
+  color: var(--text-muted);
+  font-size: var(--font-size-large);
+  transition: all var(--transition-fast);
+}
+
+.popup-close:hover {
+  background: var(--popup-bg);
+  color: var(--text-primary);
+}
+
+.popup-close::after {
+  content: "×";
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: scale(0.9) translateY(-20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+.login-popup-overlay {
+  animation: fadeIn var(--transition-fast);
+}
+
+.login-popup {
+  animation: slideIn var(--transition-fast);
+}
+
+/* End Popup  */
 
 /* ======================================= */
 /* RESPONSIVE DESIGN - MEDIA QUERIES */
@@ -307,265 +818,929 @@ body {
 
 /* Large Tablets (768px - 1024px) */
 @media screen and (max-width: 1024px) {
-    :root {
-        --font-size-6xl: 40px;
-        --container-margin: 60px;
-        --container-padding: 20px;
-    }
+  :root {
+    --font-size-6xl: 40px;
+    --container-margin: 60px;
+    --container-padding: 20px;
+  }
 
-    .mainSection .agencyHeroSection {
-        margin-top: 60px;
-        height: 70vh;
-    }
+  .mainSection .agencyHeroSection {
+    margin-top: 60px;
+    height: 70vh;
+  }
 
-    .mainSection .agencyHeroSection .heroContent .contactPart {
-        height: 40px;
-        margin-bottom: 20px;
-    }
+  .mainSection .agencyHeroSection .heroContent .contactPart {
+    height: 40px;
+    margin-bottom: 20px;
+  }
 
-    .mainSection .agencyHeroSection .heroContent .contactPart .agencyContact {
-        min-width: 25%;
-        padding: 0 12px;
-    }
+  .mainSection .agencyHeroSection .heroContent .contactPart .agencyContact {
+    min-width: 25%;
+    padding: 0 12px;
+  }
 
-    .mainSection .agencyHeroSection .contactPart .agencyRating {
-        min-width: 15%;
-    }
+  .mainSection .agencyHeroSection .contactPart .agencyRating {
+    min-width: 15%;
+  }
+
+  .agencyInformation {
+    height: 70vh;
+    gap: 2.5%;
+    padding: 16px 20px;
+  }
+
+  .agencyInformation #infoDescription {
+    width: 52%;
+    gap: 18px;
+    padding: 8px 12px;
+  }
+
+  .agencyInformation #infoDescription h3 {
+    font-size: calc(var(--font-size-4xl) * 0.9);
+  }
+
+  .agencyInformation #infoDescription p {
+    font-size: calc(var(--font-size-base) * 0.95);
+    line-height: 1.6;
+  }
+
+  .agencyInformation #infoMapLocation {
+    width: 45.5%;
+    padding: 8px 12px;
+  }
+
+  .agencyInformation #infoMapLocation #mapFrame {
+    border-radius: 14px;
+  }
+
+  .agencyReviews {
+    margin: 50px 0;
+    padding: 0 20px;
+  }
+
+  .agencyReviews .section-title {
+    margin-bottom: calc(var(--gap-3xl) * 0.8);
+  }
+
+  .agencyReviewsContainer {
+    gap: var(--gap-xl);
+  }
+
+  .agencyReviews .review-card {
+    width: 32%;
+    height: 180px;
+    padding: 16px;
+  }
+
+  .agencyReviews .review-text {
+    font-size: calc(var(--font-size-small) * 0.95);
+    line-height: 1.5;
+  }
+
+  .agencyReviews #placeReviewBtn {
+    padding: 12px 30px;
+  }
+
+  .agencyCars .agencyCarsContainer {
+    width: 90%;
+    justify-content: space-around;
+  }
+  
+  .agencyCars .agencyCarsContainer .CarCart {
+    width: 31%;
+    height: 400px;
+    margin-bottom: 20px;
+  }
+  
+  .agencyCars .agencyCarsContainer .CarCart .cardCarTitle {
+    font-size: 18px;
+  }
+  
+  .agencyCars .agencyCarsContainer .CarCart .cartTxtContainer {
+    font-size: 13px;
+  }
+
 }
 
 /* Medium Tablets (481px - 768px) */
 @media screen and (max-width: 768px) {
-    :root {
-        --font-size-6xl: 32px;
-        --font-size-base: 15px;
-        --container-margin: 40px;
-        --container-padding: 16px;
-        --icon-size: 18px;
-    }
+  :root {
+    --font-size-6xl: 32px;
+    --font-size-base: 15px;
+    --container-margin: 40px;
+    --container-padding: 16px;
+    --icon-size: 18px;
+  }
 
-    .mainSection .agencyHeroSection {
-        margin-top: 50px;
-        height: 65vh;
-    }
+  .mainSection .agencyHeroSection {
+    margin-top: 50px;
+    height: 65vh;
+  }
 
-    .mainSection .agencyHeroSection .heroContent .contactPart {
-        flex-direction: column;
-        height: auto;
-        gap: 12px;
-        margin-bottom: 24px;
-    }
+  .mainSection .agencyHeroSection .heroContent .contactPart {
+    flex-direction: column;
+    height: auto;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
 
-    .mainSection .agencyHeroSection .heroContent .contactPart .agencyContact {
-        min-width: 100%;
-        width: 100%;
-        justify-content: center;
-        padding: 8px 12px;
-        background-color: rgba(0, 0, 0, 0.3);
-        border-radius: var(--border-radius-medium);
-    }
+  .mainSection .agencyHeroSection .heroContent .contactPart .agencyContact {
+    min-width: 100%;
+    width: 100%;
+    justify-content: center;
+    padding: 8px 12px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: var(--border-radius-medium);
+  }
 
-    .mainSection .agencyHeroSection .contactPart .agencyRating {
-        min-width: 100%;
-        width: 100%;
-    }
+  .mainSection .agencyHeroSection .contactPart .agencyRating {
+    min-width: 100%;
+    width: 100%;
+  }
 
-    .mainSection .agencyHeroSection .contactPart .agencyRating #ratingPart {
-        background-color: rgba(0, 0, 0, 0.3);
-        border-radius: var(--border-radius-medium);
-        padding: 8px 12px;
-    }
+  .mainSection .agencyHeroSection .contactPart .agencyRating #ratingPart {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: var(--border-radius-medium);
+    padding: 8px 12px;
+  }
 
-    .mainSection .agencyHeroSection .contactPart .agencyContact .agencyParts .contactIcons,
-    .mainSection .agencyHeroSection .contactPart .agencyRating .agencyParts .ratingImage {
-        width: 18px;
-        height: 18px;
-        margin-right: 6px;
-    }
+  .mainSection
+    .agencyHeroSection
+    .contactPart
+    .agencyContact
+    .agencyParts
+    .contactIcons,
+  .mainSection
+    .agencyHeroSection
+    .contactPart
+    .agencyRating
+    .agencyParts
+    .ratingImage {
+    width: 18px;
+    height: 18px;
+    margin-right: 6px;
+  }
+
+  .agencyInformation {
+    height: 65vh;
+    gap: 3%;
+    padding: 16px;
+  }
+
+  .agencyInformation #infoDescription {
+    width: 50%;
+    gap: 16px;
+    padding: 8px 10px;
+  }
+
+  .agencyInformation #infoDescription h3 {
+    font-size: calc(var(--font-size-4xl) * 0.8);
+    text-align: center;
+  }
+
+  .agencyInformation #infoDescription p {
+    font-size: calc(var(--font-size-base) * 0.9);
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  .agencyInformation #infoMapLocation {
+    width: 47%;
+    padding: 8px 10px;
+  }
+
+  .agencyInformation #infoMapLocation #mapFrame {
+    border-radius: 12px;
+    box-shadow: 1px 1px 4px var(--text-primary);
+  }
+
+  .agencyReviews {
+    margin: 40px 0;
+    padding: 0 16px;
+  }
+
+  .agencyReviews .section-title {
+    margin-bottom: calc(var(--gap-3xl) * 0.6);
+  }
+
+  .agencyReviewsContainer {
+    gap: var(--gap-large);
+  }
+
+  .agencyReviews .review-card {
+    width: 45%;
+    height: 160px;
+    padding: 14px;
+  }
+
+  .agencyReviews .review-header {
+    margin-bottom: 12px;
+  }
+
+  .agencyReviews .review-author {
+    font-size: calc(var(--font-size-base) * 0.9);
+  }
+
+  .agencyReviews .review-text {
+    font-size: calc(var(--font-size-small) * 0.9);
+    line-height: 1.4;
+  }
+
+  .agencyReviews .arrow {
+    width: calc(var(--arrow-size) * 0.9);
+    height: calc(var(--arrow-size) * 0.9);
+  }
+
+  .agencyReviews #placeReviewBtn {
+    padding: 12px 25px;
+    font-size: calc(var(--font-size-base) * 0.9);
+  }
+
+  .agencyCars {
+    gap: 15px;
+    padding: 0 10px;
+  }
+  
+  .agencyCars .agencyCarsContainer {
+    width: 95%;
+  }
+  
+  .agencyCars .agencyCarsContainer .CarCart {
+    width: 48%;
+    height: 380px;
+    margin-bottom: 20px;
+  }
+  
+  .agencyCars .agencyCarsContainer .CarCart .cardCarTitle {
+    font-size: 17px;
+    padding: 0 10px;
+  }
+  
+  .agencyCars .agencyCarsContainer .CarCart .cartTxtContainer {
+    padding: 0 10px;
+    font-size: 12px;
+  }
+  
+  .agencyCars .agencyCarsContainer .CarCart .cartBookBtn {
+    width: 90%;
+    height: 38px;
+  }
+
 }
 
 /* Small Tablets / Large Mobile (481px - 640px) */
 @media screen and (max-width: 640px) {
-    :root {
-        --font-size-6xl: 28px;
-        --font-size-base: 14px;
-        --container-padding: 12px;
-    }
+  :root {
+    --font-size-6xl: 28px;
+    --font-size-base: 14px;
+    --container-padding: 12px;
+  }
 
-    .mainSection .agencyHeroSection {
-        margin-top: 40px;
-        height: 60vh;
-    }
+  .mainSection .agencyHeroSection {
+    margin-top: 40px;
+    height: 60vh;
+  }
 
-    .mainSection .agencyHeroSection .heroContent .agencyName {
-        padding: 0 20px;
-        line-height: 1.2;
-    }
+  .mainSection .agencyHeroSection .heroContent .agencyName {
+    padding: 0 20px;
+    line-height: 1.2;
+  }
+
+  .agencyInformation {
+    height: auto;
+    min-height: 80vh;
+    flex-direction: column;
+    gap: 24px;
+    padding: 20px 12px;
+  }
+
+  .agencyInformation #infoDescription {
+    width: 100%;
+    height: auto;
+    min-height: 40vh;
+    gap: 20px;
+    padding: 16px;
+    order: 1;
+  }
+
+  .agencyInformation #infoDescription h3 {
+    font-size: calc(var(--font-size-4xl) * 0.75);
+    text-align: center;
+  }
+
+  .agencyInformation #infoDescription p {
+    font-size: calc(var(--font-size-base) * 0.95);
+    line-height: 1.6;
+    text-align: center;
+    max-width: 600px;
+  }
+
+  .agencyInformation #infoMapLocation {
+    width: 100%;
+    height: 350px;
+    padding: 0;
+    order: 2;
+  }
+
+  .agencyInformation #infoMapLocation #mapFrame {
+    border-radius: 12px;
+    box-shadow: 1px 1px 4px var(--text-primary);
+  }
+
+  .agencyReviews {
+    margin: 35px 0;
+    padding: 0 12px;
+  }
+
+  .agencyReviews .section-title {
+    margin-bottom: calc(var(--gap-3xl) * 0.5);
+  }
+
+  .agencyReviewsContainer {
+    flex-direction: column;
+    gap: var(--gap-medium);
+  }
+
+  .agencyReviews .reviews-wrapper {
+    flex-direction: column;
+    gap: var(--gap-large);
+    height: auto;
+  }
+
+  .agencyReviews .review-card {
+    width: 100%;
+    max-width: 400px;
+    height: 140px;
+    padding: 16px;
+  }
+
+  .agencyReviews .review-header {
+    margin-bottom: 10px;
+  }
+
+  .agencyReviews .review-rating {
+    width: 45px;
+    height: 26px;
+  }
+
+  .agencyReviews .arrow {
+    width: calc(var(--arrow-size) * 0.8);
+    height: calc(var(--arrow-size) * 0.8);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .agencyReviews .arrow.left {
+    left: 10px;
+  }
+
+  .agencyReviews .arrow.right {
+    right: 10px;
+  }
+
+  .agencyReviews .pagination-dots {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .agencyReviews #placeReviewBtn {
+    padding: 12px 24px;
+    font-size: calc(var(--font-size-base) * 0.85);
+  }
+
+   .agencyCars {
+    min-height: 25vh;
+    gap: 12px;
+  }
+  
+  .agencyCars .agencyCarsContainer .CarCart {
+    width: 47%;
+    height: 360px;
+  }
+  
+  .agencyCars .agencyCarsContainer .CarCart .cardCarTitle {
+    font-size: 16px;
+  }
+  
+  .agencyCars .agencyCarsContainer .CarCart .cartTxtContainer {
+    font-size: 11px;
+  }
+  
+  .agencyCars .agencyCarsContainer .CarCart .cartBookBtn {
+    height: 36px;
+    font-size: 14px;
+  }
+
 }
 
 /* Mobile Phones (320px - 480px) */
 @media screen and (max-width: 480px) {
-    :root {
-        --font-size-6xl: 24px;
-        --font-size-base: 13px;
-        --container-padding: 12px;
-        --gap-small: 6px;
-        --gap-medium: 8px;
-        --gap-large: 12px;
-    }
+  :root {
+    --font-size-6xl: 24px;
+    --font-size-base: 13px;
+    --container-padding: 12px;
+    --gap-small: 6px;
+    --gap-medium: 8px;
+    --gap-large: 12px;
+  }
 
-    .mainSection .agencyHeroSection {
-        margin-top: 30px;
-        height: 55vh;
-        min-height: 400px;
-    }
+  .mainSection .agencyHeroSection {
+    margin-top: 30px;
+    height: 55vh;
+    min-height: 400px;
+  }
 
-    .mainSection .agencyHeroSection .heroContent .agencyName {
-        padding: 0 16px;
-        line-height: 1.1;
-    }
+  .mainSection .agencyHeroSection .heroContent .agencyName {
+    padding: 0 16px;
+    line-height: 1.1;
+  }
 
-    .mainSection .agencyHeroSection .heroContent .contactPart {
-        gap: 8px;
-        margin-bottom: 16px;
-        padding: 0 12px;
-    }
+  .mainSection .agencyHeroSection .heroContent .contactPart {
+    gap: 8px;
+    margin-bottom: 16px;
+    padding: 0 12px;
+  }
 
-    .mainSection .agencyHeroSection .heroContent .contactPart .agencyContact {
-        padding: 6px 10px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
+  .mainSection .agencyHeroSection .heroContent .contactPart .agencyContact {
+    padding: 6px 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 
-    .mainSection .agencyHeroSection .contactPart .agencyRating #ratingPart {
-        padding: 6px 10px;
-        flex-wrap: wrap;
-    }
+  .mainSection .agencyHeroSection .contactPart .agencyRating #ratingPart {
+    padding: 6px 10px;
+    flex-wrap: wrap;
+  }
 
-    .mainSection .agencyHeroSection .contactPart .agencyContact .agencyParts .contactIcons,
-    .mainSection .agencyHeroSection .contactPart .agencyRating .agencyParts .ratingImage {
-        width: 16px;
-        height: 16px;
-        margin-right: 4px;
-    }
+  .mainSection
+    .agencyHeroSection
+    .contactPart
+    .agencyContact
+    .agencyParts
+    .contactIcons,
+  .mainSection
+    .agencyHeroSection
+    .contactPart
+    .agencyRating
+    .agencyParts
+    .ratingImage {
+    width: 16px;
+    height: 16px;
+    margin-right: 4px;
+  }
 
-    .mainSection .agencyHeroSection .contactPart .agencyContact .agencyParts .contactText,
-    .mainSection .agencyHeroSection .contactPart .agencyRating .agencyParts .ratingText {
-        margin-right: 4px;
-    }
+  .mainSection
+    .agencyHeroSection
+    .contactPart
+    .agencyContact
+    .agencyParts
+    .contactText,
+  .mainSection
+    .agencyHeroSection
+    .contactPart
+    .agencyRating
+    .agencyParts
+    .ratingText {
+    margin-right: 4px;
+  }
+
+  .agencyInformation {
+    min-height: 75vh;
+    gap: 20px;
+    padding: 16px 8px;
+  }
+
+  .agencyInformation #infoDescription {
+    min-height: 35vh;
+    gap: 16px;
+    padding: 12px;
+  }
+
+  .agencyInformation #infoDescription h3 {
+    font-size: calc(var(--font-size-4xl) * 0.65);
+    text-align: center;
+    line-height: 1.2;
+  }
+
+  .agencyInformation #infoDescription p {
+    font-size: calc(var(--font-size-base) * 0.9);
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  .agencyInformation #infoMapLocation {
+    height: 300px;
+    padding: 0;
+  }
+
+  .agencyInformation #infoMapLocation #mapFrame {
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px var(--text-primary);
+  }
+
+  .agencyReviews {
+    margin: 30px 0;
+    padding: 0 8px;
+  }
+
+  .agencyReviews .section-title {
+    margin-bottom: calc(var(--gap-3xl) * 0.4);
+    font-size: calc(var(--font-size-large) * 0.9);
+  }
+
+  .agencyReviews .review-card {
+    max-width: 320px;
+    height: 120px;
+    padding: 12px;
+  }
+
+  .agencyReviews .review-header {
+    margin-bottom: 8px;
+  }
+
+  .agencyReviews .review-header .quote-icon {
+    width: 14px;
+    height: 14px;
+  }
+
+  .agencyReviews .review-author {
+    font-size: calc(var(--font-size-base) * 0.8);
+  }
+
+  .agencyReviews .review-rating {
+    width: 40px;
+    height: 24px;
+    padding: 2px;
+  }
+
+  .agencyReviews .review-rating .rating-number {
+    font-size: calc(var(--font-size-small) * 0.9);
+  }
+
+  .agencyReviews .star-icon {
+    font-size: calc(var(--font-size-small) * 0.9);
+  }
+
+  .agencyReviews .review-text {
+    font-size: calc(var(--font-size-small) * 0.85);
+    line-height: 1.3;
+  }
+
+  .agencyReviews .arrow {
+    width: calc(var(--arrow-size) * 0.7);
+    height: calc(var(--arrow-size) * 0.7);
+  }
+
+  .agencyReviews .pagination-dot {
+    width: calc(var(--dot-size) * 0.9);
+    height: calc(var(--dot-size) * 0.9);
+  }
+
+  .agencyReviews #placeReviewBtn {
+    padding: 10px 20px;
+    font-size: calc(var(--font-size-base) * 0.8);
+  }
+
+  .agencyCars {
+    gap: 10px;
+    padding: 0 15px;
+  }
+  
+  .agencyCars .agencyCarsContainer {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .agencyCars .agencyCarsContainer .CarCart {
+    width: 100%;
+    height: 340px;
+    margin-bottom: 15px;
+    max-width: 400px;
+  }
+  
+  .agencyCars .agencyCarsContainer .CarCart .cardCarTitle {
+    font-size: 18px;
+    padding: 0 15px;
+  }
+  
+  .agencyCars .agencyCarsContainer .CarCart .cartTxtContainer {
+    padding: 0 15px;
+    font-size: 13px;
+  }
+  
+  .agencyCars .agencyCarsContainer .CarCart .cartBookBtn {
+    width: 88%;
+    height: 42px;
+    font-size: 15px;
+  }
+
 }
 
 /* Extra Small Mobile (max-width: 375px) */
 @media screen and (max-width: 375px) {
-    :root {
-        --font-size-6xl: 20px;
-        --font-size-base: 12px;
-        --container-padding: 10px;
-    }
+  :root {
+    --font-size-6xl: 20px;
+    --font-size-base: 12px;
+    --container-padding: 10px;
+  }
 
-    .mainSection .agencyHeroSection {
-        margin-top: 20px;
-        height: 50vh;
-        min-height: 350px;
-    }
+  .mainSection .agencyHeroSection {
+    margin-top: 20px;
+    height: 50vh;
+    min-height: 350px;
+  }
 
-    .mainSection .agencyHeroSection .heroContent .agencyName {
-        padding: 0 12px;
-    }
+  .mainSection .agencyHeroSection .heroContent .agencyName {
+    padding: 0 12px;
+  }
 
-    .mainSection .agencyHeroSection .heroContent .contactPart {
-        padding: 0 10px;
-        margin-bottom: 12px;
-    }
+  .mainSection .agencyHeroSection .heroContent .contactPart {
+    padding: 0 10px;
+    margin-bottom: 12px;
+  }
 
-    .mainSection .agencyHeroSection .heroContent .contactPart .agencyContact,
-    .mainSection .agencyHeroSection .contactPart .agencyRating #ratingPart {
-        padding: 4px 8px;
-        font-size: var(--font-size-base);
-    }
+  .mainSection .agencyHeroSection .heroContent .contactPart .agencyContact,
+  .mainSection .agencyHeroSection .contactPart .agencyRating #ratingPart {
+    padding: 4px 8px;
+    font-size: var(--font-size-base);
+  }
+
+  .agencyInformation {
+    min-height: 70vh;
+    gap: 18px;
+    padding: 12px 6px;
+  }
+
+  .agencyInformation #infoDescription {
+    min-height: 32vh;
+    gap: 14px;
+    padding: 10px;
+  }
+
+  .agencyInformation #infoDescription h3 {
+    font-size: calc(var(--font-size-4xl) * 0.6);
+    line-height: 1.1;
+  }
+
+  .agencyInformation #infoDescription p {
+    font-size: calc(var(--font-size-base) * 0.85);
+    line-height: 1.4;
+  }
+
+  .agencyInformation #infoMapLocation {
+    height: 280px;
+  }
+
+  .agencyInformation #infoMapLocation #mapFrame {
+    border-radius: 8px;
+  }
+
+  .agencyReviews {
+    margin: 25px 0;
+    padding: 0 6px;
+  }
+
+  .agencyReviews .section-title {
+    margin-bottom: calc(var(--gap-3xl) * 0.35);
+    font-size: calc(var(--font-size-large) * 0.85);
+  }
+
+  .agencyReviews .review-card {
+    max-width: 300px;
+    height: 110px;
+    padding: 10px;
+  }
+
+  .agencyReviews .review-header {
+    margin-bottom: 6px;
+  }
+
+  .agencyReviews .review-author {
+    font-size: calc(var(--font-size-base) * 0.75);
+  }
+
+  .agencyReviews .review-rating {
+    width: 38px;
+    height: 22px;
+  }
+
+  .agencyReviews .review-text {
+    font-size: calc(var(--font-size-small) * 0.8);
+    line-height: 1.2;
+  }
+
+  .agencyReviews .arrow {
+    width: calc(var(--arrow-size) * 0.65);
+    height: calc(var(--arrow-size) * 0.65);
+  }
+
+  .agencyReviews #placeReviewBtn {
+    padding: 8px 18px;
+    font-size: calc(var(--font-size-base) * 0.75);
+  }
+
+  .agencyCars {
+    padding: 0 12px;
+  }
+  
+  .agencyCars .agencyCarsContainer .CarCart {
+    height: 320px;
+    border-radius: 12px;
+  }
+  
+  .agencyCars .agencyCarsContainer .CarCart .carImg {
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+  }
+  
+  .agencyCars .agencyCarsContainer .CarCart .cardCarTitle {
+    font-size: 17px;
+    padding: 0 12px;
+  }
+  
+  .agencyCars .agencyCarsContainer .CarCart .cartTxtContainer {
+    padding: 0 12px;
+    font-size: 12px;
+  }
+  
+  .agencyCars .agencyCarsContainer .CarCart .cartBookBtn {
+    border-radius: 12px;
+    height: 40px;
+    font-size: 14px;
+  }
+
 }
 
 /* Ultra Small Mobile (max-width: 320px) */
 @media screen and (max-width: 320px) {
-    :root {
-        --font-size-6xl: 18px;
-        --font-size-base: 11px;
-        --container-padding: 8px;
-    }
+  :root {
+    --font-size-6xl: 18px;
+    --font-size-base: 11px;
+    --container-padding: 8px;
+  }
 
-    .mainSection .agencyHeroSection {
-        margin-top: 15px;
-        height: 45vh;
-        min-height: 320px;
-    }
+  .mainSection .agencyHeroSection {
+    margin-top: 15px;
+    height: 45vh;
+    min-height: 320px;
+  }
 
-    .mainSection .agencyHeroSection .heroContent .agencyName {
-        padding: 0 10px;
-    }
+  .mainSection .agencyHeroSection .heroContent .agencyName {
+    padding: 0 10px;
+  }
 
-    .mainSection .agencyHeroSection .heroContent .contactPart {
-        padding: 0 8px;
-        margin-bottom: 10px;
-        gap: 6px;
-    }
+  .mainSection .agencyHeroSection .heroContent .contactPart {
+    padding: 0 8px;
+    margin-bottom: 10px;
+    gap: 6px;
+  }
 
-    .mainSection .agencyHeroSection .contactPart .agencyContact .agencyParts .contactIcons,
-    .mainSection .agencyHeroSection .contactPart .agencyRating .agencyParts .ratingImage {
-        width: 14px;
-        height: 14px;
-        margin-right: 3px;
-    }
-}
+  .mainSection
+    .agencyHeroSection
+    .contactPart
+    .agencyContact
+    .agencyParts
+    .contactIcons,
+  .mainSection
+    .agencyHeroSection
+    .contactPart
+    .agencyRating
+    .agencyParts
+    .ratingImage {
+    width: 14px;
+    height: 14px;
+    margin-right: 3px;
+  }
 
-/* Landscape Orientation for Mobile */
-@media screen and (max-height: 500px) and (orientation: landscape) {
-    .mainSection .agencyHeroSection {
-        height: 90vh;
-        margin-top: 20px;
-    }
+  .agencyInformation {
+    min-height: 65vh;
+    gap: 16px;
+    padding: 10px 4px;
+  }
 
-    .mainSection .agencyHeroSection .heroContent .agencyName {
-        font-size: calc(var(--font-size-6xl) * 0.8);
-    }
+  .agencyInformation #infoDescription {
+    min-height: 30vh;
+    gap: 12px;
+    padding: 8px;
+  }
 
-    .mainSection .agencyHeroSection .heroContent .contactPart {
-        position: relative;
-        margin-top: 20px;
-        margin-bottom: 0;
-    }
-}
+  .agencyInformation #infoDescription h3 {
+    font-size: calc(var(--font-size-4xl) * 0.55);
+    line-height: 1.1;
+  }
 
-/* High DPI Displays */
-@media screen and (-webkit-min-device-pixel-ratio: 2),
-screen and (min-resolution: 192dpi) {
-    .mainSection .agencyHeroSection .heroBackImg {
-        image-rendering: -webkit-optimize-contrast;
-        image-rendering: crisp-edges;
-    }
-}
+  .agencyInformation #infoDescription p {
+    font-size: calc(var(--font-size-base) * 0.8);
+    line-height: 1.3;
+  }
 
-/* Hover Effects for Touch Devices */
-@media (hover: none) and (pointer: coarse) {
+  .agencyInformation #infoMapLocation {
+    height: 250px;
+  }
 
-    .mainSection .agencyHeroSection .heroContent .contactPart .agencyContact:hover,
-    .mainSection .agencyHeroSection .contactPart .agencyRating:hover {
-        transform: none;
-    }
-}
+  .agencyInformation #infoMapLocation #mapFrame {
+    border-radius: 8px;
+    box-shadow: 1px 1px 2px var(--text-primary);
+  }
 
-/* Print Styles */
-@media print {
-    .mainSection .agencyHeroSection {
-        height: auto;
-        margin-top: 0;
-        page-break-inside: avoid;
-    }
+  .agencyReviews {
+    margin: 20px 0;
+    padding: 0 4px;
+  }
 
-    .mainSection .agencyHeroSection .heroContent {
-        position: static;
-        background-color: transparent;
-    }
+  .agencyReviews .section-title {
+    margin-bottom: calc(var(--gap-3xl) * 0.3);
+    font-size: calc(var(--font-size-large) * 0.8);
+  }
 
-    .mainSection .agencyHeroSection .heroContent .agencyName {
-        color: var(--text-primary);
-    }
+  .agencyReviews .review-card {
+    max-width: 280px;
+    height: 100px;
+    padding: 8px;
+  }
+
+  .agencyReviews .review-header {
+    margin-bottom: 4px;
+  }
+
+  .agencyReviews .review-header .quote-icon {
+    width: 12px;
+    height: 12px;
+  }
+
+  .agencyReviews .review-author {
+    font-size: calc(var(--font-size-base) * 0.7);
+  }
+
+  .agencyReviews .review-rating {
+    width: 35px;
+    height: 20px;
+  }
+
+  .agencyReviews .review-rating .rating-number {
+    font-size: calc(var(--font-size-small) * 0.8);
+  }
+
+  .agencyReviews .star-icon {
+    font-size: calc(var(--font-size-small) * 0.8);
+  }
+
+  .agencyReviews .review-text {
+    font-size: calc(var(--font-size-small) * 0.75);
+    line-height: 1.1;
+  }
+
+  .agencyReviews .arrow {
+    width: calc(var(--arrow-size) * 0.6);
+    height: calc(var(--arrow-size) * 0.6);
+  }
+
+  .agencyReviews .pagination-dot {
+    width: calc(var(--dot-size) * 0.8);
+    height: calc(var(--dot-size) * 0.8);
+  }
+
+  .agencyReviews #placeReviewBtn {
+    padding: 8px 16px;
+    font-size: calc(var(--font-size-base) * 0.7);
+  }
+
+  .agencyCars {
+    padding: 0 10px;
+    gap: 8px;
+  }
+  
+  .agencyCars .agencyCarsContainer .CarCart {
+    height: 300px;
+    border-radius: 10px;
+    padding-bottom: 12px;
+  }
+  
+  .agencyCars .agencyCarsContainer .CarCart .carImg {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  
+  .agencyCars .agencyCarsContainer .CarCart .cardCarTitle {
+    font-size: 16px;
+    padding: 0 10px;
+  }
+  
+  .agencyCars .agencyCarsContainer .CarCart .cartTxtContainer {
+    padding: 0 10px;
+    font-size: 11px;
+  }
+  
+  .agencyCars .agencyCarsContainer .CarCart .cartTxtContainer .cartRating {
+    gap: 6px;
+  }
+  
+  .agencyCars .agencyCarsContainer .CarCart .cartBookBtn {
+    width: 86%;
+    height: 38px;
+    border-radius: 10px;
+    font-size: 13px;
+  }
+
 }

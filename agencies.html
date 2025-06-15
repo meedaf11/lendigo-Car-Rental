@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agencies List</title>
+    <link rel="stylesheet" href="style/agenciesList.css" />
+  </head>
+  <body>
+    <div id="header-placeholder"></div>
+
+    <div class="heroSection">
+      <img class="lisrHeroImage" src="assets/images/car_agency.jpg" alt="" />
+      <div class="heroContent">
+        <h1>Available Car Rental Agencies</h1>
+      </div>
+    </div>
+
+    <div class="agencyContainer" id="agencyContainer">
+      <div class="search-bar-container">
+        <input type="text" id="agencySearchInput"placeholder="Search agencies by name..."/>
+        <button id="searchBtn">Search</button>
+      </div>
+      <div class="agenciesCardsContainer" id="agenciesCardsContainer">
+
+
+
+      </div>
+
+      <button class="addYourAgency" id="addYourAgency">Become a Trusted Rental Partner</button>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+
+    <!-- Login Popup -->
+    <div class="login-popup-overlay" id="loginPopupOverlay">
+      <div class="login-popup" id="loginPopup">
+        <p class="popupTitle">You must log in first to continue.</p>
+        <div class="popup-buttons">
+          <button id="loginRedirectBtn">Login</button>
+          <button id="cancelPopupBtn">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/agencyList.js"></script>
+  </body>
+</html>
