@@ -337,13 +337,13 @@ document.getElementById("loginPopupOverlay").addEventListener("click", (e) => {
 
 document.querySelector(".book-btn").addEventListener("click", () => {
   checkLoginAndProceed(() => {
-    alert("يمكنك الآن المتابعة إلى الحجز.");
+    alert("You can now proceed to booking.");
   });
 });
 
 document.getElementById("placeReviewBtn").addEventListener("click", () => {
   checkLoginAndProceed(() => {
-    alert("يمكنك الآن إضافة تقييم.");
+    alert("You can now add a rating.");
   });
 });
 
@@ -421,7 +421,7 @@ function getAgencyInfo(agencyId) {
     .catch((err) => {
       console.error(err);
       document.querySelector(".agencyCarsCartContainer").innerHTML = `
-        <p style="color:red; text-align:center;">تعذّر تحميل سيارات الوكالة.</p>
+        <p style="color:red; text-align:center;">Agency vehicles could not be loaded.</p>
       `;
     });
 
@@ -429,7 +429,7 @@ function getAgencyInfo(agencyId) {
     if (currentAgencyId) {
       window.location.href = `agency.html?agency_id=${currentAgencyId}`;
     } else {
-      console.error("لم يتم العثور على معرف الوكالة");
+      console.error("Agency ID not found");
     }
   });
 }
