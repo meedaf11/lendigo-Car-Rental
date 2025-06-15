@@ -6,17 +6,15 @@ function toggleDropdown() {
   dropdown.style.display = dropdown.style.display === "flex" ? "none" : "flex";
 }
 
-
 const links = document.querySelectorAll(".mainNav ul li a");
-const currentPage = window.location.pathname.split("/").pop(); 
+const currentPage = window.location.pathname.split("/").pop();
 
 links.forEach((link) => {
-  const linkPage = link.getAttribute("href").split("/").pop(); 
+  const linkPage = link.getAttribute("href").split("/").pop();
   if (linkPage === currentPage) {
     link.classList.add("active");
   }
 });
-
 
 window.addEventListener("click", function (e) {
   const profile = document.querySelector(".user-profile");
@@ -36,18 +34,17 @@ document.querySelectorAll(".mainNav ul li a").forEach((link) => {
   });
 });
 
+const footerLinks = document.querySelectorAll("footer .top .column ul li a");
 
+footerLinks.forEach((link) => {
+  const linkPage = link.getAttribute("href").split("/").pop();
+  if (linkPage === currentPage) {
+    link.classList.add("active");
+  }
+});
 
-  const footerLinks = document.querySelectorAll("footer .top .column ul li a");
-
-  footerLinks.forEach((link) => {
-    const linkPage = link.getAttribute("href").split("/").pop();
-    if (linkPage === currentPage) {
-      link.classList.add("active");
-    }
-  });
-
-  // Fetch login status and update dropdown menu
+// Fetch login status and update dropdown menu
+// Fetch login status and update dropdown menu
 fetch("api/check_login.php")
   .then((res) => res.json())
   .then((data) => {
@@ -55,7 +52,7 @@ fetch("api/check_login.php")
     dropdown.innerHTML = ""; // Clear it first
 
     if (data.loggedIn) {
-      // If user is logged in, show full menu
+      // ✅ If user is logged in, show full menu
       dropdown.innerHTML = `
         <li>
           <a href="myAccount.html">
@@ -76,12 +73,31 @@ fetch("api/check_login.php")
           </a>
         </li>
         <li>
-          <a href="logout.php">
+          <a href="#" id="logoutLink">
             <img src="assets/images/logout.svg" alt="Logout Icon" />
             Logout
           </a>
         </li>
       `;
+
+      // ✅ بعد إضافة الزر، اربط الحدث هنا
+      const logoutLink = document.getElementById("logoutLink");
+      logoutLink.addEventListener("click", function (e) {
+        e.preventDefault();
+        fetch("api/logout.php")
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.status === "success") {
+              window.location.href = "index.html";
+            } else {
+              alert("Logout failed");
+            }
+          })
+          .catch((err) => {
+            console.error("Logout failed:", err);
+          });
+      });
+
     } else {
       // Not logged in → show only Login
       dropdown.innerHTML = `
