@@ -251,9 +251,9 @@ body {
 
 /* Reviews Section */
 .carReviews {
-  margin: 60px 0;
+  margin: 20px 0;
   width: 100%;
-  min-height: 70vh;
+  min-height: 30vh;
 }
 
 .carReviews .section-title {

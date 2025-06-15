@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 11, 2025 at 02:10 AM
+-- Generation Time: Jun 15, 2025 at 09:45 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -30,6 +30,9 @@ SET time_zone = "+00:00";
 CREATE TABLE `agency` (
   `agency_id` int(11) NOT NULL,
   `name` varchar(150) NOT NULL,
+  `agency_owner_id` int(11) NOT NULL,
+  `description` text NOT NULL,
+  `image` varchar(255) NOT NULL,
   `contact_email` varchar(150) NOT NULL,
   `phone_number` varchar(15) NOT NULL,
   `agency_city` varchar(150) NOT NULL,
@@ -41,13 +44,13 @@ CREATE TABLE `agency` (
 -- Dumping data for table `agency`
 --
 
-INSERT INTO `agency` (`agency_id`, `name`, `contact_email`, `phone_number`, `agency_city`, `location`, `rating`) VALUES
-(1, 'Agence Ahmed', 'ahmedAgency@gmail.com', '06123456789', 'Tangier', 'tangier-mghogha-morocco', 0.00),
-(2, 'Elite Voyages', 'contact@elitevoyages.com', '06543219876', 'Casablanca', 'casablanca-anfa-morocco', 0.00),
-(3, 'Sahara Travel', 'info@saharatravel.ma', '06234567890', 'Marrakech', 'marrakech-medina-morocco', 0.00),
-(4, 'Atlas Explorer', 'support@atlasexplorer.com', '06789123456', 'Fes', 'fes-ville-nouvelle-morocco', 0.00),
-(5, 'Atlas Voyages', 'contact@atlasvoyages.ma', '+212522220101', 'Casablanca', '18, Rue Sebta, Quartier Gauthier, Casablanca', 4.75),
-(6, 'Maroc Horizon Tours', 'info@marochorizontours.com', '+212661234567', 'Marrakech', 'Rue Ibn Aïcha, Gueliz, Marrakech', 4.60);
+INSERT INTO `agency` (`agency_id`, `name`, `agency_owner_id`, `description`, `image`, `contact_email`, `phone_number`, `agency_city`, `location`, `rating`) VALUES
+(1, 'Agence Ahmed', 1, 'Agence Ahmed is a locally-rooted car rental agency based in the vibrant city of Tangier. With a focus on reliability, affordability, and customer satisfaction, Agence Ahmed has become a trusted name among both locals and tourists. The agency offers a carefully maintained fleet of compact, mid-size, and SUV vehicles to cater to a wide variety of travel needs, whether for short city commutes or long-distance excursions. Their team prides itself on a personalized, client-first approach, providing recommendations and support tailored to each renter’s specific itinerary. With convenient booking options and flexible rental terms, Agence Ahmed ensures that every customer experiences the freedom and comfort of exploring Morocco at their own pace.', 'https://amtartv.com/wp-content/uploads/2025/06/agency_ahmed.png', 'ahmedAgency@gmail.com', '06123456789', 'Tangier', 'tangier-mghogha-morocco', 0.00),
+(2, 'Elite Voyages', 2, 'Elite Voyages is a premier car rental and travel service provider headquartered in Casablanca. Renowned for its high standards of service and luxury-oriented approach, Elite Voyages caters to business professionals, international tourists, and event organizers seeking sophistication, punctuality, and comfort. Their fleet includes top-tier sedans, executive vehicles, and luxury SUVs—all meticulously maintained to guarantee safety and prestige. Beyond car rental, Elite Voyages also offers chauffeur-driven services and curated travel experiences across Morocco, blending elegance with convenience. With a multilingual team and 24/7 customer support, Elite Voyages stands out as a symbol of professionalism and elite mobility solutions.', 'http://amtartv.com/wp-content/uploads/2025/06/Elite-Voyages.png', 'contact@elitevoyages.com', '06543219876', 'Casablanca', 'casablanca-anfa-morocco', 0.00),
+(3, 'Sahara Travel', 3, 'Based in the heart of Marrakech, Sahara Travel is a car rental agency that specializes in connecting travelers with the breathtaking landscapes of Morocco. Whether you\'re planning a desert trek, a mountain getaway, or a coastal adventure, Sahara Travel provides the perfect vehicle—ranging from rugged 4x4s ideal for off-road terrain to comfortable vans for group trips. The agency’s local expertise is one of its strongest assets, offering not just vehicles but also guidance on the best routes, hidden gems, and cultural experiences. Sahara Travel is committed to providing authentic, adventure-ready services with a strong focus on customer care, safety, and enriching journeys through the diverse Moroccan landscape.', 'http://amtartv.com/wp-content/uploads/2025/06/Sahara-Travel.png', 'info@saharatravel.ma', '06234567890', 'Marrakech', 'marrakech-medina-morocco', 0.00),
+(4, 'Atlas Explorer', 4, 'Atlas Explorer is a dynamic car rental and tourism agency based in Fes, offering both transportation solutions and immersive travel experiences throughout Morocco. Ideal for solo travelers, families, and guided groups, the agency combines a diverse fleet with a passion for exploration. From compact city cars to powerful all-terrain vehicles, each rental is backed by attentive service and local insight. Atlas Explorer also partners with experienced guides to offer excursions across the Atlas Mountains, ancient medinas, and UNESCO World Heritage sites. Their mission is to empower travelers to navigate Morocco with confidence and curiosity, with flexible rental options and multilingual assistance always available.', 'http://amtartv.com/wp-content/uploads/2025/06/Atlas-Explorer.png', 'support@atlasexplorer.com', '06789123456', 'Fes', 'fes-ville-nouvelle-morocco', 0.00),
+(5, 'Atlas Voyages', 5, 'Atlas Voyages is one of Morocco’s most respected travel and transportation brands, with over five decades of excellence in the tourism industry. Headquartered in the prestigious Gauthier district of Casablanca, Atlas Voyages offers an extensive selection of car rental options, ranging from economical compacts to luxury and executive models. The agency is well-known for its impeccable customer service, nationwide reach, and integrated travel planning—including hotel reservations, flight bookings, and tailored tour packages. Whether you\'re a leisure traveler seeking a relaxed vacation or a corporate client needing reliable logistics, Atlas Voyages delivers superior service that reflects its legacy of trust, innovation, and quality.', 'http://amtartv.com/wp-content/uploads/2025/06/Atlas-Voyages.png', 'contact@atlasvoyages.ma', '+212522220101', 'Casablanca', '18, Rue Sebta, Quartier Gauthier, Casablanca', 4.75),
+(6, 'Maroc Horizon Tours', 3, 'Maroc Horizon Tours is a Marrakech-based travel agency that offers a holistic car rental and tourism experience designed to showcase the wonders of Morocco. With a client-centered philosophy, the company provides a wide selection of vehicles suitable for every type of traveler—from solo adventurers and families to small groups and professional delegations. In addition to self-drive rentals, Maroc Horizon Tours also offers guided tours, airport transfers, and customized itineraries that explore Morocco\'s rich cultural tapestry. With a seasoned staff, deep regional knowledge, and a commitment to excellence, the agency stands as a gateway to both discovery and comfort. Every trip booked through Maroc Horizon Tours is not just a rental—it’s a personalized journey into the heart of Moroccan heritage and hospitality.', 'http://amtartv.com/wp-content/uploads/2025/06/Maroc-Horizon-Tours.png', 'info@marochorizontours.com', '+212661234567', 'Marrakech', 'Rue Ibn Aïcha, Gueliz, Marrakech', 4.60);
 
 -- --------------------------------------------------------
 
@@ -69,12 +72,36 @@ CREATE TABLE `agency_review` (
 --
 
 INSERT INTO `agency_review` (`review_id`, `user_id`, `agency_id`, `rating`, `review_text`, `created_at`) VALUES
-(1, 1, 4, 5.00, 'Outstanding customer service and smooth process.', '2025-06-02'),
-(2, 2, 6, 4.00, 'Reliable agency, car was in good shape.', '2025-06-02'),
-(3, 4, 5, 3.00, 'Decent overall, but pick-up was delayed.', '2025-06-02'),
-(4, 5, 1, 2.00, 'Not very friendly staff and long wait times.', '2025-06-02'),
-(5, 1, 3, 4.00, 'Good experience, would rent again.', '2025-06-02'),
-(6, 4, 2, 5.00, 'Amazing agency! Very professional and helpful.', '2025-06-02');
+(7, 1, 1, 4.50, 'Very professional service, clean cars and friendly staff.', '2025-06-15'),
+(8, 1, 2, 3.00, 'Decent experience, but the car was not very clean.', '2025-06-15'),
+(9, 1, 3, 5.00, 'Amazing desert tour vehicle! Highly recommended.', '2025-06-15'),
+(10, 1, 4, 2.50, 'Had issues with the booking system and delays.', '2025-06-15'),
+(11, 1, 5, 4.00, 'Trusted agency with smooth check-in process.', '2025-06-15'),
+(12, 1, 6, 3.50, 'The car was good, but the price felt high.', '2025-06-15'),
+(13, 2, 1, 2.00, 'Not satisfied. Car had technical problems.', '2025-06-15'),
+(14, 2, 2, 4.50, 'Fantastic team and luxury vehicles.', '2025-06-15'),
+(15, 2, 3, 4.00, 'Helpful staff and well-maintained cars.', '2025-06-15'),
+(16, 2, 4, 3.50, 'Good service, a bit slow at pickup.', '2025-06-15'),
+(17, 2, 5, 5.00, 'Flawless experience from booking to return.', '2025-06-15'),
+(18, 2, 6, 2.50, 'Car worked fine but poor customer service.', '2025-06-15'),
+(19, 3, 1, 4.00, 'Good experience overall. Would rent again.', '2025-06-15'),
+(20, 3, 2, 2.00, 'Car was okay but customer service needs improvement.', '2025-06-15'),
+(21, 3, 3, 3.00, 'Average experience.', '2025-06-15'),
+(22, 3, 4, 4.50, 'Super clean vehicles and polite team.', '2025-06-15'),
+(23, 3, 5, 3.50, 'Satisfactory, nothing exceptional.', '2025-06-15'),
+(24, 3, 6, 5.00, 'Top-tier experience in Marrakech!', '2025-06-15'),
+(25, 4, 1, 1.50, 'Bad brakes and noisy engine. Disappointed.', '2025-06-15'),
+(26, 4, 2, 4.00, 'Excellent cars and helpful staff.', '2025-06-15'),
+(27, 4, 3, 3.50, 'Pretty good, though a bit pricey.', '2025-06-15'),
+(28, 4, 4, 4.00, 'Reliable and punctual.', '2025-06-15'),
+(29, 4, 5, 2.00, 'Expected more based on reviews.', '2025-06-15'),
+(30, 4, 6, 3.00, 'Decent but room for improvement.', '2025-06-15'),
+(31, 5, 1, 5.00, 'Perfect experience! Will book again.', '2025-06-15'),
+(32, 5, 2, 3.50, 'Good vehicles but slow processing.', '2025-06-15'),
+(33, 5, 3, 4.50, 'Loved the desert-ready SUV!', '2025-06-15'),
+(34, 5, 4, 2.00, 'Long wait times. Not impressed.', '2025-06-15'),
+(35, 5, 5, 4.00, 'Great customer service.', '2025-06-15'),
+(36, 5, 6, 1.50, 'Had mechanical issues and no support.', '2025-06-15');
 
 -- --------------------------------------------------------
 
@@ -87,7 +114,7 @@ CREATE TABLE `booking` (
   `user_id` int(11) NOT NULL,
   `car_id` int(11) NOT NULL,
   `booking_date` date NOT NULL,
-  `status` varchar(15) DEFAULT NULL CHECK (`status` in ('waiting','reserved','canceled','completed')),
+  `status` varchar(15) DEFAULT 'waiting' CHECK (`status` in ('waiting','reserved','canceled','completed')),
   `start_date` date NOT NULL,
   `end_date` date NOT NULL,
   `total_price` decimal(10,2) NOT NULL
@@ -271,7 +298,8 @@ INSERT INTO `users` (`user_id`, `username`, `email`, `password`, `phone_number`,
 (2, 'agency_procar', 'procar@example.com', '$2y$10$O7mU5UeDpYFeMuEwAkL95e4E5WuTIerPZ1EG5lhqvWTB8gGZ6n34G', '0623456789', '2025-06-02', ''),
 (3, 'meedafilal', 'meedaf11@gmail.com', '$2y$10$O7mU5UeDpYFeMuEwAkL95e4E5WuTIerPZ1EG5lhqvWTB8gGZ6n34G', '0682564814', '2025-06-02', 'admin'),
 (4, 'fatima_rider', 'fatima@example.com', '$2y$10$O7mU5UeDpYFeMuEwAkL95e4E5WuTIerPZ1EG5lhqvWTB8gGZ6n34G', '0645678901', '2025-06-02', 'customer'),
-(5, 'rent4u_agency', 'rent4u@example.com', '$2y$10$O7mU5UeDpYFeMuEwAkL95e4E5WuTIerPZ1EG5lhqvWTB8gGZ6n34G', '0656789012', '2025-06-02', '');
+(5, 'rent4u_agency', 'rent4u@example.com', '$2y$10$O7mU5UeDpYFeMuEwAkL95e4E5WuTIerPZ1EG5lhqvWTB8gGZ6n34G', '0656789012', '2025-06-02', ''),
+(7, 'afmeed', 'meedaf12@gmail.com', '$2y$10$3/sEOtNHAn63Wa6Sdeqrperug0u4QzkBLTEwWACWDC8Qy9cJGJCZC', '0625242621', '2025-06-15', 'customer');
 
 --
 -- Indexes for dumped tables
@@ -281,7 +309,8 @@ INSERT INTO `users` (`user_id`, `username`, `email`, `password`, `phone_number`,
 -- Indexes for table `agency`
 --
 ALTER TABLE `agency`
-  ADD PRIMARY KEY (`agency_id`);
+  ADD PRIMARY KEY (`agency_id`),
+  ADD KEY `fk_agency_owner` (`agency_owner_id`);
 
 --
 -- Indexes for table `agency_review`
@@ -336,7 +365,7 @@ ALTER TABLE `agency`
 -- AUTO_INCREMENT for table `agency_review`
 --
 ALTER TABLE `agency_review`
-  MODIFY `review_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `review_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `booking`
@@ -360,11 +389,17 @@ ALTER TABLE `car_review`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `agency`
+--
+ALTER TABLE `agency`
+  ADD CONSTRAINT `fk_agency_owner` FOREIGN KEY (`agency_owner_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `agency_review`
