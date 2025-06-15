@@ -16,9 +16,9 @@
 
         <div class="agencyHeroSection">
 
-            <img class="heroBackImg" src="assets/images/car_agency.jpg" alt="">
+            <img class="heroBackImg" id="heroBackImg" src="" alt="">
             <div class="heroContent">
-                <h1 class="agencyName" id="agencyName">Agency Name</h1>
+                <h1 class="agencyName" id="agencyTitleName"></h1>
                 <div class="contactPart">
 
                     <div class="agencyContact">
@@ -53,8 +53,7 @@
             <div class="infoContainers" id="infoDescription">
 
                 <h3>Agency Description</h3>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut quis in consequuntur qui impedit, nostrum assumenda natus soluta laborum neque beatae, ipsum asperiores quae dolore? Fugit, a consequatur hic commodi earum, quo quaerat animi suscipit voluptas, aliquam sapiente. Dolores repellendus, sunt reprehenderit sint vel molestiae, assumenda earum illum culpa voluptas ex error debitis odio magni, quibusdam numquam? Consectetur, aut quisquam. Exercitationem officiis nostrum, reiciendis voluptas quibusdam libero natus perspiciatis ab magni vitae repudiandae temporibus quas.</p>
-
+                <p id="agencyDescription"></p>
             </div>
             <div class="infoContainers" id="infoMapLocation">
 
@@ -65,10 +64,53 @@
         </div>
 
 
+        <!-- Agency Reviews Section -->
+      <div class="agencyReviews">
+        <h2 class="section-title">Agency Reviews</h2>
+        <div class="agencyReviewsContainer">
+          <div class="arrow left" id="arrow_left"></div>
+
+          <div class="reviews-carousel">
+            <div class="reviews-wrapper" id="reviewsWrapper"></div>
+            <div class="pagination-dots" id="paginationDots"></div>
+          </div>
+
+          <div class="arrow right" id="arrow_right"></div>
+        </div>
+
+        <div class="PlaceReviewContainer">
+          <button id="placeReviewBtn">Place Your Review</button>
+        </div>
+      </div>
+
+
+      <!-- Agency Cars Section  -->
+       <div class="agencyCars">
+
+        <h2 class="agencyName"><span id="agencyName"></span> Cars</h2>
+        <div class="agencyCarsContainer" id="agencyCarsContainer">
+
+        </div>
+
+       </div>
+
+
     </div>
 
 
     <div id="footer-placeholder"></div>
+
+
+    <!-- Login Popup -->
+    <div class="login-popup-overlay" id="loginPopupOverlay">
+      <div class="login-popup" id="loginPopup">
+        <p class="popupTitle">You must log in first to continue.</p>
+        <div class="popup-buttons">
+          <button id="loginRedirectBtn">Login</button>
+          <button id="cancelPopupBtn">Cancel</button>
+        </div>
+      </div>
+    </div>
 
     <script src="js/agencyDetail.js"></script>
 </body>
