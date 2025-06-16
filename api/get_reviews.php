@@ -6,7 +6,7 @@ header('Content-Type: application/json; charset=UTF-8');
 try {
 
     $carStmt = $pdo->prepare("
-        SELECT u.username AS username, r.rating, r.review_text
+        SELECT u.username AS username, r.rating, r.review_text, r.car_id
         FROM car_review r
         JOIN users u ON r.user_id = u.user_id
         ORDER BY r.rating DESC
@@ -18,13 +18,14 @@ try {
             "username" => $row['username'],
             "rating" => $row['rating'],
             "text" => $row['review_text'],
+            "car_id" => $row['car_id'],
             "button" => "See Car"
         ];
     }
 
     
     $agencyStmt = $pdo->prepare("
-        SELECT u.username AS username, r.rating, r.review_text
+        SELECT u.username AS username, r.rating, r.review_text, r.agency_id
         FROM agency_review r
         JOIN users u ON r.user_id = u.user_id
         ORDER BY r.rating DESC
@@ -36,6 +37,7 @@ try {
             "username" => $row['username'],
             "rating" => $row['rating'],
             "text" => $row['review_text'],
+            "agency_id" => $row['agency_id'],
             "button" => "See Agency"
         ];
     }

@@ -25,6 +25,18 @@ fetch("footer.html")
     console.error("There was a problem loading the footer:", error);
   });
 
+
+document.addEventListener("DOMContentLoaded", () => {
+  const findCarBtn = document.getElementById("findCarBtn");
+
+  if (findCarBtn) {
+    findCarBtn.addEventListener("click", () => {
+      window.location.href = "browseCar.html";
+    });
+  }
+});
+
+
 document.addEventListener("DOMContentLoaded", async () => {
   const brandSelect = document.getElementById("brand");
   const modelSelect = document.getElementById("model");
@@ -116,6 +128,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 document.addEventListener("DOMContentLoaded", () => {
   const dateDisplay = document.getElementById("date-display");
+
+
   let picker = null;
 
   if (dateDisplay) {
@@ -142,20 +156,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.querySelector(".searchBtn").addEventListener("click", () => {
     const brand = document.getElementById("brand").value;
-  const model = document.getElementById("model").value;
-  const city = document.getElementById("city").value;
-  const startDate = picker?.getStartDate()?.format("YYYY-MM-DD") || "";
-  const endDate = picker?.getEndDate()?.format("YYYY-MM-DD") || "";
+    const model = document.getElementById("model").value;
+    const city = document.getElementById("city").value;
+    const startDate = picker?.getStartDate()?.format("YYYY-MM-DD") || "";
+    const endDate = picker?.getEndDate()?.format("YYYY-MM-DD") || "";
 
-  const params = new URLSearchParams({
-    brand,
-    model,
-    city,
-    startDate,
-    endDate
-  });
+    const params = new URLSearchParams({
+      brand,
+      model,
+      city,
+      startDate,
+      endDate
+    });
 
-  window.location.href = `browseCar.html?${params.toString()}`;
+    window.location.href = `browseCar.html?${params.toString()}`;
   });
 });
 
@@ -285,6 +299,16 @@ document.addEventListener("DOMContentLoaded", () => {
           
           <button class="btn">${item.button}</button>
         `;
+
+      const button = card.querySelector(".btn");
+      button.addEventListener("click", () => {
+        if (type === "carReviews" && item.car_id) {
+          window.location.href = `carDetail.html?car_id=${item.car_id}`;
+        } else if (type === "agencyReviews" && item.agency_id) {
+          window.location.href = `agency.html?agency_id=${item.agency_id}`;
+        }
+      });
+
       container.appendChild(card);
     });
   }
