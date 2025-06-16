@@ -29,6 +29,13 @@
             "button": "See Car"
         },
         {
+            "username": "siomar",
+            "rating": "5.00",
+            "text": "Very Good Car and Comfortable",
+            "car_id": "87",
+            "button": "See Car"
+        },
+        {
             "username": "john_doe",
             "rating": "4.90",
             "text": "Absolutely thrilling to drive. The RS6 blends luxury and performance perfectly. Handles like a sports car but has space for the whole family.",
@@ -202,6 +209,20 @@
             "username": "rent4u_agency",
             "rating": "4.00",
             "text": "Great customer service.",
+            "agency_id": "5",
+            "button": "See Agency"
+        },
+        {
+            "username": "siomar",
+            "rating": "3.75",
+            "text": "Good Good Good",
+            "agency_id": "5",
+            "button": "See Agency"
+        },
+        {
+            "username": "siomar",
+            "rating": "3.75",
+            "text": "Good Good Good",
             "agency_id": "5",
             "button": "See Agency"
         },
