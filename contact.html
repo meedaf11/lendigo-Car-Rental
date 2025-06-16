@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="style/contact.css"/>
+  <title>Contact Us – Lendigo</title>
+</head>
+<body>
+  <div id="header-placeholder"></div>
+
+  <div class="spacer"></div>
+
+  <section class="contact-section">
+    <h1 class="section-title">Contact Us</h1>
+    <p class="section-subtitle">We’d love to hear from you. Please fill out the form below.</p>
+
+    <div class="contact-container">
+      <form class="contact-form" id="contact-form">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" required/>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" required/>
+        </div>
+
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" name="subject" required/>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Your Message</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+
+        <button type="submit" class="primary-btn">Send Message</button>
+      </form>
+
+      <div class="contact-info">
+        <h3>Get in Touch</h3>
+        <p>Email: support@lendigo.com</p>
+        <p>Phone: +212 6 00 00 00 00</p>
+        <p>Office: Casablanca, Morocco</p>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer-placeholder"></div>
+  <script src="js/contact.js"></script>
+</body>
+</html>
