@@ -52,16 +52,12 @@ if (!agencyId) {
 function allContent(agencyData) {
   console.log("Agency Info:", agencyData);
 
-  
   const newImageUrl = agencyData.image;
 
-  const agencyTitleName = document.getElementById('agencyTitleName');
-  const agencyName = document.getElementById('agencyName');
-  const agencyDescription = document.getElementById('agencyDescription');
+  const agencyTitleName = document.getElementById("agencyTitleName");
+  const agencyName = document.getElementById("agencyName");
+  const agencyDescription = document.getElementById("agencyDescription");
   const heroImage = document.getElementById("heroBackImg");
-
-
-
 
   agencyTitleName.textContent = agencyData.name;
   agencyName.textContent = agencyData.name;
@@ -82,26 +78,24 @@ function allContent(agencyData) {
     })
     .then((carData) => {
       console.log("Cars data:", carData);
-      displayAgencyCars(carData)
+      displayAgencyCars(carData);
     })
     .catch((error) => {
       console.error("Error fetching cars:", error);
     });
 
-
   fetch("api/reviews.json")
-  .then((response) => response.json())
-  .then((data) => {
-    const agencyReviews = data.agencyReviews || [];
-    console.log("Agency Reviews from JSON:", agencyReviews);
-    displayAgencyReviews(agencyReviews);
-  })
-  .catch((error) => {
-    console.error("Failed to load reviews.json:", error);
-    displayAgencyReviews([]);
-  });
+    .then((response) => response.json())
+    .then((data) => {
+      const agencyReviews = data.agencyReviews || [];
+      console.log("Agency Reviews from JSON:", agencyReviews);
+      displayAgencyReviews(agencyReviews);
+    })
+    .catch((error) => {
+      console.error("Failed to load reviews.json:", error);
+      displayAgencyReviews([]);
+    });
 }
-
 
 // Reviews Section :
 
@@ -332,10 +326,7 @@ document.addEventListener("DOMContentLoaded", function () {
   );
   if (agencyPlaceReviewBtn) {
     agencyPlaceReviewBtn.addEventListener("click", () => {
-      checkLoginAndProceed(() => {
-        alert("You can now add a rating for the agency.");
-        // Here you can add the logic to open review form for agency
-      });
+      checkLoginAndProceed(() => {});
     });
   }
 });
@@ -380,21 +371,85 @@ document.getElementById("loginPopupOverlay").addEventListener("click", (e) => {
   }
 });
 
+// Show review popup
+function showReviewPopup() {
+  document.getElementById("reviewPopupOverlay").style.display = "flex";
+}
+
+// Hide review popup
+function hideReviewPopup() {
+  document.getElementById("reviewPopupOverlay").style.display = "none";
+}
+
 document.getElementById("placeReviewBtn").addEventListener("click", () => {
   checkLoginAndProceed(() => {
-    alert("You can now add a rating.");
+    showReviewPopup();
   });
 });
 
+// Event: Cancel button
+document
+  .getElementById("cancelReviewPopupBtn")
+  .addEventListener("click", hideReviewPopup);
+
+document
+  .getElementById("reviewPopupOverlay")
+  .addEventListener("click", function (e) {
+    const popupBox = document.getElementById("reviewPopup");
+    if (!popupBox.contains(e.target)) {
+      hideReviewPopup();
+    }
+  });
+
+// Event: Submit review
+document
+  .getElementById("submitReviewForm")
+  .addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const rating = document.getElementById("reviewRating").value;
+    const text = document.getElementById("reviewText").value;
+
+    if (!rating || !text) {
+      alert("Please provide both rating and review.");
+      return;
+    }
+
+    const payload = {
+      agency_id: agencyId,
+      rating: rating,
+      review_text: text,
+    };
+
+    fetch("api/submit_agency_review.php", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.status === "success") {
+          alert("Review submitted successfully!");
+          hideReviewPopup();
+          // Optionally refresh reviews or add it to the list dynamically
+        } else {
+          alert("Error: " + data.message);
+        }
+      })
+      .catch((err) => {
+        console.error("Review submission error:", err);
+        alert("Something went wrong while submitting the review.");
+      });
+  });
 
 function displayAgencyCars(cars) {
-    const container = document.getElementById("agencyCarsContainer");
-    container.innerHTML = "";
-  
-    cars.forEach(car => {
-      const card = document.createElement("div");
-      card.className = "CarCart";
-      card.innerHTML = `
+  const container = document.getElementById("agencyCarsContainer");
+  container.innerHTML = "";
+
+  cars.forEach((car) => {
+    const card = document.createElement("div");
+    card.className = "CarCart";
+    card.innerHTML = `
         <img class="carImg" src="${car.image_url}" alt="${car.car_name}">
         <h3 class="cardCarTitle">${car.car_name} ${car.model}</h3>
         <div class="cartTxtContainer">
@@ -423,10 +478,10 @@ function displayAgencyCars(cars) {
         </div>
         <button class="cartBookBtn" data-id="${car.car_id}">View Car</button>
       `;
-      container.appendChild(card);
-      card.querySelector(".cartBookBtn").addEventListener("click", function () {
-        const carId = this.getAttribute("data-id");
-        window.location.href = `carDetail.html?car_id=${carId}`;
-      });
+    container.appendChild(card);
+    card.querySelector(".cartBookBtn").addEventListener("click", function () {
+      const carId = this.getAttribute("data-id");
+      window.location.href = `carDetail.html?car_id=${carId}`;
     });
-  }
+  });
+}

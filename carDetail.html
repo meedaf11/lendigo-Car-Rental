@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Car Detail</title>
     <link rel="stylesheet" href="style/carDetail.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/litepicker/dist/css/litepicker.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/bundle.js"></script>
   </head>
 
   <body>
@@ -55,7 +60,11 @@
             <button class="book-btn">Book Now</button>
             <div class="rating">
               <span class="rating-number"></span>
-              <img class="star" src="assets/images/rating_ic.svg" alt="Rating" />
+              <img
+                class="star"
+                src="assets/images/rating_ic.svg"
+                alt="Rating"
+              />
             </div>
           </div>
         </div>
@@ -90,11 +99,11 @@
       <div class="agencyCarContainer">
         <div class="agencyCarsHeader">
           <h3 class="carAgencyName">Agency Name</h3>
-          <div class="goToAgency" id="goToAgency">Show Agency <img src="assets/images/right_arrow.svg" alt="" /></div>
+          <div class="goToAgency" id="goToAgency">
+            Show Agency <img src="assets/images/right_arrow.svg" alt="" />
+          </div>
         </div>
-        <div class="agencyCarsCartContainer">
-
-        </div>
+        <div class="agencyCarsCartContainer"></div>
       </div>
     </div>
 
@@ -107,6 +116,69 @@
         <div class="popup-buttons">
           <button id="loginRedirectBtn">Login</button>
           <button id="cancelPopupBtn">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Car Review Popup -->
+    <div class="review-popup-overlay" id="carReviewPopupOverlay">
+      <div class="review-popup" id="carReviewPopup">
+        <h3 class="popupTitle">Submit Your Car Review</h3>
+
+        <form id="carReviewForm">
+          <label for="carReviewRating">Rating:</label>
+          <select id="carReviewRating" required>
+            <option value="">-- Select Rating --</option>
+            <option value="1">1</option>
+            <option value="1.25">1.25</option>
+            <option value="1.5">1.5</option>
+            <option value="1.75">1.75</option>
+            <option value="2">2</option>
+            <option value="2.25">2.25</option>
+            <option value="2.5">2.5</option>
+            <option value="2.75">2.75</option>
+            <option value="3">3</option>
+            <option value="3.25">3.25</option>
+            <option value="3.5">3.5</option>
+            <option value="3.75">3.75</option>
+            <option value="4">4</option>
+            <option value="4.25">4.25</option>
+            <option value="4.5">4.5</option>
+            <option value="4.75">4.75</option>
+            <option value="5">5</option>
+          </select>
+
+          <label for="carReviewText">Your Review:</label>
+          <textarea id="carReviewText" rows="4" required></textarea>
+
+          <div class="popup-buttons">
+            <button type="submit">Submit</button>
+            <button type="button" id="cancelCarReviewBtn">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- 📍 Place this at the END of your body tag, just before </body> -->
+    <div class="booking-popup-overlay" id="bookingPopupOverlay">
+      <div class="booking-popup" id="bookingPopup">
+        <h3 class="popupTitle">Book This Car</h3>
+
+        <label for="datePicker">Choose your rental dates:</label>
+        <input type="text" id="datePicker" placeholder="Start - End" readonly />
+
+        <div class="price-info">
+          <p id="pricePerDay">
+            Price per day: <span id="priceValue">--</span> DH
+          </p>
+          <p id="totalToPay">
+            Total to pay: <strong id="totalCalc">--</strong>
+          </p>
+        </div>
+
+        <div class="popup-buttons">
+          <button id="confirmBookingBtn">Book Now</button>
+          <button id="cancelBookingBtn">Cancel</button>
         </div>
       </div>
     </div>

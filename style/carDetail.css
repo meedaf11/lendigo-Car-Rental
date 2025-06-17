@@ -90,7 +90,6 @@
   --close-button-size: 30px;
 }
 
-
 body {
   background-color: var(--background-color);
   color: var(--text-primary);
@@ -346,10 +345,8 @@ body {
 }
 
 .review-header .quote-icon {
-
   width: 16px;
   height: 16px;
-
 }
 
 .review-author {
@@ -368,15 +365,12 @@ body {
   gap: 2px;
   background: var(--rating-bg);
   border-radius: var(--border-radius-small);
-
 }
 
 .review-rating .rating-number {
-
   font-size: var(--font-size-small);
   font-weight: var(--font-weight-medium);
   color: var(--text-primary);
-
 }
 
 .star-icon {
@@ -770,7 +764,556 @@ body {
   animation: slideIn var(--transition-fast);
 }
 
+/* Review Popup  */
+/* Car Review Popup */
+.review-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--overlay-bg);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(3px);
+  animation: fadeIn var(--transition-fast);
+}
 
+.review-popup-overlay.show {
+  display: flex;
+}
+
+.review-popup {
+  width: 500px;
+  max-width: 90%;
+  background: var(--white);
+  border-radius: var(--border-radius-large);
+  padding: var(--gap-3xl);
+  text-align: left;
+  box-shadow: var(--shadow-popup-main);
+  position: relative;
+  animation: slideIn var(--transition-fast);
+}
+
+.review-popup::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--primary-color);
+  border-radius: var(--border-radius-large) var(--border-radius-large) 0 0;
+}
+
+.review-popup .popupTitle {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  margin-bottom: var(--gap-2xl);
+  text-align: center;
+  position: relative;
+}
+
+.review-popup .popupTitle::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: var(--primary-color);
+  border-radius: 2px;
+}
+
+/* Form Styling */
+#carReviewForm {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-large);
+}
+
+#carReviewForm label {
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  font-size: var(--font-size-base);
+  margin-bottom: var(--gap-small);
+}
+
+#carReviewForm select,
+#carReviewForm textarea {
+  width: 100%;
+  padding: var(--gap-medium);
+  border: 2px solid var(--border-medium);
+  border-radius: var(--border-radius-medium);
+  font-size: var(--font-size-base);
+  font-family: "Poppins", sans-serif;
+  color: var(--text-primary);
+  background: var(--white);
+  transition: all var(--transition-fast);
+  outline: none;
+}
+
+#carReviewForm select:focus,
+#carReviewForm textarea:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.1);
+}
+
+#carReviewForm select:hover,
+#carReviewForm textarea:hover {
+  border-color: var(--primary-hover);
+}
+
+/* Custom Select Styling */
+#carReviewRating {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right var(--gap-medium) center;
+  background-size: 20px;
+  padding-right: 45px;
+  cursor: pointer;
+}
+
+#carReviewRating option {
+  padding: var(--gap-small);
+}
+
+/* Textarea Styling */
+#carReviewText {
+  resize: vertical;
+  min-height: 100px;
+  line-height: 1.6;
+}
+
+#carReviewText::placeholder {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* Form Group Styling */
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Popup Buttons */
+.review-popup .popup-buttons {
+  display: flex;
+  gap: var(--gap-large);
+  justify-content: center;
+  margin-top: var(--gap-xl);
+}
+
+.review-popup .popup-buttons button {
+  padding: var(--gap-medium) var(--gap-2xl);
+  border: none;
+  border-radius: var(--border-radius-medium);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  min-width: 120px;
+}
+
+.review-popup .popup-buttons button[type="submit"] {
+  background: var(--primary-color);
+  color: var(--white);
+  box-shadow: var(--shadow-button);
+}
+
+.review-popup .popup-buttons button[type="submit"]:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-button-hover);
+}
+
+.review-popup .popup-buttons button[type="submit"]:active {
+  transform: translateY(0);
+}
+
+#cancelCarReviewBtn {
+  background: var(--popup-bg);
+  color: var(--text-secondary);
+  border: 2px solid var(--border-medium);
+}
+
+#cancelCarReviewBtn:hover {
+  background: #e5e5e5;
+  color: var(--text-primary);
+  border-color: var(--border-dark);
+}
+
+/* Close Button */
+.review-popup-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: var(--close-button-size);
+  height: var(--close-button-size);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: var(--border-radius-round);
+  color: var(--text-muted);
+  font-size: var(--font-size-large);
+  transition: all var(--transition-fast);
+}
+
+.review-popup-close:hover {
+  background: var(--popup-bg);
+  color: var(--text-primary);
+}
+
+.review-popup-close::after {
+  content: "×";
+}
+
+/* Validation Styling */
+#carReviewForm select:invalid,
+#carReviewForm textarea:invalid {
+  border-color: #dc3545;
+}
+
+#carReviewForm select:valid,
+#carReviewForm textarea:valid {
+  border-color: #28a745;
+}
+
+/* Loading State */
+.review-popup .popup-buttons button[type="submit"]:disabled {
+  background: var(--text-muted);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.review-popup .popup-buttons button[type="submit"]:disabled:hover {
+  background: var(--text-muted);
+  transform: none;
+  box-shadow: none;
+}
+
+/* Booking Popup */
+.booking-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--overlay-bg);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(3px);
+  animation: fadeIn var(--transition-fast);
+}
+
+.booking-popup-overlay.show {
+  display: flex;
+}
+
+.booking-popup {
+  width: 480px;
+  max-width: 90%;
+  background: var(--white);
+  border-radius: var(--border-radius-large);
+  padding: var(--gap-3xl);
+  text-align: center;
+  box-shadow: var(--shadow-popup-main);
+  position: relative;
+  animation: slideIn var(--transition-fast);
+}
+
+.booking-popup::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--primary-color);
+  border-radius: var(--border-radius-large) var(--border-radius-large) 0 0;
+}
+
+.booking-popup .popupTitle {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  margin-bottom: var(--gap-2xl);
+  position: relative;
+}
+
+.booking-popup .popupTitle::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: var(--primary-color);
+  border-radius: 2px;
+}
+
+/* Date Picker Section */
+.booking-popup label {
+  display: block;
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  font-size: var(--font-size-base);
+  margin-bottom: var(--gap-medium);
+  text-align: left;
+}
+
+#datePicker {
+  width: 100%;
+  padding: var(--gap-large) var(--gap-medium);
+  border: 2px solid var(--border-medium);
+  border-radius: var(--border-radius-medium);
+  font-size: var(--font-size-base);
+  font-family: "Poppins", sans-serif;
+  color: var(--text-primary);
+  background: var(--white);
+  transition: all var(--transition-fast);
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3crect x='3' y='4' width='18' height='18' rx='2' ry='2'%3e%3c/rect%3e%3cline x1='16' y1='2' x2='16' y2='6'%3e%3c/line%3e%3cline x1='8' y1='2' x2='8' y2='6'%3e%3c/line%3e%3cline x1='3' y1='10' x2='21' y2='10'%3e%3c/line%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right var(--gap-medium) center;
+  background-size: 20px;
+  padding-right: 45px;
+}
+
+#datePicker:hover {
+  border-color: var(--primary-hover);
+  box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.1);
+}
+
+#datePicker:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.15);
+}
+
+#datePicker::placeholder {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* Price Information Section */
+.price-info {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border: 1px solid var(--border-light);
+  border-radius: var(--border-radius-medium);
+  padding: var(--gap-xl);
+  margin: var(--gap-xl) 0;
+  text-align: left;
+  position: relative;
+}
+
+.price-info::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  border-radius: var(--border-radius-medium) var(--border-radius-medium) 0 0;
+}
+
+.price-info p {
+  margin: 0;
+  font-size: var(--font-size-base);
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+.price-info p:first-child {
+  margin-bottom: var(--gap-small);
+}
+
+#pricePerDay {
+  font-weight: var(--font-weight-medium);
+}
+
+#priceValue {
+  font-weight: var(--font-weight-bold);
+  color: var(--primary-color);
+  font-size: var(--font-size-large);
+}
+
+#totalToPay {
+  font-size: var(--font-size-large);
+  color: var(--text-primary);
+  font-weight: var(--font-weight-semibold);
+  border-top: 1px solid var(--border-medium);
+  padding-top: var(--gap-medium);
+  margin-top: var(--gap-medium);
+}
+
+#totalCalc {
+  color: var(--primary-color);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+}
+
+/* Popup Buttons */
+.booking-popup .popup-buttons {
+  display: flex;
+  gap: var(--gap-large);
+  justify-content: center;
+  margin-top: var(--gap-2xl);
+}
+
+.booking-popup .popup-buttons button {
+  padding: var(--gap-medium) var(--gap-2xl);
+  border: none;
+  border-radius: var(--border-radius-medium);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  min-width: 130px;
+  position: relative;
+  overflow: hidden;
+}
+
+#confirmBookingBtn {
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  color: var(--white);
+  box-shadow: var(--shadow-button);
+}
+
+#confirmBookingBtn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+#confirmBookingBtn:hover::before {
+  left: 100%;
+}
+
+#confirmBookingBtn:hover {
+  background: linear-gradient(135deg, var(--primary-hover), #a10612);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-button-hover);
+}
+
+#confirmBookingBtn:active {
+  transform: translateY(0);
+}
+
+#cancelBookingBtn {
+  background: var(--popup-bg);
+  color: var(--text-secondary);
+  border: 2px solid var(--border-medium);
+}
+
+#cancelBookingBtn:hover {
+  background: #e5e5e5;
+  color: var(--text-primary);
+  border-color: var(--border-dark);
+  transform: translateY(-1px);
+}
+
+#cancelBookingBtn:active {
+  transform: translateY(0);
+}
+
+/* Close Button */
+.booking-popup-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: var(--close-button-size);
+  height: var(--close-button-size);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: var(--border-radius-round);
+  color: var(--text-muted);
+  font-size: var(--font-size-large);
+  transition: all var(--transition-fast);
+}
+
+.booking-popup-close:hover {
+  background: var(--popup-bg);
+  color: var(--text-primary);
+  transform: rotate(90deg);
+}
+
+.booking-popup-close::after {
+  content: "×";
+}
+
+/* Loading State */
+#confirmBookingBtn:disabled {
+  background: var(--text-muted);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+#confirmBookingBtn:disabled:hover {
+  background: var(--text-muted);
+  transform: none;
+  box-shadow: none;
+}
+
+#confirmBookingBtn:disabled::before {
+  display: none;
+}
+
+/* Success State Animation */
+@keyframes successPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(40, 167, 69, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(40, 167, 69, 0);
+  }
+}
+
+.booking-popup.success #confirmBookingBtn {
+  background: #28a745;
+  animation: successPulse 1s;
+}
+
+/* Empty State */
+.price-info.empty #priceValue,
+.price-info.empty #totalCalc {
+  color: var(--text-muted);
+  font-style: italic;
+}
 
 /* Desktops/Large Screens (1024px - 1200px) */
 @media screen and (min-width: 1025px) and (max-width: 1200px) {
@@ -823,7 +1366,6 @@ body {
   .agencyCarsCartContainer .topCarCart .cartBookBtn {
     height: var(--cart-button-height);
   }
-
 }
 
 /* Laptops/Small Screens (768px - 1024px) */
@@ -905,7 +1447,6 @@ body {
     height: 48px;
     font-size: 1.1rem;
   }
-
 }
 
 /* Tablets/iPads (480px - 768px) */
@@ -971,7 +1512,6 @@ body {
     height: auto;
   }
 
-
   .container .agencyCarContainer {
     height: 60vh;
     padding: 0 24px;
@@ -1005,11 +1545,60 @@ body {
     font-size: 1.05rem;
   }
 
+  .review-popup {
+    width: 95%;
+    padding: var(--gap-xl);
+    margin: var(--gap-large);
+  }
+
+  .review-popup .popupTitle {
+    font-size: var(--font-size-xl);
+  }
+
+  .review-popup .popup-buttons {
+    flex-direction: column;
+    gap: var(--gap-medium);
+  }
+
+  .review-popup .popup-buttons button {
+    width: 100%;
+    padding: var(--gap-large) var(--gap-xl);
+  }
+
+  .booking-popup {
+    width: 95%;
+    padding: var(--gap-xl);
+    margin: var(--gap-large);
+  }
+  
+  .booking-popup .popupTitle {
+    font-size: var(--font-size-xl);
+  }
+  
+  .booking-popup .popup-buttons {
+    flex-direction: column;
+    gap: var(--gap-medium);
+  }
+  
+  .booking-popup .popup-buttons button {
+    width: 100%;
+    padding: var(--gap-large) var(--gap-xl);
+  }
+  
+  .price-info {
+    padding: var(--gap-large);
+  }
+  
+  #datePicker {
+    padding: var(--gap-large);
+    font-size: var(--font-size-base);
+  }
+
 }
 
 /* Mobile Devices (320px - 480px) */
 @media screen and (min-width: 320px) and (max-width: 480px) {
-  .container{
+  .container {
     width: 100%;
     padding: 16px;
   }
@@ -1155,4 +1744,118 @@ body {
     font-size: 1rem;
   }
 
+  .review-popup {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    padding: var(--gap-xl) var(--gap-large);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .review-popup::before {
+    border-radius: 0;
+  }
+
+  .review-popup .popupTitle {
+    font-size: var(--font-size-large);
+    margin-bottom: var(--gap-large);
+  }
+
+  #carReviewForm {
+    gap: var(--gap-medium);
+  }
+
+  #carReviewForm select,
+  #carReviewForm textarea {
+    padding: var(--gap-large);
+    font-size: var(--font-size-base);
+  }
+
+  .review-popup-close {
+    top: var(--gap-large);
+    right: var(--gap-large);
+    width: 35px;
+    height: 35px;
+    font-size: var(--font-size-xl);
+  }
+
+  .booking-popup {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    padding: var(--gap-xl) var(--gap-large);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .booking-popup::before {
+    border-radius: 0;
+  }
+  
+  .booking-popup .popupTitle {
+    font-size: var(--font-size-large);
+    margin-bottom: var(--gap-large);
+  }
+  
+  .price-info {
+    margin: var(--gap-large) 0;
+    padding: var(--gap-medium);
+  }
+  
+  .price-info p {
+    font-size: var(--font-size-small);
+  }
+  
+  #totalToPay {
+    font-size: var(--font-size-base);
+  }
+  
+  #totalCalc {
+    font-size: var(--font-size-large);
+  }
+  
+  .booking-popup-close {
+    top: var(--gap-large);
+    right: var(--gap-large);
+    width: 35px;
+    height: 35px;
+    font-size: var(--font-size-xl);
+  }
+
+
+}
+
+
+
+
+
+/* Date Picker Integration Styles */
+/* These styles will work with popular date picker libraries */
+.flatpickr-calendar {
+  border-radius: var(--border-radius-medium) !important;
+  box-shadow: var(--shadow-popup-main) !important;
+  border: 2px solid var(--primary-color) !important;
+}
+
+.flatpickr-day.selected {
+  background: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+}
+
+.flatpickr-day:hover {
+  background: var(--primary-hover) !important;
+}
+
+/* Custom Date Range Indicator */
+.date-range-selected {
+  border-color: var(--primary-color) !important;
+  background: rgba(229, 62, 62, 0.05);
+}
+
+.date-range-selected::placeholder {
+  color: var(--primary-color);
+  font-weight: var(--font-weight-medium);
 }

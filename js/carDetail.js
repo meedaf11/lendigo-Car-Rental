@@ -188,7 +188,9 @@ function showCurrentReviews(direction = "none") {
                            <img src="assets/images/quote.svg" class="quote-icon" alt="">
                             <p class="review-author">${review.user_name}</p>
                             <div class="review-rating">
-                                <span class="rating-number">${parseFloat(review.rating).toFixed(1)}</span>
+                                <span class="rating-number">${parseFloat(
+                                  review.rating
+                                ).toFixed(1)}</span>
                                 <span class="star-icon">⭐</span>
                             </div>
                         </div>
@@ -335,17 +337,75 @@ document.getElementById("loginPopupOverlay").addEventListener("click", (e) => {
   }
 });
 
-document.querySelector(".book-btn").addEventListener("click", () => {
-  checkLoginAndProceed(() => {
-    alert("You can now proceed to booking.");
+
+function showCarReviewPopup() {
+  document.getElementById("carReviewPopupOverlay").style.display = "flex";
+}
+
+function hideCarReviewPopup() {
+  document.getElementById("carReviewPopupOverlay").style.display = "none";
+}
+
+document
+  .getElementById("cancelCarReviewBtn")
+  .addEventListener("click", hideCarReviewPopup);
+
+// Close popup if clicked outside
+document
+  .getElementById("carReviewPopupOverlay")
+  .addEventListener("click", function (e) {
+    if (e.target === this) hideCarReviewPopup();
   });
-});
 
 document.getElementById("placeReviewBtn").addEventListener("click", () => {
   checkLoginAndProceed(() => {
-    alert("You can now add a rating.");
+    showCarReviewPopup();
   });
 });
+
+document
+  .getElementById("carReviewForm")
+  .addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const rating = document.getElementById("carReviewRating").value;
+    const reviewText = document.getElementById("carReviewText").value;
+    const urlParams = new URLSearchParams(window.location.search);
+    const car_id = urlParams.get("car_id");
+
+    if (!car_id || !rating || !reviewText) {
+      alert("Please fill all fields.");
+      return;
+    }
+
+    const payload = {
+      car_id: car_id,
+      rating: rating,
+      review_text: reviewText,
+    };
+
+    fetch("api/submit_car_review.php", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.status === "success") {
+          alert("Review submitted successfully!");
+          hideCarReviewPopup();
+          document.getElementById("carReviewForm").reset();
+          // Optionally reload reviews
+          location.reload(); // or call fetch for reviews again
+        } else {
+          alert("Error: " + data.message);
+        }
+      })
+      .catch((err) => {
+        console.error("Review submission failed:", err);
+        alert("Something went wrong.");
+      });
+  });
 
 function getAgencyInfo(agencyId) {
   currentAgencyId = agencyId;
@@ -433,3 +493,139 @@ function getAgencyInfo(agencyId) {
     }
   });
 }
+
+let selectedStartDate = null;
+let selectedEndDate = null;
+let carPricePerDay = 0;
+let bookedDates = [];
+
+const overlay = document.getElementById("bookingPopupOverlay");
+const priceValue = document.getElementById("priceValue");
+const totalCalc = document.getElementById("totalCalc");
+
+document.querySelector(".book-btn").addEventListener("click", () => {
+  checkLoginAndProceed(() => {
+    openBookingPopup();
+  });
+});
+
+function openBookingPopup() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const carId = urlParams.get("car_id");
+
+  carPricePerDay = parseFloat(document.getElementById("carPrice").textContent);
+  priceValue.textContent = carPricePerDay;
+
+  overlay.style.display = "flex";
+
+  fetch(`api/get_booked_dates.php?car_id=${carId}`)
+    .then((res) => res.json())
+    .then((data) => {
+      bookedDates = data.bookedDates || [];
+
+      new Litepicker({
+        element: document.getElementById("datePicker"),
+        singleMode: false,
+        format: "YYYY-MM-DD",
+        minDate: new Date(),
+        lockDays: bookedDates,
+        setup: (picker) => {
+          picker.on("selected", (start, end) => {
+            selectedStartDate = start;
+            selectedEndDate = end;
+
+            const days = end.diff(start, "days") + 1;
+            const total = days * carPricePerDay;
+
+            totalCalc.innerHTML = `${days} * ${carPricePerDay} = ${total} DH`;
+
+            // Show in console for now
+            console.log("Car ID:", carId);
+            console.log("Start:", start.format("YYYY-MM-DD"));
+            console.log("End:", end.format("YYYY-MM-DD"));
+            console.log("Days:", days);
+            console.log("Total Price:", total);
+          });
+        },
+      });
+    })
+    .catch((err) => {
+      console.error("Booking date fetch error:", err);
+    });
+}
+
+// Cancel button
+document.getElementById("cancelBookingBtn").addEventListener("click", () => {
+  overlay.style.display = "none";
+});
+
+// Confirm button placeholder
+document.getElementById("confirmBookingBtn").addEventListener("click", () => {
+  if (!selectedStartDate || !selectedEndDate) {
+    alert("Please select a date range first.");
+    return;
+  }
+
+  const current = selectedStartDate.clone();
+  const end = selectedEndDate.clone();
+  const datesToCheck = [];
+
+  while (current.isSameOrBefore(end, "day")) {
+    datesToCheck.push(current.format("YYYY-MM-DD"));
+    current.add(1, "day");
+  }
+
+  const overlap = datesToCheck.some((date) => bookedDates.includes(date));
+
+  if (overlap) {
+    alert(
+      "❌ Some dates in your selection are already booked. Please choose different dates."
+    );
+    selectedStartDate = null;
+    selectedEndDate = null;
+    document.getElementById("datePicker").value = "";
+    totalCalc.innerHTML = "--";
+    return;
+  }
+
+  console.log("All selected dates are available!");
+  console.log("Start:", selectedStartDate.format("YYYY-MM-DD"));
+  console.log("End:", selectedEndDate.format("YYYY-MM-DD"));
+
+  const urlParams = new URLSearchParams(window.location.search);
+  carId = urlParams.get("car_id");
+
+  if (!carId) {
+    console.error("car_id not found in URL");
+    return;
+  }
+
+  fetch("api/submit_booking.php", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      car_id: carId,
+      start_date: selectedStartDate.format("YYYY-MM-DD"),
+      end_date: selectedEndDate.format("YYYY-MM-DD"),
+      total_price: (selectedEndDate.diff(selectedStartDate, "days") + 1) * carPricePerDay,
+    }),
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      if (data.status === "success") {
+        alert("✅ Booking confirmed successfully!");
+        overlay.style.display = "none";
+      } else {
+        alert("❌ Booking failed: " + data.message);
+      }
+    })
+    .catch((err) => {
+      console.error("Booking request failed:", err);
+      alert("Something went wrong. Please try again later.");
+    });
+
+  alert("✅ Booking range is valid and ready to be submitted.");
+  overlay.style.display = "none";
+});
