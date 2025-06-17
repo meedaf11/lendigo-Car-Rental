@@ -94,7 +94,7 @@ document.getElementById("addYourAgency").addEventListener("click", () => {
     .then(data => {
       if (data.loggedIn) {
         // User is logged in, redirect to add agency page
-        window.location.href = "add_agency.html";
+        window.location.href = "addAgency.html";
       } else {
         // Not logged in, show the login popup
         document.getElementById("loginPopupOverlay").classList.add("show");
