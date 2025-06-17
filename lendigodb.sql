@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 15, 2025 at 09:45 PM
+-- Generation Time: Jun 17, 2025 at 02:47 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -73,7 +73,7 @@ CREATE TABLE `agency_review` (
 
 INSERT INTO `agency_review` (`review_id`, `user_id`, `agency_id`, `rating`, `review_text`, `created_at`) VALUES
 (7, 1, 1, 4.50, 'Very professional service, clean cars and friendly staff.', '2025-06-15'),
-(8, 1, 2, 3.00, 'Decent experience, but the car was not very clean.', '2025-06-15'),
+(8, 7, 2, 3.00, 'Decent experience, but the car was not very clean.', '2025-06-15'),
 (9, 1, 3, 5.00, 'Amazing desert tour vehicle! Highly recommended.', '2025-06-15'),
 (10, 1, 4, 2.50, 'Had issues with the booking system and delays.', '2025-06-15'),
 (11, 1, 5, 4.00, 'Trusted agency with smooth check-in process.', '2025-06-15'),
@@ -88,7 +88,7 @@ INSERT INTO `agency_review` (`review_id`, `user_id`, `agency_id`, `rating`, `rev
 (20, 3, 2, 2.00, 'Car was okay but customer service needs improvement.', '2025-06-15'),
 (21, 3, 3, 3.00, 'Average experience.', '2025-06-15'),
 (22, 3, 4, 4.50, 'Super clean vehicles and polite team.', '2025-06-15'),
-(23, 3, 5, 3.50, 'Satisfactory, nothing exceptional.', '2025-06-15'),
+(23, 7, 5, 3.50, 'Satisfactory, nothing exceptional.', '2025-06-15'),
 (24, 3, 6, 5.00, 'Top-tier experience in Marrakech!', '2025-06-15'),
 (25, 4, 1, 1.50, 'Bad brakes and noisy engine. Disappointed.', '2025-06-15'),
 (26, 4, 2, 4.00, 'Excellent cars and helpful staff.', '2025-06-15'),
@@ -96,12 +96,13 @@ INSERT INTO `agency_review` (`review_id`, `user_id`, `agency_id`, `rating`, `rev
 (28, 4, 4, 4.00, 'Reliable and punctual.', '2025-06-15'),
 (29, 4, 5, 2.00, 'Expected more based on reviews.', '2025-06-15'),
 (30, 4, 6, 3.00, 'Decent but room for improvement.', '2025-06-15'),
-(31, 5, 1, 5.00, 'Perfect experience! Will book again.', '2025-06-15'),
+(31, 7, 1, 5.00, 'Perfect experience! Will book again.', '2025-06-15'),
 (32, 5, 2, 3.50, 'Good vehicles but slow processing.', '2025-06-15'),
 (33, 5, 3, 4.50, 'Loved the desert-ready SUV!', '2025-06-15'),
 (34, 5, 4, 2.00, 'Long wait times. Not impressed.', '2025-06-15'),
 (35, 5, 5, 4.00, 'Great customer service.', '2025-06-15'),
-(36, 5, 6, 1.50, 'Had mechanical issues and no support.', '2025-06-15');
+(36, 5, 6, 1.50, 'Had mechanical issues and no support.', '2025-06-15'),
+(37, 7, 2, 4.25, 'Its Very Nice Service and Good Cars Its Recomended From me', '2025-06-16');
 
 -- --------------------------------------------------------
 
@@ -119,6 +120,15 @@ CREATE TABLE `booking` (
   `end_date` date NOT NULL,
   `total_price` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `booking`
+--
+
+INSERT INTO `booking` (`booking_id`, `user_id`, `car_id`, `booking_date`, `status`, `start_date`, `end_date`, `total_price`) VALUES
+(1, 7, 87, '0000-00-00', 'waiting', '2025-06-19', '2025-06-27', 0.00),
+(2, 7, 87, '2025-06-17', 'waiting', '2025-06-28', '2025-07-04', 10500.00),
+(8, 7, 1, '2025-06-17', 'waiting', '2025-06-18', '2025-06-26', 2250.00);
 
 -- --------------------------------------------------------
 
@@ -257,7 +267,7 @@ CREATE TABLE `car_review` (
 --
 
 INSERT INTO `car_review` (`review_id`, `user_id`, `car_id`, `rating`, `review_text`, `created_at`) VALUES
-(1, 1, 30, 5.00, 'Excellent service and the car was very clean!', '2025-06-02'),
+(1, 7, 30, 5.00, 'Excellent service and the car was very clean!', '2025-06-02'),
 (2, 2, 32, 4.00, 'The car was in good condition, but pick-up took some time.', '2025-06-02'),
 (3, 4, 19, 3.00, 'It was okay, but the AC wasn’t working properly.', '2025-06-02'),
 (4, 5, 3, 2.00, 'The car was not as described. Needs maintenance.', '2025-06-02'),
@@ -269,9 +279,36 @@ INSERT INTO `car_review` (`review_id`, `user_id`, `car_id`, `rating`, `review_te
 (10, 4, 30, 3.00, 'It was okay, but the AC wasn’t working properly.', '2025-06-07'),
 (11, 1, 87, 4.90, 'Absolutely thrilling to drive. The RS6 blends luxury and performance perfectly. Handles like a sports car but has space for the whole family.', '2025-06-10'),
 (12, 2, 87, 4.70, 'The acceleration is insane, and the comfort is unmatched. Perfect for road trips and daily driving.', '2025-06-10'),
-(13, 3, 87, 5.00, 'Dream car! Audi nailed it with the RS6. Interior tech, power, and looks — all top-notch.', '2025-06-10'),
+(13, 7, 87, 5.00, 'Dream car! Audi nailed it with the RS6. Interior tech, power, and looks — all top-notch.', '2025-06-10'),
 (14, 4, 87, 4.80, 'Very refined yet aggressive. The V8 engine sounds incredible. A proper performance wagon.', '2025-06-10'),
-(15, 5, 87, 4.60, 'Love everything except the fuel consumption. Still, it’s worth it for the power and style.', '2025-06-10');
+(15, 5, 87, 4.60, 'Love everything except the fuel consumption. Still, it’s worth it for the power and style.', '2025-06-10'),
+(16, 7, 50, 4.75, 'Very Nice Car and comfortable', '2025-06-16'),
+(17, 7, 1, 1.75, 'Nice car', '2025-06-17');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `messages`
+--
+
+CREATE TABLE `messages` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `full_name` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `subject` varchar(150) NOT NULL,
+  `message` text NOT NULL,
+  `answer` text DEFAULT NULL,
+  `submitted_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `status` enum('pending','answered') NOT NULL DEFAULT 'pending'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `messages`
+--
+
+INSERT INTO `messages` (`id`, `user_id`, `full_name`, `email`, `subject`, `message`, `answer`, `submitted_at`, `status`) VALUES
+(1, 7, 'Afilal Mohamed', 'meedaf12@gmail.com', 'I need To test contact', 'How Are You', NULL, '2025-06-16 21:55:21', 'pending');
 
 -- --------------------------------------------------------
 
@@ -281,6 +318,7 @@ INSERT INTO `car_review` (`review_id`, `user_id`, `car_id`, `rating`, `review_te
 
 CREATE TABLE `users` (
   `user_id` int(11) NOT NULL,
+  `full_name` varchar(55) NOT NULL,
   `username` varchar(100) NOT NULL,
   `email` varchar(150) NOT NULL,
   `password` varchar(255) NOT NULL,
@@ -293,13 +331,13 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`user_id`, `username`, `email`, `password`, `phone_number`, `registration_date`, `user_type`) VALUES
-(1, 'john_doe', 'john@example.com', '$2y$10$O7mU5UeDpYFeMuEwAkL95e4E5WuTIerPZ1EG5lhqvWTB8gGZ6n34G', '0612345678', '2025-06-02', 'customer'),
-(2, 'agency_procar', 'procar@example.com', '$2y$10$O7mU5UeDpYFeMuEwAkL95e4E5WuTIerPZ1EG5lhqvWTB8gGZ6n34G', '0623456789', '2025-06-02', ''),
-(3, 'meedafilal', 'meedaf11@gmail.com', '$2y$10$O7mU5UeDpYFeMuEwAkL95e4E5WuTIerPZ1EG5lhqvWTB8gGZ6n34G', '0682564814', '2025-06-02', 'admin'),
-(4, 'fatima_rider', 'fatima@example.com', '$2y$10$O7mU5UeDpYFeMuEwAkL95e4E5WuTIerPZ1EG5lhqvWTB8gGZ6n34G', '0645678901', '2025-06-02', 'customer'),
-(5, 'rent4u_agency', 'rent4u@example.com', '$2y$10$O7mU5UeDpYFeMuEwAkL95e4E5WuTIerPZ1EG5lhqvWTB8gGZ6n34G', '0656789012', '2025-06-02', ''),
-(7, 'afmeed', 'meedaf12@gmail.com', '$2y$10$3/sEOtNHAn63Wa6Sdeqrperug0u4QzkBLTEwWACWDC8Qy9cJGJCZC', '0625242621', '2025-06-15', 'customer');
+INSERT INTO `users` (`user_id`, `full_name`, `username`, `email`, `password`, `phone_number`, `registration_date`, `user_type`) VALUES
+(1, '', 'john_doe', 'john@example.com', '$2y$10$O7mU5UeDpYFeMuEwAkL95e4E5WuTIerPZ1EG5lhqvWTB8gGZ6n34G', '0612345678', '2025-06-02', 'customer'),
+(2, '', 'agency_procar', 'procar@example.com', '$2y$10$O7mU5UeDpYFeMuEwAkL95e4E5WuTIerPZ1EG5lhqvWTB8gGZ6n34G', '0623456789', '2025-06-02', ''),
+(3, '', 'meedafilal', 'meedaf11@gmail.com', '$2y$10$O7mU5UeDpYFeMuEwAkL95e4E5WuTIerPZ1EG5lhqvWTB8gGZ6n34G', '0682564814', '2025-06-02', 'admin'),
+(4, '', 'fatima_rider', 'fatima@example.com', '$2y$10$O7mU5UeDpYFeMuEwAkL95e4E5WuTIerPZ1EG5lhqvWTB8gGZ6n34G', '0645678901', '2025-06-02', 'customer'),
+(5, '', 'rent4u_agency', 'rent4u@example.com', '$2y$10$O7mU5UeDpYFeMuEwAkL95e4E5WuTIerPZ1EG5lhqvWTB8gGZ6n34G', '0656789012', '2025-06-02', ''),
+(7, 'Afilal Mohamed', 'afmeed', 'meedaf12@gmail.com', '$2y$10$3/sEOtNHAn63Wa6Sdeqrperug0u4QzkBLTEwWACWDC8Qy9cJGJCZC', '0625242621', '2025-06-15', 'customer');
 
 --
 -- Indexes for dumped tables
@@ -344,6 +382,13 @@ ALTER TABLE `car_review`
   ADD KEY `fk_carreview_car` (`car_id`);
 
 --
+-- Indexes for table `messages`
+--
+ALTER TABLE `messages`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -365,13 +410,13 @@ ALTER TABLE `agency`
 -- AUTO_INCREMENT for table `agency_review`
 --
 ALTER TABLE `agency_review`
-  MODIFY `review_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `review_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `car`
@@ -383,7 +428,13 @@ ALTER TABLE `car`
 -- AUTO_INCREMENT for table `car_review`
 --
 ALTER TABLE `car_review`
-  MODIFY `review_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `review_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
+-- AUTO_INCREMENT for table `messages`
+--
+ALTER TABLE `messages`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -427,6 +478,12 @@ ALTER TABLE `car`
 ALTER TABLE `car_review`
   ADD CONSTRAINT `fk_carreview_car` FOREIGN KEY (`car_id`) REFERENCES `car` (`car_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_carreview_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `messages`
+--
+ALTER TABLE `messages`
+  ADD CONSTRAINT `messages_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
