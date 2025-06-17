@@ -4,119 +4,119 @@
             "username": "afmeed",
             "rating": "5.00",
             "text": "Excellent service and the car was very clean!",
-            "car_id": "30",
+            "car_id": 30,
             "button": "See Car"
         },
         {
             "username": "afmeed",
             "rating": "5.00",
             "text": "Dream car! Audi nailed it with the RS6. Interior tech, power, and looks — all top-notch.",
-            "car_id": "87",
+            "car_id": 87,
             "button": "See Car"
         },
         {
             "username": "john_doe",
             "rating": "5.00",
             "text": "Very smooth ride. I’ll definitely book again.",
-            "car_id": "5",
+            "car_id": 5,
             "button": "See Car"
         },
         {
             "username": "john_doe",
             "rating": "5.00",
             "text": "Excellent service and the car was very clean!",
-            "car_id": "30",
+            "car_id": 30,
             "button": "See Car"
         },
         {
             "username": "john_doe",
             "rating": "4.90",
             "text": "Absolutely thrilling to drive. The RS6 blends luxury and performance perfectly. Handles like a sports car but has space for the whole family.",
-            "car_id": "87",
+            "car_id": 87,
             "button": "See Car"
         },
         {
             "username": "fatima_rider",
             "rating": "4.80",
             "text": "Very refined yet aggressive. The V8 engine sounds incredible. A proper performance wagon.",
-            "car_id": "87",
+            "car_id": 87,
             "button": "See Car"
         },
         {
             "username": "afmeed",
             "rating": "4.75",
             "text": "Very Nice Car and comfortable",
-            "car_id": "50",
+            "car_id": 50,
             "button": "See Car"
         },
         {
             "username": "agency_procar",
             "rating": "4.70",
             "text": "The acceleration is insane, and the comfort is unmatched. Perfect for road trips and daily driving.",
-            "car_id": "87",
+            "car_id": 87,
             "button": "See Car"
         },
         {
             "username": "rent4u_agency",
             "rating": "4.60",
             "text": "Love everything except the fuel consumption. Still, it’s worth it for the power and style.",
-            "car_id": "87",
+            "car_id": 87,
             "button": "See Car"
         },
         {
             "username": "agency_procar",
             "rating": "4.00",
             "text": "The car was in good condition, but pick-up took some time.",
-            "car_id": "32",
+            "car_id": 32,
             "button": "See Car"
         },
         {
             "username": "agency_procar",
             "rating": "4.00",
             "text": "Customer support was responsive. Car was fine.",
-            "car_id": "67",
+            "car_id": 67,
             "button": "See Car"
         },
         {
             "username": "agency_procar",
             "rating": "4.00",
             "text": "The car was in good condition, but pick-up took some time.",
-            "car_id": "30",
+            "car_id": 30,
             "button": "See Car"
         },
         {
             "username": "fatima_rider",
             "rating": "3.00",
             "text": "It was okay, but the AC wasn’t working properly.",
-            "car_id": "19",
+            "car_id": 19,
             "button": "See Car"
         },
         {
             "username": "fatima_rider",
             "rating": "3.00",
             "text": "It was okay, but the AC wasn’t working properly.",
-            "car_id": "30",
+            "car_id": 30,
             "button": "See Car"
         },
         {
             "username": "rent4u_agency",
             "rating": "2.00",
             "text": "The car was not as described. Needs maintenance.",
-            "car_id": "3",
+            "car_id": 3,
             "button": "See Car"
         },
         {
             "username": "afmeed",
             "rating": "1.75",
             "text": "Nice car",
-            "car_id": "1",
+            "car_id": 1,
             "button": "See Car"
         },
         {
             "username": "rent4u_agency",
             "rating": "1.00",
             "text": "Bad experience. The brakes were worn out.",
-            "car_id": "15",
+            "car_id": 15,
             "button": "See Car"
         }
     ],
@@ -125,217 +125,224 @@
             "username": "afmeed",
             "rating": "5.00",
             "text": "Perfect experience! Will book again.",
-            "agency_id": "1",
+            "agency_id": 1,
             "button": "See Agency"
         },
         {
             "username": "agency_procar",
             "rating": "5.00",
             "text": "Flawless experience from booking to return.",
-            "agency_id": "5",
+            "agency_id": 5,
             "button": "See Agency"
         },
         {
             "username": "john_doe",
             "rating": "5.00",
             "text": "Amazing desert tour vehicle! Highly recommended.",
-            "agency_id": "3",
+            "agency_id": 3,
             "button": "See Agency"
         },
         {
             "username": "meedafilal",
             "rating": "5.00",
             "text": "Top-tier experience in Marrakech!",
-            "agency_id": "6",
+            "agency_id": 6,
+            "button": "See Agency"
+        },
+        {
+            "username": "afmeed",
+            "rating": "4.50",
+            "text": "This Ageny Have Very nice support with comfortable cars",
+            "agency_id": 9,
             "button": "See Agency"
         },
         {
             "username": "agency_procar",
             "rating": "4.50",
             "text": "Fantastic team and luxury vehicles.",
-            "agency_id": "2",
+            "agency_id": 2,
             "button": "See Agency"
         },
         {
             "username": "john_doe",
             "rating": "4.50",
             "text": "Very professional service, clean cars and friendly staff.",
-            "agency_id": "1",
+            "agency_id": 1,
             "button": "See Agency"
         },
         {
             "username": "meedafilal",
             "rating": "4.50",
             "text": "Super clean vehicles and polite team.",
-            "agency_id": "4",
+            "agency_id": 4,
             "button": "See Agency"
         },
         {
             "username": "rent4u_agency",
             "rating": "4.50",
             "text": "Loved the desert-ready SUV!",
-            "agency_id": "3",
+            "agency_id": 3,
             "button": "See Agency"
         },
         {
             "username": "afmeed",
             "rating": "4.25",
             "text": "Its Very Nice Service and Good Cars Its Recomended From me",
-            "agency_id": "2",
+            "agency_id": 2,
             "button": "See Agency"
         },
         {
             "username": "agency_procar",
             "rating": "4.00",
             "text": "Helpful staff and well-maintained cars.",
-            "agency_id": "3",
+            "agency_id": 3,
             "button": "See Agency"
         },
         {
             "username": "fatima_rider",
             "rating": "4.00",
             "text": "Excellent cars and helpful staff.",
-            "agency_id": "2",
+            "agency_id": 2,
             "button": "See Agency"
         },
         {
             "username": "fatima_rider",
             "rating": "4.00",
             "text": "Reliable and punctual.",
-            "agency_id": "4",
+            "agency_id": 4,
             "button": "See Agency"
         },
         {
             "username": "john_doe",
             "rating": "4.00",
             "text": "Trusted agency with smooth check-in process.",
-            "agency_id": "5",
+            "agency_id": 5,
             "button": "See Agency"
         },
         {
             "username": "meedafilal",
             "rating": "4.00",
             "text": "Good experience overall. Would rent again.",
-            "agency_id": "1",
+            "agency_id": 1,
             "button": "See Agency"
         },
         {
             "username": "rent4u_agency",
             "rating": "4.00",
             "text": "Great customer service.",
-            "agency_id": "5",
+            "agency_id": 5,
             "button": "See Agency"
         },
         {
             "username": "afmeed",
             "rating": "3.50",
             "text": "Satisfactory, nothing exceptional.",
-            "agency_id": "5",
+            "agency_id": 5,
             "button": "See Agency"
         },
         {
             "username": "agency_procar",
             "rating": "3.50",
             "text": "Good service, a bit slow at pickup.",
-            "agency_id": "4",
+            "agency_id": 4,
             "button": "See Agency"
         },
         {
             "username": "fatima_rider",
             "rating": "3.50",
             "text": "Pretty good, though a bit pricey.",
-            "agency_id": "3",
+            "agency_id": 3,
             "button": "See Agency"
         },
         {
             "username": "john_doe",
             "rating": "3.50",
             "text": "The car was good, but the price felt high.",
-            "agency_id": "6",
+            "agency_id": 6,
             "button": "See Agency"
         },
         {
             "username": "rent4u_agency",
             "rating": "3.50",
             "text": "Good vehicles but slow processing.",
-            "agency_id": "2",
+            "agency_id": 2,
             "button": "See Agency"
         },
         {
             "username": "afmeed",
             "rating": "3.00",
             "text": "Decent experience, but the car was not very clean.",
-            "agency_id": "2",
+            "agency_id": 2,
             "button": "See Agency"
         },
         {
             "username": "fatima_rider",
             "rating": "3.00",
             "text": "Decent but room for improvement.",
-            "agency_id": "6",
+            "agency_id": 6,
             "button": "See Agency"
         },
         {
             "username": "meedafilal",
             "rating": "3.00",
             "text": "Average experience.",
-            "agency_id": "3",
+            "agency_id": 3,
             "button": "See Agency"
         },
         {
             "username": "agency_procar",
             "rating": "2.50",
             "text": "Car worked fine but poor customer service.",
-            "agency_id": "6",
+            "agency_id": 6,
             "button": "See Agency"
         },
         {
             "username": "john_doe",
             "rating": "2.50",
             "text": "Had issues with the booking system and delays.",
-            "agency_id": "4",
+            "agency_id": 4,
             "button": "See Agency"
         },
         {
             "username": "agency_procar",
             "rating": "2.00",
             "text": "Not satisfied. Car had technical problems.",
-            "agency_id": "1",
+            "agency_id": 1,
             "button": "See Agency"
         },
         {
             "username": "fatima_rider",
             "rating": "2.00",
             "text": "Expected more based on reviews.",
-            "agency_id": "5",
+            "agency_id": 5,
             "button": "See Agency"
         },
         {
             "username": "meedafilal",
             "rating": "2.00",
             "text": "Car was okay but customer service needs improvement.",
-            "agency_id": "2",
+            "agency_id": 2,
             "button": "See Agency"
         },
         {
             "username": "rent4u_agency",
             "rating": "2.00",
             "text": "Long wait times. Not impressed.",
-            "agency_id": "4",
+            "agency_id": 4,
             "button": "See Agency"
         },
         {
             "username": "fatima_rider",
             "rating": "1.50",
             "text": "Bad brakes and noisy engine. Disappointed.",
-            "agency_id": "1",
+            "agency_id": 1,
             "button": "See Agency"
         },
         {
             "username": "rent4u_agency",
             "rating": "1.50",
             "text": "Had mechanical issues and no support.",
-            "agency_id": "6",
+            "agency_id": 6,
             "button": "See Agency"
         }
     ]

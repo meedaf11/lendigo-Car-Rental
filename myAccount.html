@@ -1,109 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Account – Lendigo</title>
-    <link rel="stylesheet" href="style/account.css">
-</head>
+    <link rel="stylesheet" href="style/account.css" />
+  </head>
 
-<body>
+  <body>
     <div id="header-placeholder"></div>
 
     <main class="account-page">
-        <section class="account-header">
-            <h1>Welcome, <span id="user-name">User</span></h1>
-            <p>Manage your profile, messages, and reviews all in one place.</p>
-        </section>
+      <section class="account-header">
+        <h1>Welcome, <span id="user-name">User</span></h1>
+        <p>Manage your profile, messages, and reviews all in one place.</p>
+      </section>
 
-        <section class="account-container">
-            <aside class="account-sidebar">
-                <ul>
-                    <li class="tab-link active" data-tab="profile-tab">Personal Info</li>
-                    <li class="tab-link" data-tab="messages-tab">My Messages</li>
-                    <li class="tab-link" data-tab="reviews-tab">My Reviews</li>
-                    <li class="tab-link" data-tab="password-tab">Change Password</li>
-                </ul>
-            </aside>
+      <section class="account-container">
+        <aside class="account-sidebar">
+          <ul>
+            <li class="tab-link active" data-tab="profile-tab">
+              Personal Info
+            </li>
+            <li class="tab-link" data-tab="agencies-tab">My Agencies</li>
+            <li class="tab-link" data-tab="messages-tab">My Messages</li>
+            <li class="tab-link" data-tab="reviews-tab">My Reviews</li>
+            <li class="tab-link" data-tab="password-tab">Change Password</li>
+          </ul>
+        </aside>
 
-            <div class="account-content">
-                <!-- Profile Tab -->
-                <div id="profile-tab" class="tab-content active">
-                    <h2>Personal Information</h2>
-                    <form id="profile-form">
-                        <label for="name">Full Name</label>
-                        <input type="text" id="name" name="name" />
+        <div class="account-content">
+          <!-- Profile Tab -->
+          <div id="profile-tab" class="tab-content active">
+            <h2>Personal Information</h2>
+            <form id="profile-form">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" name="name" />
 
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" />
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" />
 
-                        <label for="phone">Phone Number</label>
-                        <input type="text" id="phone" name="phone" />
+              <label for="phone">Phone Number</label>
+              <input type="text" id="phone" name="phone" />
 
-                        <button type="submit">Update Profile</button>
-                    </form>
-                </div>
+              <button type="submit">Update Profile</button>
+            </form>
+          </div>
 
-                <!-- Change Password Section -->
-                <div class="tab-content" id="password-tab">
-
-                    <h2>Change Password</h2>
-                    <form id="password-form">
-                        <label for="current-password">Current Password</label>
-                        <input type="password" id="current-password" name="current_password" />
-
-                        <label for="new-password">New Password</label>
-                        <input type="password" id="new-password" name="new_password" />
-
-                        <label for="confirm-password">Confirm New Password</label>
-                        <input type="password" id="confirm-password" name="confirm_password" />
-
-                        <button type="submit">Update Password</button>
-                    </form>
-
-                </div>
-
-
-
-                <!-- Messages Tab -->
-                <div id="messages-tab" class="tab-content">
-                    <h2>My Messages</h2>
-                    <div id="messages-list">
-                        <!-- Messages from contact form -->
-                    </div>
-                </div>
-
-                <!-- Reviews Tab -->
-                <div id="reviews-tab" class="tab-content">
-                    <h2>My Reviews</h2>
-
-                    <!-- Inner review tabs -->
-                    <div class="inner-tabs">
-                        <button class="inner-tab-link active" data-inner-tab="car-reviews">Car Reviews</button>
-                        <button class="inner-tab-link" data-inner-tab="agency-reviews">Agency Reviews</button>
-                    </div>
-
-                    <!-- Car Reviews -->
-                    <div id="car-reviews" class="inner-tab-content active">
-                        <div id="car-reviews-list">
-                            <!-- Car reviews will be loaded here -->
-                        </div>
-                    </div>
-
-                    <!-- Agency Reviews -->
-                    <div id="agency-reviews" class="inner-tab-content">
-                        <div id="agency-reviews-list">
-                            <!-- Agency reviews will be loaded here -->
-                        </div>
-                    </div>
-                </div>
+          <div id="agencies-tab" class="tab-content">
+            <h2>My Agencies</h2>
+            <div id="agencies-list">
+              <!-- Agencies managed by the user will be listed here -->
             </div>
-        </section>
+          </div>
+
+          <!-- Change Password Section -->
+          <div class="tab-content" id="password-tab">
+            <h2>Change Password</h2>
+            <form id="password-form">
+              <label for="current-password">Current Password</label>
+              <input
+                type="password"
+                id="current-password"
+                name="current_password"
+              />
+
+              <label for="new-password">New Password</label>
+              <input type="password" id="new-password" name="new_password" />
+
+              <label for="confirm-password">Confirm New Password</label>
+              <input
+                type="password"
+                id="confirm-password"
+                name="confirm_password"
+              />
+
+              <button type="submit">Update Password</button>
+            </form>
+          </div>
+
+          <!-- Messages Tab -->
+          <div id="messages-tab" class="tab-content">
+            <h2>My Messages</h2>
+            <div id="messages-list">
+              <!-- Messages from contact form -->
+            </div>
+          </div>
+
+          <!-- Reviews Tab -->
+          <div id="reviews-tab" class="tab-content">
+            <h2>My Reviews</h2>
+
+            <!-- Inner review tabs -->
+            <div class="inner-tabs">
+              <button
+                class="inner-tab-link active"
+                data-inner-tab="car-reviews"
+              >
+                Car Reviews
+              </button>
+              <button class="inner-tab-link" data-inner-tab="agency-reviews">
+                Agency Reviews
+              </button>
+            </div>
+
+            <!-- Car Reviews -->
+            <div id="car-reviews" class="inner-tab-content active">
+              <div id="car-reviews-list">
+                <!-- Car reviews will be loaded here -->
+              </div>
+            </div>
+
+            <!-- Agency Reviews -->
+            <div id="agency-reviews" class="inner-tab-content">
+              <div id="agency-reviews-list">
+                <!-- Agency reviews will be loaded here -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <div id="footer-placeholder"></div>
     <script src="js/account.js"></script>
-</body>
-
+  </body>
 </html>

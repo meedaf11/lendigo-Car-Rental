@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary-color: #e53e3e;
+  --secondary-color: #c8070f;
+  --background-color: #f5f5f5;
+  --white: #ffffff;
+  --text-primary: #333;
+  --sidebar-bg: #1a1f2e;
+  --sidebar-hover: #252b3d;
+  --sidebar-active: rgba(229, 62, 62, 0.1);
+  --sidebar-width: 280px;
+  --gap-xl: 20px;
+  --gap-2xl: 30px;
+  --font-size-base: 16px;
+  --font-size-3xl: 24px;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --transition-fast: 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--background-color);
+  color: var(--text-primary);
+  overflow-x: hidden;
+}
+
+.dashboard-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: var(--sidebar-width);
+  background: var(--sidebar-bg);
+  color: var(--white);
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow-y: auto;
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar h2 {
+  padding: var(--gap-2xl) var(--gap-xl);
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  text-align: center;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: var(--gap-xl) 0;
+}
+
+.sidebar li {
+  margin: 0;
+}
+
+.sidebar a {
+  display: block;
+  padding: 15px var(--gap-xl);
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  transition: var(--transition-fast);
+  border-left: 3px solid transparent;
+}
+
+.sidebar a:hover {
+  color: var(--white);
+  background: var(--sidebar-hover);
+  border-left-color: var(--primary-color);
+}
+
+.sidebar a.active {
+  background: var(--sidebar-active);
+  color: var(--white);
+  font-weight: var(--font-weight-semibold);
+  border-left-color: var(--primary-color);
+}
+
+.main-content {
+  flex: 1;
+  margin-left: var(--sidebar-width);
+  padding: var(--gap-2xl);
+}

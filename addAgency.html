@@ -1,270 +1,444 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <title>Add Agency</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style/addAgency.css" />
     <script src="https://js.stripe.com/v3/"></script>
-</head>
+  </head>
 
-<body>
+  <body>
 
     <div class="form-container">
-        <div class="form-header">
-            <h1 class="form-title">Add New Agency</h1>
-            <p class="form-subtitle">Create your car rental agency profile</p>
+      <div class="form-header">
+        <h1 class="form-title">Add New Agency</h1>
+        <p class="form-subtitle">Create your car rental agency profile</p>
+      </div>
+
+      <div class="tabs">
+        <div class="tab-buttons">
+          <button class="tab-btn active" data-tab="agencyTab">
+            <span class="step-counter">1</span>Agency Info
+          </button>
+          <button class="tab-btn" data-tab="carTab">
+            <span class="step-counter">2</span>Add Car
+          </button>
+          <button class="tab-btn" data-tab="paymentTab">
+            <span class="step-counter">3</span>Payment
+          </button>
+          <div class="tab-indicator" style="width: 33.33%"></div>
+          <div class="progress-bar" style="width: 33.33%"></div>
         </div>
 
-        <div class="tabs">
-            <div class="tab-buttons">
-                <button class="tab-btn active" data-tab="agencyTab">
-                    <span class="step-counter">1</span>Agency Info
+        <div class="form-content">
+          <form id="addAgencyForm">
+            <!-- Tab 1: Agency Information -->
+            <div class="tab active" id="agencyTab">
+              <h2>Agency Information</h2>
+              <div class="step-info">
+                <span class="step-counter">1</span>
+                Tell us about your agency
+              </div>
+
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="agencyName">Agency Name *</label>
+                  <input
+                    type="text"
+                    class="form-input"
+                    placeholder="Enter agency name"
+                    id="agencyName"
+                    required
+                  />
+                  <div class="validation-message">
+                    Please enter a valid agency name
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="agencyEmail">Contact Email *</label>
+                  <input
+                    type="email"
+                    class="form-input"
+                    placeholder="agency@example.com"
+                    id="agencyEmail"
+                    required
+                  />
+                  <div class="validation-message">
+                    Please enter a valid email address
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="agencyPhone">Phone Number *</label>
+                  <input
+                    type="tel"
+                    class="form-input"
+                    placeholder="+212 6XX XXX XXX"
+                    id="agencyPhone"
+                    required
+                  />
+                  <div class="validation-message">
+                    Please enter a valid phone number
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="agencyCity">City *</label>
+                  <input
+                    type="text"
+                    class="form-input"
+                    placeholder="Enter city"
+                    id="agencyCity"
+                    required
+                  />
+                  <div class="validation-message">Please enter the city</div>
+                </div>
+
+                <div class="form-group full-width">
+                  <label for="agencyLocation">Location *</label>
+                  <input
+                    type="text"
+                    class="form-input"
+                    placeholder="Full address"
+                    id="agencyLocation"
+                    required
+                  />
+                  <div class="validation-message">
+                    Please enter the full address
+                  </div>
+                </div>
+
+                <div class="form-group full-width">
+                  <label for="agencyDescription">Description *</label>
+                  <textarea
+                    class="form-textarea"
+                    placeholder="Describe your agency and services..."
+                    id="agencyDescription"
+                    required
+                  ></textarea>
+                  <div class="validation-message">
+                    Please provide a description
+                  </div>
+                </div>
+
+                <div class="form-group full-width">
+                  <label for="agencyImage">Agency Image URL *</label>
+                  <input
+                    type="url"
+                    class="form-input"
+                    placeholder="https://example.com/image.jpg"
+                    id="agencyImage"
+                    required
+                  />
+                  <div class="validation-message">
+                    Please enter a valid image URL
+                  </div>
+                </div>
+              </div>
+
+              <div class="action-buttons">
+                <div></div>
+                <button
+                  type="button"
+                  class="btn btn-primary next-btn"
+                  data-next="carTab"
+                >
+                  Next Step →
                 </button>
-                <button class="tab-btn" data-tab="carTab">
-                    <span class="step-counter">2</span>Add Car
-                </button>
-                <button class="tab-btn" data-tab="paymentTab">
-                    <span class="step-counter">3</span>Payment
-                </button>
-                <div class="tab-indicator" style="width: 33.33%;"></div>
-                <div class="progress-bar" style="width: 33.33%;"></div>
+              </div>
             </div>
 
-            <div class="form-content">
-                <form id="addAgencyForm">
-                    <!-- Tab 1: Agency Information -->
-                    <div class="tab active" id="agencyTab">
-                        <h2>Agency Information</h2>
-                        <div class="step-info">
-                            <span class="step-counter">1</span>
-                            Tell us about your agency
-                        </div>
+            <!-- Tab 2: Add Car -->
+            <div class="tab" id="carTab">
+              <h2>Add Your First Car</h2>
+              <div class="step-info">
+                <span class="step-counter">2</span>
+                Add a car to your fleet
+              </div>
 
-                        <div class="form-grid">
-                            <div class="form-group">
-                                <label for="agencyName">Agency Name *</label>
-                                <input type="text" class="form-input" placeholder="Enter agency name" id="agencyName"
-                                    required />
-                                <div class="validation-message">Please enter a valid agency name</div>
-                            </div>
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="carName">Car Name *</label>
+                  <input
+                    type="text"
+                    class="form-input"
+                    placeholder="e.g., BMW X5 2023"
+                    id="carName"
+                    required
+                  />
+                  <div class="validation-message">
+                    Please enter the car name
+                  </div>
+                </div>
 
-                            <div class="form-group">
-                                <label for="agencyEmail">Contact Email *</label>
-                                <input type="email" class="form-input" placeholder="agency@example.com" id="agencyEmail"
-                                    required />
-                                <div class="validation-message">Please enter a valid email address</div>
-                            </div>
+                <div class="form-group">
+                  <label for="carBrand">Brand *</label>
+                  <input
+                    type="text"
+                    class="form-input"
+                    placeholder="e.g., BMW, Mercedes, Toyota"
+                    id="carBrand"
+                    required
+                  />
+                  <div class="validation-message">
+                    Please enter the car brand
+                  </div>
+                </div>
 
-                            <div class="form-group">
-                                <label for="agencyPhone">Phone Number *</label>
-                                <input type="tel" class="form-input" placeholder="+212 6XX XXX XXX" id="agencyPhone"
-                                    required />
-                                <div class="validation-message">Please enter a valid phone number</div>
-                            </div>
+                <div class="form-group">
+                  <label for="carModel">Model *</label>
+                  <input
+                    type="text"
+                    class="form-input"
+                    placeholder="e.g., X5, E-Class, Camry"
+                    id="carModel"
+                    required
+                  />
+                  <div class="validation-message">
+                    Please enter the car model
+                  </div>
+                </div>
 
-                            <div class="form-group">
-                                <label for="agencyCity">City *</label>
-                                <input type="text" class="form-input" placeholder="Enter city" id="agencyCity"
-                                    required />
-                                <div class="validation-message">Please enter the city</div>
-                            </div>
+                <div class="form-group">
+                  <label for="carType">Car Type *</label>
+                  <input
+                    type="text"
+                    class="form-input"
+                    placeholder="e.g., SUV, Sedan, Hatchback"
+                    id="carType"
+                    required
+                  />
+                  <div class="validation-message">
+                    Please enter the car type
+                  </div>
+                </div>
 
-                            <div class="form-group full-width">
-                                <label for="agencyLocation">Location *</label>
-                                <input type="text" class="form-input" placeholder="Full address" id="agencyLocation"
-                                    required />
-                                <div class="validation-message">Please enter the full address</div>
-                            </div>
+                <div class="form-group">
+                  <label for="carPlaces">Number of Seats *</label>
+                  <input
+                    type="number"
+                    class="form-input"
+                    placeholder="e.g., 5"
+                    id="carPlaces"
+                    min="2"
+                    max="9"
+                    required
+                  />
+                  <div class="validation-message">
+                    Please enter number of seats (2-9)
+                  </div>
+                </div>
 
-                            <div class="form-group full-width">
-                                <label for="agencyDescription">Description *</label>
-                                <textarea class="form-textarea" placeholder="Describe your agency and services..."
-                                    id="agencyDescription" required></textarea>
-                                <div class="validation-message">Please provide a description</div>
-                            </div>
+                <div class="form-group">
+                  <label for="carPrice">Price Per Day (DH) *</label>
+                  <input
+                    type="number"
+                    class="form-input"
+                    placeholder="e.g., 250"
+                    id="carPrice"
+                    min="1"
+                    required
+                  />
+                  <div class="validation-message">
+                    Please enter a valid price
+                  </div>
+                </div>
 
-                            <div class="form-group full-width">
-                                <label for="agencyImage">Agency Image URL *</label>
-                                <input type="url" class="form-input" placeholder="https://example.com/image.jpg"
-                                    id="agencyImage" required />
-                                <div class="validation-message">Please enter a valid image URL</div>
-                            </div>
-                        </div>
+                <div class="form-group">
+                  <label for="carFuel">Fuel Type *</label>
+                  <select class="form-select" id="carFuel" required>
+                    <option value="">Select Fuel Type</option>
+                    <option value="Diesel">Diesel</option>
+                    <option value="Gasoline">Gasoline</option>
+                    <option value="Hybrid">Hybrid</option>
+                    <option value="Electrical">Electric</option>
+                  </select>
+                  <div class="validation-message">Please select fuel type</div>
+                </div>
 
-                        <div class="action-buttons">
-                            <div></div>
-                            <button type="button" class="btn btn-primary next-btn" data-next="carTab">
-                                Next Step →
-                            </button>
-                        </div>
-                    </div>
+                <div class="form-group">
+                  <label for="carGear">Transmission *</label>
+                  <select class="form-select" id="carGear" required>
+                    <option value="">Select Transmission</option>
+                    <option value="1">Automatic</option>
+                    <option value="0">Manual</option>
+                  </select>
+                  <div class="validation-message">
+                    Please select transmission type
+                  </div>
+                </div>
 
-                    <!-- Tab 2: Add Car -->
-                    <div class="tab" id="carTab">
-                        <h2>Add Your First Car</h2>
-                        <div class="step-info">
-                            <span class="step-counter">2</span>
-                            Add a car to your fleet
-                        </div>
+                <div class="form-group">
+                  <label for="carKm">Kilometers *</label>
+                  <input
+                    type="number"
+                    class="form-input"
+                    placeholder="e.g., 50000"
+                    id="carKm"
+                    min="0"
+                    required
+                  />
+                  <div class="validation-message">
+                    Please enter valid kilometers
+                  </div>
+                </div>
 
-                        <div class="form-grid">
-                            <div class="form-group">
-                                <label for="carName">Car Name *</label>
-                                <input type="text" class="form-input" placeholder="e.g., BMW X5 2023" id="carName"
-                                    required />
-                                <div class="validation-message">Please enter the car name</div>
-                            </div>
+                <div class="form-group full-width">
+                  <label for="carImage">Car Image URL *</label>
+                  <input
+                    type="url"
+                    class="form-input"
+                    placeholder="https://example.com/car-image.jpg"
+                    id="carImage"
+                    required
+                  />
+                  <div class="validation-message">
+                    Please enter a valid image URL
+                  </div>
+                </div>
+              </div>
 
-                            <div class="form-group">
-                                <label for="carBrand">Brand *</label>
-                                <input type="text" class="form-input" placeholder="e.g., BMW, Mercedes, Toyota"
-                                    id="carBrand" required />
-                                <div class="validation-message">Please enter the car brand</div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="carModel">Model *</label>
-                                <input type="text" class="form-input" placeholder="e.g., X5, E-Class, Camry"
-                                    id="carModel" required />
-                                <div class="validation-message">Please enter the car model</div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="carType">Car Type *</label>
-                                <input type="text" class="form-input" placeholder="e.g., SUV, Sedan, Hatchback"
-                                    id="carType" required />
-                                <div class="validation-message">Please enter the car type</div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="carPlaces">Number of Seats *</label>
-                                <input type="number" class="form-input" placeholder="e.g., 5" id="carPlaces" min="2"
-                                    max="9" required />
-                                <div class="validation-message">Please enter number of seats (2-9)</div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="carPrice">Price Per Day (DH) *</label>
-                                <input type="number" class="form-input" placeholder="e.g., 250" id="carPrice" min="1"
-                                    required />
-                                <div class="validation-message">Please enter a valid price</div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="carFuel">Fuel Type *</label>
-                                <select class="form-select" id="carFuel" required>
-                                    <option value="">Select Fuel Type</option>
-                                    <option value="Diesel">Diesel</option>
-                                    <option value="Gasoline">Gasoline</option>
-                                    <option value="Hybrid">Hybrid</option>
-                                    <option value="Electrical">Electric</option>
-                                </select>
-                                <div class="validation-message">Please select fuel type</div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="carGear">Transmission *</label>
-                                <select class="form-select" id="carGear" required>
-                                    <option value="">Select Transmission</option>
-                                    <option value="1">Automatic</option>
-                                    <option value="0">Manual</option>
-                                </select>
-                                <div class="validation-message">Please select transmission type</div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="carKm">Kilometers *</label>
-                                <input type="number" class="form-input" placeholder="e.g., 50000" id="carKm" min="0"
-                                    required />
-                                <div class="validation-message">Please enter valid kilometers</div>
-                            </div>
-
-                            <div class="form-group full-width">
-                                <label for="carImage">Car Image URL *</label>
-                                <input type="url" class="form-input" placeholder="https://example.com/car-image.jpg"
-                                    id="carImage" required />
-                                <div class="validation-message">Please enter a valid image URL</div>
-                            </div>
-                        </div>
-
-                        <div class="action-buttons">
-                            <button type="button" class="btn btn-secondary prev-btn" data-prev="agencyTab">
-                                ← Previous
-                            </button>
-                            <button type="button" class="btn btn-primary next-btn" data-next="paymentTab">
-                                Next Step →
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Tab 3: Payment -->
-                    <div class="tab" id="paymentTab">
-                        <h2>Complete Registration</h2>
-                        <div class="step-info">
-                            <span class="step-counter">3</span>
-                            Final step to activate your agency
-                        </div>
-
-                        <div class="form-grid">
-                            <div class="form-group full-width">
-                                <label for="paymentAmount">Registration Fee (DH) *</label>
-                                <input type="number" class="form-input" placeholder="Enter amount" id="paymentAmount"
-                                    min="1" required />
-                                <div class="validation-message">Please enter a valid amount</div>
-                            </div>
-
-                            <div class="form-group full-width"
-                                style="text-align: center; padding: var(--gap-2xl); background: var(--border-light); border-radius: var(--border-radius-medium); margin: var(--gap-xl) 0;">
-                                <h4 style="color: var(--text-primary); margin-bottom: var(--gap-medium);">Registration
-                                    Summary</h4>
-                                <p style="color: var(--text-secondary); margin-bottom: var(--gap-small);">Agency Setup
-                                    Fee</p>
-                                <p style="font-size: var(--font-size-large); font-weight: var(--font-weight-bold); color: var(--primary-color);"
-                                    id="summaryAmount">-- DH</p>
-                            </div>
-
-                            <div class="form-group full-width">
-                                <label for="card-element">Card Details *</label>
-                                <div id="card-element" class="form-input"
-                                    style="padding: 10px; border: 1px solid #ccc; border-radius: 8px;"></div>
-                                <div id="card-errors" class="validation-message"></div>
-                            </div>
-                        </div>
-
-                        <div class="action-buttons">
-                            <button type="button" class="btn btn-secondary prev-btn" data-prev="carTab">
-                                ← Previous
-                            </button>
-                            <button type="submit" class="btn btn-submit">
-                                <div class="loading-spinner"></div>
-                                Complete Registration
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Success Screen -->
-                    <div class="tab" id="successTab">
-                        <div class="success-animation">
-                            <div class="success-icon">✓</div>
-                            <h2>Registration Successful!</h2>
-                            <p style="color: var(--text-secondary); margin-top: var(--gap-medium);">
-                                Your agency has been successfully registered. You will receive a confirmation email
-                                shortly.
-                            </p>
-                            <button type="button" class="btn btn-primary" style="margin-top: var(--gap-2xl);"
-                                onclick="location.reload()">
-                                Register Another Agency
-                            </button>
-                        </div>
-                    </div>
-                </form>
+              <div class="action-buttons">
+                <button
+                  type="button"
+                  class="btn btn-secondary prev-btn"
+                  data-prev="agencyTab"
+                >
+                  ← Previous
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-primary next-btn"
+                  data-next="paymentTab"
+                >
+                  Next Step →
+                </button>
+              </div>
             </div>
+
+            <!-- Tab 3: Payment -->
+            <div class="tab" id="paymentTab">
+              <h2>Complete Registration</h2>
+              <div class="step-info">
+                <span class="step-counter">3</span>
+                Final step to activate your agency
+              </div>
+
+              <div class="form-grid">
+                <div class="form-group full-width">
+                  <label for="paymentAmount">Registration Fee (DH) *</label>
+                  <input
+                    type="number"
+                    class="form-input"
+                    placeholder="Enter amount"
+                    id="paymentAmount"
+                    min="1"
+                    required
+                  />
+                  <div class="validation-message">
+                    Please enter a valid amount
+                  </div>
+                </div>
+
+                <div
+                  class="form-group full-width"
+                  style="
+                    text-align: center;
+                    padding: var(--gap-2xl);
+                    background: var(--border-light);
+                    border-radius: var(--border-radius-medium);
+                    margin: var(--gap-xl) 0;
+                  "
+                >
+                  <h4
+                    style="
+                      color: var(--text-primary);
+                      margin-bottom: var(--gap-medium);
+                    "
+                  >
+                    Registration Summary
+                  </h4>
+                  <p
+                    style="
+                      color: var(--text-secondary);
+                      margin-bottom: var(--gap-small);
+                    "
+                  >
+                    Agency Setup Fee
+                  </p>
+                  <p
+                    style="
+                      font-size: var(--font-size-large);
+                      font-weight: var(--font-weight-bold);
+                      color: var(--primary-color);
+                    "
+                    id="summaryAmount"
+                  >
+                    -- DH
+                  </p>
+                </div>
+
+                <div class="form-group full-width">
+                  <label for="card-element">Card Details *</label>
+                  <div
+                    id="card-element"
+                    class="form-input"
+                    style="
+                      padding: 10px;
+                      border: 1px solid #ccc;
+                      border-radius: 8px;
+                    "
+                  ></div>
+                  <div id="card-errors" class="validation-message"></div>
+                </div>
+              </div>
+
+              <div class="action-buttons">
+                <button
+                  type="button"
+                  class="btn btn-secondary prev-btn"
+                  data-prev="carTab"
+                >
+                  ← Previous
+                </button>
+                <button type="submit" class="btn btn-submit">
+                  <div class="loading-spinner"></div>
+                  Complete Registration
+                </button>
+              </div>
+            </div>
+
+            <!-- Success Screen -->
+            <div class="tab" id="successTab">
+              <div class="success-animation">
+                <div class="success-icon">✓</div>
+                <h2>Registration Successful!</h2>
+                <p
+                  style="
+                    color: var(--text-secondary);
+                    margin-top: var(--gap-medium);
+                  "
+                >
+                  Your agency has been successfully registered. You will receive
+                  a confirmation email shortly.
+                </p>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  style="margin-top: var(--gap-2xl)"
+                  onclick="location.reload()"
+                >
+                  Register Another Agency
+                </button>
+              </div>
+            </div>
+          </form>
         </div>
+      </div>
     </div>
 
     <script src="js/addAgency.js"></script>
-</body>
-
+  </body>
 </html>

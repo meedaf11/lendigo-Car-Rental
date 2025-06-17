@@ -84,15 +84,19 @@ function allContent(agencyData) {
       console.error("Error fetching cars:", error);
     });
 
-  fetch("api/reviews.json")
+  fetch(`api/get_agency_reviews.php?agency_id=${agencyData.agency_id}`)
     .then((response) => response.json())
     .then((data) => {
-      const agencyReviews = data.agencyReviews || [];
-      console.log("Agency Reviews from JSON:", agencyReviews);
-      displayAgencyReviews(agencyReviews);
+      if (data.status === "success") {
+        console.log("My Reviews: " + data.data)
+        displayAgencyReviews(data.data);
+      } else {
+        console.error("Error loading agency reviews:", data.message);
+        displayAgencyReviews([]);
+      }
     })
     .catch((error) => {
-      console.error("Failed to load reviews.json:", error);
+      console.error("Error fetching agency reviews:", error);
       displayAgencyReviews([]);
     });
 }
@@ -194,7 +198,7 @@ function showCurrentAgencyReviews(direction = "none") {
                   <span class="star-icon">⭐</span>
               </div>
           </div>
-          <p class="review-text">${review.text}</p>
+          <p class="review-text">${review.review_text}</p>
         `;
 
         // Add entering animation
