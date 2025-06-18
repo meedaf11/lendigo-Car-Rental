@@ -1,125 +1,235 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Testimonials</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f5f5f5;
-      padding: 20px;
-      text-align: center;
-    }
-
-    .tabs {
-      display: inline-flex;
-      background: white;
-      border-radius: 8px;
-      overflow: hidden;
-      margin-bottom: 20px;
-    }
-
-    .tab {
-      padding: 10px 20px;
-      cursor: pointer;
-      font-weight: bold;
-      color: black;
-    }
-
-    .active-tab {
-      background: red;
-      color: white;
-    }
-
-    .content {
-      display: none;
-    }
-
-    .content.active {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .card {
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      width: 250px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      text-align: left;
-    }
-
-    .card h4 {
-      margin: 10px 0 5px;
-    }
-
-    .rating {
-      font-weight: bold;
-      color: #222;
-    }
-
-    .btn {
-      margin-top: 10px;
-      background: red;
-      color: white;
-      border: none;
-      padding: 8px 12px;
-      border-radius: 20px;
-      cursor: pointer;
-    }
-  </style>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Agency Panel</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
 </head>
-<body>
+<body class="bg-gray-100">
+<div class="flex h-screen">
+<aside class="bg-gray-900 text-white w-64 space-y-2 py-7 px-2 fixed inset-y-0 left-0 transform -translate-x-full md:relative md:translate-x-0 transition duration-200 ease-in-out">
+<div class="px-4 mb-5">
+<h2 class="text-2xl font-semibold text-center text-red-500">Agency Panel</h2>
+</div>
+<nav>
+<a class="flex items-center py-2.5 px-4 rounded transition duration-200 bg-red-500 text-white" href="#">
+<span class="material-icons mr-2">bar_chart</span> Statistics
+                </a>
+<a class="flex items-center py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700" href="#">
+<span class="material-icons mr-2">directions_car</span> Cars
+                </a>
+<a class="flex items-center py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700" href="#">
+<span class="material-icons mr-2">book_online</span> Bookings
+                </a>
+<a class="flex items-center py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700" href="#">
+<span class="material-icons mr-2">star_border</span> Reviews
+                </a>
+<a class="flex items-center py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700" href="#">
+<span class="material-icons mr-2">account_balance_wallet</span> Current Balance
+                </a>
+<a class="flex items-center py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700" href="#">
+<span class="material-icons mr-2">settings</span> Settings
+                </a>
+<a class="flex items-center py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700" href="#">
+<span class="material-icons mr-2">logout</span> Logout
+                </a>
+</nav>
+</aside>
+<main class="flex-1 p-6 md:p-10 overflow-y-auto">
+<h1 class="text-3xl font-semibold text-gray-800 mb-8">Dashboard Statistics</h1>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+<div class="bg-white p-6 rounded-lg shadow-md">
+<p class="text-sm text-gray-500">TOTAL BOOKINGS</p>
+<p class="text-3xl font-bold text-red-500">3</p>
+</div>
+<div class="bg-white p-6 rounded-lg shadow-md">
+<p class="text-sm text-gray-500">CARS LISTED</p>
+<p class="text-3xl font-bold text-red-500">17</p>
+</div>
+<div class="bg-white p-6 rounded-lg shadow-md">
+<p class="text-sm text-gray-500">CURRENT BALANCE</p>
+<p class="text-3xl font-bold text-red-500">0.00 DH</p>
+</div>
+<div class="bg-white p-6 rounded-lg shadow-md">
+<p class="text-sm text-gray-500">AVERAGE RATING</p>
+<p class="text-3xl font-bold text-red-500">3.4</p>
+</div>
+</div>
+<div class="bg-white p-6 rounded-lg shadow-md mb-8">
+<h2 class="text-xl font-semibold text-gray-700 mb-4 flex items-center">
+<span class="material-icons mr-2 text-red-500">pie_chart</span> Bookings by Status
+                </h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+<div class="bg-gray-50 p-4 rounded-lg text-center">
+<p class="text-sm text-gray-500">WAITING</p>
+<p class="text-2xl font-bold text-yellow-500">2</p>
+</div>
+<div class="bg-gray-50 p-4 rounded-lg text-center">
+<p class="text-sm text-gray-500">RESERVED</p>
+<p class="text-2xl font-bold text-green-500">0</p>
+</div>
+<div class="bg-gray-50 p-4 rounded-lg text-center">
+<p class="text-sm text-gray-500">COMPLETED</p>
+<p class="text-2xl font-bold text-blue-500">1</p>
+</div>
+<div class="bg-gray-50 p-4 rounded-lg text-center">
+<p class="text-sm text-gray-500">CANCELED</p>
+<p class="text-2xl font-bold text-red-500">0</p>
+</div>
+</div>
+</div>
+<div class="bg-white p-6 rounded-lg shadow-md mb-8">
+<h2 class="text-xl font-semibold text-gray-700 mb-4 flex items-center">
+<span class="material-icons mr-2 text-yellow-500">star</span> Top Rated Cars
+                </h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="bg-gray-50 rounded-lg overflow-hidden shadow">
+<img alt="BMW S Series" class="w-full h-40 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjYGda3EsIJuSed8fyvQUadhsVj24C0hb5o5tI1MdoD-AZuZcdb9k2teKim4Msdq-24BkKREm6x1rxDH44Nlezbgquh6koGqYL1dG6YOJX4SoHpHcyXJ2_7fiEB5ezOYUHJnjP63yJlLTgyHseLgKuK4kU9MCX6u-EeCxgPRUJ423tRhViVx3Fe1M6S4p0KgE49XOzNJjpV0p_29XilmSXbVAtoQMb9eAexwCUFWKoeMM6ChehML-8LXu7mPL8aMLSNVXIhtPVkEI"/>
+<div class="p-4">
+<h3 class="font-semibold text-gray-800">BMW S Series</h3>
+<div class="flex items-center text-yellow-500">
+<span class="material-icons text-sm">star</span>
+<span class="ml-1 text-sm">5.00/5</span>
+</div>
+</div>
+</div>
+<div class="bg-gray-50 rounded-lg overflow-hidden shadow">
+<img alt="Audi RS6" class="w-full h-40 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrdnPxbr6UyW_wZ9pN4D_m_vmjH30TMo1lX2rmthG09eyRXZ-eewB9e09aOXryyi2N5AscQ3COXtGkyf5-lfi8tsHTwBAmc5rWAUT4SluDT_2REilqF7Dg9DTkDtZasZDDP2CA2rMv7eZzQr7XL6tSn8aKPs0AC43l61p5dY7zO2cqV5eUZJwmRHHiWFZwp8rwDo_BOeThd8GRPHuicDEp6fOwPZ1_rniJObJgAbxzzp8kC0Kt3PwcposOwB08Mc0PJLfMUZUCLgI"/>
+<div class="p-4">
+<h3 class="font-semibold text-gray-800">Audi RS6</h3>
+<div class="flex items-center text-yellow-500">
+<span class="material-icons text-sm">star</span>
+<span class="ml-1 text-sm">4.80/5</span>
+</div>
+</div>
+</div>
+<div class="bg-gray-50 rounded-lg overflow-hidden shadow">
+<img alt="Audi A4" class="w-full h-40 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDL86LjpIj_GZxN39LOLaLpD0IDWG9bXI6h5cBdceuRfEdZX4Nhu13N6_Znmi0PgTKbU9FX8OVh41Z6T365e7Dsvk27Hdvw1vaq0NygYuA_zJdj7cRNVHylgVu-L26r6pcCBx5gfMEyJEbDNr7CbV8T4gGSeN6u-mi4lpCwJf71O-Bj21EaWwlWp7RDjkoHWPUUgTIgabTwW13oOwb4PQraMuqln4VIDbAlWOlqs_9XhfQ6vTdn7exo2_KI343Ki4FUar7qlfUB7iE"/>
+<div class="p-4">
+<h3 class="font-semibold text-gray-800">Audi A4</h3>
+<div class="flex items-center text-yellow-500">
+<span class="material-icons text-sm">star</span>
+<span class="ml-1 text-sm">4.25/5</span>
+</div>
+</div>
+</div>
+<div class="bg-gray-50 rounded-lg overflow-hidden shadow">
+<img alt="Dacia Logan" class="w-full h-40 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSWV-_5M1WFqMLIjaBf37Uys5ONGZZsASxkjrCVrZxB93YJSGmpYiUnsbLTF_wiQosMuqYJHo8Nqtfv15GKj7rHXuw7jqJcSfjzqgBgI0CFQYDe_yKE4QMog9eTH-V-vLQytNZNUjhk-ONv51cyhBw4-DK3NnhYexFDm6Iu0yJdOIyERVJnuAJmMoFjsCsCS2L9ceGOf4JDGNAmA1i09lY2eNW-Va6aoi7pCZlwj-KnDKFFRpGkEEqfjS9nD1v0y-ragpV6FKi5-8"/>
+<div class="p-4">
+<h3 class="font-semibold text-gray-800">Dacia Logan</h3>
+<div class="flex items-center text-yellow-500">
+<span class="material-icons text-sm">star</span>
+<span class="ml-1 text-sm">1.75/5</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white p-6 rounded-lg shadow-md mb-8">
+<h2 class="text-xl font-semibold text-gray-700 mb-4 flex items-center">
+<span class="material-icons mr-2 text-green-500">directions_car</span> Current car condition
+                </h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="bg-gray-50 p-4 rounded-lg text-center">
+<p class="text-sm text-gray-500">AVAILABLE</p>
+<p class="text-2xl font-bold text-green-600">15</p>
+</div>
+<div class="bg-gray-50 p-4 rounded-lg text-center">
+<p class="text-sm text-gray-500">BOOKED</p>
+<p class="text-2xl font-bold text-red-600">2</p>
+</div>
+</div>
+</div>
+<div class="bg-white p-6 rounded-lg shadow-md mb-8">
+<h2 class="text-xl font-semibold text-gray-700 mb-4 flex items-center">
+<span class="material-icons mr-2 text-purple-500">chat</span> Latest customer reviews
+                </h2>
+<div class="space-y-4">
+<div class="bg-gray-50 p-4 rounded-lg">
+<div class="flex justify-between items-center mb-1">
+<h4 class="font-semibold text-gray-800">John Doe</h4>
+<span class="text-xs text-gray-400">2025-05-15</span>
+</div>
+<div class="flex items-center text-yellow-500 mb-1">
+<span class="material-icons text-sm">star</span>
+<span class="ml-1 text-sm">5.00/5</span>
+</div>
+<p class="text-sm text-gray-600 italic">"Very professional service, clean cars and friendly staff."</p>
+</div>
+<div class="bg-gray-50 p-4 rounded-lg">
+<div class="flex justify-between items-center mb-1">
+<h4 class="font-semibold text-gray-800"> </h4>
+<span class="text-xs text-gray-400">2025-05-15</span>
+</div>
+<div class="flex items-center text-yellow-500 mb-1">
+<span class="material-icons text-sm">star</span>
+<span class="ml-1 text-sm">2.00/5</span>
+</div>
+<p class="text-sm text-gray-600 italic">"Not satisfied. Car had technical problems."</p>
+</div>
+<div class="bg-gray-50 p-4 rounded-lg">
+<div class="flex justify-between items-center mb-1">
+<h4 class="font-semibold text-gray-800"> </h4>
+<span class="text-xs text-gray-400">2025-05-15</span>
+</div>
+<div class="flex items-center text-yellow-500 mb-1">
+<span class="material-icons text-sm">star</span>
+<span class="ml-1 text-sm">4.00/5</span>
+</div>
+<p class="text-sm text-gray-600 italic">"Good experience overall. Would rent again."</p>
+</div>
+<div class="bg-gray-50 p-4 rounded-lg">
+<div class="flex justify-between items-center mb-1">
+<h4 class="font-semibold text-gray-800"> </h4>
+<span class="text-xs text-gray-400">2025-05-15</span>
+</div>
+<div class="flex items-center text-yellow-500 mb-1">
+<span class="material-icons text-sm">star</span>
+<span class="ml-1 text-sm">1.50/5</span>
+</div>
+<p class="text-sm text-gray-600 italic">"Bad brakes and noisy engine. Disappointed."</p>
+</div>
+<div class="bg-gray-50 p-4 rounded-lg">
+<div class="flex justify-between items-center mb-1">
+<h4 class="font-semibold text-gray-800">Afliai Mohamed</h4>
+<span class="text-xs text-gray-400">2025-05-15</span>
+</div>
+<div class="flex items-center text-yellow-500 mb-1">
+<span class="material-icons text-sm">star</span>
+<span class="ml-1 text-sm">5.00/5</span>
+</div>
+<p class="text-sm text-gray-600 italic">"Great experience! Will book again."</p>
+</div>
+</div>
+</div>
+<div class="bg-white p-6 rounded-lg shadow-md">
+<h2 class="text-xl font-semibold text-gray-700 mb-4 flex items-center">
+<span class="material-icons mr-2 text-blue-500">summarize</span> Customer Reviews
+                </h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="bg-green-50 p-4 rounded-lg text-center">
+<p class="text-sm text-green-700 font-semibold flex items-center justify-center">
+<span class="material-icons mr-1">thumb_up</span> POSITIVE REVIEWS (60%)
+                        </p>
+<p class="text-3xl font-bold text-green-600">3</p>
+<p class="text-sm text-green-700">Review</p>
+</div>
+<div class="bg-red-50 p-4 rounded-lg text-center">
+<p class="text-sm text-red-700 font-semibold flex items-center justify-center">
+<span class="material-icons mr-1">thumb_down</span> NEGATIVE REVIEWS (40%)
+                        </p>
+<p class="text-3xl font-bold text-red-600">2</p>
+<p class="text-sm text-red-700">Review</p>
+</div>
+</div>
+</div>
+</main>
+</div>
 
-  <h2><strong>Testimonials</strong></h2>
-  <div class="tabs">
-    <div class="tab active-tab" onclick="showTab('car')">Car Reviews</div>
-    <div class="tab" onclick="showTab('agency')">Agencies Reviews</div>
-  </div>
-
-  <div id="car" class="content active"></div>
-  <div id="agency" class="content"></div>
-
-  <script>
-    let data;
-
-    fetch('reviews.json')
-      .then(response => response.json())
-      .then(json => {
-        data = json;
-        loadContent('carReviews', 'car');
-        loadContent('agencyReviews', 'agency');
-      });
-
-    function loadContent(type, containerId) {
-      const container = document.getElementById(containerId);
-      container.innerHTML = '';
-      data[type].forEach(item => {
-        const card = document.createElement('div');
-        card.className = 'card';
-        card.innerHTML = `
-          <p>${item.text}</p>
-          <h4>${item.name} <span class="rating">${item.rating} ⭐</span></h4>
-          <button class="btn">${item.button}</button>
-        `;
-        container.appendChild(card);
-      });
-    }
-
-    function showTab(tabId) {
-      document.querySelectorAll('.content').forEach(c => c.classList.remove('active'));
-      document.getElementById(tabId).classList.add('active');
-
-      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active-tab'));
-      if (tabId === 'car') {
-        document.querySelectorAll('.tab')[0].classList.add('active-tab');
-      } else {
-        document.querySelectorAll('.tab')[1].classList.add('active-tab');
-      }
-    }
-  </script>
-
-</body>
-</html>
+</body></html>
