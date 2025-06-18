@@ -3,12 +3,12 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mar. 17 juin 2025 à 14:48
+-- Généré le : mer. 18 juin 2025 à 17:34
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION; 
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -38,22 +38,23 @@ CREATE TABLE `agency` (
   `agency_city` varchar(150) NOT NULL,
   `location` varchar(255) NOT NULL,
   `rating` decimal(3,2) DEFAULT 0.00,
-  `solde` decimal(10,2) NOT NULL DEFAULT 0.00
+  `solde` decimal(10,2) NOT NULL DEFAULT 0.00,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `agency`
 --
 
-INSERT INTO `agency` (`agency_id`, `name`, `agency_owner_id`, `description`, `image`, `contact_email`, `phone_number`, `agency_city`, `location`, `rating`, `solde`) VALUES
-(1, 'Agence Ahmed', 1, 'Agence Ahmed is a locally-rooted car rental agency based in the vibrant city of Tangier. With a focus on reliability, affordability, and customer satisfaction, Agence Ahmed has become a trusted name among both locals and tourists. The agency offers a carefully maintained fleet of compact, mid-size, and SUV vehicles to cater to a wide variety of travel needs, whether for short city commutes or long-distance excursions. Their team prides itself on a personalized, client-first approach, providing recommendations and support tailored to each renter’s specific itinerary. With convenient booking options and flexible rental terms, Agence Ahmed ensures that every customer experiences the freedom and comfort of exploring Morocco at their own pace.', 'https://amtartv.com/wp-content/uploads/2025/06/agency_ahmed.png', 'ahmedAgency@gmail.com', '06123456789', 'Tangier', 'tangier-mghogha-morocco', 0.00, 0.00),
-(2, 'Elite Voyages', 2, 'Elite Voyages is a premier car rental and travel service provider headquartered in Casablanca. Renowned for its high standards of service and luxury-oriented approach, Elite Voyages caters to business professionals, international tourists, and event organizers seeking sophistication, punctuality, and comfort. Their fleet includes top-tier sedans, executive vehicles, and luxury SUVs—all meticulously maintained to guarantee safety and prestige. Beyond car rental, Elite Voyages also offers chauffeur-driven services and curated travel experiences across Morocco, blending elegance with convenience. With a multilingual team and 24/7 customer support, Elite Voyages stands out as a symbol of professionalism and elite mobility solutions.', 'http://amtartv.com/wp-content/uploads/2025/06/Elite-Voyages.png', 'contact@elitevoyages.com', '06543219876', 'Casablanca', 'casablanca-anfa-morocco', 0.00, 0.00),
-(3, 'Sahara Travel', 3, 'Based in the heart of Marrakech, Sahara Travel is a car rental agency that specializes in connecting travelers with the breathtaking landscapes of Morocco. Whether you\'re planning a desert trek, a mountain getaway, or a coastal adventure, Sahara Travel provides the perfect vehicle—ranging from rugged 4x4s ideal for off-road terrain to comfortable vans for group trips. The agency’s local expertise is one of its strongest assets, offering not just vehicles but also guidance on the best routes, hidden gems, and cultural experiences. Sahara Travel is committed to providing authentic, adventure-ready services with a strong focus on customer care, safety, and enriching journeys through the diverse Moroccan landscape.', 'http://amtartv.com/wp-content/uploads/2025/06/Sahara-Travel.png', 'info@saharatravel.ma', '06234567890', 'Marrakech', 'marrakech-medina-morocco', 0.00, 0.00),
-(4, 'Atlas Explorer', 4, 'Atlas Explorer is a dynamic car rental and tourism agency based in Fes, offering both transportation solutions and immersive travel experiences throughout Morocco. Ideal for solo travelers, families, and guided groups, the agency combines a diverse fleet with a passion for exploration. From compact city cars to powerful all-terrain vehicles, each rental is backed by attentive service and local insight. Atlas Explorer also partners with experienced guides to offer excursions across the Atlas Mountains, ancient medinas, and UNESCO World Heritage sites. Their mission is to empower travelers to navigate Morocco with confidence and curiosity, with flexible rental options and multilingual assistance always available.', 'http://amtartv.com/wp-content/uploads/2025/06/Atlas-Explorer.png', 'support@atlasexplorer.com', '06789123456', 'Fes', 'fes-ville-nouvelle-morocco', 0.00, 0.00),
-(5, 'Atlas Voyages', 5, 'Atlas Voyages is one of Morocco’s most respected travel and transportation brands, with over five decades of excellence in the tourism industry. Headquartered in the prestigious Gauthier district of Casablanca, Atlas Voyages offers an extensive selection of car rental options, ranging from economical compacts to luxury and executive models. The agency is well-known for its impeccable customer service, nationwide reach, and integrated travel planning—including hotel reservations, flight bookings, and tailored tour packages. Whether you\'re a leisure traveler seeking a relaxed vacation or a corporate client needing reliable logistics, Atlas Voyages delivers superior service that reflects its legacy of trust, innovation, and quality.', 'http://amtartv.com/wp-content/uploads/2025/06/Atlas-Voyages.png', 'contact@atlasvoyages.ma', '+212522220101', 'Casablanca', '18, Rue Sebta, Quartier Gauthier, Casablanca', 4.75, 0.00),
-(6, 'Maroc Horizon Tours', 3, 'Maroc Horizon Tours is a Marrakech-based travel agency that offers a holistic car rental and tourism experience designed to showcase the wonders of Morocco. With a client-centered philosophy, the company provides a wide selection of vehicles suitable for every type of traveler—from solo adventurers and families to small groups and professional delegations. In addition to self-drive rentals, Maroc Horizon Tours also offers guided tours, airport transfers, and customized itineraries that explore Morocco\'s rich cultural tapestry. With a seasoned staff, deep regional knowledge, and a commitment to excellence, the agency stands as a gateway to both discovery and comfort. Every trip booked through Maroc Horizon Tours is not just a rental—it’s a personalized journey into the heart of Moroccan heritage and hospitality.', 'http://amtartv.com/wp-content/uploads/2025/06/Maroc-Horizon-Tours.png', 'info@marochorizontours.com', '+212661234567', 'Marrakech', 'Rue Ibn Aïcha, Gueliz, Marrakech', 4.60, 0.00),
-(7, 'Afilal Agency', 1, 'hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh', 'https://0a411afb0c598242cc95-1df470064133d6bc5c471837468f475c.ssl.cf3.rackcdn.com/publish/wp-content/uploads/2021/01/leeds-dealers-9-580x387.jpg', 'support@afagency.com', '+21255443322', 'Tangier', 'Solicode Tanger', 0.00, 35.00),
-(8, 'Meed Agency', 1, 'uyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyfddddddddddddddddd', 'https://0a411afb0c598242cc95-1df470064133d6bc5c471837468f475c.ssl.cf3.rackcdn.com/publish/wp-content/uploads/2021/01/leeds-dealers-9-580x387.jpg', 'support@meedagency.com', '+21255443322', 'Tangier', 'Solicode Tanger', 0.00, 50.00);
+INSERT INTO `agency` (`agency_id`, `name`, `agency_owner_id`, `description`, `image`, `contact_email`, `phone_number`, `agency_city`, `location`, `rating`, `solde`, `created_at`) VALUES
+(1, 'Agence Ahmed', 1, 'Agence Ahmed is a locally-rooted car rental agency based in the vibrant city of Tangier. With a focus on reliability, affordability, and customer satisfaction, Agence Ahmed has become a trusted name among both locals and tourists. The agency offers a carefully maintained fleet of compact, mid-size, and SUV vehicles to cater to a wide variety of travel needs, whether for short city commutes or long-distance excursions. Their team prides itself on a personalized, client-first approach, providing recommendations and support tailored to each renter’s specific itinerary. With convenient booking options and flexible rental terms, Agence Ahmed ensures that every customer experiences the freedom and comfort of exploring Morocco at their own pace.', 'https://amtartv.com/wp-content/uploads/2025/06/agency_ahmed.png', 'ahmedAgency@gmail.com', '06123456789', 'Tangier', 'tangier-mghogha-morocco', 0.00, 0.00, '2025-06-18 09:36:06'),
+(2, 'Elite Voyages', 2, 'Elite Voyages is a premier car rental and travel service provider headquartered in Casablanca. Renowned for its high standards of service and luxury-oriented approach, Elite Voyages caters to business professionals, international tourists, and event organizers seeking sophistication, punctuality, and comfort. Their fleet includes top-tier sedans, executive vehicles, and luxury SUVs—all meticulously maintained to guarantee safety and prestige. Beyond car rental, Elite Voyages also offers chauffeur-driven services and curated travel experiences across Morocco, blending elegance with convenience. With a multilingual team and 24/7 customer support, Elite Voyages stands out as a symbol of professionalism and elite mobility solutions.', 'http://amtartv.com/wp-content/uploads/2025/06/Elite-Voyages.png', 'contact@elitevoyages.com', '06543219876', 'Casablanca', 'casablanca-anfa-morocco', 0.00, 0.00, '2025-06-18 09:36:06'),
+(3, 'Sahara Travel', 3, 'Based in the heart of Marrakech, Sahara Travel is a car rental agency that specializes in connecting travelers with the breathtaking landscapes of Morocco. Whether you\'re planning a desert trek, a mountain getaway, or a coastal adventure, Sahara Travel provides the perfect vehicle—ranging from rugged 4x4s ideal for off-road terrain to comfortable vans for group trips. The agency’s local expertise is one of its strongest assets, offering not just vehicles but also guidance on the best routes, hidden gems, and cultural experiences. Sahara Travel is committed to providing authentic, adventure-ready services with a strong focus on customer care, safety, and enriching journeys through the diverse Moroccan landscape.', 'http://amtartv.com/wp-content/uploads/2025/06/Sahara-Travel.png', 'info@saharatravel.ma', '06234567890', 'Marrakech', 'marrakech-medina-morocco', 0.00, 0.00, '2025-06-18 09:36:06'),
+(4, 'Atlas Explorer', 4, 'Atlas Explorer is a dynamic car rental and tourism agency based in Fes, offering both transportation solutions and immersive travel experiences throughout Morocco. Ideal for solo travelers, families, and guided groups, the agency combines a diverse fleet with a passion for exploration. From compact city cars to powerful all-terrain vehicles, each rental is backed by attentive service and local insight. Atlas Explorer also partners with experienced guides to offer excursions across the Atlas Mountains, ancient medinas, and UNESCO World Heritage sites. Their mission is to empower travelers to navigate Morocco with confidence and curiosity, with flexible rental options and multilingual assistance always available.', 'http://amtartv.com/wp-content/uploads/2025/06/Atlas-Explorer.png', 'support@atlasexplorer.com', '06789123456', 'Fes', 'fes-ville-nouvelle-morocco', 0.00, 0.00, '2025-06-18 09:36:06'),
+(5, 'Atlas Voyages', 5, 'Atlas Voyages is one of Morocco’s most respected travel and transportation brands, with over five decades of excellence in the tourism industry. Headquartered in the prestigious Gauthier district of Casablanca, Atlas Voyages offers an extensive selection of car rental options, ranging from economical compacts to luxury and executive models. The agency is well-known for its impeccable customer service, nationwide reach, and integrated travel planning—including hotel reservations, flight bookings, and tailored tour packages. Whether you\'re a leisure traveler seeking a relaxed vacation or a corporate client needing reliable logistics, Atlas Voyages delivers superior service that reflects its legacy of trust, innovation, and quality.', 'http://amtartv.com/wp-content/uploads/2025/06/Atlas-Voyages.png', 'contact@atlasvoyages.ma', '+212522220101', 'Casablanca', '18, Rue Sebta, Quartier Gauthier, Casablanca', 4.75, 0.00, '2025-06-18 09:36:06'),
+(6, 'Maroc Horizon Tours', 3, 'Maroc Horizon Tours is a Marrakech-based travel agency that offers a holistic car rental and tourism experience designed to showcase the wonders of Morocco. With a client-centered philosophy, the company provides a wide selection of vehicles suitable for every type of traveler—from solo adventurers and families to small groups and professional delegations. In addition to self-drive rentals, Maroc Horizon Tours also offers guided tours, airport transfers, and customized itineraries that explore Morocco\'s rich cultural tapestry. With a seasoned staff, deep regional knowledge, and a commitment to excellence, the agency stands as a gateway to both discovery and comfort. Every trip booked through Maroc Horizon Tours is not just a rental—it’s a personalized journey into the heart of Moroccan heritage and hospitality.', 'http://amtartv.com/wp-content/uploads/2025/06/Maroc-Horizon-Tours.png', 'info@marochorizontours.com', '+212661234567', 'Marrakech', 'Rue Ibn Aïcha, Gueliz, Marrakech', 4.60, 0.00, '2025-06-18 09:36:06'),
+(7, 'Afilal Agency', 1, 'hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh', 'https://0a411afb0c598242cc95-1df470064133d6bc5c471837468f475c.ssl.cf3.rackcdn.com/publish/wp-content/uploads/2021/01/leeds-dealers-9-580x387.jpg', 'support@afagency.com', '+21255443322', 'Tangier', 'Solicode Tanger', 0.00, 35.00, '2025-06-18 09:36:06'),
+(8, 'Meed Agency', 1, 'uyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyfddddddddddddddddd', 'https://0a411afb0c598242cc95-1df470064133d6bc5c471837468f475c.ssl.cf3.rackcdn.com/publish/wp-content/uploads/2021/01/leeds-dealers-9-580x387.jpg', 'support@meedagency.com', '+21255443322', 'Tangier', 'Solicode Tanger', 0.00, 50.00, '2025-06-18 09:36:06');
 
 -- --------------------------------------------------------
 
@@ -130,7 +131,7 @@ CREATE TABLE `booking` (
 
 INSERT INTO `booking` (`booking_id`, `user_id`, `car_id`, `booking_date`, `status`, `start_date`, `end_date`, `total_price`) VALUES
 (1, 7, 87, '0000-00-00', 'waiting', '2025-06-19', '2025-06-27', 0.00),
-(2, 7, 87, '2025-06-17', 'waiting', '2025-06-28', '2025-07-04', 10500.00),
+(2, 7, 87, '2025-06-17', 'completed', '2025-06-28', '2025-07-04', 10500.00),
 (8, 7, 1, '2025-06-17', 'waiting', '2025-06-18', '2025-06-26', 2250.00);
 
 -- --------------------------------------------------------
@@ -288,7 +289,8 @@ INSERT INTO `car_review` (`review_id`, `user_id`, `car_id`, `rating`, `review_te
 (14, 4, 87, 4.80, 'Very refined yet aggressive. The V8 engine sounds incredible. A proper performance wagon.', '2025-06-10'),
 (15, 5, 87, 4.60, 'Love everything except the fuel consumption. Still, it’s worth it for the power and style.', '2025-06-10'),
 (16, 7, 50, 4.75, 'Very Nice Car and comfortable', '2025-06-16'),
-(17, 7, 1, 1.75, 'Nice car', '2025-06-17');
+(17, 7, 1, 1.75, 'Nice car', '2025-06-17'),
+(18, 1, 13, 4.25, 'hhhhhhhhhddddd dddddddddddddddddd', '2025-06-18');
 
 -- --------------------------------------------------------
 
@@ -360,7 +362,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `full_name`, `username`, `email`, `password`, `phone_number`, `registration_date`, `user_type`) VALUES
-(1, '', 'john_doe', 'john@example.com', '$2y$10$O7mU5UeDpYFeMuEwAkL95e4E5WuTIerPZ1EG5lhqvWTB8gGZ6n34G', '0612345678', '2025-06-02', 'customer'),
+(1, 'John Doe', 'john_doe', 'john@example.com', '$2y$10$3/sEOtNHAn63Wa6Sdeqrperug0u4QzkBLTEwWACWDC8Qy9cJGJCZC', '0612345678', '2025-06-02', 'customer'),
 (2, '', 'agency_procar', 'procar@example.com', '$2y$10$O7mU5UeDpYFeMuEwAkL95e4E5WuTIerPZ1EG5lhqvWTB8gGZ6n34G', '0623456789', '2025-06-02', ''),
 (3, '', 'meedafilal', 'meedaf11@gmail.com', '$2y$10$O7mU5UeDpYFeMuEwAkL95e4E5WuTIerPZ1EG5lhqvWTB8gGZ6n34G', '0682564814', '2025-06-02', 'admin'),
 (4, '', 'fatima_rider', 'fatima@example.com', '$2y$10$O7mU5UeDpYFeMuEwAkL95e4E5WuTIerPZ1EG5lhqvWTB8gGZ6n34G', '0645678901', '2025-06-02', 'customer'),
@@ -463,7 +465,7 @@ ALTER TABLE `car`
 -- AUTO_INCREMENT pour la table `car_review`
 --
 ALTER TABLE `car_review`
-  MODIFY `review_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `review_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT pour la table `messages`
