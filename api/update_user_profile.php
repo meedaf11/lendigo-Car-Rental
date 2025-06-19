@@ -2,7 +2,7 @@
 require_once '../includes/config.php';
 header('Content-Type: application/json; charset=UTF-8');
 
-// Ensure user is logged in
+// التحقق من تسجيل الدخول
 if (!isset($_SESSION['user_id'])) {
     http_response_code(401);
     echo json_encode(['status' => 'error', 'message' => 'Unauthorized']);
@@ -11,7 +11,19 @@ if (!isset($_SESSION['user_id'])) {
 
 $user_id = intval($_SESSION['user_id']);
 
-// Get POST data
+// جلب بيانات المستخدم للتأكد من حالته
+$checkStmt = $pdo->prepare("SELECT status FROM users WHERE user_id = :user_id LIMIT 1");
+$checkStmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+$checkStmt->execute();
+$user = $checkStmt->fetch(PDO::FETCH_ASSOC);
+
+if (!$user || $user['status'] !== 'active') {
+    http_response_code(403);
+    echo json_encode(['status' => 'error', 'message' => 'Your account is blocked.']);
+    exit;
+}
+
+// جلب البيانات من JSON
 $data = json_decode(file_get_contents('php://input'), true);
 
 $full_name = trim($data['name'] ?? '');

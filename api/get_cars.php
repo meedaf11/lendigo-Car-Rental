@@ -1,14 +1,18 @@
 <?php
 
 require_once '../includes/config.php';
-
-
 header('Content-Type: application/json; charset=UTF-8');
 
 try {
+    $sql = "
+        SELECT 
+            car.*, 
+            agency.agency_city 
+        FROM car 
+        INNER JOIN agency ON car.agency_id = agency.agency_id
+        WHERE car.status = 'active' AND agency.status = 'active'
+    ";
 
-    $sql = "SELECT car.*,  agency_city AS agency_city FROM car 
-        INNER JOIN agency ON car.agency_id = agency.agency_id"; 
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
 
@@ -23,9 +27,3 @@ try {
     ]);
     exit();
 }
-
-
-
-
-
-?>

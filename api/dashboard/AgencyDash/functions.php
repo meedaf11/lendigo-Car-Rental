@@ -4,7 +4,7 @@ require_once 'config.php';
 function getAgencyBookingsCount($agency_id)
 {
     global $pdo;
-    $stmt = $pdo->prepare("SELECT COUNT(*) FROM booking WHERE car_id IN (SELECT car_id FROM car WHERE agency_id = ?)");
+    $stmt = $pdo->prepare("SELECT COUNT(*) FROM booking WHERE car_id IN (SELECT car_id FROM car WHERE agency_id = ? AND status = 'active' AND status = 'active' AND status = 'active')");
     $stmt->execute([$agency_id]);
     return $stmt->fetchColumn();
 }
@@ -12,7 +12,7 @@ function getAgencyBookingsCount($agency_id)
 function getAgencyCarsCount($agency_id)
 {
     global $pdo;
-    $stmt = $pdo->prepare("SELECT COUNT(*) FROM car WHERE agency_id = ?");
+    $stmt = $pdo->prepare("SELECT COUNT(*) FROM car WHERE agency_id = ? AND status = 'active' AND status = 'active'");
     $stmt->execute([$agency_id]);
     return $stmt->fetchColumn();
 }
@@ -39,7 +39,7 @@ function getAgencyBookingsByStatus($agency_id, $conn)
         SELECT status, COUNT(*) AS count 
         FROM booking 
         WHERE car_id IN (
-            SELECT car_id FROM car WHERE agency_id = ?
+            SELECT car_id FROM car WHERE agency_id = ? AND status = 'active' AND status = 'active'
         )
         GROUP BY status
     ";
@@ -48,8 +48,6 @@ function getAgencyBookingsByStatus($agency_id, $conn)
 
     $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    // نحول النتائج إلى associative array مثل:
-    // ['waiting' => 5, 'completed' => 3]
     $statusCounts = [
         'waiting' => 0,
         'reserved' => 0,
@@ -70,7 +68,7 @@ function getTopRatedCarsByAgency($agency_id, $conn, $limit)
         SELECT c.car_id, c.car_name, AVG(r.rating) AS avg_rating, c.image_url
         FROM car_review r
         JOIN car c ON c.car_id = r.car_id
-        WHERE c.agency_id = :agencId
+        WHERE c.agency_id = :agencId AND c.status = 'active'
         GROUP BY c.car_id
         ORDER BY avg_rating DESC
         LIMIT :limit
@@ -88,7 +86,7 @@ function getAgencyCarsAvailability($agency_id, $conn)
     $sql = "
         SELECT availability_status, COUNT(*) AS count 
         FROM car 
-        WHERE agency_id = ? 
+        WHERE agency_id = ? AND status = 'active' 
         GROUP BY availability_status
     ";
 
@@ -154,7 +152,7 @@ function getAgencyCarsWithRatings($agency_id, $conn)
             COUNT(r.review_id) AS review_count
         FROM car c
         LEFT JOIN car_review r ON r.car_id = c.car_id
-        WHERE c.agency_id = ?
+        WHERE c.agency_id = ? AND c.status = 'active'
         GROUP BY c.car_id
     ";
 
@@ -219,7 +217,6 @@ function getAgencyReviews($agency_id, PDO $pdo): array
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
-
 
 function getAgencyBalance($agency_id, PDO $pdo)
 {
@@ -299,11 +296,9 @@ function updateAgency(array $data, PDO $pdo): bool
     $success = $stmt->execute();
 
     if (!$success) {
-        // طباعة الخطأ في التنفيذ
         $error = $stmt->errorInfo();
         error_log("❌ فشل تحديث الوكالة: " . $error[2]);
     }
 
     return $success;
 }
-

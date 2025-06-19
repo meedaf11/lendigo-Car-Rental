@@ -11,9 +11,7 @@ if (!isset($_GET['agency_id'])) {
 $agency_id = intval($_GET['agency_id']);
 
 try {
-    $query = "SELECT *
-              FROM agency
-              WHERE agency_id = :agency_id";
+    $query = "SELECT * FROM agency WHERE agency_id = :agency_id and status = 'active'" ;
 
     $stmt = $pdo->prepare($query);
     $stmt->bindParam(':agency_id', $agency_id, PDO::PARAM_INT);

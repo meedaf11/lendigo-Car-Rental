@@ -24,6 +24,8 @@ try {
             agency a ON c.agency_id = a.agency_id
         WHERE 
             c.agency_id = :agency_id
+            AND c.status = 'active'
+            AND a.status = 'active'
         ORDER BY 
             c.car_rating DESC
         LIMIT 3

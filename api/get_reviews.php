@@ -5,10 +5,13 @@ header('Content-Type: application/json; charset=UTF-8');
 
 try {
 
+    // 🚗 مراجعات السيارات فقط من مستخدمين نشطين وسيارات نشطة
     $carStmt = $pdo->prepare("
         SELECT u.username AS username, r.rating, r.review_text, r.car_id
         FROM car_review r
         JOIN users u ON r.user_id = u.user_id
+        JOIN car c ON r.car_id = c.car_id
+        WHERE u.status = 'active' AND c.status = 'active'
         ORDER BY r.rating DESC
     ");
     $carStmt->execute();
@@ -23,11 +26,13 @@ try {
         ];
     }
 
-    
+    // 🏢 مراجعات الوكالات فقط من مستخدمين نشطين ووكالات نشطة
     $agencyStmt = $pdo->prepare("
         SELECT u.username AS username, r.rating, r.review_text, r.agency_id
         FROM agency_review r
         JOIN users u ON r.user_id = u.user_id
+        JOIN agency a ON r.agency_id = a.agency_id
+        WHERE u.status = 'active' AND a.status = 'active'
         ORDER BY r.rating DESC
     ");
     $agencyStmt->execute();
@@ -49,14 +54,9 @@ try {
 
     file_put_contents(__DIR__ . '/reviews.json', json_encode($allReviews, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
 
-    
-    // Optionally also output to browser
     echo json_encode($allReviews, JSON_UNESCAPED_UNICODE);
-
 } catch (PDOException $e) {
     echo json_encode([
         "error" => "حدث خطأ في جلب البيانات: " . $e->getMessage()
     ]);
 }
-
-?>

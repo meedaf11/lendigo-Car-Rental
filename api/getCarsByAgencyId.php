@@ -10,7 +10,12 @@ if (!isset($_GET['id'])) {
 $agency_id = $_GET['id'];
 
 try {
-    $stmt = $pdo->prepare("SELECT * FROM car WHERE agency_id = :agency_id");
+    $stmt = $pdo->prepare("
+        SELECT * 
+        FROM car 
+        WHERE agency_id = :agency_id 
+        AND status = 'active'
+    ");
     $stmt->bindParam(':agency_id', $agency_id);
     $stmt->execute();
 

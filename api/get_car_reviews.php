@@ -12,7 +12,7 @@ $car_id = intval($_GET['car_id']);
 $sql = "SELECT r.review_id, r.user_id, r.car_id, r.rating, r.review_text, r.created_at, u.username AS user_name
         FROM car_review r
         JOIN users u ON r.user_id = u.user_id
-        WHERE r.car_id = :car_id
+        WHERE r.car_id = :car_id and status = 'active'
         ORDER BY r.created_at DESC";
 
 $stmt = $pdo->prepare($sql);

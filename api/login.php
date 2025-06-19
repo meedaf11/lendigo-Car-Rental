@@ -20,6 +20,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if (!$user) {
             echo json_encode(['success' => false, 'message' => 'Email not found.']);
+        } elseif ($user['status'] !== 'active') {
+            echo json_encode(['success' => false, 'message' => 'Account is blocked. Please contact support.']);
         } elseif (!password_verify($password, $user['password'])) {
             echo json_encode(['success' => false, 'message' => 'Incorrect password.']);
         } else {

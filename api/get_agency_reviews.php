@@ -15,7 +15,7 @@ try {
         SELECT ar.rating, ar.review_text, u.username
         FROM agency_review ar
         JOIN users u ON ar.user_id = u.user_id
-        WHERE ar.agency_id = :agency_id
+        WHERE ar.agency_id = :agency_id and status = 'active'
         ORDER BY ar.created_at DESC
     ");
     $stmt->bindParam(':agency_id', $agency_id, PDO::PARAM_INT);
