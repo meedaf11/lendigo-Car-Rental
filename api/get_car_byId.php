@@ -21,7 +21,7 @@ try {
                 a.rating AS agency_rating
               FROM car c
               INNER JOIN agency a ON c.agency_id = a.agency_id
-              WHERE c.car_id = :car_id and status = 'active'";
+              WHERE c.car_id = :car_id and c.status = 'active'";
 
     $stmt = $pdo->prepare($query);
     $stmt->bindParam(':car_id', $car_id, PDO::PARAM_INT);

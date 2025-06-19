@@ -58,6 +58,74 @@ body {
   margin-bottom: var(--gap-2xl);
 }
 
+/* Filter Form Styles */
+.filter-form {
+  background: var(--white);
+  border-radius: var(--border-radius-large);
+  padding: var(--gap-xl);
+  margin: 0 auto var(--gap-2xl);
+  max-width: 800px;
+  box-shadow: 0 4px 15px var(--shadow-medium);
+  border: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  gap: var(--gap-large);
+}
+
+.filter-form label {
+  font-weight: var(--font-weight-medium);
+  color: var(--text-primary);
+  font-size: var(--font-size-base);
+  white-space: nowrap;
+}
+
+.filter-form select {
+  padding: 10px 15px;
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  font-family: "Poppins", sans-serif;
+  font-size: var(--font-size-base);
+  background: var(--white);
+  color: var(--text-primary);
+  transition: all var(--transition-fast);
+  min-width: 150px;
+  cursor: pointer;
+}
+
+.filter-form select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.1);
+}
+
+.filter-form select:hover {
+  border-color: var(--primary-color);
+}
+
+.filter-form button {
+  padding: 10px 20px;
+  background: var(--primary-color);
+  color: var(--white);
+  border: none;
+  border-radius: 6px;
+  font-family: "Poppins", sans-serif;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.filter-form button:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(229, 62, 62, 0.3);
+}
+
+.filter-form button:active {
+  transform: translateY(0);
+}
+
 .bookings-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -365,6 +433,21 @@ body {
 @media (max-width: 768px) {
   body {
     padding: var(--gap-large);
+  }
+
+  .filter-form {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--gap-medium);
+    padding: var(--gap-large);
+  }
+
+  .filter-form label {
+    text-align: center;
+  }
+
+  .filter-form select {
+    min-width: auto;
   }
 
   .bookings-list {

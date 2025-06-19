@@ -84,10 +84,10 @@ function getTopRatedCarsByAgency($agency_id, $conn, $limit)
 function getAgencyCarsAvailability($agency_id, $conn)
 {
     $sql = "
-        SELECT availability_status, COUNT(*) AS count 
+        SELECT status, availability_status, COUNT(*) AS count 
         FROM car 
-        WHERE agency_id = ? AND status = 'active' 
-        GROUP BY availability_status
+        WHERE agency_id = ? 
+        GROUP BY status, availability_status
     ";
 
     $stmt = $conn->prepare($sql);
@@ -95,15 +95,25 @@ function getAgencyCarsAvailability($agency_id, $conn)
 
     $availability = [
         'available' => 0,
-        'booked' => 0
+        'booked' => 0,
+        'blocked' => 0
     ];
 
     foreach ($stmt->fetchAll(PDO::FETCH_ASSOC) as $row) {
-        $availability[$row['availability_status']] = $row['count'];
+        if ($row['status'] === 'blocked') {
+            $availability['blocked'] += $row['count'];
+        } else {
+            // فقط السيارات النشطة (active) تحسب ضمن "available" أو "booked"
+            $availability_status = $row['availability_status'];
+            if (isset($availability[$availability_status])) {
+                $availability[$availability_status] += $row['count'];
+            }
+        }
     }
 
     return $availability;
 }
+
 
 function getLatestAgencyReviews($agency_id, $conn, $limit)
 {
@@ -161,9 +171,9 @@ function getAgencyCarsWithRatings($agency_id, $conn)
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
-function getAgencyBookings($agency_id, $pdo)
+function getAgencyBookings($agency_id, $pdo, $status = null)
 {
-    $stmt = $pdo->prepare("
+    $sql = "
         SELECT 
             b.booking_id,
             b.start_date,
@@ -180,27 +190,84 @@ function getAgencyBookings($agency_id, $pdo)
         JOIN agency a ON c.agency_id = a.agency_id
         JOIN users u ON b.user_id = u.user_id
         WHERE a.agency_id = :agency_id
-        ORDER BY b.booking_id DESC
-    ");
+    ";
 
+    // إضافة شرط الفلترة إذا تم تمرير الحالة
+    if (!empty($status)) {
+        $sql .= " AND b.status = :status";
+    }
+
+    $sql .= " ORDER BY b.booking_id DESC";
+
+    $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':agency_id', $agency_id, PDO::PARAM_INT);
-    $stmt->execute();
+    if (!empty($status)) {
+        $stmt->bindParam(':status', $status, PDO::PARAM_STR);
+    }
 
+    $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
+
 
 function updateBookingStatus(PDO $pdo, int $booking_id, string $status): bool
 {
     try {
+        // تحديث الحالة أولاً
         $stmt = $pdo->prepare("UPDATE booking SET status = :status WHERE booking_id = :booking_id");
         $stmt->bindParam(':status', $status);
         $stmt->bindParam(':booking_id', $booking_id, PDO::PARAM_INT);
-        return $stmt->execute();
+        $stmt->execute();
+
+        // تنفيذ خصم نسبة المنصة فقط إذا تم التحويل إلى 'reserved'
+        if ($status === 'reserved') {
+            // استرجاع تفاصيل الحجز
+            $sql = "
+                SELECT 
+                    b.total_price, 
+                    DATEDIFF(b.end_date, b.start_date) + 1 AS days, 
+                    c.price_per_day, 
+                    a.agency_id
+                FROM booking b
+                JOIN car c ON b.car_id = c.car_id
+                JOIN agency a ON c.agency_id = a.agency_id
+                WHERE b.booking_id = :booking_id
+            ";
+
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindParam(':booking_id', $booking_id, PDO::PARAM_INT);
+            $stmt->execute();
+            $booking = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if (!$booking)
+                return false;
+
+            $days = (int) $booking['days'];
+            $total_price = (float) $booking['total_price'];
+            $daily_price = (float) $booking['price_per_day'];
+            $agency_id = (int) $booking['agency_id'];
+
+            // حساب عمولة المنصة
+            if ($days <= 3) {
+                $platform_fee = 0.10 * $daily_price;
+            } else {
+                $platform_fee = 0.05 * $total_price;
+            }
+
+            // خصم العمولة من رصيد الوكالة
+            $updateSolde = $pdo->prepare("UPDATE agency SET solde = solde - :fee WHERE agency_id = :agency_id");
+            $updateSolde->bindParam(':fee', $platform_fee);
+            $updateSolde->bindParam(':agency_id', $agency_id, PDO::PARAM_INT);
+            $updateSolde->execute();
+        }
+
+        return true;
     } catch (PDOException $e) {
-        error_log("Failed to update booking status: " . $e->getMessage());
+        error_log("Failed to update booking status and deduct fee: " . $e->getMessage());
         return false;
     }
 }
+
 
 function getAgencyReviews($agency_id, PDO $pdo): array
 {

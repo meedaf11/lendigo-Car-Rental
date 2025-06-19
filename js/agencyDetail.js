@@ -24,6 +24,34 @@ fetch("footer.html")
     console.error("There was a problem loading the footer:", error);
   });
 
+fetch("api/changeCarsStatus.php")
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error("Failed to apply car status logic.");
+    }
+    return response.json();
+  })
+  .then((data) => {
+    console.log("Car statuses updated:", data);
+  })
+  .catch((error) => {
+    console.error("Error updating car statuses:", error);
+  });
+
+fetch("api/updateAgenciesRating.php")
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error("Failed to update agency ratings.");
+    }
+    return response.json();
+  })
+  .then((data) => {
+    console.log("Agency ratings updated:", data);
+  })
+  .catch((error) => {
+    console.error("Error updating agency ratings:", error);
+  });
+
 const urlParams = new URLSearchParams(window.location.search);
 const agencyId = urlParams.get("agency_id");
 
@@ -88,7 +116,7 @@ function allContent(agencyData) {
     .then((response) => response.json())
     .then((data) => {
       if (data.status === "success") {
-        console.log("My Reviews: " + data.data)
+        console.log("My Reviews: " + data.data);
         displayAgencyReviews(data.data);
       } else {
         console.error("Error loading agency reviews:", data.message);

@@ -112,6 +112,10 @@ $negativePercent = $totalReviews > 0 ? round(($ratingBreakdown['negative'] / $to
                 <div class="stat-value"><?= $availabilityCounts['booked'] ?></div>
                 <div class="stat-label">🔴 Booked</div>
             </div>
+            <div class="stat-card">
+                <div class="stat-value"><?= $availabilityCounts['blocked'] ?></div>
+                <div class="stat-label">🔴 Blocked</div>
+            </div>
         </div>
     </div>
 

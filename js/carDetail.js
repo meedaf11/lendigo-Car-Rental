@@ -24,6 +24,18 @@ fetch("footer.html")
     console.error("There was a problem loading the footer:", error);
   });
 
+fetch("api/updateCarsRating.php")
+  .then((response) => {
+    if (!response.ok) throw new Error("Failed to update car ratings.");
+    return response.json();
+  })
+  .then((data) => {
+    console.log("Car ratings updated:", data);
+  })
+  .catch((error) => {
+    console.error("Error updating car ratings:", error);
+  });
+
 let currentAgencyId = null;
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -337,7 +349,6 @@ document.getElementById("loginPopupOverlay").addEventListener("click", (e) => {
   }
 });
 
-
 function showCarReviewPopup() {
   document.getElementById("carReviewPopupOverlay").style.display = "flex";
 }
@@ -609,7 +620,8 @@ document.getElementById("confirmBookingBtn").addEventListener("click", () => {
       car_id: carId,
       start_date: selectedStartDate.format("YYYY-MM-DD"),
       end_date: selectedEndDate.format("YYYY-MM-DD"),
-      total_price: (selectedEndDate.diff(selectedStartDate, "days") + 1) * carPricePerDay,
+      total_price:
+        (selectedEndDate.diff(selectedStartDate, "days") + 1) * carPricePerDay,
     }),
   })
     .then((res) => res.json())

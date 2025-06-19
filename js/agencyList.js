@@ -24,6 +24,20 @@ fetch("footer.html")
     console.error("There was a problem loading the footer:", error);
   });
 
+fetch("api/changeCarsStatus.php")
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error("Failed to apply car status logic.");
+    }
+    return response.json();
+  })
+  .then((data) => {
+    console.log("Car statuses updated:", data);
+  })
+  .catch((error) => {
+    console.error("Error updating car statuses:", error);
+  });
+
 let allAgencies = [];
 let filteredAgencies = [];
 
@@ -87,11 +101,10 @@ function renderAgencies(agencies) {
   });
 }
 
-
 document.getElementById("addYourAgency").addEventListener("click", () => {
   fetch("api/check_login.php")
-    .then(response => response.json())
-    .then(data => {
+    .then((response) => response.json())
+    .then((data) => {
       if (data.loggedIn) {
         // User is logged in, redirect to add agency page
         window.location.href = "addAgency.html";
@@ -100,7 +113,7 @@ document.getElementById("addYourAgency").addEventListener("click", () => {
         document.getElementById("loginPopupOverlay").classList.add("show");
       }
     })
-    .catch(error => {
+    .catch((error) => {
       console.error("Login check failed:", error);
     });
 });
@@ -122,4 +135,3 @@ document.getElementById("loginPopupOverlay").addEventListener("click", (e) => {
     document.getElementById("loginPopupOverlay").classList.remove("show");
   }
 });
-

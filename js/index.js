@@ -25,7 +25,6 @@ fetch("footer.html")
     console.error("There was a problem loading the footer:", error);
   });
 
-
 document.addEventListener("DOMContentLoaded", () => {
   const findCarBtn = document.getElementById("findCarBtn");
 
@@ -36,8 +35,47 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-
 document.addEventListener("DOMContentLoaded", async () => {
+  fetch("api/changeCarsStatus.php")
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Failed to apply car status logic.");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      console.log("Car statuses updated:", data);
+    })
+    .catch((error) => {
+      console.error("Error updating car statuses:", error);
+    });
+
+  fetch("api/updateAgenciesRating.php")
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Failed to update agency ratings.");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      console.log("Agency ratings updated:", data);
+    })
+    .catch((error) => {
+      console.error("Error updating agency ratings:", error);
+    });
+
+  fetch("api/updateCarsRating.php")
+    .then((response) => {
+      if (!response.ok) throw new Error("Failed to update car ratings.");
+      return response.json();
+    })
+    .then((data) => {
+      console.log("Car ratings updated:", data);
+    })
+    .catch((error) => {
+      console.error("Error updating car ratings:", error);
+    });
+
   const brandSelect = document.getElementById("brand");
   const modelSelect = document.getElementById("model");
   const citySelect = document.getElementById("city");
@@ -48,7 +86,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   try {
     const response = await fetch("api/get_cars.php");
     const text = await response.text();
-    console.log("Raw response:", text);
     carData = JSON.parse(text);
     populateBrandOptions();
     updateModelOptions();
@@ -129,7 +166,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 document.addEventListener("DOMContentLoaded", () => {
   const dateDisplay = document.getElementById("date-display");
 
-
   let picker = null;
 
   if (dateDisplay) {
@@ -166,7 +202,7 @@ document.addEventListener("DOMContentLoaded", () => {
       model,
       city,
       startDate,
-      endDate
+      endDate,
     });
 
     window.location.href = `browseCar.html?${params.toString()}`;
@@ -226,10 +262,12 @@ document.addEventListener("DOMContentLoaded", () => {
           <button class="cartBookBtn" data-id="${car.car_id}">BOOK NOW</button>
         `;
         container.appendChild(card);
-        card.querySelector(".cartBookBtn").addEventListener("click", function () {
-          const carId = this.getAttribute("data-id");
-          window.location.href = `carDetail.html?car_id=${carId}`;
-        });
+        card
+          .querySelector(".cartBookBtn")
+          .addEventListener("click", function () {
+            const carId = this.getAttribute("data-id");
+            window.location.href = `carDetail.html?car_id=${carId}`;
+          });
       });
     })
     .catch((err) => {
