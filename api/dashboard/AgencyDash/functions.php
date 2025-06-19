@@ -1,5 +1,5 @@
 <?php
-require_once 'config.php'; // تأكد أنه يحتوي على session_start و$pdo
+require_once 'config.php';
 
 function getAgencyBookingsCount($agency_id)
 {
@@ -140,8 +140,8 @@ function getAgencyRatingBreakdown($agency_id, $conn)
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
     return [
-        'positive' => (int)$result['positive'],
-        'negative' => (int)$result['negative'],
+        'positive' => (int) $result['positive'],
+        'negative' => (int) $result['negative'],
     ];
 }
 
@@ -162,3 +162,148 @@ function getAgencyCarsWithRatings($agency_id, $conn)
     $stmt->execute([$agency_id]);
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
+
+function getAgencyBookings($agency_id, $pdo)
+{
+    $stmt = $pdo->prepare("
+        SELECT 
+            b.booking_id,
+            b.start_date,
+            b.end_date,
+            b.total_price,
+            b.status,
+            u.full_name,
+            u.email,
+            u.phone_number,
+            c.car_name,
+            c.image_url
+        FROM booking b
+        JOIN car c ON b.car_id = c.car_id
+        JOIN agency a ON c.agency_id = a.agency_id
+        JOIN users u ON b.user_id = u.user_id
+        WHERE a.agency_id = :agency_id
+        ORDER BY b.booking_id DESC
+    ");
+
+    $stmt->bindParam(':agency_id', $agency_id, PDO::PARAM_INT);
+    $stmt->execute();
+
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function updateBookingStatus(PDO $pdo, int $booking_id, string $status): bool
+{
+    try {
+        $stmt = $pdo->prepare("UPDATE booking SET status = :status WHERE booking_id = :booking_id");
+        $stmt->bindParam(':status', $status);
+        $stmt->bindParam(':booking_id', $booking_id, PDO::PARAM_INT);
+        return $stmt->execute();
+    } catch (PDOException $e) {
+        error_log("Failed to update booking status: " . $e->getMessage());
+        return false;
+    }
+}
+
+function getAgencyReviews($agency_id, PDO $pdo): array
+{
+    $sql = "
+        SELECT r.review_id, r.rating, r.review_text, r.created_at,
+               u.full_name
+        FROM agency_review r
+        JOIN users u ON r.user_id = u.user_id
+        WHERE r.agency_id = :agency_id
+        ORDER BY r.created_at DESC
+    ";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':agency_id', $agency_id, PDO::PARAM_INT);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+
+function getAgencyBalance($agency_id, PDO $pdo)
+{
+    $stmt = $pdo->prepare("SELECT solde FROM agency WHERE agency_id = :agency_id");
+    $stmt->execute(['agency_id' => $agency_id]);
+    return $stmt->fetchColumn();
+}
+
+function getAgencyCarPriceStats($agency_id, PDO $pdo)
+{
+    $stmt = $pdo->prepare("SELECT COUNT(*) as car_count, SUM(price_per_day) as total_price, AVG(price_per_day) as avg_price
+                           FROM car WHERE agency_id = :agency_id");
+    $stmt->execute(['agency_id' => $agency_id]);
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+}
+
+function getAgencyPayments($agency_id, PDO $pdo)
+{
+    $stmt = $pdo->prepare("SELECT * FROM payments WHERE agency_id = :agency_id ORDER BY payment_date DESC");
+    $stmt->execute(['agency_id' => $agency_id]);
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function addPayment($agency_id, $amount, $method, $status, PDO $pdo)
+{
+    $stmt = $pdo->prepare("INSERT INTO payments (agency_id, amount, payment_method, payment_status) 
+                           VALUES (:agency_id, :amount, :method, :status)");
+    $stmt->execute([
+        'agency_id' => $agency_id,
+        'amount' => $amount,
+        'method' => $method,
+        'status' => $status
+    ]);
+}
+
+function getAgencyById(int $agency_id, PDO $pdo): ?array
+{
+    $sql = "SELECT * FROM agency WHERE agency_id = :agency_id";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':agency_id', $agency_id, PDO::PARAM_INT);
+    $stmt->execute();
+    $agency = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $agency ?: null;
+}
+
+function deleteAgencyById(int $agency_id, PDO $pdo): bool
+{
+    $sql = "DELETE FROM agency WHERE agency_id = :agency_id";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':agency_id', $agency_id, PDO::PARAM_INT);
+    return $stmt->execute();
+}
+
+function updateAgency(array $data, PDO $pdo): bool
+{
+    $sql = "UPDATE agency 
+            SET name = :name, 
+                description = :description,
+                image = :image,
+                contact_email = :contact_email,
+                phone_number = :phone_number,
+                agency_city = :agency_city,
+                location = :location
+            WHERE agency_id = :agency_id";
+
+    $stmt = $pdo->prepare($sql);
+
+    $stmt->bindParam(':name', $data['name']);
+    $stmt->bindParam(':description', $data['description']);
+    $stmt->bindParam(':image', $data['image']);
+    $stmt->bindParam(':contact_email', $data['contact_email']);
+    $stmt->bindParam(':phone_number', $data['phone_number']);
+    $stmt->bindParam(':agency_city', $data['agency_city']);
+    $stmt->bindParam(':location', $data['location']);
+    $stmt->bindParam(':agency_id', $data['agency_id'], PDO::PARAM_INT);
+
+    $success = $stmt->execute();
+
+    if (!$success) {
+        // طباعة الخطأ في التنفيذ
+        $error = $stmt->errorInfo();
+        error_log("❌ فشل تحديث الوكالة: " . $error[2]);
+    }
+
+    return $success;
+}
+

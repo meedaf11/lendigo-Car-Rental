@@ -15,6 +15,10 @@ if (!isset($_SESSION['agency_id'])) {
     exit;
 }
 
+if (isset($_GET['status']) && $_GET['status'] === 'deleted') {
+    echo "<script>alert('Car deleted successfully!');</script>";
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -37,6 +41,7 @@ if (!isset($_SESSION['agency_id'])) {
             <li><a href="?page=reviews">⭐ Reviews</a></li>
             <li><a href="?page=addBalance">💰 Add Balance</a></li>
             <li><a href="?page=settings">⚙️ Settings</a></li>
+            <li><a href="../../../index.html">Back To Home</a></li>
             <li><a href="../../../login.html">🚪 Logout</a></li>
         </ul>
     </div>
