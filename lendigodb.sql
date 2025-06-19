@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1
--- Généré le : mer. 18 juin 2025 à 17:34
--- Version du serveur : 10.4.32-MariaDB
--- Version de PHP : 8.0.30
+-- Host: 127.0.0.1
+-- Generation Time: Jun 19, 2025 at 03:53 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `lendigodb`
+-- Database: `lendigodb`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `agency`
+-- Table structure for table `agency`
 --
 
 CREATE TABLE `agency` (
@@ -43,23 +43,23 @@ CREATE TABLE `agency` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `agency`
+-- Dumping data for table `agency`
 --
 
 INSERT INTO `agency` (`agency_id`, `name`, `agency_owner_id`, `description`, `image`, `contact_email`, `phone_number`, `agency_city`, `location`, `rating`, `solde`, `created_at`) VALUES
-(1, 'Agence Ahmed', 1, 'Agence Ahmed is a locally-rooted car rental agency based in the vibrant city of Tangier. With a focus on reliability, affordability, and customer satisfaction, Agence Ahmed has become a trusted name among both locals and tourists. The agency offers a carefully maintained fleet of compact, mid-size, and SUV vehicles to cater to a wide variety of travel needs, whether for short city commutes or long-distance excursions. Their team prides itself on a personalized, client-first approach, providing recommendations and support tailored to each renter’s specific itinerary. With convenient booking options and flexible rental terms, Agence Ahmed ensures that every customer experiences the freedom and comfort of exploring Morocco at their own pace.', 'https://amtartv.com/wp-content/uploads/2025/06/agency_ahmed.png', 'ahmedAgency@gmail.com', '06123456789', 'Tangier', 'tangier-mghogha-morocco', 0.00, 0.00, '2025-06-18 09:36:06'),
+(1, 'Agence Ahmed', 1, 'Agence Ahmed is a locally-rooted car rental agency based in the vibrant city of Tangier. With a focus on reliability, affordability, and customer satisfaction, Agence Ahmed has become a trusted name among both locals and tourists. The agency offers a carefully maintained fleet of compact, mid-size, and SUV vehicles to cater to a wide variety of travel needs, whether for short city commutes or long-distance excursions. Their team prides itself on a personalized, client-first approach, providing recommendations and support tailored to each renter’s specific itinerary. With convenient booking options and flexible rental terms, Agence Ahmed ensures that every customer experiences the freedom and comfort of exploring Morocco at their own pace.', 'https://amtartv.com/wp-content/uploads/2025/06/agency_ahmed.png', 'ahmedAgency@gmail.com', '06123456789', 'Tangier', 'tangier-mghogha-morocco', 0.00, 1702.00, '2025-06-18 09:36:06'),
 (2, 'Elite Voyages', 2, 'Elite Voyages is a premier car rental and travel service provider headquartered in Casablanca. Renowned for its high standards of service and luxury-oriented approach, Elite Voyages caters to business professionals, international tourists, and event organizers seeking sophistication, punctuality, and comfort. Their fleet includes top-tier sedans, executive vehicles, and luxury SUVs—all meticulously maintained to guarantee safety and prestige. Beyond car rental, Elite Voyages also offers chauffeur-driven services and curated travel experiences across Morocco, blending elegance with convenience. With a multilingual team and 24/7 customer support, Elite Voyages stands out as a symbol of professionalism and elite mobility solutions.', 'http://amtartv.com/wp-content/uploads/2025/06/Elite-Voyages.png', 'contact@elitevoyages.com', '06543219876', 'Casablanca', 'casablanca-anfa-morocco', 0.00, 0.00, '2025-06-18 09:36:06'),
 (3, 'Sahara Travel', 3, 'Based in the heart of Marrakech, Sahara Travel is a car rental agency that specializes in connecting travelers with the breathtaking landscapes of Morocco. Whether you\'re planning a desert trek, a mountain getaway, or a coastal adventure, Sahara Travel provides the perfect vehicle—ranging from rugged 4x4s ideal for off-road terrain to comfortable vans for group trips. The agency’s local expertise is one of its strongest assets, offering not just vehicles but also guidance on the best routes, hidden gems, and cultural experiences. Sahara Travel is committed to providing authentic, adventure-ready services with a strong focus on customer care, safety, and enriching journeys through the diverse Moroccan landscape.', 'http://amtartv.com/wp-content/uploads/2025/06/Sahara-Travel.png', 'info@saharatravel.ma', '06234567890', 'Marrakech', 'marrakech-medina-morocco', 0.00, 0.00, '2025-06-18 09:36:06'),
 (4, 'Atlas Explorer', 4, 'Atlas Explorer is a dynamic car rental and tourism agency based in Fes, offering both transportation solutions and immersive travel experiences throughout Morocco. Ideal for solo travelers, families, and guided groups, the agency combines a diverse fleet with a passion for exploration. From compact city cars to powerful all-terrain vehicles, each rental is backed by attentive service and local insight. Atlas Explorer also partners with experienced guides to offer excursions across the Atlas Mountains, ancient medinas, and UNESCO World Heritage sites. Their mission is to empower travelers to navigate Morocco with confidence and curiosity, with flexible rental options and multilingual assistance always available.', 'http://amtartv.com/wp-content/uploads/2025/06/Atlas-Explorer.png', 'support@atlasexplorer.com', '06789123456', 'Fes', 'fes-ville-nouvelle-morocco', 0.00, 0.00, '2025-06-18 09:36:06'),
 (5, 'Atlas Voyages', 5, 'Atlas Voyages is one of Morocco’s most respected travel and transportation brands, with over five decades of excellence in the tourism industry. Headquartered in the prestigious Gauthier district of Casablanca, Atlas Voyages offers an extensive selection of car rental options, ranging from economical compacts to luxury and executive models. The agency is well-known for its impeccable customer service, nationwide reach, and integrated travel planning—including hotel reservations, flight bookings, and tailored tour packages. Whether you\'re a leisure traveler seeking a relaxed vacation or a corporate client needing reliable logistics, Atlas Voyages delivers superior service that reflects its legacy of trust, innovation, and quality.', 'http://amtartv.com/wp-content/uploads/2025/06/Atlas-Voyages.png', 'contact@atlasvoyages.ma', '+212522220101', 'Casablanca', '18, Rue Sebta, Quartier Gauthier, Casablanca', 4.75, 0.00, '2025-06-18 09:36:06'),
 (6, 'Maroc Horizon Tours', 3, 'Maroc Horizon Tours is a Marrakech-based travel agency that offers a holistic car rental and tourism experience designed to showcase the wonders of Morocco. With a client-centered philosophy, the company provides a wide selection of vehicles suitable for every type of traveler—from solo adventurers and families to small groups and professional delegations. In addition to self-drive rentals, Maroc Horizon Tours also offers guided tours, airport transfers, and customized itineraries that explore Morocco\'s rich cultural tapestry. With a seasoned staff, deep regional knowledge, and a commitment to excellence, the agency stands as a gateway to both discovery and comfort. Every trip booked through Maroc Horizon Tours is not just a rental—it’s a personalized journey into the heart of Moroccan heritage and hospitality.', 'http://amtartv.com/wp-content/uploads/2025/06/Maroc-Horizon-Tours.png', 'info@marochorizontours.com', '+212661234567', 'Marrakech', 'Rue Ibn Aïcha, Gueliz, Marrakech', 4.60, 0.00, '2025-06-18 09:36:06'),
-(7, 'Afilal Agency', 1, 'hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh', 'https://0a411afb0c598242cc95-1df470064133d6bc5c471837468f475c.ssl.cf3.rackcdn.com/publish/wp-content/uploads/2021/01/leeds-dealers-9-580x387.jpg', 'support@afagency.com', '+21255443322', 'Tangier', 'Solicode Tanger', 0.00, 35.00, '2025-06-18 09:36:06'),
+(7, 'Afilal Agency', 1, '2525252525', 'https://0a411afb0c598242cc95-1df470064133d6bc5c471837468f475c.ssl.cf3.rackcdn.com/publish/wp-content/uploads/2021/01/leeds-dealers-9-580x387.jpg', 'support@afagency.com', '+21255443322', 'Tangier', 'Solicode Tanger', 0.00, 35.00, '2025-06-18 09:36:06'),
 (8, 'Meed Agency', 1, 'uyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyfddddddddddddddddd', 'https://0a411afb0c598242cc95-1df470064133d6bc5c471837468f475c.ssl.cf3.rackcdn.com/publish/wp-content/uploads/2021/01/leeds-dealers-9-580x387.jpg', 'support@meedagency.com', '+21255443322', 'Tangier', 'Solicode Tanger', 0.00, 50.00, '2025-06-18 09:36:06');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `agency_review`
+-- Table structure for table `agency_review`
 --
 
 CREATE TABLE `agency_review` (
@@ -72,7 +72,7 @@ CREATE TABLE `agency_review` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `agency_review`
+-- Dumping data for table `agency_review`
 --
 
 INSERT INTO `agency_review` (`review_id`, `user_id`, `agency_id`, `rating`, `review_text`, `created_at`) VALUES
@@ -111,7 +111,7 @@ INSERT INTO `agency_review` (`review_id`, `user_id`, `agency_id`, `rating`, `rev
 -- --------------------------------------------------------
 
 --
--- Structure de la table `booking`
+-- Table structure for table `booking`
 --
 
 CREATE TABLE `booking` (
@@ -126,18 +126,18 @@ CREATE TABLE `booking` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `booking`
+-- Dumping data for table `booking`
 --
 
 INSERT INTO `booking` (`booking_id`, `user_id`, `car_id`, `booking_date`, `status`, `start_date`, `end_date`, `total_price`) VALUES
 (1, 7, 87, '0000-00-00', 'waiting', '2025-06-19', '2025-06-27', 0.00),
 (2, 7, 87, '2025-06-17', 'completed', '2025-06-28', '2025-07-04', 10500.00),
-(8, 7, 1, '2025-06-17', 'waiting', '2025-06-18', '2025-06-26', 2250.00);
+(8, 7, 1, '2025-06-17', 'reserved', '2025-06-18', '2025-06-26', 2250.00);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `car`
+-- Table structure for table `car`
 --
 
 CREATE TABLE `car` (
@@ -159,11 +159,11 @@ CREATE TABLE `car` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `car`
+-- Dumping data for table `car`
 --
 
 INSERT INTO `car` (`car_id`, `agency_id`, `car_name`, `car_rating`, `description`, `model`, `places`, `brand`, `price_per_day`, `car_type`, `availability_status`, `image_url`, `car_fuel`, `kilometers`, `isAutomatic`) VALUES
-(1, 1, 'Dacia Logan', 3.50, 'Compact and efficient sedan', '2017', 5, 'Dacia', 250.00, 'Sedan', 'available', 'https://promotionaumaroc.com/wp-content/uploads/2016/12/dacia-logan-maroc-voiture-neuve-promotion-2017.jpg', 'Gasoline', 65000, 1),
+(1, 1, 'Dacia Logan', 3.50, 'Compact and efficient sedan', '2017', 5, 'Dacia', 250.00, 'Sedan', 'available', 'https://promotionaumaroc.com/wp-content/uploads/2016/12/dacia-logan-maroc-voiture-neuve-promotion-2017.jpg', 'Gasoline', 65100, 1),
 (2, 2, 'Volkswagen Golf', 3.50, 'Reliable family hatchback', '2019', 5, 'Volkswagen', 370.00, 'Hatchback', 'available', 'https://media.ed.edmunds-media.com/volkswagen/golf/2019/oem/2019_volkswagen_golf_4dr-hatchback_14t-s_fq_oem_1_1600.jpg', 'Diesel', 45000, 1),
 (3, 3, 'Renault Zoe', 3.50, 'Electric compact city car', '2021', 5, 'Renault', 500.00, 'Electric / Hybrid', 'booked', 'https://www.larevueautomobile.com/images/fiche-technique/2021/Renault/ZOE/Renault_ZOE_MD_0.jpg', 'Electrical', 15000, 1),
 (4, 4, 'Tesla Model 3', 3.50, 'Luxurious electric sedan', '2022', 5, 'Tesla', 950.00, 'Electric / Hybrid', 'available', 'https://www.greencarguide.co.uk/wp-content/uploads/2022/05/Tesla-Model-3-Long-Range-001-low-res.jpeg', 'Electrical', 10000, 1),
@@ -187,7 +187,7 @@ INSERT INTO `car` (`car_id`, `agency_id`, `car_name`, `car_rating`, `description
 (22, 2, 'Mercedes EQC', 3.50, 'Electric luxury SUV', '2022', 5, 'Mercedes', 1150.00, 'Electric / Hybrid', 'available', 'https://media.drive.com.au/obj/tx_q:50,rs:auto:1920:1080:1/driveau/upload/cms/uploads/nmyj3fbw4eo87l8tultu', 'Electrical', 12000, 1),
 (23, 3, 'Toyota RAV4', 3.50, 'Hybrid crossover', '2021', 5, 'Toyota', 540.00, 'Electric / Hybrid', 'booked', 'https://images.cars.com/cldstatic/wp-content/uploads/toyota-rav4-prime-2021-01-angle--exterior--front--grey.jpg', 'Hybrid', 20000, 1),
 (24, 4, 'BMW X5', 3.50, 'Luxurious SUV', '2022', 5, 'BMW', 1300.00, 'Luxury', 'available', 'https://www.edmunds.com/assets/m/bmw/x5-m/2021/oem/2021_bmw_x5-m_4dr-suv_base_fq_oem_1_600.jpg', 'Diesel', 17000, 1),
-(25, 1, 'Ford Fiesta', 3.50, 'Compact hatchback', '2018', 5, 'Ford', 270.00, 'Hatchback', 'available', 'https://cdn.abcmoteur.fr/wp-content/uploads/2018/09/14-8-e1535990091532-1.jpg', 'Gasoline', 48000, 0),
+(25, 1, 'Ford Fiesta', 3.50, 'Compact  hatchback hatchback', '2018', 5, 'Ford', 270.00, 'Hatchback', 'available', 'https://cdn.abcmoteur.fr/wp-content/uploads/2018/09/14-8-e1535990091532-1.jpg', 'Gasoline', 48000, 0),
 (26, 2, 'Opel Zafira', 3.50, 'Practical minivan', '2019', 7, 'Opel', 400.00, 'Van / Minivan', 'booked', 'https://www.largus.fr/images/styles/max_1300x1300/public/images/opel-505549-redimensionner.jpg?itok=OL8GT025', 'Diesel', 36000, 0),
 (27, 3, 'Hyundai Ioniq', 3.50, 'Efficient hybrid sedan', '2020', 5, 'Hyundai', 490.00, 'Electric / Hybrid', 'available', 'https://hips.hearstapps.com/hmg-prod/images/2020-hyundai-ioniq-hybrid-102-1590604533.jpg', 'Hybrid', 22000, 1),
 (28, 4, 'Mercedes CLA', 3.50, 'Stylish coupe', '2021', 4, 'Mercedes', 990.00, 'Coupe', 'available', 'https://di-uploads-pod3.dealerinspire.com/fletcherjonesmbnewport/uploads/2024/07/Newport-CLA-1024x683.png', 'Gasoline', 19000, 1),
@@ -199,7 +199,6 @@ INSERT INTO `car` (`car_id`, `agency_id`, `car_name`, `car_rating`, `description
 (34, 2, 'BMW 4 Series', 3.50, 'Premium coupe', '2021', 4, 'BMW', 1250.00, 'Coupe', 'available', 'https://www.inquirer.com/resizer/9QiQt9p0eLpPy2TaxMylqO3sI-U=/arc-anglerfish-arc2-prod-pmn/public/PX33263A5VEWZCAC7NXXII5TRY.jpg', 'Gasoline', 15000, 1),
 (35, 3, 'Ford Explorer Hybrid', 3.50, 'Large hybrid SUV', '2022', 7, 'Ford', 980.00, 'Electric / Hybrid', 'booked', 'https://i.gaw.to/content/photos/53/99/539909-ford-explorer-hybride-2022-de-montreal-a-new-york-a-son-volant.jpeg', 'Hybrid', 16000, 1),
 (36, 4, 'Renault Captur', 3.50, 'Compact crossover', '2020', 5, 'Renault', 350.00, 'SUV', 'available', 'https://www.automobile-magazine.fr/asset/cms/167640/config/116450/all-new-renault-captur-arctic-white-010.jpg', 'Gasoline', 35000, 0),
-(37, 1, 'Mazda CX-5', 3.50, 'Compact SUV with great handling', '2022', 5, 'Mazda', 480.00, 'SUV', 'available', 'https://s3.wheelsage.org/format/picture/picture-thumb-medium/m/mazda/cx-5_skyactiv-g_newground/mazda_cx-5_skyactiv-g_newground_912_09ad060312f40e0f.jpg', 'Gasoline', 22000, 1),
 (38, 2, 'Subaru Outback', 3.50, 'Reliable and rugged wagon', '2021', 5, 'Subaru', 460.00, 'SUV', 'available', 'https://hips.hearstapps.com/hmg-prod/images/2021-suabru-outback-mmp-1-1598639461.jpg?crop=0.801xw:0.675xh;0.0673xw,0.159xh&resize=2048:*', 'Gasoline', 25000, 1),
 (39, 3, 'Volkswagen Passat', 3.50, 'Comfortable midsize sedan', '2020', 5, 'Volkswagen', 420.00, 'Sedan', 'available', 'https://images.cars.com/cldstatic/wp-content/uploads/volkswagen-passat-2020-01-angle--blue--exterior--front--mountains.jpg', 'Diesel', 28000, 1),
 (40, 4, 'Honda Civic', 3.50, 'Efficient compact car', '2021', 5, 'Honda', 390.00, 'Sedan', 'available', 'https://hips.hearstapps.com/hmg-prod/images/2021-honda-civic-mmp-1-1595005323.jpg?crop=0.753xw:0.635xh;0.143xw,0.365xh&resize=2048:*', 'Gasoline', 23000, 1),
@@ -251,12 +250,13 @@ INSERT INTO `car` (`car_id`, `agency_id`, `car_name`, `car_rating`, `description
 (86, 6, 'Mazda 3 2000', 3.50, 'Reliable compact', '2000', 5, 'Mazda', 280.00, 'Sedan', 'available', 'https://upload.wikimedia.org/wikipedia/commons/6/6d/Mazda_3.jpg', 'Gasoline', 0, 1),
 (87, 1, 'Audi RS6', 4.90, 'The 2023 Audi RS6 Avant is a high-performance luxury sports wagon that combines power, practicality, and cutting-edge technology. Powered by a 4.0-liter twin-turbocharged V8 engine delivering 591 horsepower and 590 lb-ft of torque, it accelerates from 0 to 60 mph in just 3.5 seconds. Standard features include Audi’s quattro all-wheel drive, adaptive air suspension, and an 8-speed automatic transmission. The interior offers premium leather seating for 5, a panoramic sunroof, virtual cockpit, advanced driver-assist systems, and a high-resolution infotainment system with Apple CarPlay and Android Auto. With a sleek and aggressive design, 21-inch alloy wheels, and a spacious cargo area, the RS6 Avant is perfect for both spirited driving and daily comfort.', '2025', 5, 'Audi', 1500.00, 'Luxury', 'available', 'https://content.homenetiol.com/2000292/2143540/0x0/988af5705b81486088f2f4b9ce7764ad.jpg', 'Gasoline', 17503, 1),
 (89, 7, 'Dacia Logan', 0.00, 'hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh', '2025', 5, 'Dacia', 350.00, 'Sedan', 'available', 'https://dacia.press/wp-content/uploads/2024/10/Dacia-Logan-2025.jpg', 'Diesel', 54345, 0),
-(90, 8, 'Dacia Logan', 0.00, 'uyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyfddddddddddddddddd', '2025', 5, 'Dacia', 350.00, 'Sedan', 'available', 'https://dacia.press/wp-content/uploads/2024/10/Dacia-Logan-2025.jpg', 'Diesel', 43567, 0);
+(90, 8, 'Dacia Logan', 0.00, 'uyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyfddddddddddddddddd', '2025', 5, 'Dacia', 350.00, 'Sedan', 'available', 'https://dacia.press/wp-content/uploads/2024/10/Dacia-Logan-2025.jpg', 'Diesel', 43567, 0),
+(92, 1, 'Toyota Corolla ', 0.00, 'Reliable and fuel-efficient sedan. Smooth ride, great for city driving and long trips.', '2022', 5, 'Toyota ', 350.00, 'Sedan', 'available', 'https://www.autotrader.com/wp-content/uploads/2021/08/2022-toyota-corolla-hatchback-front-right.jpg?quality=75', 'Gasoline', 45862, 1);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `car_review`
+-- Table structure for table `car_review`
 --
 
 CREATE TABLE `car_review` (
@@ -269,7 +269,7 @@ CREATE TABLE `car_review` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `car_review`
+-- Dumping data for table `car_review`
 --
 
 INSERT INTO `car_review` (`review_id`, `user_id`, `car_id`, `rating`, `review_text`, `created_at`) VALUES
@@ -295,7 +295,7 @@ INSERT INTO `car_review` (`review_id`, `user_id`, `car_id`, `rating`, `review_te
 -- --------------------------------------------------------
 
 --
--- Structure de la table `messages`
+-- Table structure for table `messages`
 --
 
 CREATE TABLE `messages` (
@@ -311,7 +311,7 @@ CREATE TABLE `messages` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `messages`
+-- Dumping data for table `messages`
 --
 
 INSERT INTO `messages` (`id`, `user_id`, `full_name`, `email`, `subject`, `message`, `answer`, `submitted_at`, `status`) VALUES
@@ -320,7 +320,7 @@ INSERT INTO `messages` (`id`, `user_id`, `full_name`, `email`, `subject`, `messa
 -- --------------------------------------------------------
 
 --
--- Structure de la table `payments`
+-- Table structure for table `payments`
 --
 
 CREATE TABLE `payments` (
@@ -333,17 +333,20 @@ CREATE TABLE `payments` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `payments`
+-- Dumping data for table `payments`
 --
 
 INSERT INTO `payments` (`id`, `agency_id`, `amount`, `payment_method`, `payment_status`, `payment_date`) VALUES
 (1, 7, 35.00, 'card', 'completed', '2025-06-17 13:17:19'),
-(2, 8, 50.00, 'card', 'completed', '2025-06-17 13:46:27');
+(2, 8, 50.00, 'card', 'completed', '2025-06-17 13:46:27'),
+(3, 1, 708.00, 'stripe', 'completed', '2025-06-19 01:28:39'),
+(7, 1, 494.00, 'stripe', 'completed', '2025-06-19 01:38:48'),
+(8, 1, 500.00, 'stripe', 'completed', '2025-06-19 01:52:30');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -358,7 +361,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`user_id`, `full_name`, `username`, `email`, `password`, `phone_number`, `registration_date`, `user_type`) VALUES
@@ -370,18 +373,18 @@ INSERT INTO `users` (`user_id`, `full_name`, `username`, `email`, `password`, `p
 (7, 'Afilal Mohamed', 'afmeed', 'meedaf12@gmail.com', '$2y$10$3/sEOtNHAn63Wa6Sdeqrperug0u4QzkBLTEwWACWDC8Qy9cJGJCZC', '0625242621', '2025-06-15', 'customer');
 
 --
--- Index pour les tables déchargées
+-- Indexes for dumped tables
 --
 
 --
--- Index pour la table `agency`
+-- Indexes for table `agency`
 --
 ALTER TABLE `agency`
   ADD PRIMARY KEY (`agency_id`),
   ADD KEY `fk_agency_owner` (`agency_owner_id`);
 
 --
--- Index pour la table `agency_review`
+-- Indexes for table `agency_review`
 --
 ALTER TABLE `agency_review`
   ADD PRIMARY KEY (`review_id`),
@@ -389,7 +392,7 @@ ALTER TABLE `agency_review`
   ADD KEY `fk_agencyreview_agency` (`agency_id`);
 
 --
--- Index pour la table `booking`
+-- Indexes for table `booking`
 --
 ALTER TABLE `booking`
   ADD PRIMARY KEY (`booking_id`),
@@ -397,14 +400,14 @@ ALTER TABLE `booking`
   ADD KEY `car_id` (`car_id`);
 
 --
--- Index pour la table `car`
+-- Indexes for table `car`
 --
 ALTER TABLE `car`
   ADD PRIMARY KEY (`car_id`),
   ADD KEY `agency_id` (`agency_id`);
 
 --
--- Index pour la table `car_review`
+-- Indexes for table `car_review`
 --
 ALTER TABLE `car_review`
   ADD PRIMARY KEY (`review_id`),
@@ -412,21 +415,21 @@ ALTER TABLE `car_review`
   ADD KEY `fk_carreview_car` (`car_id`);
 
 --
--- Index pour la table `messages`
+-- Indexes for table `messages`
 --
 ALTER TABLE `messages`
   ADD PRIMARY KEY (`id`),
   ADD KEY `user_id` (`user_id`);
 
 --
--- Index pour la table `payments`
+-- Indexes for table `payments`
 --
 ALTER TABLE `payments`
   ADD PRIMARY KEY (`id`),
   ADD KEY `agency_id` (`agency_id`);
 
 --
--- Index pour la table `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`user_id`),
@@ -434,102 +437,102 @@ ALTER TABLE `users`
   ADD UNIQUE KEY `email` (`email`);
 
 --
--- AUTO_INCREMENT pour les tables déchargées
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT pour la table `agency`
+-- AUTO_INCREMENT for table `agency`
 --
 ALTER TABLE `agency`
   MODIFY `agency_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT pour la table `agency_review`
+-- AUTO_INCREMENT for table `agency_review`
 --
 ALTER TABLE `agency_review`
   MODIFY `review_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
--- AUTO_INCREMENT pour la table `booking`
+-- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
   MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT pour la table `car`
+-- AUTO_INCREMENT for table `car`
 --
 ALTER TABLE `car`
-  MODIFY `car_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
+  MODIFY `car_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
 
 --
--- AUTO_INCREMENT pour la table `car_review`
+-- AUTO_INCREMENT for table `car_review`
 --
 ALTER TABLE `car_review`
   MODIFY `review_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
--- AUTO_INCREMENT pour la table `messages`
+-- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT pour la table `payments`
+-- AUTO_INCREMENT for table `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT pour la table `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- Contraintes pour les tables déchargées
+-- Constraints for dumped tables
 --
 
 --
--- Contraintes pour la table `agency`
+-- Constraints for table `agency`
 --
 ALTER TABLE `agency`
   ADD CONSTRAINT `fk_agency_owner` FOREIGN KEY (`agency_owner_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Contraintes pour la table `agency_review`
+-- Constraints for table `agency_review`
 --
 ALTER TABLE `agency_review`
   ADD CONSTRAINT `fk_agencyreview_agency` FOREIGN KEY (`agency_id`) REFERENCES `agency` (`agency_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_agencyreview_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Contraintes pour la table `booking`
+-- Constraints for table `booking`
 --
 ALTER TABLE `booking`
   ADD CONSTRAINT `car_id` FOREIGN KEY (`car_id`) REFERENCES `car` (`car_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Contraintes pour la table `car`
+-- Constraints for table `car`
 --
 ALTER TABLE `car`
   ADD CONSTRAINT `agency_id` FOREIGN KEY (`agency_id`) REFERENCES `agency` (`agency_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Contraintes pour la table `car_review`
+-- Constraints for table `car_review`
 --
 ALTER TABLE `car_review`
   ADD CONSTRAINT `fk_carreview_car` FOREIGN KEY (`car_id`) REFERENCES `car` (`car_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_carreview_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Contraintes pour la table `messages`
+-- Constraints for table `messages`
 --
 ALTER TABLE `messages`
   ADD CONSTRAINT `messages_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE;
 
 --
--- Contraintes pour la table `payments`
+-- Constraints for table `payments`
 --
 ALTER TABLE `payments`
   ADD CONSTRAINT `payments_ibfk_1` FOREIGN KEY (`agency_id`) REFERENCES `agency` (`agency_id`) ON DELETE CASCADE ON UPDATE CASCADE;
