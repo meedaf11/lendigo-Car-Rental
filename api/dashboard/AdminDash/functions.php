@@ -241,7 +241,8 @@ function getUserBookedCars($user_id)
 }
 
 // Get all reviews (agency + car) by user
-function getUserReviews($user_id) {
+function getUserReviews($user_id)
+{
     global $pdo;
     $stmt = $pdo->prepare("
         SELECT 'Agency' AS type, a.name AS target, a.agency_id AS entity_id, ar.rating, ar.review_text
@@ -257,6 +258,242 @@ function getUserReviews($user_id) {
     $stmt->bindParam(':uid1', $user_id, PDO::PARAM_INT);
     $stmt->bindParam(':uid2', $user_id, PDO::PARAM_INT);
     $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+
+
+
+// Total active agencies
+function getActiveAgencies()
+{
+    global $pdo;
+    $stmt = $pdo->prepare("SELECT COUNT(*) FROM agency WHERE status = 'active'");
+    $stmt->execute();
+    return $stmt->fetchColumn();
+}
+
+// Total blocked agencies
+function getBlockedAgencies()
+{
+    global $pdo;
+    $stmt = $pdo->prepare("SELECT COUNT(*) FROM agency WHERE status = 'blocked'");
+    $stmt->execute();
+    return $stmt->fetchColumn();
+}
+
+
+// Total solde (balance) across all agencies
+function getTotalAgencySolde()
+{
+    global $pdo;
+    $stmt = $pdo->prepare("SELECT SUM(solde) FROM agency");
+    $stmt->execute();
+    return number_format($stmt->fetchColumn(), 2);
+}
+
+function getAgencyCities()
+{
+    global $pdo;
+    $stmt = $pdo->prepare("SELECT DISTINCT agency_city FROM agency ORDER BY agency_city ASC");
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_COLUMN);
+}
+
+function getFilteredAgencies($status = '', $city = '', $search = '')
+{
+    global $pdo; // بدل conn إلى pdo
+
+    $query = "SELECT a.*, u.username AS owner_name 
+              FROM agency a
+              JOIN users u ON a.agency_owner_id = u.user_id 
+              WHERE 1";
+
+    if ($status === 'active') {
+        $query .= " AND a.status = 'active'";
+    } elseif ($status === 'blocked') {
+        $query .= " AND a.status = 'blocked'";
+    }
+
+    if (!empty($city)) {
+        $query .= " AND a.agency_city = :city";
+    }
+
+    if (!empty($search)) {
+        $query .= " AND (a.name LIKE :search OR u.username LIKE :search)";
+    }
+
+    $stmt = $pdo->prepare($query); // استخدم $pdo بدلاً من $conn
+
+    if (!empty($city)) {
+        $stmt->bindParam(':city', $city);
+    }
+
+    if (!empty($search)) {
+        $searchTerm = '%' . $search . '%';
+        $stmt->bindParam(':search', $searchTerm);
+    }
+
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+
+function getAgencyDetails($agencyId) {
+    global $pdo;
+    $stmt = $pdo->prepare("SELECT a.*, u.username, u.email FROM agency a JOIN users u ON a.agency_owner_id = u.user_id WHERE agency_id = ?");
+    $stmt->execute([$agencyId]);
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+}
+
+function getAgencyCars($agencyId) {
+    global $pdo;
+    $stmt = $pdo->prepare("SELECT * FROM car WHERE agency_id = ?");
+    $stmt->execute([$agencyId]);
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function getAgencyReviews($agencyId) {
+    global $pdo;
+    $stmt = $pdo->prepare("SELECT * FROM agency_review WHERE agency_id = ?");
+    $stmt->execute([$agencyId]);
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function getAgencyBookings($agencyId) {
+    global $pdo;
+    $stmt = $pdo->prepare("
+        SELECT b.*, u.username, c.car_name 
+        FROM booking b 
+        JOIN users u ON b.user_id = u.user_id 
+        JOIN car c ON b.car_id = c.car_id 
+        WHERE c.agency_id = ?
+    ");
+    $stmt->execute([$agencyId]);
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function getAgencyIncome($agencyId) {
+    global $pdo;
+    $stmt = $pdo->prepare("SELECT SUM(amount) AS total_income FROM payments WHERE agency_id = ? AND payment_status = 'completed'");
+    $stmt->execute([$agencyId]);
+    return $stmt->fetchColumn() ?? 0;
+}
+
+function updateAgencyStatus($agencyId, $newStatus) {
+    global $pdo;
+    $stmt = $pdo->prepare("UPDATE agency SET status = :status WHERE agency_id = :agency_id");
+    $stmt->bindParam(':status', $newStatus, PDO::PARAM_STR);
+    $stmt->bindParam(':agency_id', $agencyId, PDO::PARAM_INT);
+    return $stmt->execute();
+}
+
+function getTotalCompletedPayments() {
+    global $pdo;
+    $stmt = $pdo->prepare("SELECT SUM(amount) FROM payments WHERE payment_status = 'completed'");
+    $stmt->execute();
+    return $stmt->fetchColumn() ?? 0;
+}
+
+function getAverageAgencySolde() {
+    global $pdo;
+    $stmt = $pdo->query("SELECT AVG(solde) FROM agency");
+    return $stmt->fetchColumn() ?? 0;
+}
+
+function getPlatformRevenue() {
+    global $pdo;
+    $stmt = $pdo->query("
+        SELECT (SELECT SUM(amount) FROM payments WHERE payment_status = 'completed') 
+             - (SELECT SUM(solde) FROM agency) AS revenue
+    ");
+    return $stmt->fetchColumn() ?? 0;
+}
+
+function getTopPayingAgency() {
+    global $pdo;
+    $stmt = $pdo->query("
+        SELECT a.name, SUM(p.amount) as total
+        FROM payments p
+        JOIN agency a ON p.agency_id = a.agency_id
+        WHERE p.payment_status = 'completed'
+        GROUP BY a.agency_id
+        ORDER BY total DESC
+        LIMIT 1
+    ");
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+}
+
+function getLowBalanceAgenciesCount() {
+    global $pdo;
+    $stmt = $pdo->query("
+        SELECT COUNT(*) AS low_balance_count FROM (
+            SELECT a.agency_id
+            FROM agency a
+            JOIN car c ON a.agency_id = c.agency_id
+            GROUP BY a.agency_id
+            HAVING SUM(c.price_per_day) > 0 AND SUM(a.solde) < 0.1 * SUM(c.price_per_day)
+        ) AS subquery
+    ");
+    return $stmt->fetchColumn();
+}
+
+// Top 5 agencies by revenue
+function getTopRevenueAgencies()
+{
+    global $pdo;
+    $stmt = $pdo->query("
+        SELECT a.agency_id, a.name, SUM(p.amount) AS total_revenue
+        FROM payments p
+        JOIN agency a ON p.agency_id = a.agency_id
+        WHERE p.payment_status = 'completed'
+        GROUP BY a.agency_id
+        ORDER BY total_revenue DESC
+        LIMIT 5
+    ");
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+// Top 5 agencies by average rating
+function getTopRatedAgencies()
+{
+    global $pdo;
+    $stmt = $pdo->query("
+        SELECT a.agency_id, a.name, AVG(r.rating) AS avg_rating
+        FROM agency_review r
+        JOIN agency a ON r.agency_id = a.agency_id
+        GROUP BY a.agency_id
+        ORDER BY avg_rating DESC
+        LIMIT 5
+    ");
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+// Agency with most bookings
+function getAgencyWithMostBookings()
+{
+    global $pdo;
+    $stmt = $pdo->query("
+        SELECT a.agency_id, a.name, COUNT(b.booking_id) AS booking_count
+        FROM booking b
+        JOIN car c ON b.car_id = c.car_id
+        JOIN agency a ON c.agency_id = a.agency_id
+        GROUP BY a.agency_id
+        ORDER BY booking_count DESC
+        LIMIT 1
+    ");
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+}
+
+// Count of agency registrations per city
+function getAgencyCountByCity()
+{
+    global $pdo;
+    $stmt = $pdo->query("
+        SELECT agency_city, COUNT(*) AS count
+        FROM agency
+        GROUP BY agency_city
+    ");
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 

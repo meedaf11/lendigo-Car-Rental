@@ -50,6 +50,20 @@
             "button": "See Car"
         },
         {
+            "username": "fatima_rider",
+            "rating": "3.00",
+            "text": "It was okay, but the AC wasn’t working properly.",
+            "car_id": 19,
+            "button": "See Car"
+        },
+        {
+            "username": "rent4u_agency",
+            "rating": "2.00",
+            "text": "The car was not as described. Needs maintenance.",
+            "car_id": 3,
+            "button": "See Car"
+        },
+        {
             "username": "afmeed",
             "rating": "1.75",
             "text": "Nice car",
