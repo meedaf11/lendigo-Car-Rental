@@ -629,6 +629,10 @@ document.getElementById("confirmBookingBtn").addEventListener("click", () => {
       if (data.status === "success") {
         alert("✅ Booking confirmed successfully!");
         overlay.style.display = "none";
+      } else if (data.status === "warning") {
+        alert("⚠️ " + data.message);
+      } else if (data.status === "duplicate") {
+        alert(data.message);
       } else {
         alert("❌ Booking failed: " + data.message);
       }

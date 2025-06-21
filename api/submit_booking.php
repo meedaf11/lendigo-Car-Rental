@@ -21,6 +21,8 @@ if (
     exit;
 }
 
+
+
 // Sanitize and assign variables
 $user_id = $_SESSION['user_id'];
 $car_id = intval($data['car_id']);
@@ -29,6 +31,26 @@ $end_date = $data['end_date'];
 $total_price = floatval($data['total_price']);
 $booking_date = date('Y-m-d');
 $status = 'waiting';
+
+// Step 0: Check if user has a pending 'waiting' booking for the same car
+$stmt = $pdo->prepare("
+    SELECT booking_id FROM booking 
+    WHERE user_id = :user_id AND car_id = :car_id AND status = 'waiting'
+");
+$stmt->execute([
+    ':user_id' => $user_id,
+    ':car_id' => $car_id
+]);
+
+if ($stmt->fetch()) {
+    http_response_code(409);
+    echo json_encode([
+        'status' => 'duplicate',
+        'message' => '❌ You already have a pending booking for this car. Please wait for it to be processed or cancel it first.'
+    ]);
+    exit;
+}
+
 
 try {
     // Step 1: Get car's daily price and agency solde
