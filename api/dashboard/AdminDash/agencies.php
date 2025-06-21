@@ -90,9 +90,10 @@ $agencies = getFilteredAgencies($selectedStatus, $selectedCity, $searchTerm);
 
 <div class="filters-container">
     <form method="GET" class="filter-form">
-        <input type="hidden" name="page" value="agencies">
+        <input type="hidden" name="page" value="cars">
+
         <div class="filter-group">
-            <label>Status:</label>
+            <label>Car Status:</label>
             <select name="status" onchange="this.form.submit()">
                 <option value="">All</option>
                 <option value="active" <?= $selectedStatus === 'active' ? 'selected' : '' ?>>Active</option>
@@ -101,20 +102,18 @@ $agencies = getFilteredAgencies($selectedStatus, $selectedCity, $searchTerm);
         </div>
 
         <div class="filter-group">
-            <label>City:</label>
-            <select name="city" onchange="this.form.submit()">
+            <label>Price:</label>
+            <select name="price" onchange="this.form.submit()">
                 <option value="">All</option>
-                <?php foreach ($cityOptions as $city): ?>
-                    <option value="<?= htmlspecialchars($city) ?>" <?= $selectedCity === $city ? 'selected' : '' ?>>
-                        <?= htmlspecialchars($city) ?>
-                    </option>
-                <?php endforeach; ?>
+                <option value="lt300" <?= $selectedPrice === 'lt300' ? 'selected' : '' ?>>Less than 300 DH</option>
+                <option value="300to300" <?= $selectedPrice === '300to300' ? 'selected' : '' ?>>300–500 DH</option>
+                <option value="gt300" <?= $selectedPrice === 'gt300' ? 'selected' : '' ?>>More than 500 DH</option>
             </select>
         </div>
 
         <div class="filter-group search-box">
-            <input type="text" name="search" placeholder="Search by agency or owner..."
-                value="<?= htmlspecialchars($searchTerm) ?>">
+            <input type="text" name="name" placeholder="Search by car name or model..."
+                value="<?= htmlspecialchars($searchName) ?>">
             <button type="submit">🔍</button>
         </div>
     </form>
