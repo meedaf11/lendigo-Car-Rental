@@ -13,7 +13,7 @@ $car_id = intval($_GET['car_id']);
 
 // Use a clear named placeholder :car_id
 $sql = "SELECT start_date, end_date FROM booking 
-        WHERE car_id = :car_id AND status != 'cancelled'";
+        WHERE car_id = :car_id AND status = 'reserved'";
 
 $stmt = $pdo->prepare($sql);
 $stmt->bindParam(':car_id', $car_id, PDO::PARAM_INT);

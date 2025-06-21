@@ -180,11 +180,11 @@ function getAgencyBookings($agency_id, $pdo, $status = null)
             b.end_date,
             b.total_price,
             b.status,
-            u.full_name,
-            u.email,
-            u.phone_number,
             c.car_name,
-            c.image_url
+            c.image_url,
+            CASE WHEN b.status != 'canceled' THEN u.full_name ELSE NULL END AS full_name,
+            CASE WHEN b.status != 'canceled' THEN u.email ELSE NULL END AS email,
+            CASE WHEN b.status != 'canceled' THEN u.phone_number ELSE NULL END AS phone_number
         FROM booking b
         JOIN car c ON b.car_id = c.car_id
         JOIN agency a ON c.agency_id = a.agency_id
@@ -192,7 +192,6 @@ function getAgencyBookings($agency_id, $pdo, $status = null)
         WHERE a.agency_id = :agency_id
     ";
 
-    // إضافة شرط الفلترة إذا تم تمرير الحالة
     if (!empty($status)) {
         $sql .= " AND b.status = :status";
     }
@@ -210,18 +209,38 @@ function getAgencyBookings($agency_id, $pdo, $status = null)
 }
 
 
-function updateBookingStatus(PDO $pdo, int $booking_id, string $status): bool
+function updateBookingStatus(PDO $pdo, int $booking_id, string $new_status): bool
 {
     try {
-        // تحديث الحالة أولاً
+        // Step 1: Fetch current status
+        $stmt = $pdo->prepare("SELECT status FROM booking WHERE booking_id = :booking_id");
+        $stmt->bindParam(':booking_id', $booking_id, PDO::PARAM_INT);
+        $stmt->execute();
+        $current = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if (!$current) return false;
+
+        $current_status = $current['status'];
+
+        // Step 2: Prevent invalid transitions
+        if (in_array($current_status, ['canceled', 'completed'])) {
+            // Cannot change finalized bookings
+            return false;
+        }
+
+        if ($current_status === 'reserved' && $new_status === 'waiting') {
+            // Cannot downgrade from reserved to waiting
+            return false;
+        }
+
+        // Step 3: Update status
         $stmt = $pdo->prepare("UPDATE booking SET status = :status WHERE booking_id = :booking_id");
-        $stmt->bindParam(':status', $status);
+        $stmt->bindParam(':status', $new_status);
         $stmt->bindParam(':booking_id', $booking_id, PDO::PARAM_INT);
         $stmt->execute();
 
-        // تنفيذ خصم نسبة المنصة فقط إذا تم التحويل إلى 'reserved'
-        if ($status === 'reserved') {
-            // استرجاع تفاصيل الحجز
+        // Step 4: If new status is 'reserved', deduct platform fee
+        if ($new_status === 'reserved') {
             $sql = "
                 SELECT 
                     b.total_price, 
@@ -233,28 +252,22 @@ function updateBookingStatus(PDO $pdo, int $booking_id, string $status): bool
                 JOIN agency a ON c.agency_id = a.agency_id
                 WHERE b.booking_id = :booking_id
             ";
-
             $stmt = $pdo->prepare($sql);
             $stmt->bindParam(':booking_id', $booking_id, PDO::PARAM_INT);
             $stmt->execute();
             $booking = $stmt->fetch(PDO::FETCH_ASSOC);
 
-            if (!$booking)
-                return false;
+            if (!$booking) return false;
 
             $days = (int) $booking['days'];
             $total_price = (float) $booking['total_price'];
             $daily_price = (float) $booking['price_per_day'];
             $agency_id = (int) $booking['agency_id'];
 
-            // حساب عمولة المنصة
-            if ($days <= 3) {
-                $platform_fee = 0.10 * $daily_price;
-            } else {
-                $platform_fee = 0.05 * $total_price;
-            }
+            // Platform fee logic
+            $platform_fee = ($days <= 3) ? (0.10 * $daily_price) : (0.05 * $total_price);
 
-            // خصم العمولة من رصيد الوكالة
+            // Deduct from agency solde
             $updateSolde = $pdo->prepare("UPDATE agency SET solde = solde - :fee WHERE agency_id = :agency_id");
             $updateSolde->bindParam(':fee', $platform_fee);
             $updateSolde->bindParam(':agency_id', $agency_id, PDO::PARAM_INT);
@@ -267,6 +280,7 @@ function updateBookingStatus(PDO $pdo, int $booking_id, string $status): bool
         return false;
     }
 }
+
 
 
 function getAgencyReviews($agency_id, PDO $pdo): array

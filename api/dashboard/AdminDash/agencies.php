@@ -19,7 +19,7 @@ $lowBalanceCount = getLowBalanceAgenciesCount();
 
 $topRevenueAgencies = getTopRevenueAgencies();
 $topRatedAgencies = getTopRatedAgencies();
-$mostBookedAgency = getAgencyWithMostBookings();
+$mostBookedAgencies = getAgencyWithMostBookings();
 $cityAgencyCounts = getAgencyCountByCity();
 
 $agencies = getFilteredAgencies($selectedStatus, $selectedCity, $searchTerm);
@@ -180,7 +180,8 @@ $agencies = getFilteredAgencies($selectedStatus, $selectedCity, $searchTerm);
         <div class="fin-stat-icon">🏆</div>
         <div class="fin-stat-title">Top Agency</div>
         <div class="fin-stat-value"><?= htmlspecialchars($topAgency['name']) ?> -
-            <?= number_format($topAgency['total'], 2) ?> MAD</div>
+            <?= number_format($topAgency['total'], 2) ?> MAD
+        </div>
     </div>
     <div class="fin-stat-card blocked">
         <div class="fin-stat-icon">⚠️</div>
@@ -216,13 +217,16 @@ $agencies = getFilteredAgencies($selectedStatus, $selectedCity, $searchTerm);
             <?php endforeach; ?>
         </ul>
     </div>
-
     <div class="insight-section">
-        <h3>🏆 Most Booked Agency</h3>
-        <p>
-            <?= htmlspecialchars($mostBookedAgency['name']) ?> (ID: <?= $mostBookedAgency['agency_id'] ?>)
-            — <strong><?= $mostBookedAgency['booking_count'] ?> Bookings</strong>
-        </p>
+        <h3>🏆 Top 3 Most Booked Agencies</h3>
+        <ul>
+            <?php foreach ($mostBookedAgencies as $agency): ?>
+                <p>
+                    <?= htmlspecialchars($agency['name']) ?> (ID: <?= $agency['agency_id'] ?>)
+                    — <strong><?= $agency['booking_count'] ?> Bookings</strong>
+                </p>
+            <?php endforeach; ?>
+        </ul>
     </div>
 
     <div class="insight-section">

@@ -480,9 +480,9 @@ function getAgencyWithMostBookings()
         JOIN agency a ON c.agency_id = a.agency_id
         GROUP BY a.agency_id
         ORDER BY booking_count DESC
-        LIMIT 1
+        LIMIT 3
     ");
-    return $stmt->fetch(PDO::FETCH_ASSOC);
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
 // Count of agency registrations per city

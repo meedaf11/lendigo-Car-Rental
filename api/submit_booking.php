@@ -1,5 +1,5 @@
 <?php
-require_once '../includes/config.php'; 
+require_once '../includes/config.php';
 
 // Check if user is logged in
 if (!isset($_SESSION['user_id'])) {
@@ -31,6 +31,44 @@ $booking_date = date('Y-m-d');
 $status = 'waiting';
 
 try {
+    // Step 1: Get car's daily price and agency solde
+    $stmt = $pdo->prepare("
+        SELECT c.price_per_day, a.solde
+        FROM car c
+        JOIN agency a ON c.agency_id = a.agency_id
+        WHERE c.car_id = :car_id
+    ");
+    $stmt->bindParam(':car_id', $car_id, PDO::PARAM_INT);
+    $stmt->execute();
+    $carData = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if (!$carData) {
+        throw new Exception("Car not found or agency info missing");
+    }
+
+    $price_per_day = (float) $carData['price_per_day'];
+    $solde = (float) $carData['solde'];
+
+    // Step 2: Calculate booking days
+    $start = new DateTime($start_date);
+    $end = new DateTime($end_date);
+    $days = $start->diff($end)->days + 1;
+
+    // Step 3: Calculate platform fee
+    if ($days <= 3) {
+        $fee = 0.10 * $price_per_day;
+    } else {
+        $fee = 0.05 * $total_price;
+    }
+
+    // Step 4: Check solde
+    if ($solde >= $fee) {
+        $status = 'waiting';
+    } else {
+        $status = 'canceled';
+    }
+
+    // Step 5: Insert booking
     $sql = "INSERT INTO booking (user_id, car_id, booking_date, status, start_date, end_date, total_price)
             VALUES (:user_id, :car_id, :booking_date, :status, :start_date, :end_date, :total_price)";
     $stmt = $pdo->prepare($sql);
@@ -44,8 +82,13 @@ try {
         ':total_price' => $total_price
     ]);
 
-    echo json_encode(['status' => 'success', 'message' => 'Booking saved successfully']);
-} catch (PDOException $e) {
+    if ($status === 'waiting') {
+        echo json_encode(['status' => 'success', 'message' => 'Booking confirmed']);
+    } else {
+        echo json_encode(['status' => 'warning', 'message' => 'Insufficient agency balance. Booking marked as canceled.']);
+    }
+} catch (Exception $e) {
     http_response_code(500);
     echo json_encode(['status' => 'error', 'message' => 'Database error: ' . $e->getMessage()]);
 }
+

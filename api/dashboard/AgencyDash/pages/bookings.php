@@ -122,10 +122,17 @@ $bookings = getAgencyBookings($agency_id, $pdo, $statusFilter);
                     message = `📌 Platform takes 5% of total price (${data.total} DH) = ${fee.toFixed(2)} DH`;
                 }
 
+                if (data.status === "canceled") {
+                    document.getElementById('modalCustomer').textContent = "Hidden";
+                    document.getElementById('modalEmail').textContent = "Hidden";
+                    document.getElementById('modalPhone').textContent = "Hidden";
+                } else {
+                    document.getElementById('modalCustomer').textContent = data.customer;
+                    document.getElementById('modalEmail').textContent = data.email;
+                    document.getElementById('modalPhone').textContent = data.phone;
+                }
+
                 document.getElementById('modalBookingId').value = data.id;
-                document.getElementById('modalCustomer').textContent = data.customer;
-                document.getElementById('modalEmail').textContent = data.email;
-                document.getElementById('modalPhone').textContent = data.phone;
                 document.getElementById('modalCar').textContent = data.car;
                 document.getElementById('modalPeriod').textContent = `${data.start} → ${data.end}`;
                 document.getElementById('modalTotal').textContent = `${data.total} DH`;
