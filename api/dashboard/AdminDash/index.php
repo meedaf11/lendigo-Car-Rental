@@ -75,9 +75,8 @@ if (!isset($_SESSION['admin_id'])) {
       <li><a href="?page=users" class="<?= ($_GET['page'] ?? '') === 'users' ? 'active' : '' ?>">Users</a></li>
       <li><a href="?page=agencies" class="<?= ($_GET['page'] ?? '') === 'agencies' ? 'active' : '' ?>">Agencies</a></li>
       <li><a href="?page=cars" class="<?= ($_GET['page'] ?? '') === 'cars' ? 'active' : '' ?>">Cars</a></li>
-      <li><a href="?page=profile" class="<?= ($_GET['page'] ?? '') === 'profile' ? 'active' : '' ?>">Admin Profile</a></li>
       <li><a href="?page=messages" class="<?= ($_GET['page'] ?? '') === 'messages' ? 'active' : '' ?>">Messages</a></li>
-      <li><a href="../logout.php">Logout</a></li>
+      <li><a href="logout.php">Logout</a></li>
     </ul>
   </aside>
 
@@ -85,7 +84,7 @@ if (!isset($_SESSION['admin_id'])) {
     <?php
       $page = $_GET['page'] ?? 'statistics';
 
-      $allowed = ['statistics', 'users', 'agencies', 'cars', 'profile'];
+      $allowed = ['statistics', 'users', 'agencies', 'cars', 'messages'];
       if (in_array($page, $allowed)) {
           include "$page.php";
       } else {

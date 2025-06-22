@@ -632,6 +632,45 @@ function getCarReviews($car_id)
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
+function getMessages($status = '')
+{
+    global $pdo;
 
+    if (!empty($status)) {
+        $stmt = $pdo->prepare("SELECT * FROM messages WHERE status = :status ORDER BY submitted_at DESC");
+        $stmt->bindParam(':status', $status, PDO::PARAM_STR);
+    } else {
+        $stmt = $pdo->prepare("SELECT * FROM messages ORDER BY submitted_at DESC");
+    }
+
+    $stmt->execute();
+
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+
+function getMessageById($id)
+{
+    global $pdo;
+
+    $stmt = $pdo->prepare("SELECT * FROM messages WHERE id = :id");
+    $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+    $stmt->execute();
+
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+}
+
+function updateMessage($id, $answer, $status) {
+    global $pdo;
+
+    $stmt = $pdo->prepare("UPDATE messages SET answer = :answer, status = :status WHERE id = :id");
+
+    // Bind parameters
+    $stmt->bindParam(':answer', $answer, PDO::PARAM_STR);
+    $stmt->bindParam(':status', $status, PDO::PARAM_STR);
+    $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+
+    return $stmt->execute();
+}
 
 ?>
